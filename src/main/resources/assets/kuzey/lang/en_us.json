@@ -1,0 +1,13 @@
+{
+  "item.kuzey.kuzeyium_ingot": "Kuzeyium Ingot",
+  "item.kuzey.kuzeyium_chunk": "Kuzeyium Chunk",
+  "item.kuzey.raw_kuzeyium": "Raw Kuzeyium",
+  "item.kuzey.regenerator": "Kuzeyium Regenerator",
+  "item.kuzey.kuzeyium_nugget": "Kuzeyium Nugget",
+  "item.kuzey.kuzeyium_coal": "Kuzeyium Enriched Coal",
+
+  "block.kuzey.kuzeyium_ore": "Kuzeyium Ore",
+  "block.kuzey.devastator": "Kuzeyium Devastator",
+
+  "itemGroup.kuzeytab": "Kuzey Mod"
+}
