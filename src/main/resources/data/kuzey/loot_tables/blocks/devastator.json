@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:devastator"
+          "name": "kuzey:devastator"
         }
       ],
       "conditions": [

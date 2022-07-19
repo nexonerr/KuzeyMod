@@ -6,8 +6,28 @@
   "item.kuzey.kuzeyium_nugget": "Kuzeyium Nugget",
   "item.kuzey.kuzeyium_coal": "Kuzeyium Enriched Coal",
 
+  "item.kuzey.kuzeyium_sword": "Kuzeyium Murderer",
+  "item.kuzey.kuzeyium_axe": "Kuzeyium Deforester",
+  "item.kuzey.kuzeyium_pickaxe": "Kuzeyium Miner",
+  "item.kuzey.kuzeyium_shovel": "Kuzeyium Excavator",
+
+  "item.kuzey.kuzeyium_helmet": "Kuzeyium Head Cover",
+  "item.kuzey.kuzeyium_chestplate": "Kuzeyium Chest Piece",
+  "item.kuzey.kuzeyium_leggings": "Kuzeyium Leg Covers",
+  "item.kuzey.kuzeyium_boots": "Kuzeyium Boots",
+
   "block.kuzey.kuzeyium_ore": "Kuzeyium Ore",
   "block.kuzey.devastator": "Kuzeyium Devastator",
 
-  "itemGroup.kuzeytab": "Kuzey Mod"
+  "itemGroup.kuzeytab": "Kuzey Mod",
+
+
+  "tooltip.kuzey.regenerator.tooltip": "§4Heals§r you to §4FULL HEALTH §eINSTANTLY§r, only has §eONE§r use!",
+  "tooltip.kuzey.kuzeyium_coal.tooltip": "Very strong fuel capable of smelting §e60§r items.",
+  "tooltip.kuzey.kuzeyium_sword.tooltip": "Steals §4HEALTH§r from foes, the less health a foe has, the more health will be taken.",
+  "tooltip.kuzey.kuzeyium_axe.tooltip": "Strong axe capable of taking down §eMULTIPLE LOGS§r at at time.",
+
+  "tooltip.kuzey.block.devastator": "Deals damage cast by §4KUZEY§r to those standing above it.",
+
+  "tooltip.kuzey.alt.tooltip": "Press §e[ALT]§r for more information!"
 }
