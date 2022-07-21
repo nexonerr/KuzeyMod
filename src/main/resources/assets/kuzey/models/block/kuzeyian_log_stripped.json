@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "minecraft:block/kuzeyian_log_stripped_top",
-    "side": "minecraft:block/kuzeyian_log_stripped"
+    "end": "kuzey:block/kuzeyian_log_stripped_top",
+    "side": "kuzey:block/kuzeyian_log_stripped"
   }
 }

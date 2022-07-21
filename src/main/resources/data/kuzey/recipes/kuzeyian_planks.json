@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "kuzey:kuzeyian_logs"
+    }
+  ],
+  "result": {
+    "item": "kuzey:kuzeyian_planks",
+    "count": 4
+  }
+}

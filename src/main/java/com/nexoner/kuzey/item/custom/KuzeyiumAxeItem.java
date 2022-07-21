@@ -1,11 +1,13 @@
 package com.nexoner.kuzey.item.custom;
 
-import com.mojang.datafixers.types.templates.Tag;
+import com.nexoner.kuzey.util.ModTags;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
@@ -43,7 +45,7 @@ public class KuzeyiumAxeItem extends AxeItem {
         return super.mineBlock(pStack, pLevel, pState, pPos, pEntityLiving);
     }
     private boolean isLog(Block block){
-        return BlockTags.LOGS.contains(block);
+        return Registry.BLOCK.getHolderOrThrow(Registry.BLOCK.getResourceKey(block).get()).is(BlockTags.LOGS);
     }
 
     @Override

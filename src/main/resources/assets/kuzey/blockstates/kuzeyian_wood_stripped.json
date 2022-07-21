@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "tutorialmod:block/kuzeyian_wood_stripped_horizontal",
+      "model": "kuzey:block/kuzeyian_wood_stripped",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "tutorialmod:block/kuzeyian_wood_stripped"
+      "model": "kuzey:block/kuzeyian_wood_stripped"
     },
     "axis=z": {
-      "model": "tutorialmod:block/kuzeyian_wood_stripped_horizontal",
+      "model": "kuzey:block/kuzeyian_wood_stripped",
       "x": 90
     }
   }

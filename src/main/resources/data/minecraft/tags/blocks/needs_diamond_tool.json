@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "kuzey:kuzeyium_ore"
+    "kuzey:kuzeyium_ore",
+    "kuzey:kuzeyian_leaves"
   ]
 }

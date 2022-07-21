@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-
+    "#kuzey:kuzeyian_logs",
+    "kuzey:kuzeyian_planks"
   ]
 }

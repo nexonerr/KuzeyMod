@@ -3,19 +3,21 @@ package com.nexoner.kuzey.block;
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.custom.BlackCarrotsCropBlock;
 import com.nexoner.kuzey.block.custom.DevastatorBlock;
-import com.nexoner.kuzey.block.custom.ModFlammableBlock;
 import com.nexoner.kuzey.block.custom.ModFlammableRotatedPillarBlock;
 import com.nexoner.kuzey.item.ModCreativeModTab;
 import com.nexoner.kuzey.item.ModItems;
+import com.nexoner.kuzey.world.feature.tree.KuzeyianTreeGrower;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.GlassBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -77,10 +79,48 @@ public class ModBlocks {
             ),ModCreativeModTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> KUZEYIAN_PLANKS = registerBlock("kuzeyian_planks",
-            () -> new ModFlammableBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)
-                    .requiresCorrectToolForDrops()
-                    .strength(1.7f,15f)
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)
+                    .strength(1.7f,15f)){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 16;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 3;
+                }
+            },ModCreativeModTab.KUZEY_TAB);
+
+    public static final RegistryObject<Block> KUZEYIAN_LEAVES = registerBlock("kuzeyian_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)
+                    .strength(1.2f,15f)
+                    .requiresCorrectToolForDrops()){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 40;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 14;
+                }
+            },ModCreativeModTab.KUZEY_TAB);
+
+    public static final RegistryObject<Block> KUZEYIAN_SAPLING = registerBlock("kuzeyian_sapling",
+            () -> new SaplingBlock(new KuzeyianTreeGrower(),BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)
             ),ModCreativeModTab.KUZEY_TAB);
+
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
