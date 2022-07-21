@@ -1,6 +1,7 @@
 package com.nexoner.kuzey.world.feature;
 
 import com.nexoner.kuzey.block.ModBlocks;
+import com.nexoner.kuzey.util.ModOreFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -8,6 +9,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
@@ -33,4 +35,10 @@ public class ModConfiguredFeatures {
 
                     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ? >> KUZEYIAN_SPAWN =
                             FeatureUtils.register("kuzeyian_spawn", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(KUZEYIAN_CHECKED, 0.5f)), KUZEYIAN_CHECKED));
+
+                    public static final List<OreConfiguration.TargetBlockState> KUZEYIUM_ORES = List.of(
+                        OreConfiguration.target(ModOreFeatures.END_STONE_ORE_REPLACABLES, ModBlocks.KUZEYIUM_ORE.get().defaultBlockState()));
+
+                    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> KUZEYIUM_ORE = FeatureUtils.register("kuzeyium_ore",
+                        Feature.ORE, new OreConfiguration(KUZEYIUM_ORES, 3));
 }

@@ -1,6 +1,7 @@
 package com.nexoner.kuzey.world;
 
 import com.nexoner.kuzey.KuzeyMod;
+import com.nexoner.kuzey.world.gen.ModOreGeneration;
 import com.nexoner.kuzey.world.gen.ModTreeGeneration;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -10,7 +11,10 @@ import net.minecraftforge.fml.common.Mod;
 public class ModWorldEvents {
 
     @SubscribeEvent
+
     public static void biomeLoadingEvent(final BiomeLoadingEvent event){
+        ModOreGeneration.generateOres(event);
+
         ModTreeGeneration.generateTrees(event);
     }
 }
