@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "KK ",
+    "KS ",
+    " S "
+  ],
+  "key": {
+    "K": {
+      "item": "kuzey:kuzeyium_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyium_axe",
+    "count": 1
+  }
+}

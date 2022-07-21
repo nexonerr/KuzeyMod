@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "kuzey:kuzeyium_ore",
-    "kuzey:devastator"
+    "kuzey:devastator",
+    "kuzey:kuzeyium_glass"
   ]
 }

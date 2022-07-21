@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "KKK",
+    "KS ",
+    " S "
+  ],
+  "key": {
+    "K": {
+      "item": "kuzey:kuzeyium_chunk"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyium_smithing_hammer",
+    "count": 1
+  }
+}

@@ -1,5 +1,6 @@
 {
   "variants": {
-    "": { "model": "kuzey:block/devastator" }
+    "toggled=true": { "model": "kuzey:block/devastator" },
+    "toggled=false": { "model": "kuzey:block/devastator_off" }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FFF",
+    "FPF"
+  ],
+  "key": {
+    "F": {
+      "item": "kuzey:kuzeyium_fabric"
+    },
+    "P": {
+      "item": "kuzey:kuzeyium_glass_plate"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyium_helmet",
+    "count": 1
+  }
+}

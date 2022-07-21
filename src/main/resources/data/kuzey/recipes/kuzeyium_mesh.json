@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "KKS",
+    "KSK",
+    "SKK"
+  ],
+  "key": {
+    "K": {
+      "item": "kuzey:kuzeyium_nugget"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyium_mesh",
+    "count": 1
+  }
+}

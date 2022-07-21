@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SM",
+    "MT"
+  ],
+  "key": {
+    "M": {
+      "item": "kuzey:kuzeyium_mesh"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    }
+
+  },
+  "result": {
+    "item": "kuzey:kuzeyium_fabric",
+    "count": 1
+  }
+}

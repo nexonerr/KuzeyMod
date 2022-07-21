@@ -1,10 +1,8 @@
 package com.nexoner.kuzey.item;
 
 import com.nexoner.kuzey.KuzeyMod;
-import com.nexoner.kuzey.item.custom.KuzeyiumAxeItem;
-import com.nexoner.kuzey.item.custom.KuzeyiumEnrichedCoalItem;
-import com.nexoner.kuzey.item.custom.KuzeyiumSwordItem;
-import com.nexoner.kuzey.item.custom.RegeneratorItem;
+import com.nexoner.kuzey.block.ModBlocks;
+import com.nexoner.kuzey.item.custom.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,7 +17,7 @@ public class ModItems {
     //Item register start
 
     public static final RegistryObject<Item> KUZEYIUM_INGOT = ITEMS.register("kuzeyium_ingot",
-            () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new CraftSoundItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
     public static final RegistryObject<Item> KUZEYIUM_CHUNK = ITEMS.register("kuzeyium_chunk",
             () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
@@ -38,29 +36,46 @@ public class ModItems {
 
 
     public static final RegistryObject<Item> KUZEYIUM_SWORD = ITEMS.register("kuzeyium_sword",
-            () -> new KuzeyiumSwordItem(ModTiers.KUZEYIUM_WEAPON, 10, 1f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new KuzeyiumSwordItem(ModTiers.KUZEYIUM_WEAPON, 9, 0f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
     public static final RegistryObject<Item> KUZEYIUM_AXE = ITEMS.register("kuzeyium_axe",
-            () -> new KuzeyiumAxeItem(ModTiers.KUZEYIUM_TOOL, 4, 0f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new KuzeyiumAxeItem(ModTiers.KUZEYIUM_TOOL, 2, 0f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
     public static final RegistryObject<Item> KUZEYIUM_PICKAXE = ITEMS.register("kuzeyium_pickaxe",
-            () -> new PickaxeItem(ModTiers.KUZEYIUM_TOOL, 6, 0f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new PickaxeItem(ModTiers.KUZEYIUM_TOOL, 2, 0f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
     public static final RegistryObject<Item> KUZEYIUM_SHOVEL = ITEMS.register("kuzeyium_shovel",
-            () -> new ShovelItem(ModTiers.KUZEYIUM_TOOL, 4, 0f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new ShovelItem(ModTiers.KUZEYIUM_TOOL, 2, 0f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
 
     public static final RegistryObject<Item> KUZEYIUM_HELMET = ITEMS.register("kuzeyium_helmet",
-            () -> new ArmorItem(ModArmorMaterials.KUZEYIUM, EquipmentSlot.HEAD, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new KuzeyiumHelmetItem(ModArmorMaterials.KUZEYIUM, EquipmentSlot.HEAD, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
     public static final RegistryObject<Item> KUZEYIUM_CHESTPLATE = ITEMS.register("kuzeyium_chestplate",
-            () -> new ArmorItem(ModArmorMaterials.KUZEYIUM, EquipmentSlot.CHEST, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new KuzeyiumChestplateItem(ModArmorMaterials.KUZEYIUM, EquipmentSlot.CHEST, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
     public static final RegistryObject<Item> KUZEYIUM_LEGGINGS = ITEMS.register("kuzeyium_leggings",
-            () -> new ArmorItem(ModArmorMaterials.KUZEYIUM, EquipmentSlot.LEGS, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new KuzeyiumLeggingsItem(ModArmorMaterials.KUZEYIUM, EquipmentSlot.LEGS, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
     public static final RegistryObject<Item> KUZEYIUM_BOOTS = ITEMS.register("kuzeyium_boots",
-            () -> new ArmorItem(ModArmorMaterials.KUZEYIUM, EquipmentSlot.FEET, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new KuzeyiumBootsItem(ModArmorMaterials.KUZEYIUM, EquipmentSlot.FEET, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
+
+    public static final RegistryObject<Item> KUZEYIUM_MESH = ITEMS.register("kuzeyium_mesh",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> KUZEYIUM_FABRIC = ITEMS.register("kuzeyium_fabric",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> KUZEYIUM_SMITHING_HAMMER = ITEMS.register("kuzeyium_smithing_hammer",
+            () -> new SmithingHammerItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).durability(850)));
+
+    public static final RegistryObject<Item> KUZEYIUM_GLASS_PLATE = ITEMS.register("kuzeyium_glass_plate",
+            () -> new CraftSoundItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> BLACK_CARROTS = ITEMS.register("black_carrots",
+            () -> new ItemNameBlockItem(ModBlocks.BLACK_CARROTS_PLANT.get(), new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).food(ModFoods.BLACK_CARROT)));
+
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

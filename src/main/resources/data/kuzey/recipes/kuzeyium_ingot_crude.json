@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "kuzey:kuzeyium_smithing_hammer"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "kuzey:kuzeyium_chunk"
+    },
+    {
+      "item": "kuzey:kuzeyium_chunk"
+    },
+    {
+      "item": "kuzey:kuzeyium_chunk"
+    }
+  ],
+  "result": {
+    "item": "kuzey:kuzeyium_ingot",
+    "count": 1
+  }
+}

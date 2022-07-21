@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FFF",
+    "F F",
+    "F F"
+  ],
+  "key": {
+    "F": {
+      "item": "kuzey:kuzeyium_fabric"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyium_leggings",
+    "count": 1
+  }
+}

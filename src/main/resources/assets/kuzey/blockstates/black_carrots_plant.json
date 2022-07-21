@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "age=0": { "model": "kuzey:block/black_carrots_stage_0" },
+    "age=1": { "model": "kuzey:block/black_carrots_stage_1" },
+    "age=2": { "model": "kuzey:block/black_carrots_stage_2" },
+    "age=3": { "model": "kuzey:block/black_carrots_stage_3" }
+  }
+}

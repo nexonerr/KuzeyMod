@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "kuzey:item/kuzeyium_smithing_hammer"
+  }
+}
