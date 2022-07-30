@@ -36,16 +36,16 @@ public class ModItems {
 
 
     public static final RegistryObject<Item> KUZEYIUM_SWORD = ITEMS.register("kuzeyium_sword",
-            () -> new KuzeyiumSwordItem(ModTiers.KUZEYIUM_WEAPON, 9, 0f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new KuzeyiumSwordItem(ModTiers.KUZEYIUM, 6, -2.1f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
     public static final RegistryObject<Item> KUZEYIUM_AXE = ITEMS.register("kuzeyium_axe",
-            () -> new KuzeyiumAxeItem(ModTiers.KUZEYIUM_TOOL, 2, 0f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new KuzeyiumAxeItem(ModTiers.KUZEYIUM, 9, -3.3f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
     public static final RegistryObject<Item> KUZEYIUM_PICKAXE = ITEMS.register("kuzeyium_pickaxe",
-            () -> new PickaxeItem(ModTiers.KUZEYIUM_TOOL, 2, 0f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new PickaxeItem(ModTiers.KUZEYIUM, 1, -3.1f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
     public static final RegistryObject<Item> KUZEYIUM_SHOVEL = ITEMS.register("kuzeyium_shovel",
-            () -> new ShovelItem(ModTiers.KUZEYIUM_TOOL, 2, 0f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+            () -> new ShovelItem(ModTiers.KUZEYIUM, 1, -3.1f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
 
     public static final RegistryObject<Item> KUZEYIUM_HELMET = ITEMS.register("kuzeyium_helmet",
