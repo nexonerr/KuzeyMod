@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "kuzey:block/kuzeyium_purification_chamber" },
+    "facing=east": { "model": "kuzey:block/kuzeyium_purification_chamber", "y": 90 },
+    "facing=south": { "model": "kuzey:block/kuzeyium_purification_chamber", "y": 180 },
+    "facing=west": { "model": "kuzey:block/kuzeyium_purification_chamber", "y": 270 }
+  }
+}

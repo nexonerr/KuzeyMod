@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "kuzey:kuzeyium_ingot"
+    },
+    "title": "Usable Kuzeyium",
+    "description": "Refine kuzeyium with a nether star and you have yourself some nice usable kuzeyium",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "kuzey:smithing_hammer",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:kuzeyium_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

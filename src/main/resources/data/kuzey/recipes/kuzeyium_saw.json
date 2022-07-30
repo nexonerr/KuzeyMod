@@ -1,20 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "KKK",
-    " S ",
-    " S "
+    " KK",
+    "SK",
+    "H  "
   ],
   "key": {
-    "K": {
-      "item": "kuzey:kuzeyium_ingot"
-    },
     "S": {
+      "item": "minecraft:string"
+    },
+    "H": {
       "item": "kuzey:kuzeyian_tool_handle"
+    },
+    "K": {
+      "item": "kuzeyium_ingot"
     }
   },
   "result": {
-    "item": "kuzey:kuzeyium_pickaxe",
+    "item": "kuzey:kuzeyium_saw",
     "count": 1
   }
 }

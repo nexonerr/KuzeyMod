@@ -1,9 +1,7 @@
 package com.nexoner.kuzey.block;
 
 import com.nexoner.kuzey.KuzeyMod;
-import com.nexoner.kuzey.block.custom.BlackCarrotsCropBlock;
-import com.nexoner.kuzey.block.custom.DevastatorBlock;
-import com.nexoner.kuzey.block.custom.ModFlammableRotatedPillarBlock;
+import com.nexoner.kuzey.block.custom.*;
 import com.nexoner.kuzey.item.ModCreativeModTab;
 import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.world.feature.tree.KuzeyianTreeGrower;
@@ -12,6 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -33,10 +32,11 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, KuzeyMod.MOD_ID);
 
     public static final RegistryObject<Block> KUZEYIUM_ORE = registerBlock("kuzeyium_ore",
-            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+            () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .requiresCorrectToolForDrops()
-                    .strength(5f,30f)
-            ), ModCreativeModTab.KUZEY_TAB);
+                    .strength(5f,30f),
+                    UniformInt.of(4,8)
+                    ), ModCreativeModTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> DEVASTATOR = registerBlock("devastator",
             () -> new DevastatorBlock(BlockBehaviour.Properties.of(Material.METAL)
@@ -121,7 +121,27 @@ public class ModBlocks {
             () -> new SaplingBlock(new KuzeyianTreeGrower(),BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)
             ),ModCreativeModTab.KUZEY_TAB);
 
+    public static final RegistryObject<Block> KUZEYIUM_PURIFICATION_CHAMBER = registerBlock("kuzeyium_purification_chamber",
+            () -> new KuzeyiumPurificationChamberBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .strength(4f,30f)
+            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.kuzeyium_purification_chamber");
 
+    public static final RegistryObject<Block> KUZEYIUM_WORKSTATION = registerBlock("kuzeyium_workstation",
+            () -> new KuzeyiumWorkstationBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .strength(4f,30f)
+            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.kuzeyium_workstation");
+
+    public static final RegistryObject<Block> KUZEYIUM_BLOCK = registerBlock("kuzeyium_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .requiresCorrectToolForDrops()
+                    .strength(5f,30f)
+            ), ModCreativeModTab.KUZEY_TAB);
+
+    //Register Methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn, tab, tooltipKey);

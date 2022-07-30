@@ -1,0 +1,14 @@
+{
+  "type": "kuzey:kuzeyium_purification",
+  "ingredients": [
+      {
+        "item": "kuzey:kuzeyium_chunk"
+      },
+      {
+      "item": "minecraft:nether_star"
+      }
+  ],
+  "output":{
+    "item": "kuzey:kuzeyium_ingot"
+  }
+}

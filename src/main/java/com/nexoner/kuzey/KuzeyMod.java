@@ -1,7 +1,13 @@
 package com.nexoner.kuzey;
 
 import com.nexoner.kuzey.block.ModBlocks;
+import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.item.ModItems;
+import com.nexoner.kuzey.recipe.ModRecipes;
+import com.nexoner.kuzey.screen.KuzeyiumPurificationChamberScreen;
+import com.nexoner.kuzey.screen.KuzeyiumWorkstationScreen;
+import com.nexoner.kuzey.screen.ModMenuTypes;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
@@ -28,16 +34,20 @@ import java.util.stream.Collectors;
 public class KuzeyMod
 {
     public static final String MOD_ID = "kuzey";
+    public static final Logger LOGGER = LogManager.getLogger();
 
-    // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
-
+    public static void sendTextLog(String text){
+        LOGGER.info(text);
+    }
 
     public KuzeyMod() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
+        ModBlockEntities.register(eventBus);
+        ModMenuTypes.register(eventBus);
+        ModRecipes.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
@@ -52,6 +62,12 @@ public class KuzeyMod
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.KUZEYIAN_LEAVES.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.KUZEYIAN_SAPLING.get(), RenderType.cutout());
+
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.KUZEYIUM_WORKSTATION.get(), RenderType.translucent());
+
+        MenuScreens.register(ModMenuTypes.KUZEYIUM_PURIFICATION_CHAMBER_MENU.get(), KuzeyiumPurificationChamberScreen::new);
+        MenuScreens.register(ModMenuTypes.KUZEYIUM_WORKSTATION_MENU.get(), KuzeyiumWorkstationScreen::new);
     }
 
     private void setup(final FMLCommonSetupEvent event)

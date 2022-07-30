@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "kuzey:kuzeyium_chunk"
+    },
+    "title": "Kuzey Mod",
+    "description": "Obtain the very basic form of kuzeyium, a chunk",
+    "background": "kuzey:textures/block/kuzeyium_ore.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:kuzeyium_chunk"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

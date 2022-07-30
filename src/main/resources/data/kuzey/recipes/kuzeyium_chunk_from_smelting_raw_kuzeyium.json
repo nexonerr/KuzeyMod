@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "kuzey:raw_kuzeyium"
+  },
+  "result": "kuzey:kuzeyium_chunk",
+  "experience": 0.7,
+  "cookingtime": 300
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "kuzey:block/kuzeyium_workstation", "y": 180 },
+    "facing=east": { "model": "kuzey:block/kuzeyium_workstation", "y": 270 },
+    "facing=south": { "model": "kuzey:block/kuzeyium_workstation"},
+    "facing=west": { "model": "kuzey:block/kuzeyium_workstation", "y": 90 }
+  }
+}

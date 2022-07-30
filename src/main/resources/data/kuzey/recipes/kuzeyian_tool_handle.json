@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SLS",
+    "HLS",
+    "SLS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "H": {
+      "item": "kuzey:kuzeyium_smithing_hammer"
+    },
+    "L": {
+      "tag": "kuzey:kuzeyian_logs"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyian_tool_handle",
+    "count": 1
+  }
+}

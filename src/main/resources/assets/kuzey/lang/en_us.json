@@ -10,6 +10,10 @@
   "item.kuzey.kuzeyium_smithing_hammer": "Kuzeyium Smithing Hammer",
   "item.kuzey.kuzeyium_glass_plate": "Kuzeyium Infused Glass Plate",
   "item.kuzey.black_carrots": "Black Carrots",
+  "item.kuzey.kuzeyium_saw": "Kuzeyium Saw",
+  "item.kuzey.kuzeyium_purification_core": "Kuzeyium Purification Core",
+  "item.kuzey.kuzeyian_tool_handle": "Kuzeyian Tool Handle",
+  "item.kuzey.spawner_irritator": "Kuzeyium Spawner Irritator",
 
   "item.kuzey.kuzeyium_sword": "Kuzeyium Murderer",
   "item.kuzey.kuzeyium_axe": "Kuzeyium Deforester",
@@ -32,6 +36,9 @@
   "block.kuzey.kuzeyian_planks": "Kuzeyian Planks",
   "block.kuzey.kuzeyian_leaves": "Kuzeyian Leaves",
   "block.kuzey.kuzeyian_sapling": "Kuzeyian Sapling",
+  "block.kuzey.kuzeyium_purification_chamber": "Kuzeyium Purification Chamber",
+  "block.kuzey.kuzeyium_workstation": "Kuzeyium Workstation",
+  "block.kuzey.kuzeyium_block": "Kuzeyium Block",
 
   "itemGroup.kuzeytab": "Kuzey Mod",
 
@@ -41,9 +48,12 @@
   "tooltip.kuzey.kuzeyium_coal.tooltip": "Very strong fuel capable of smelting §e60§r items.",
   "tooltip.kuzey.kuzeyium_sword.tooltip": "Steals §4HEALTH§r from foes, the less health a foe has, the more health will be taken.",
   "tooltip.kuzey.kuzeyium_axe.tooltip": "Strong axe capable of taking down §eMULTIPLE LOGS§r at at time.",
+  "tooltip.kuzey.spawner_irritator.tooltip": "Makes a spawner spawn its respective mob type.",
 
   "tooltip.kuzey.block.devastator": "Deals damage cast by §4KUZEY§r to those standing above it. Toggleable via right clicking it.",
   "tooltip.kuzey.block.kuzeyium_glass": "Infusing glass with kuzeyium seems to make it incredibly durable: is resistant to explosions.",
+  "tooltip.kuzey.block.kuzeyium_purification_chamber": "Purifies kuzeyium more efficiently than the workstation, also doesn't require tools.",
+  "tooltip.kuzey.block.kuzeyium_workstation": "Purifies kuzeyium more efficiently than crude smithing using more precise machinery.",
 
   "tooltip.kuzey.alt.tooltip": "Press §e[ALT]§r for more information!"
 }

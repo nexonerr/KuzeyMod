@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "kuzey:kuzeyium_smithing_hammer"
+    },
+    "title": "Kuzeyium Refining",
+    "description": "This crude smithing hammer can refine kuzeyium, inefficiently",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "kuzey:start",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:kuzeyium_smithing_hammer"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

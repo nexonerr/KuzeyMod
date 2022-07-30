@@ -76,6 +76,18 @@ public class ModItems {
     public static final RegistryObject<Item> BLACK_CARROTS = ITEMS.register("black_carrots",
             () -> new ItemNameBlockItem(ModBlocks.BLACK_CARROTS_PLANT.get(), new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).food(ModFoods.BLACK_CARROT)));
 
+    public static final RegistryObject<Item> KUZEYIUM_SAW = ITEMS.register("kuzeyium_saw",
+            () -> new SmithingHammerItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).durability(600)));
+
+    public static final RegistryObject<Item> KUZEYIAN_TOOL_HANDLE = ITEMS.register("kuzeyian_tool_handle",
+            () -> new CraftSoundItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> KUZEYIUM_PURIFICATION_CORE = ITEMS.register("kuzeyium_purification_core",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> SPAWNER_IRRITATOR = ITEMS.register("spawner_irritator",
+            () -> new SpawnerIrritatorItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).durability(42)));
+
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

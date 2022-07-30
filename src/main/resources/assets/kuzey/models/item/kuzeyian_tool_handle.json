@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "kuzey:item/kuzeyian_tool_handle"
+  }
+}
