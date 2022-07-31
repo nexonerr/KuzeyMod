@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "kuzey:block/kuzeyian_sapling" }
+    "": {
+      "model": "kuzey:block/kuzeyian_sapling"
+    }
   }
 }

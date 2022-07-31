@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "kuzey:block/kuzeyian_planks" }
+    "": {
+      "model": "kuzey:block/kuzeyian_planks"
+    }
   }
 }

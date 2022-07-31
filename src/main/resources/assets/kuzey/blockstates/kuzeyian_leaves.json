@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "kuzey:block/kuzeyian_leaves" }
+    "": {
+      "model": "kuzey:block/kuzeyian_leaves"
+    }
   }
 }

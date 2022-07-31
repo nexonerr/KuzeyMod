@@ -6,15 +6,14 @@
     " S "
   ],
   "key": {
-    "K": {
-      "item": "kuzey:kuzeyium_ingot"
-    },
     "S": {
       "item": "kuzey:kuzeyian_tool_handle"
+    },
+    "K": {
+      "tag": "forge:ingots/kuzeyium"
     }
   },
   "result": {
-    "item": "kuzey:kuzeyium_shovel",
-    "count": 1
+    "item": "kuzey:kuzeyium_shovel"
   }
 }

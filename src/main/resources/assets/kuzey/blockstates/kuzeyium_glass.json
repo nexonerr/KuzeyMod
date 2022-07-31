@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "kuzey:block/kuzeyium_glass" }
+    "": {
+      "model": "kuzey:block/kuzeyium_glass"
+    }
   }
 }

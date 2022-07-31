@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "kuzey:black_carrots"
+          "name": "minecraft:carrot"
         }
       ]
     },
@@ -23,8 +23,8 @@
               "enchantment": "minecraft:fortune",
               "formula": "minecraft:binomial_with_bonus_count",
               "parameters": {
-                "extra": 2,
-                "probability": 0.37122
+                "extra": 3,
+                "probability": 0.5714286
               }
             }
           ],

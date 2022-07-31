@@ -14,10 +14,8 @@
     "T": {
       "item": "minecraft:stick"
     }
-
   },
   "result": {
-    "item": "kuzey:kuzeyium_fabric",
-    "count": 1
+    "item": "kuzey:kuzeyium_fabric"
   }
 }

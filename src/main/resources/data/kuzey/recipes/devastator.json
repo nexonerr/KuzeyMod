@@ -6,11 +6,11 @@
     "OOO"
   ],
   "key": {
+    "K": {
+      "tag": "forge:ingots/kuzeyium"
+    },
     "M": {
       "item": "minecraft:magma_block"
-    },
-    "K": {
-      "item": "kuzey:kuzeyium_ingot"
     },
     "O": {
       "item": "minecraft:obsidian"

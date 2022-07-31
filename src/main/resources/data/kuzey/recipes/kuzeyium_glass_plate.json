@@ -9,15 +9,14 @@
     "K": {
       "item": "kuzey:kuzeyium_nugget"
     },
-    "H": {
-      "item": "kuzey:kuzeyium_smithing_hammer"
-    },
     "G": {
       "item": "kuzey:kuzeyium_glass"
+    },
+    "H": {
+      "item": "kuzey:kuzeyium_smithing_hammer"
     }
   },
   "result": {
-    "item": "kuzey:kuzeyium_glass_plate",
-    "count": 1
+    "item": "kuzey:kuzeyium_glass_plate"
   }
 }

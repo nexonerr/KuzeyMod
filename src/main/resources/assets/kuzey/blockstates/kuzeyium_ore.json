@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "kuzey:block/kuzeyium_ore" }
+    "": {
+      "model": "kuzey:block/kuzeyium_ore"
+    }
   }
 }

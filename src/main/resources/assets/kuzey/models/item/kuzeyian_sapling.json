@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "kuzey:block/kuzeyian_sapling"
-  }
+  "parent": "kuzey:block/kuzeyian_sapling"
 }
