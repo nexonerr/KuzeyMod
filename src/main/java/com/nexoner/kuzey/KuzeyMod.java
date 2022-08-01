@@ -2,6 +2,7 @@ package com.nexoner.kuzey;
 
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
+import com.nexoner.kuzey.fluid.ModFluids;
 import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.recipe.ModRecipes;
 import com.nexoner.kuzey.screen.KuzeyiumPurificationChamberScreen;
@@ -36,10 +37,6 @@ public class KuzeyMod
     public static final String MOD_ID = "kuzey";
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static void sendTextLog(String text){
-        LOGGER.info(text);
-    }
-
     public KuzeyMod() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -48,6 +45,7 @@ public class KuzeyMod
         ModBlockEntities.register(eventBus);
         ModMenuTypes.register(eventBus);
         ModRecipes.register(eventBus);
+        ModFluids.register(eventBus);
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
@@ -65,6 +63,10 @@ public class KuzeyMod
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.KUZEYIUM_WORKSTATION.get(), RenderType.translucent());
+
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.EMRE_ESSENCE_BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.EMRE_ESSENCE_FLOWING.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.EMRE_ESSENCE_FLUID.get(), RenderType.translucent());
 
         MenuScreens.register(ModMenuTypes.KUZEYIUM_PURIFICATION_CHAMBER_MENU.get(), KuzeyiumPurificationChamberScreen::new);
         MenuScreens.register(ModMenuTypes.KUZEYIUM_WORKSTATION_MENU.get(), KuzeyiumWorkstationScreen::new);

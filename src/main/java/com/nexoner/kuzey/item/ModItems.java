@@ -2,6 +2,7 @@ package com.nexoner.kuzey.item;
 
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
+import com.nexoner.kuzey.fluid.ModFluids;
 import com.nexoner.kuzey.item.custom.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
@@ -87,6 +88,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> SPAWNER_IRRITATOR = ITEMS.register("spawner_irritator",
             () -> new SpawnerIrritatorItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).durability(42)));
+
+    public static final RegistryObject<Item> EMRE_ESSENCE_BUCKET = ITEMS.register("emre_essence_bucket",
+            () -> new BucketItem(ModFluids.EMRE_ESSENCE_FLUID, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).stacksTo(1)));
 
 
     public static void register(IEventBus eventBus){

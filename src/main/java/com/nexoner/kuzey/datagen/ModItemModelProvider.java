@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -38,6 +39,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.KUZEYIAN_TOOL_HANDLE.get());
         simpleItem(ModItems.KUZEYIUM_PURIFICATION_CORE.get());
         simpleItem(ModItems.SPAWNER_IRRITATOR.get());
+        simpleItem(ModItems.EMRE_ESSENCE_BUCKET.get());
 
         handheldItem(ModItems.KUZEYIUM_SWORD.get());
         handheldItem(ModItems.KUZEYIUM_AXE.get());
@@ -46,7 +48,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.KUZEYIUM_SMITHING_HAMMER.get());
 
         for (RegistryObject<Block> block: ModBlocks.BLOCKS.getEntries() ) {
-            if (!(block.get() instanceof CropBlock)){
+            if (!(block.get() instanceof CropBlock || block.get() instanceof LiquidBlock)){
                 blockItem(block.get());
             }
         }
