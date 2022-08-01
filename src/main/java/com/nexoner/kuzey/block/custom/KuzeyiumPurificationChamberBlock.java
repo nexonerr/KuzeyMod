@@ -92,10 +92,9 @@ public class KuzeyiumPurificationChamberBlock extends BaseEntityBlock {
         return new KuzeyiumPurificationChamberBlockEntity(pPos, pState);
     }
 
-    @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.KUZEYIUM_PURIFICATION_CHAMBER_BLOCK_ENTITY.get(),
-                KuzeyiumPurificationChamberBlockEntity::tick);
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return level.isClientSide ? null
+                : (level0, pos, state0, blockEntity) -> ((KuzeyiumPurificationChamberBlockEntity) blockEntity).tick(level,pos,state);
     }
 }

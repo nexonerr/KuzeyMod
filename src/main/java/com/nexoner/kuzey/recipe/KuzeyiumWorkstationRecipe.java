@@ -18,11 +18,17 @@ public class KuzeyiumWorkstationRecipe implements Recipe<SimpleContainer> {
     private final ResourceLocation id;
     private final ItemStack output;
     private final NonNullList<Ingredient> recipeItems;
+    private final int recipeTime;
 
-    public KuzeyiumWorkstationRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems) {
+    public KuzeyiumWorkstationRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems, int recipeTime) {
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
+        this.recipeTime = recipeTime;
+    }
+
+    public int getRecipeTime(){
+        return recipeTime;
     }
 
     @Override
@@ -77,6 +83,7 @@ public class KuzeyiumWorkstationRecipe implements Recipe<SimpleContainer> {
 
         @Override
         public KuzeyiumWorkstationRecipe fromJson(ResourceLocation id, JsonObject json) {
+            int recipeTime = GsonHelper.getAsInt(json,"recipeTime");
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
@@ -86,7 +93,7 @@ public class KuzeyiumWorkstationRecipe implements Recipe<SimpleContainer> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
             KuzeyMod.LOGGER.info("Read Json");
-            return new KuzeyiumWorkstationRecipe(id, output, inputs);
+            return new KuzeyiumWorkstationRecipe(id, output, inputs,recipeTime);
         }
 
         @Override
@@ -98,8 +105,8 @@ public class KuzeyiumWorkstationRecipe implements Recipe<SimpleContainer> {
             }
 
             ItemStack output = buf.readItem();
-            KuzeyMod.LOGGER.info("From Network");
-            return new KuzeyiumWorkstationRecipe(id, output, inputs);
+            int recipeTime = buf.readInt();
+            return new KuzeyiumWorkstationRecipe(id, output, inputs,recipeTime);
         }
 
         @Override
@@ -108,8 +115,9 @@ public class KuzeyiumWorkstationRecipe implements Recipe<SimpleContainer> {
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);
             }
-            KuzeyMod.LOGGER.info("To Network");
+
             buf.writeItemStack(recipe.getResultItem(), false);
+            buf.writeInt(recipe.recipeTime);
         }
 
         @Override

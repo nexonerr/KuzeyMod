@@ -53,7 +53,7 @@ public class KuzeyiumPurificationChamberMenu extends AbstractContainerMenu {
     public int getEnergyBarScale(){
         int energyStored = this.data.get(2);
         int maxEnergy = this.data.get(3);
-        int energyBarSize = 38;
+        int energyBarSize = 39;
 
         return maxEnergy != 0 && energyStored !=0 ? energyStored * energyBarSize / maxEnergy : 0;
     }

@@ -30,8 +30,8 @@ public class KuzeyiumPurificationChamberScreen extends AbstractContainerScreen<K
         if (menu.isCrafting()){
             blit(pPoseStack,x + 52,y + 16,176,1, menu.getScaledProgress(), 54);
         }
-            blit(pPoseStack,x + 13, y + 32, 177, 55,9, menu.getEnergyBarScale() );
-    }
+            blit(pPoseStack,x + 13, y + 32, 177, 55,9, menu.getEnergyBarScale());
+        }
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {

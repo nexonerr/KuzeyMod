@@ -10,5 +10,7 @@
   ],
   "output":{
     "item": "kuzey:kuzeyium_ingot"
-  }
+  },
+    "usageCost": 10000,
+    "recipeTime": 500
 }

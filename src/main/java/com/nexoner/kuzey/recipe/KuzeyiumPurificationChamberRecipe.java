@@ -18,16 +18,27 @@ public class KuzeyiumPurificationChamberRecipe implements Recipe<SimpleContainer
     private final ResourceLocation id;
     private final ItemStack output;
     private final NonNullList<Ingredient> recipeItems;
+    private final int usageCost;
+    private final int recipeTime;
 
-    public KuzeyiumPurificationChamberRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems) {
+    public KuzeyiumPurificationChamberRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems, int usageCost, int recipeTime) {
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
+        this.usageCost = usageCost;
+        this.recipeTime = recipeTime;
+    }
+
+    public int getUsageCost(){
+        return usageCost;
+    }
+    public int getRecipeTime(){
+        return recipeTime;
     }
 
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        return recipeItems.get(0).test(pContainer.getItem(0)) && recipeItems.get(1).test(pContainer.getItem(1));
+        return recipeItems.get(0).test(pContainer.getItem(0)) && recipeItems.get(1).test(pContainer.getItem(1)) || recipeItems.get(0).test(pContainer.getItem(1)) && recipeItems.get(1).test(pContainer.getItem(0));
     }
 
     @Override
@@ -78,6 +89,8 @@ public class KuzeyiumPurificationChamberRecipe implements Recipe<SimpleContainer
         @Override
         public KuzeyiumPurificationChamberRecipe fromJson(ResourceLocation id, JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
+            int usageCost = GsonHelper.getAsInt(json, "usageCost");
+            int recipeTime = GsonHelper.getAsInt(json,"recipeTime");
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.withSize(2, Ingredient.EMPTY);
@@ -85,7 +98,7 @@ public class KuzeyiumPurificationChamberRecipe implements Recipe<SimpleContainer
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
-            return new KuzeyiumPurificationChamberRecipe(id, output, inputs);
+            return new KuzeyiumPurificationChamberRecipe(id, output, inputs,usageCost,recipeTime);
         }
 
         @Override
@@ -97,7 +110,9 @@ public class KuzeyiumPurificationChamberRecipe implements Recipe<SimpleContainer
             }
 
             ItemStack output = buf.readItem();
-            return new KuzeyiumPurificationChamberRecipe(id, output, inputs);
+            int recipeTime = buf.readInt();
+            int usageCost = buf.readInt();
+            return new KuzeyiumPurificationChamberRecipe(id, output, inputs,usageCost,recipeTime);
         }
 
         @Override
@@ -106,8 +121,9 @@ public class KuzeyiumPurificationChamberRecipe implements Recipe<SimpleContainer
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);
             }
-            KuzeyMod.LOGGER.info("To Network");
             buf.writeItemStack(recipe.getResultItem(), false);
+            buf.writeInt(recipe.recipeTime);
+            buf.writeInt(recipe.usageCost);
         }
 
         @Override

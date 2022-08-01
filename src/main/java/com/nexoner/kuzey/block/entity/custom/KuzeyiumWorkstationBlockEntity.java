@@ -44,7 +44,8 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
 
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 600;
+    private int maxProgress;
+    private int defaultRecipeTime = 600;
 
     public KuzeyiumWorkstationBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.KUZEYIUM_WORKSTATION_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -129,6 +130,7 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
     }
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, KuzeyiumWorkstationBlockEntity pBlockEntity) {
         if(hasRecipe(pBlockEntity)) {
+            pBlockEntity.maxProgress = getRecipeTime(pBlockEntity);
             pBlockEntity.progress++;
             setChanged(pLevel, pPos, pState);
             if(pBlockEntity.progress > pBlockEntity.maxProgress) {
@@ -195,6 +197,15 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
         return inventory.getItem(5).getMaxStackSize() > inventory.getItem(5).getCount();
+    }
+
+    private static int getRecipeTime(KuzeyiumWorkstationBlockEntity entity){
+        Level level = entity.level;
+        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+        }
+        return level.getRecipeManager().getRecipeFor(KuzeyiumWorkstationRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumWorkstationRecipe::getRecipeTime).orElse(entity.defaultRecipeTime);
     }
 
 }

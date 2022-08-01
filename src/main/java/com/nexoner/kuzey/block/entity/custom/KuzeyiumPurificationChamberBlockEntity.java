@@ -46,15 +46,15 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
     private LazyOptional<CustomEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 
-    public static CustomEnergyStorage energyStorage;
+    public final CustomEnergyStorage energyStorage;
 
     private int capacity = 80000;
     private int maxReceived = 20000;
-    private static int usageCost = 10000;
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 300;
-
+    private int maxProgress;
+    private int defaultUsageCost = 10000;
+    private int defaultRecipeTime = 300;
 
     public KuzeyiumPurificationChamberBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.KUZEYIUM_PURIFICATION_CHAMBER_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -151,20 +151,6 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
 
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
-    public static void tick(Level pLevel, BlockPos pPos, BlockState pState, KuzeyiumPurificationChamberBlockEntity pBlockEntity) {
-        if(hasRecipe(pBlockEntity) && hasEnoughEnergy()) {
-            pBlockEntity.progress++;
-            energyStorage.setEnergy(energyStorage.getEnergyStored() - usageCost);
-            setChanged(pLevel, pPos, pState);
-            if(pBlockEntity.progress > pBlockEntity.maxProgress) {
-                craftItem(pBlockEntity);
-            }
-        } else {
-            pBlockEntity.resetProgress();
-            setChanged(pLevel, pPos, pState);
-        }
-    }
-
     private static boolean hasRecipe(KuzeyiumPurificationChamberBlockEntity entity) {
         Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
@@ -174,6 +160,7 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
 
         Optional<KuzeyiumPurificationChamberRecipe> match = level.getRecipeManager()
                 .getRecipeFor(KuzeyiumPurificationChamberRecipe.Type.INSTANCE, inventory, level);
+
 
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
                 && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
@@ -216,14 +203,48 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
         return new CustomEnergyStorage(this, capacity, maxReceived,0,0);
     }
 
+    private static int getUsageCost(KuzeyiumPurificationChamberBlockEntity entity){
+        Level level = entity.getLevel();
+        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+        }
+        return level.getRecipeManager().getRecipeFor(KuzeyiumPurificationChamberRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumPurificationChamberRecipe::getUsageCost).orElse(entity.defaultUsageCost);
+    }
+
+    private static int getRecipeTime(KuzeyiumPurificationChamberBlockEntity entity){
+        Level level = entity.getLevel();
+        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+        }
+        return level.getRecipeManager().getRecipeFor(KuzeyiumPurificationChamberRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumPurificationChamberRecipe::getRecipeTime).orElse(entity.defaultRecipeTime);
+    }
+
     public int getEnergy(){
         return energyStorage.getEnergyStored();
     }
+
     public int getMaxEnergy(){
         return energyStorage.getMaxEnergyStored();
     }
-    private static boolean hasEnoughEnergy(){
+    private boolean hasEnoughEnergy(int usageCost){
         return energyStorage.getEnergyStored() >= usageCost;
     }
 
+    public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
+        KuzeyiumPurificationChamberBlockEntity pBlockEntity = (KuzeyiumPurificationChamberBlockEntity) this.level.getBlockEntity(this.getBlockPos());
+        if(hasRecipe(pBlockEntity) && hasEnoughEnergy(getUsageCost(pBlockEntity))) {
+            pBlockEntity.maxProgress = getRecipeTime(pBlockEntity);
+            pBlockEntity.progress++;
+            energyStorage.setEnergy(energyStorage.getEnergyStored() - getUsageCost(pBlockEntity));
+            setChanged(pLevel, pPos, pState);
+            if(pBlockEntity.progress > pBlockEntity.maxProgress) {
+                craftItem(pBlockEntity);
+            }
+        } else {
+            pBlockEntity.resetProgress();
+            setChanged(pLevel, pPos, pState);
+        }
+    }
 }
