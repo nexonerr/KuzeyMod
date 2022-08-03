@@ -19,17 +19,18 @@ public class KuzeyiumWorkstationRecipe implements Recipe<SimpleContainer> {
     private final ItemStack output;
     private final NonNullList<Ingredient> recipeItems;
     private final int recipeTime;
+    private final int toolDamage;
 
-    public KuzeyiumWorkstationRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems, int recipeTime) {
+    public KuzeyiumWorkstationRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems, int recipeTime, int toolDamage) {
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
         this.recipeTime = recipeTime;
+        this.toolDamage = toolDamage;
     }
 
-    public int getRecipeTime(){
-        return recipeTime;
-    }
+    public int getRecipeTime(){return recipeTime;}
+    public int getToolDamage(){return toolDamage;}
 
     @Override
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
@@ -84,6 +85,8 @@ public class KuzeyiumWorkstationRecipe implements Recipe<SimpleContainer> {
         @Override
         public KuzeyiumWorkstationRecipe fromJson(ResourceLocation id, JsonObject json) {
             int recipeTime = GsonHelper.getAsInt(json,"recipeTime");
+            int toolDamage = GsonHelper.getAsInt(json,"toolDamage");
+
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
@@ -92,8 +95,7 @@ public class KuzeyiumWorkstationRecipe implements Recipe<SimpleContainer> {
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
-            KuzeyMod.LOGGER.info("Read Json");
-            return new KuzeyiumWorkstationRecipe(id, output, inputs,recipeTime);
+            return new KuzeyiumWorkstationRecipe(id, output, inputs,recipeTime,toolDamage);
         }
 
         @Override
@@ -106,7 +108,8 @@ public class KuzeyiumWorkstationRecipe implements Recipe<SimpleContainer> {
 
             ItemStack output = buf.readItem();
             int recipeTime = buf.readInt();
-            return new KuzeyiumWorkstationRecipe(id, output, inputs,recipeTime);
+            int toolDamage = buf.readInt();
+            return new KuzeyiumWorkstationRecipe(id, output, inputs,recipeTime,toolDamage);
         }
 
         @Override
@@ -118,6 +121,7 @@ public class KuzeyiumWorkstationRecipe implements Recipe<SimpleContainer> {
 
             buf.writeItemStack(recipe.getResultItem(), false);
             buf.writeInt(recipe.recipeTime);
+            buf.writeInt(recipe.toolDamage);
         }
 
         @Override

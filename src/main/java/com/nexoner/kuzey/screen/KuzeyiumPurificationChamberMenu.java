@@ -57,6 +57,12 @@ public class KuzeyiumPurificationChamberMenu extends AbstractContainerMenu {
 
         return maxEnergy != 0 && energyStored !=0 ? energyStored * energyBarSize / maxEnergy : 0;
     }
+    public String getEnergyText(){
+        int energyStored = this.data.get(2);
+        int maxEnergy = this.data.get(3);
+        String finalString = Integer.toString(energyStored) + "/" + Integer.toString(maxEnergy) + "FE";
+        return finalString;
+    }
 
     private static final int HOTBAR_SLOT_COUNT = 9;
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;

@@ -141,6 +141,13 @@ public class ModBlocks {
                     .strength(5f,30f)
             ), ModCreativeModTab.KUZEY_TAB);
 
+    public static final RegistryObject<Block> EMRE_ESSENCE_EXTRACTOR = registerBlock("emre_essence_extractor",
+            () -> new EmreEssenceExtractorBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .strength(4f,30f)
+            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.emre_essence_extractor");
+
     //Register Methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

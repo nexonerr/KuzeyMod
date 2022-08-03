@@ -181,7 +181,7 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
             entity.itemHandler.extractItem(1,1, false);
 
             entity.itemHandler.setStackInSlot(2, new ItemStack(match.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(2).getCount() + 1));
+                    entity.itemHandler.getStackInSlot(2).getCount() + match.get().getResultItem().getCount()));
 
             entity.resetProgress();
         }

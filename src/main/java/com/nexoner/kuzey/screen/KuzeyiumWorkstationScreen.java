@@ -28,7 +28,7 @@ public class KuzeyiumWorkstationScreen extends AbstractContainerScreen<KuzeyiumW
         this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
 
         if (menu.isCrafting()){
-            blit(pPoseStack,x + 27,y + 28,176,0, menu.getScaledProgress(), 54);
+            blit(pPoseStack,x + 27,y + 16,176,0, menu.getScaledProgress(), 54);
         }
     }
 

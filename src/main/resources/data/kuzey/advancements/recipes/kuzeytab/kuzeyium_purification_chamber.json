@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:kuzeyium_purification_chamber"
+    ]
+  },
+  "criteria": {
+    "has_kuzeyium_workstation": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:kuzeyium_workstation"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:kuzeyium_purification_chamber"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_kuzeyium_workstation",
+      "has_the_recipe"
+    ]
+  ]
+}

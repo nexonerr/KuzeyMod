@@ -2,7 +2,10 @@ package com.nexoner.kuzey.screen;
 
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.custom.KuzeyiumWorkstationBlockEntity;
+import com.nexoner.kuzey.item.ModItems;
+import com.nexoner.kuzey.screen.slot.ModKuzeyiumSawSlot;
 import com.nexoner.kuzey.screen.slot.ModResultSlot;
+import com.nexoner.kuzey.screen.slot.ModSmithingHammerSlot;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -32,12 +35,12 @@ public class KuzeyiumWorkstationMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0,126,6));
-            this.addSlot(new SlotItemHandler(handler, 1,149,6));
-            this.addSlot(new SlotItemHandler(handler, 2,27,28));
-            this.addSlot(new SlotItemHandler(handler, 3,27,47));
-            this.addSlot(new SlotItemHandler(handler, 4,27,66));
-            this.addSlot(new ModResultSlot(handler, 5,97,47));
+            this.addSlot(new ModKuzeyiumSawSlot(handler, 0,126,6));
+            this.addSlot(new ModSmithingHammerSlot(handler, 1,149,6));
+            this.addSlot(new SlotItemHandler(handler, 2,27,16));
+            this.addSlot(new SlotItemHandler(handler, 3,27,35));
+            this.addSlot(new SlotItemHandler(handler, 4,27,54));
+            this.addSlot(new ModResultSlot(handler, 5,97,35));
         });
 
         addDataSlots(data);

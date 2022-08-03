@@ -14,7 +14,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
@@ -210,6 +209,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(ModItems.KUZEYIUM_CHUNK.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
+        ShapedRecipeBuilder.shaped(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get())
+                .define('K', ModItems.KUZEYIUM_INGOT.get())
+                .define('L', ModTags.Items.KUZEYIAN_LOGS)
+                .define('E', Blocks.END_STONE_BRICKS)
+                .define('G', ModItems.KUZEYIUM_GLASS_PLATE.get())
+                .define('C', ModItems.KUZEYIUM_PURIFICATION_CORE.get())
+                .pattern("KGK")
+                .pattern("LCL")
+                .pattern("KEK")
+                .unlockedBy("has_kuzeyium_workstation", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.KUZEYIUM_WORKSTATION.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
         ShapedRecipeBuilder.shaped(ModBlocks.KUZEYIUM_WORKSTATION.get())
                 .define('K', ModItems.KUZEYIUM_INGOT.get())
                 .define('G', ModItems.KUZEYIUM_GLASS_PLATE.get())
@@ -222,9 +234,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(ModTags.Items.KUZEYIUM_INGOTS).build()))
                 .save(pFinishedRecipeConsumer);
 
+
+
         ShapelessRecipeBuilder.shapeless(ModItems.KUZEYIUM_INGOT.get())
                 .requires(ModItems.KUZEYIUM_CHUNK.get(),3)
                 .requires(Items.NETHER_STAR)
+                .requires(ModItems.KUZEYIUM_SMITHING_HAMMER.get())
                 .unlockedBy("has_kuzeyium_chunk", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModItems.KUZEYIUM_CHUNK.get()).build()))
                 .save(pFinishedRecipeConsumer);
@@ -236,6 +251,30 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         woodFromLogs(pFinishedRecipeConsumer,ModBlocks.KUZEYIAN_WOOD.get(),ModBlocks.KUZEYIAN_LOG.get());
         woodFromLogs(pFinishedRecipeConsumer,ModBlocks.KUZEYIAN_WOOD_STRIPPED.get(),ModBlocks.KUZEYIAN_LOG_STRIPPED.get());
 
-        nineBlockStorageRecipesWithCustomPacking(pFinishedRecipeConsumer, ModItems.KUZEYIUM_NUGGET.get(), ModItems.KUZEYIUM_INGOT.get(), "kuzeyium_ingot_from_nuggets", "kuzeyium_ingot");
+        createBlockRecipeReconvertable(pFinishedRecipeConsumer,ModBlocks.KUZEYIUM_BLOCK.get(),ModItems.KUZEYIUM_INGOT.get(),"kuzeyium_ingot");
+        createBlockRecipeReconvertable(pFinishedRecipeConsumer,ModItems.KUZEYIUM_INGOT.get(),ModItems.KUZEYIUM_NUGGET.get(),"kuzeyium_ingot");
+
     }
+
+    //Method
+    protected void createBlockRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ItemLike pResult, ItemLike pIngredient, String pGroup){
+        ShapedRecipeBuilder.shaped(pResult)
+                .define('X', pIngredient)
+                .pattern("XXX")
+                .pattern("XXX")
+                .pattern("XXX")
+                .group(pGroup)
+                .unlockedBy(getHasName(pIngredient), inventoryTrigger(ItemPredicate.Builder.item().of(pIngredient).build())).save(pFinishedRecipeConsumer, "kuzey:" + pResult.asItem().getRegistryName().getPath() + "_from_" + pIngredient.asItem().getRegistryName().getPath());
+    }
+    protected void createBlockRecipeReconvertable(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ItemLike pResult, ItemLike pIngredient, String pGroup){
+        createBlockRecipe(pFinishedRecipeConsumer, pResult, pIngredient, pGroup);
+        ShapelessRecipeBuilder.shapeless(pIngredient,9).requires(pResult).group(pGroup).unlockedBy(getHasName(pResult), inventoryTrigger(ItemPredicate.Builder.item().of(pResult).build())).save(pFinishedRecipeConsumer,"kuzey:" + pIngredient.asItem().getRegistryName().getPath() + "_from_" + pResult.asItem().getRegistryName().getPath());
+    }
+
+    protected void createSimpleShapeless(Consumer<FinishedRecipe> finishedRecipeConsumer, ItemLike pIngredient, ItemLike pResult, int pCount, String pGroup){
+        if (pCount <= 0 && pCount > 64){pCount = 1;}
+
+        ShapelessRecipeBuilder.shapeless(pIngredient,pCount).requires(pIngredient).group(pGroup).unlockedBy(getHasName(pIngredient), inventoryTrigger(ItemPredicate.Builder.item().of(pIngredient).build())).save(finishedRecipeConsumer);
+    }
+
 }

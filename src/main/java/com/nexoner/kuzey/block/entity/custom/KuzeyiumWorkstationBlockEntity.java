@@ -46,6 +46,7 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
     private int progress = 0;
     private int maxProgress;
     private int defaultRecipeTime = 600;
+    private int defaultToolDamage = 4;
 
     public KuzeyiumWorkstationBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.KUZEYIUM_WORKSTATION_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -153,7 +154,7 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
                 .getRecipeFor(KuzeyiumWorkstationRecipe.Type.INSTANCE, inventory, level);
 
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) && hasTools(entity)
-                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem());
+                && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) && hasEnoughDurability(inventory,entity);
     }
 
     private static void craftItem(KuzeyiumWorkstationBlockEntity entity) {
@@ -167,17 +168,17 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
                 .getRecipeFor(KuzeyiumWorkstationRecipe.Type.INSTANCE, inventory, level);
 
         if(match.isPresent()) {
-            if(entity.itemHandler.getStackInSlot(0).hurt(4, new Random(), null)) {
+            if(entity.itemHandler.getStackInSlot(0).hurt(getToolDamage(entity), new Random(), null)) {
                 entity.itemHandler.extractItem(0,1, false);
             }
-            if(entity.itemHandler.getStackInSlot(1).hurt(4, new Random(), null)) {
+            if(entity.itemHandler.getStackInSlot(1).hurt(getToolDamage(entity), new Random(), null)) {
                 entity.itemHandler.extractItem(1,1, false);
             }
             entity.itemHandler.extractItem(2,1,false);
             entity.itemHandler.extractItem(3,1,false);
             entity.itemHandler.extractItem(4,1,false);
             entity.itemHandler.setStackInSlot(5, new ItemStack(match.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(5).getCount() + 1));
+                    entity.itemHandler.getStackInSlot(5).getCount() + match.get().getResultItem().getCount()));
 
             entity.resetProgress();
         }
@@ -199,6 +200,12 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
         return inventory.getItem(5).getMaxStackSize() > inventory.getItem(5).getCount();
     }
 
+    private static boolean hasEnoughDurability(SimpleContainer inventory, KuzeyiumWorkstationBlockEntity entity){
+        boolean sawDurability = inventory.getItem(0).getMaxDamage() - inventory.getItem(0).getDamageValue() >= getToolDamage(entity);
+        boolean hammerDurability = inventory.getItem(1).getMaxDamage() - inventory.getItem(1).getDamageValue() >= getToolDamage(entity);
+        return hammerDurability && sawDurability;
+    }
+
     private static int getRecipeTime(KuzeyiumWorkstationBlockEntity entity){
         Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
@@ -206,6 +213,15 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
         return level.getRecipeManager().getRecipeFor(KuzeyiumWorkstationRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumWorkstationRecipe::getRecipeTime).orElse(entity.defaultRecipeTime);
+    }
+
+    private static int getToolDamage(KuzeyiumWorkstationBlockEntity entity){
+        Level level = entity.level;
+        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+        }
+        return level.getRecipeManager().getRecipeFor(KuzeyiumWorkstationRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumWorkstationRecipe::getToolDamage).orElse(entity.defaultToolDamage);
     }
 
 }

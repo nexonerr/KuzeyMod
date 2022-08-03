@@ -12,6 +12,9 @@
     },
     {
       "item": "minecraft:nether_star"
+    },
+    {
+      "item": "kuzey:kuzeyium_smithing_hammer"
     }
   ],
   "result": {

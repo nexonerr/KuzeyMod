@@ -22,6 +22,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("kuzeyium_workstation_block_entity",() -> BlockEntityType.Builder.of(KuzeyiumWorkstationBlockEntity::new,
                     ModBlocks.KUZEYIUM_WORKSTATION.get()).build(null));
 
+    /*public static final RegistryObject<BlockEntityType<EmreEssenceExtractorBlockEntity>> EMRE_ESSENCE_EXTRACTOR_BLOCK_ENTITY=
+            BLOCK_ENTITIES.register("emre_essence_extractor_block_entity",() -> BlockEntityType.Builder.of(EmreEssenceExtractorBlockEntity::new,
+                    ModBlocks.EMRE_ESSENCE_EXTRACTOR.get()).build(null));*/
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

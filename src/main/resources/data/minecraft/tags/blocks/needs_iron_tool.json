@@ -3,6 +3,8 @@
   "values": [
     "kuzey:devastator",
     "kuzey:kuzeyium_glass",
-    "#kuzey:kuzeyian_logs"
+    "#kuzey:kuzeyian_logs",
+    "kuzey:kuzeyium_workstation",
+    "kuzey:kuzeyium_purification_chamber"
   ]
 }

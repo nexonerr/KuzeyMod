@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "kuzey:kuzeyium_ingot"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyium_block"
+  }
+}

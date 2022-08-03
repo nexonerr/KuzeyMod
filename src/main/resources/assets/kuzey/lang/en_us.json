@@ -40,6 +40,9 @@
   "block.kuzey.kuzeyium_purification_chamber": "Kuzeyium Purification Chamber",
   "block.kuzey.kuzeyium_workstation": "Kuzeyium Workstation",
   "block.kuzey.kuzeyium_block": "Kuzeyium Block",
+  "block.kuzey.emre_essence_extractor": "Emre Essence Extractor",
+
+  "fluid.kuzey.emre_essence_fluid": "Emre Essence",
 
   "itemGroup.kuzeytab": "Kuzey Mod",
 
@@ -55,6 +58,7 @@
   "tooltip.kuzey.block.kuzeyium_glass": "Infusing glass with kuzeyium seems to make it incredibly durable: is resistant to explosions.",
   "tooltip.kuzey.block.kuzeyium_purification_chamber": "Purifies kuzeyium more efficiently than the workstation, also doesn't require tools.",
   "tooltip.kuzey.block.kuzeyium_workstation": "Purifies kuzeyium more efficiently than crude smithing using more precise machinery.",
+  "tooltip.kuzey.block.emre_essence_extractor": "Extracts Emre Essence from Emre Essence rocks",
 
   "tooltip.kuzey.alt.tooltip": "Press §e[ALT]§r for more information!"
 }

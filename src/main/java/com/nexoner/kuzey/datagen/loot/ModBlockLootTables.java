@@ -33,6 +33,7 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get());
         this.dropSelf(ModBlocks.KUZEYIUM_WORKSTATION.get());
         this.dropSelf(ModBlocks.KUZEYIUM_BLOCK.get());
+        this.dropSelf(ModBlocks.EMRE_ESSENCE_EXTRACTOR.get());
 
         this.add(ModBlocks.KUZEYIUM_ORE.get(), (block) -> createOreDrop(ModBlocks.KUZEYIUM_ORE.get(), ModItems.RAW_KUZEYIUM.get()));
 
