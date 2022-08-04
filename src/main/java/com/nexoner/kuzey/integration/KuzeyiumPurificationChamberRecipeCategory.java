@@ -32,6 +32,9 @@ public class KuzeyiumPurificationChamberRecipeCategory implements IRecipeCategor
     private IDrawableStatic energyStatic;
     //IDrawableAnimated energyAnim;
 
+    private final IDrawableStatic progressStatic;
+    private final IDrawableAnimated progressAnim;
+
     private final IDrawable background;
     private final IDrawable icon;
     private final IGuiHelper guiHelper;
@@ -44,8 +47,9 @@ public class KuzeyiumPurificationChamberRecipeCategory implements IRecipeCategor
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get()));
         this.guiHelper = helper;
         this.maxEnergy = maxEnergy;
-        energyStatic = this.guiHelper.createDrawable(TEXTURE, 177, 55, 9, 39);
-        //energyAnim = this.guiHelper.createAnimatedDrawable(energyStatic, 40, IDrawableAnimated.StartDirection.BOTTOM, false);
+        this.energyStatic = this.guiHelper.createDrawable(TEXTURE, 177, 55, 9, 39);
+        this.progressStatic = this.guiHelper.createDrawable(TEXTURE,176,1,53,54);
+        this.progressAnim = this.guiHelper.createAnimatedDrawable(progressStatic, 300, IDrawableAnimated.StartDirection.LEFT,false);
     }
 
     //We have to call this method because the constructor can't take recipes therefore we can't get the usage cost before we initialize our energy bar
@@ -96,12 +100,13 @@ public class KuzeyiumPurificationChamberRecipeCategory implements IRecipeCategor
 
         String recipeTime = Math.round(recipe.getRecipeTime() / 20) + " seconds";
         String usageCost = recipe.getUsageCost() + "FE";
-        IDrawableAnimated energy;
 
         minecraft.font.draw(stack,recipeTime,9,76,0x404040);
         minecraft.font.draw(stack,usageCost,120,15,0x404040);
 
         int scaledBar = setupEnergyBar(recipe);
         energyStatic.draw(stack,140,66 - scaledBar);
+
+        progressAnim.draw(stack,52,16);
     }
 }

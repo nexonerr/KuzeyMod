@@ -9,6 +9,8 @@ import com.nexoner.kuzey.recipe.KuzeyiumWorkstationRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.drawable.IDrawableAnimated;
+import mezz.jei.api.gui.drawable.IDrawableStatic;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
@@ -32,12 +34,19 @@ public class KuzeyiumWorkstationRecipeCategory implements IRecipeCategory<Kuzeyi
     public final static ResourceLocation TEXTURE =
             new ResourceLocation(KuzeyMod.MOD_ID, "textures/gui/jei/kuzeyium_workstation_gui_jei.png");
 
+    private final IDrawableStatic progressStatic;
+    private final IDrawableAnimated progressAnim;
+
     private final IDrawable background;
     private final IDrawable icon;
+    private final IGuiHelper guiHelper;
 
     public KuzeyiumWorkstationRecipeCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 85);
+        this.guiHelper = helper;
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.KUZEYIUM_WORKSTATION.get()));
+        this.progressStatic = guiHelper.createDrawable(TEXTURE,176,0, 69, 54);
+        this.progressAnim = guiHelper.createAnimatedDrawable(progressStatic, 600, IDrawableAnimated.StartDirection.LEFT, false);
     }
 
     @Override
@@ -80,7 +89,10 @@ public class KuzeyiumWorkstationRecipeCategory implements IRecipeCategory<Kuzeyi
         Minecraft minecraft = Minecraft.getInstance();
         String recipeTime = (Math.round(recipe.getRecipeTime() / 20)) + " seconds";
         String toolDamage = recipe.getToolDamage() + " durability";
+
         minecraft.font.draw(stack,recipeTime,113,70,0x404040);
         minecraft.font.draw(stack,toolDamage,104,24,0x404040);
+
+        progressAnim.draw(stack,27,16);
     }
 }
