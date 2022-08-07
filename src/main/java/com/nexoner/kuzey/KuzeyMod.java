@@ -4,10 +4,9 @@ import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.fluid.ModFluids;
 import com.nexoner.kuzey.item.ModItems;
+import com.nexoner.kuzey.networking.ModPackets;
 import com.nexoner.kuzey.recipe.ModRecipes;
-import com.nexoner.kuzey.screen.KuzeyiumPurificationChamberScreen;
-import com.nexoner.kuzey.screen.KuzeyiumWorkstationScreen;
-import com.nexoner.kuzey.screen.ModMenuTypes;
+import com.nexoner.kuzey.screen.*;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -70,11 +69,11 @@ public class KuzeyMod
 
         MenuScreens.register(ModMenuTypes.KUZEYIUM_PURIFICATION_CHAMBER_MENU.get(), KuzeyiumPurificationChamberScreen::new);
         MenuScreens.register(ModMenuTypes.KUZEYIUM_WORKSTATION_MENU.get(), KuzeyiumWorkstationScreen::new);
+        MenuScreens.register(ModMenuTypes.EMRE_ESSENCE_EXTRACTOR_MENU.get(), EmreEssenceExtractorScreen::new);
     }
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
-        // some preinit code
-        LOGGER.info("HELLO FROM PREINIT");
-        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+    private void setup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            ModPackets.register();
+        });
     }}

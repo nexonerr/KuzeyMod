@@ -20,6 +20,9 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<KuzeyiumWorkstationMenu>> KUZEYIUM_WORKSTATION_MENU =
             registerMenuType(KuzeyiumWorkstationMenu::new,"kuzeyium_workstation_menu");
 
+    public static final RegistryObject<MenuType<EmreEssenceExtractorMenu>> EMRE_ESSENCE_EXTRACTOR_MENU =
+            registerMenuType(EmreEssenceExtractorMenu::new,"emre_essence_extractor_menu");
+
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name){
         return MENUS.register(name, () -> IForgeMenuType.create(factory));
     }

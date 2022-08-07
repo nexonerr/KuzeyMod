@@ -4,6 +4,7 @@ import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.item.ModItems;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.models.ModelProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -11,6 +12,7 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -40,6 +42,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.KUZEYIUM_PURIFICATION_CORE.get());
         simpleItem(ModItems.SPAWNER_IRRITATOR.get());
         simpleItem(ModItems.EMRE_ESSENCE_BUCKET.get());
+        simpleItem(ModItems.EMRE_ESSENCE_ROCK.get());
 
         handheldItem(ModItems.KUZEYIUM_SWORD.get());
         handheldItem(ModItems.KUZEYIUM_AXE.get());
@@ -47,11 +50,23 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.KUZEYIUM_SHOVEL.get());
         handheldItem(ModItems.KUZEYIUM_SMITHING_HAMMER.get());
 
-        for (RegistryObject<Block> block: ModBlocks.BLOCKS.getEntries() ) {
-            if (!(block.get() instanceof CropBlock || block.get() instanceof LiquidBlock)){
-                blockItem(block.get());
-            }
-        }
+        simpleBlockItem(ModBlocks.KUZEYIUM_ORE.get());
+        simpleBlockItem(ModBlocks.DEVASTATOR.get());
+        simpleBlockItem(ModBlocks.KUZEYIUM_GLASS.get());
+        simpleBlockItem(ModBlocks.KUZEYIAN_PLANKS.get());
+        simpleBlockItem(ModBlocks.KUZEYIAN_LEAVES.get());
+        simpleBlockItem(ModBlocks.KUZEYIAN_SAPLING.get());
+        simpleBlockItem(ModBlocks.KUZEYIUM_BLOCK.get());
+        simpleBlockItem(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get());
+        simpleBlockItem(ModBlocks.DEEPSLATE_EMRE_ESSENCE_ROCK_ORE.get());
+
+        blockItem(ModBlocks.KUZEYIAN_LOG_STRIPPED.get());
+        blockItem(ModBlocks.KUZEYIAN_LOG.get());
+        blockItem(ModBlocks.KUZEYIAN_WOOD_STRIPPED.get());
+        blockItem(ModBlocks.KUZEYIAN_WOOD.get());
+        blockItem(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get());
+        blockItem(ModBlocks.KUZEYIUM_WORKSTATION.get());
+        blockItem(ModBlocks.EMRE_ESSENCE_EXTRACTOR.get());
 
     }
     private ItemModelBuilder simpleItem(Item item) {
@@ -69,5 +84,10 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder blockItem(Block block) {
         return withExistingParent(block.getRegistryName().getPath(),
                 new ResourceLocation(KuzeyMod.MOD_ID,"block/" + block.getRegistryName().getPath()));
+    }
+
+    private ItemModelBuilder simpleBlockItem(Block block) {
+        return cubeAll(block.getRegistryName().getPath(), new ResourceLocation(KuzeyMod.MOD_ID,
+                "block/" + block.getRegistryName().getPath()));
     }
 }

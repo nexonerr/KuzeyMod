@@ -14,5 +14,7 @@ public class ModOreGeneration {
                 event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
 
         base.add(ModPlacedFeatures.KUZEYIUM_ORE_PLACED);
+        base.add(ModPlacedFeatures.EMRE_ESSENCE_ROCK_ORE_PLACED);
+        base.add(ModPlacedFeatures.EMRE_ESSENCE_ROCK_ORE_MEGA_VEIN_PLACED);
     }
 }

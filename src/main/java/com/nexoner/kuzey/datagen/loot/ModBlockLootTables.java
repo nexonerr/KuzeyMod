@@ -36,6 +36,8 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.EMRE_ESSENCE_EXTRACTOR.get());
 
         this.add(ModBlocks.KUZEYIUM_ORE.get(), (block) -> createOreDrop(ModBlocks.KUZEYIUM_ORE.get(), ModItems.RAW_KUZEYIUM.get()));
+        this.add(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get(), (block) -> createOreDrop(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get(), ModItems.EMRE_ESSENCE_ROCK.get()));
+        this.add(ModBlocks.DEEPSLATE_EMRE_ESSENCE_ROCK_ORE.get(), (block) -> createOreDrop(ModBlocks.DEEPSLATE_EMRE_ESSENCE_ROCK_ORE.get(), ModItems.EMRE_ESSENCE_ROCK.get()));
 
         LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.BLACK_CARROTS_PLANT.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlackCarrotsCropBlock.AGE, 3));

@@ -26,7 +26,7 @@ public class ModFluids {
             = DeferredRegister.create(ForgeRegistries.FLUIDS, KuzeyMod.MOD_ID);
 
     public static final RegistryObject<FlowingFluid> EMRE_ESSENCE_FLUID
-            = FLUIDS.register("emre_essence_fluid", () -> new ForgeFlowingFluid.Source(ModFluids.EMRE_ESSENCE_PROPERTIES));
+            = FLUIDS.register("emre_essence", () -> new ForgeFlowingFluid.Source(ModFluids.EMRE_ESSENCE_PROPERTIES));
 
     public static final RegistryObject<FlowingFluid> EMRE_ESSENCE_FLOWING
             = FLUIDS.register("emre_essence_flowing", () -> new ForgeFlowingFluid.Flowing(ModFluids.EMRE_ESSENCE_PROPERTIES));

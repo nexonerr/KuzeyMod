@@ -9,6 +9,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -78,7 +79,7 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
 
     @Override
     public Component getDisplayName() {
-        return new TextComponent("Kuzeyium Workstation");
+        return new TranslatableComponent("block.kuzey.kuzeyium_workstation");
     }
     @Nullable
     @Override

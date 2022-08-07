@@ -15,6 +15,7 @@
   "item.kuzey.kuzeyian_tool_handle": "Kuzeyian Tool Handle",
   "item.kuzey.spawner_irritator": "Kuzeyium Spawner Irritator",
   "item.kuzey.emre_essence_bucket": "Emre Essence Bucket",
+  "item.kuzey.emre_essence_rock": "Emre Essence Rock",
 
   "item.kuzey.kuzeyium_sword": "Kuzeyium Murderer",
   "item.kuzey.kuzeyium_axe": "Kuzeyium Deforester",
@@ -41,8 +42,10 @@
   "block.kuzey.kuzeyium_workstation": "Kuzeyium Workstation",
   "block.kuzey.kuzeyium_block": "Kuzeyium Block",
   "block.kuzey.emre_essence_extractor": "Emre Essence Extractor",
+  "block.kuzey.emre_essence_rock_ore": "Emre Essence Rock Ore",
+  "block.kuzey.deepslate_emre_essence_rock_ore": "Deepslate Emre Essence Rock Ore",
 
-  "fluid.kuzey.emre_essence_fluid": "Emre Essence",
+  "fluid.kuzey.emre_essence": "Emre Essence",
 
   "itemGroup.kuzeytab": "Kuzey Mod",
 

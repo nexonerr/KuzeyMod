@@ -11,6 +11,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -93,7 +94,7 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
 
     @Override
     public Component getDisplayName() {
-        return new TextComponent("Kuzeyium Purification Chamber");
+        return new TranslatableComponent("block.kuzey.kuzeyium_purification_chamber");
     }
     @Nullable
     @Override

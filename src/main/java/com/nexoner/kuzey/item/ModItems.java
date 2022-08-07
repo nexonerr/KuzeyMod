@@ -92,6 +92,9 @@ public class ModItems {
     public static final RegistryObject<Item> EMRE_ESSENCE_BUCKET = ITEMS.register("emre_essence_bucket",
             () -> new BucketItem(ModFluids.EMRE_ESSENCE_FLUID, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).stacksTo(1)));
 
+    public static final RegistryObject<Item> EMRE_ESSENCE_ROCK = ITEMS.register("emre_essence_rock",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

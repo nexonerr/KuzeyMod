@@ -2,6 +2,7 @@ package com.nexoner.kuzey.block.entity;
 
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
+import com.nexoner.kuzey.block.entity.custom.EmreEssenceExtractorBlockEntity;
 import com.nexoner.kuzey.block.entity.custom.KuzeyiumPurificationChamberBlockEntity;
 import com.nexoner.kuzey.block.entity.custom.KuzeyiumWorkstationBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -22,9 +23,9 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("kuzeyium_workstation_block_entity",() -> BlockEntityType.Builder.of(KuzeyiumWorkstationBlockEntity::new,
                     ModBlocks.KUZEYIUM_WORKSTATION.get()).build(null));
 
-    /*public static final RegistryObject<BlockEntityType<EmreEssenceExtractorBlockEntity>> EMRE_ESSENCE_EXTRACTOR_BLOCK_ENTITY=
+    public static final RegistryObject<BlockEntityType<EmreEssenceExtractorBlockEntity>> EMRE_ESSENCE_EXTRACTOR_BLOCK_ENTITY=
             BLOCK_ENTITIES.register("emre_essence_extractor_block_entity",() -> BlockEntityType.Builder.of(EmreEssenceExtractorBlockEntity::new,
-                    ModBlocks.EMRE_ESSENCE_EXTRACTOR.get()).build(null));*/
+                    ModBlocks.EMRE_ESSENCE_EXTRACTOR.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

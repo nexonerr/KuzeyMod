@@ -148,6 +148,21 @@ public class ModBlocks {
                     .strength(4f,30f)
             ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.emre_essence_extractor");
 
+    public static final RegistryObject<Block> EMRE_ESSENCE_ROCK_ORE = registerBlock("emre_essence_rock_ore",
+            () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .requiresCorrectToolForDrops()
+                    .strength(5f,30f),
+                    UniformInt.of(4,9)
+            ), ModCreativeModTab.KUZEY_TAB);
+
+    public static final RegistryObject<Block> DEEPSLATE_EMRE_ESSENCE_ROCK_ORE = registerBlock("deepslate_emre_essence_rock_ore",
+            () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .requiresCorrectToolForDrops()
+                    .strength(7f,50f),
+                    UniformInt.of(4,9)
+            ), ModCreativeModTab.KUZEY_TAB);
+
+
     //Register Methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

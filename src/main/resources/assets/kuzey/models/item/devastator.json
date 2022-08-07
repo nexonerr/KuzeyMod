@@ -1,3 +1,6 @@
 {
-  "parent": "kuzey:block/devastator"
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "kuzey:block/devastator"
+  }
 }

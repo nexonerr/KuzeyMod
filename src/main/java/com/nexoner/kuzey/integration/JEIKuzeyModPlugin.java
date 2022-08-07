@@ -2,6 +2,7 @@ package com.nexoner.kuzey.integration;
 
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
+import com.nexoner.kuzey.recipe.EmreEssenceExtractorRecipe;
 import com.nexoner.kuzey.recipe.KuzeyiumPurificationChamberRecipe;
 import com.nexoner.kuzey.recipe.KuzeyiumWorkstationRecipe;
 import mezz.jei.api.IModPlugin;
@@ -28,6 +29,7 @@ public class JEIKuzeyModPlugin implements IModPlugin {
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new KuzeyiumPurificationChamberRecipeCategory(registration.getJeiHelpers().getGuiHelper(),80000));
         registration.addRecipeCategories(new KuzeyiumWorkstationRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new EmreEssenceExtractorRecipeCategory(registration.getJeiHelpers().getGuiHelper(),140000));
     }
 
     @Override
@@ -35,11 +37,13 @@ public class JEIKuzeyModPlugin implements IModPlugin {
         RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
         registration.addRecipes(new RecipeType<>(KuzeyiumPurificationChamberRecipeCategory.UID, KuzeyiumPurificationChamberRecipe.class), rm.getAllRecipesFor(KuzeyiumPurificationChamberRecipe.Type.INSTANCE));
         registration.addRecipes(new RecipeType<>(KuzeyiumWorkstationRecipeCategory.UID, KuzeyiumWorkstationRecipe.class), rm.getAllRecipesFor(KuzeyiumWorkstationRecipe.Type.INSTANCE));
+        registration.addRecipes(new RecipeType<>(EmreEssenceExtractorRecipeCategory.UID, EmreEssenceExtractorRecipe.class), rm.getAllRecipesFor(EmreEssenceExtractorRecipe.Type.INSTANCE));
     }
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get()), KuzeyiumPurificationChamberRecipeCategory.KUZEYIUM_PURIFICATION);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.KUZEYIUM_WORKSTATION.get()), KuzeyiumWorkstationRecipeCategory.KUZEYIUM_SMITHING);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.EMRE_ESSENCE_EXTRACTOR.get()), EmreEssenceExtractorRecipeCategory.EMRE_ESSENCE_EXTRACTION);
     }
 }

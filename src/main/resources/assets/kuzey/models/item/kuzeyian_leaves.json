@@ -1,3 +1,6 @@
 {
-  "parent": "kuzey:block/kuzeyian_leaves"
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "kuzey:block/kuzeyian_leaves"
+  }
 }

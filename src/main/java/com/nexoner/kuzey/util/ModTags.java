@@ -3,10 +3,12 @@ package com.nexoner.kuzey.util;
 import com.nexoner.kuzey.KuzeyMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
 
 
 public class ModTags {
@@ -36,6 +38,17 @@ public class ModTags {
         }
 
 
+    }
+    public static class Fluids {
+        public static final TagKey<Fluid> EMRE_ESSENCE_EXTRACTOR_FLUIDS = tag("emre_essence_extractor_fluids");
+
+        private static TagKey<Fluid> tag(String name) {
+            return FluidTags.create(new ResourceLocation(KuzeyMod.MOD_ID, name));
+        }
+
+        private static TagKey<Fluid> forgeTag(String name) {
+            return FluidTags.create(new ResourceLocation("forge", name));
+        }
     }
 
 }

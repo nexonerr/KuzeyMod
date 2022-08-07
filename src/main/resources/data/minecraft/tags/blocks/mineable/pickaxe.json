@@ -5,6 +5,8 @@
     "kuzey:devastator",
     "kuzey:kuzeyium_glass",
     "kuzey:kuzeyium_workstation",
-    "kuzey:kuzeyium_purification_chamber"
+    "kuzey:kuzeyium_purification_chamber",
+    "kuzey:kuzeyium_block",
+    "kuzey:emre_essence_extractor"
   ]
 }

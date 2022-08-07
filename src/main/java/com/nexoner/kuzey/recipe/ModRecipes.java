@@ -17,6 +17,9 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<KuzeyiumWorkstationRecipe>> KUZEYIUM_SMITHING_SERIALIZER =
             SERIALIZERS.register("kuzeyium_smithing",() -> KuzeyiumWorkstationRecipe.Serializer.INSTANCE);
 
+    public static final RegistryObject<RecipeSerializer<EmreEssenceExtractorRecipe>> EMRE_ESSENCE_EXTRACTION =
+            SERIALIZERS.register("emre_essence_extraction",() -> EmreEssenceExtractorRecipe.Serializer.INSTANCE);
+
     public static void register(IEventBus eventBus){
         SERIALIZERS.register(eventBus);
     }
