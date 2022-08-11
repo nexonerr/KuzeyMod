@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "kuzey:devastator"
+      "kuzey:still_fluid_tank"
     ]
   },
   "criteria": {
-    "has_wooden_machine_frame": {
+    "has_kuzeyium_glass": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "kuzey:wooden_machine_frame"
+              "kuzey:kuzeyium_glass"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "kuzey:devastator"
+        "recipe": "kuzey:still_fluid_tank"
       }
     }
   },
   "requirements": [
     [
-      "has_wooden_machine_frame",
+      "has_kuzeyium_glass",
       "has_the_recipe"
     ]
   ]

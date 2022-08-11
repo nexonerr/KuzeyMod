@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "MMM",
-    "IKI",
+    "IWI",
     "OOO"
   ],
   "key": {
-    "K": {
-      "tag": "forge:ingots/kuzeyium"
+    "W": {
+      "item": "kuzey:wooden_machine_frame"
     },
     "M": {
       "item": "minecraft:magma_block"

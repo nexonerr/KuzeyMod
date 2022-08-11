@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ISI",
+    "IMI",
+    "IKI"
+  ],
+  "key": {
+    "M": {
+      "item": "kuzey:wooden_machine_frame"
+    },
+    "S": {
+      "item": "kuzey:structure_binder"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "K": {
+      "tag": "forge:ingots/kuzeyium"
+    }
+  },
+  "result": {
+    "item": "kuzey:iron_machine_frame"
+  }
+}

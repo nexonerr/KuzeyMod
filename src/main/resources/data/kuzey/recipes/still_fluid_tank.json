@@ -1,18 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "FFF",
-    "FGF"
+    "GPG",
+    "G G",
+    "GGG"
   ],
   "key": {
-    "F": {
-      "item": "kuzey:kuzeyium_fabric"
-    },
     "G": {
+      "item": "kuzey:kuzeyium_glass"
+    },
+    "P": {
       "item": "kuzey:kuzeyium_glass_plate"
     }
   },
   "result": {
-    "item": "kuzey:kuzeyium_helmet"
+    "item": "kuzey:still_fluid_tank"
   }
 }

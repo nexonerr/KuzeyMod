@@ -1,16 +1,15 @@
 package com.nexoner.kuzey.block.entity.custom;
 
-import com.nexoner.kuzey.block.custom.KuzeyiumPurificationChamberBlock;
+import com.nexoner.kuzey.block.custom.EmreEssenceExtractorBlock;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
-import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.recipe.KuzeyiumPurificationChamberRecipe;
 import com.nexoner.kuzey.screen.KuzeyiumPurificationChamberMenu;
 import com.nexoner.kuzey.util.CustomEnergyStorage;
+import com.nexoner.kuzey.util.WrappedHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
@@ -20,7 +19,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -34,6 +32,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
+import java.util.Map;
 import java.util.Optional;
 
 public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implements MenuProvider {
@@ -45,6 +44,13 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
     };
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+    private final Map<Direction, LazyOptional<WrappedHandler>> directionWrappedHandlerMap =
+            Map.of(Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> i == 2, (i, s) -> false)),
+                    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> false, (i, s) -> i == 1)),
+                    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> false, (i, s) -> i == 1)),
+                    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> false, (i, s) -> i == 0)),
+                    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> false, (i, s) -> i == 0)));
+
     private LazyOptional<CustomEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
 
     public final CustomEnergyStorage energyStorage;
@@ -105,9 +111,24 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
+        if(side == null) {
             return lazyItemHandler.cast();
-        } else if (cap == CapabilityEnergy.ENERGY){
+        }
+        if(directionWrappedHandlerMap.containsKey(side)) {
+            Direction localDir = this.getBlockState().getValue(EmreEssenceExtractorBlock.FACING);
+
+            if(side == Direction.UP || side == Direction.DOWN) {
+                return directionWrappedHandlerMap.get(side).cast();
+            }
+
+            return switch (localDir) {
+                default -> directionWrappedHandlerMap.get(side.getOpposite()).cast();
+                case EAST -> directionWrappedHandlerMap.get(side.getClockWise()).cast();
+                case SOUTH -> directionWrappedHandlerMap.get(side).cast();
+                case WEST -> directionWrappedHandlerMap.get(side.getCounterClockWise()).cast();
+            };
+        }} else if (cap == CapabilityEnergy.ENERGY){
             return lazyEnergyHandler.cast();
         }
         return super.getCapability(cap, side);

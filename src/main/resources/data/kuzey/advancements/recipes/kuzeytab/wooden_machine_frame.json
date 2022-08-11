@@ -2,18 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "kuzey:devastator"
+      "kuzey:wooden_machine_frame"
     ]
   },
   "criteria": {
-    "has_wooden_machine_frame": {
+    "has_kuzeyium_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "kuzey:wooden_machine_frame"
-            ]
+            "tag": "forge:ingots/kuzeyium"
           }
         ]
       }
@@ -21,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "kuzey:devastator"
+        "recipe": "kuzey:wooden_machine_frame"
       }
     }
   },
   "requirements": [
     [
-      "has_wooden_machine_frame",
+      "has_kuzeyium_ingot",
       "has_the_recipe"
     ]
   ]

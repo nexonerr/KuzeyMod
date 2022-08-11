@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "KGK",
-    "KLK",
+    "KMK",
     "KEK"
   ],
   "key": {
@@ -15,8 +15,8 @@
     "E": {
       "item": "minecraft:end_stone_bricks"
     },
-    "L": {
-      "tag": "kuzey:kuzeyian_logs"
+    "M": {
+      "item": "kuzey:iron_machine_frame"
     }
   },
   "result": {

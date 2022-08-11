@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "kuzey:kuzeyium_ingot"
+    },
+    {
+      "item": "kuzey:kuzeyium_ingot"
+    },
+    {
+      "item": "kuzey:kuzeyium_ingot"
+    },
+    {
+      "item": "kuzey:kuzeyium_ingot"
+    },
+    {
+      "item": "kuzey:kuzeyium_smithing_hammer"
+    }
+  ],
+  "result": {
+    "item": "kuzey:kuzeyium_plate"
+  }
+}

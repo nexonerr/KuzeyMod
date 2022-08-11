@@ -1,5 +1,6 @@
 package com.nexoner.kuzey.block.entity.custom;
 
+import com.nexoner.kuzey.block.custom.EmreEssenceExtractorBlock;
 import com.nexoner.kuzey.block.entity.EntityType.IFluidHandlingBlockEntity;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.networking.ModPackets;
@@ -7,8 +8,9 @@ import com.nexoner.kuzey.networking.packet.FluidSyncPacket;
 import com.nexoner.kuzey.recipe.EmreEssenceExtractorRecipe;
 import com.nexoner.kuzey.screen.EmreEssenceExtractorMenu;
 import com.nexoner.kuzey.util.CustomEnergyStorage;
-import com.nexoner.kuzey.util.CustomFluidTank;
 import com.nexoner.kuzey.util.ModTags;
+import com.nexoner.kuzey.util.OutputOnlyFluidTank;
+import com.nexoner.kuzey.util.WrappedHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -21,17 +23,16 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -42,6 +43,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
+import java.util.Map;
 import java.util.Optional;
 
 public class EmreEssenceExtractorBlockEntity extends BlockEntity implements MenuProvider, IFluidHandlingBlockEntity {
@@ -53,11 +55,19 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
     };
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+    private final Map<Direction, LazyOptional<WrappedHandler>> directionWrappedHandlerMap =
+            Map.of(Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> i == 0, (i, s) -> i == 0)),
+                    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> i == 0, (i, s) -> i == 0)),
+                    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> i == 0, (i, s) -> i == 0)),
+                    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> i == 0, (i, s) -> i == 0)),
+                    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> i == 0, (i, s) -> i == 0)));
+
+
     private LazyOptional<CustomEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
     private LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.empty();
 
     public final CustomEnergyStorage energyStorage;
-    public final CustomFluidTank fluidTank;
+    public final OutputOnlyFluidTank fluidTank;
 
     private final int capacity = 140000;
     private final int maxReceived = 32000;
@@ -68,6 +78,7 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
     private final int defaultRecipeTime = 400;
     private final int fluidCapacity = 30000;
     private final boolean fluidFiltering = true;
+    private final int BUCKET_VOLUME = FluidAttributes.BUCKET_VOLUME;
 
     public EmreEssenceExtractorBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.EMRE_ESSENCE_EXTRACTOR_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -126,8 +137,25 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            return lazyItemHandler.cast();
-        } else if (cap == CapabilityEnergy.ENERGY){
+            if(side == null) {
+                return lazyItemHandler.cast();
+            }
+            if(directionWrappedHandlerMap.containsKey(side)) {
+                Direction localDir = this.getBlockState().getValue(EmreEssenceExtractorBlock.FACING);
+
+                if(side == Direction.UP || side == Direction.DOWN) {
+                    return directionWrappedHandlerMap.get(side).cast();
+                }
+
+                return switch (localDir) {
+                    default -> directionWrappedHandlerMap.get(side.getOpposite()).cast();
+                    case EAST -> directionWrappedHandlerMap.get(side.getClockWise()).cast();
+                    case SOUTH -> directionWrappedHandlerMap.get(side).cast();
+                    case WEST -> directionWrappedHandlerMap.get(side.getCounterClockWise()).cast();
+                };
+            }
+        }
+          else if (cap == CapabilityEnergy.ENERGY){
             return lazyEnergyHandler.cast();
         } else if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
             return lazyFluidHandler.cast();
@@ -206,7 +234,7 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
             if (match.get().getResultFluid() == null || match.get().getResultFluid().getFluid() == Fluids.EMPTY) {
                 throw new NullPointerException("No such fluid to insert");
             }
-            this.fluidTank.fill(match.get().getResultFluid(), IFluidHandler.FluidAction.EXECUTE);
+            this.fluidTank.fillAux(match.get().getResultFluid(), IFluidHandler.FluidAction.EXECUTE);
 
             entity.resetProgress();
         }
@@ -220,15 +248,15 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
         return new CustomEnergyStorage(this, capacity, maxReceived,0,0);
     }
 
-    private CustomFluidTank createFluidTank(){
+    private OutputOnlyFluidTank createFluidTank(){
         if (fluidFiltering == false){
-        return new CustomFluidTank(fluidCapacity, this){
+        return new OutputOnlyFluidTank(fluidCapacity, this){
             @Override
             protected void onContentsChanged() {
                 if (!level.isClientSide()) {
                     ModPackets.sendToClients(new FluidSyncPacket(this.fluid, worldPosition));
                 }}};}
-        return new CustomFluidTank(fluidCapacity, this, ModTags.Fluids.EMRE_ESSENCE_EXTRACTOR_FLUIDS){
+        return new OutputOnlyFluidTank(fluidCapacity, this, ModTags.Fluids.EMRE_ESSENCE_EXTRACTOR_FLUIDS){
             @Override
             protected void onContentsChanged() {
                 if (!level.isClientSide()) {
@@ -302,15 +330,14 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
     private void transferLiquidIntoItem(EmreEssenceExtractorBlockEntity entity){
         ItemStack toChange = itemHandler.getStackInSlot(1);
         if (toChange.getItem().getRegistryName() == Items.BUCKET.getRegistryName()){
-            if (fluidTank.getFluidAmount() >= 1000){
+            if (fluidTank.getFluidAmount() >= BUCKET_VOLUME && itemHandler.getStackInSlot(1).getCount() == 1){
                 ItemStack toSet = new ItemStack(fluidTank.getFluid().getFluid().getBucket());
-                fluidTank.drain(1000, IFluidHandler.FluidAction.EXECUTE);
+                fluidTank.drain(BUCKET_VOLUME, IFluidHandler.FluidAction.EXECUTE);
                 itemHandler.setStackInSlot(1, toSet);
             }
         } else {
         toChange.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).ifPresent(handler ->{
-            int toDrain = Math.min(Math.min(1000, this.fluidTank.getFluidAmount()), handler.getTankCapacity(0) - handler.getFluidInTank(0).getAmount());
-            //TODO: Change this to a properly serialized number
+            int toDrain = Math.min(Math.min(BUCKET_VOLUME, this.fluidTank.getFluidAmount()), handler.getTankCapacity(0) - handler.getFluidInTank(0).getAmount());
             if (toDrain > 0){
                 FluidStack stack = fluidTank.drain(toDrain, IFluidHandler.FluidAction.EXECUTE);
                 handler.fill(stack, IFluidHandler.FluidAction.EXECUTE);

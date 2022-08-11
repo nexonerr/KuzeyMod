@@ -34,6 +34,11 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.KUZEYIUM_WORKSTATION.get());
         this.dropSelf(ModBlocks.KUZEYIUM_BLOCK.get());
         this.dropSelf(ModBlocks.EMRE_ESSENCE_EXTRACTOR.get());
+        this.dropSelf(ModBlocks.WOODEN_MACHINE_FRAME.get());
+        this.dropSelf(ModBlocks.IRON_MACHINE_FRAME.get());
+        this.dropSelf(ModBlocks.DIAMOND_MACHINE_FRAME.get());
+        this.dropSelf(ModBlocks.UNACTIVATED_INFUSED_MACHINE_FRAME.get());
+        this.dropSelf(ModBlocks.INFUSED_MACHINE_FRAME.get());
 
         this.add(ModBlocks.KUZEYIUM_ORE.get(), (block) -> createOreDrop(ModBlocks.KUZEYIUM_ORE.get(), ModItems.RAW_KUZEYIUM.get()));
         this.add(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get(), (block) -> createOreDrop(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get(), ModItems.EMRE_ESSENCE_ROCK.get()));

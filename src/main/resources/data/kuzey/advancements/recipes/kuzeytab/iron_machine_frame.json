@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "kuzey:devastator"
+      "kuzey:iron_machine_frame"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "kuzey:devastator"
+        "recipe": "kuzey:iron_machine_frame"
       }
     }
   },

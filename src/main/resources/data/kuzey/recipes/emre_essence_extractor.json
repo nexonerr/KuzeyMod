@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SIS",
+    "TMK",
+    "EOK"
+  ],
+  "key": {
+    "S": {
+      "item": "kuzey:structure_binder"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "T": {
+      "item": "kuzey:still_fluid_tank"
+    },
+    "M": {
+      "item": "kuzey:diamond_machine_frame"
+    },
+    "K": {
+      "item": "kuzey:kuzeyium_plate"
+    },
+    "E": {
+      "item": "kuzey:emre_essence_rock"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "result": {
+    "item": "kuzey:emre_essence_extractor"
+  }
+}

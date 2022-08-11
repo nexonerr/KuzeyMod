@@ -29,6 +29,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.KUZEYIUM_BLOCK.get());
         simpleBlock(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get());
         simpleBlock(ModBlocks.DEEPSLATE_EMRE_ESSENCE_ROCK_ORE.get());
+        simpleBlock(ModBlocks.WOODEN_MACHINE_FRAME.get());
+        simpleBlock(ModBlocks.IRON_MACHINE_FRAME.get());
+        simpleBlock(ModBlocks.DIAMOND_MACHINE_FRAME.get());
+        simpleBlock(ModBlocks.UNACTIVATED_INFUSED_MACHINE_FRAME.get());
+        simpleBlock(ModBlocks.INFUSED_MACHINE_FRAME.get());
 
         simpleBlock(ModBlocks.KUZEYIAN_SAPLING.get(), models().cross(ModBlocks.KUZEYIAN_SAPLING.get().getRegistryName().getPath(), blockTexture(ModBlocks.KUZEYIAN_SAPLING.get())));
 

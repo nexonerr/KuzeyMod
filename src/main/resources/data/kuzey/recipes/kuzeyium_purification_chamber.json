@@ -3,7 +3,7 @@
   "pattern": [
     "KGK",
     "LCL",
-    "KEK"
+    "KMK"
   ],
   "key": {
     "K": {
@@ -12,8 +12,8 @@
     "L": {
       "tag": "kuzey:kuzeyian_logs"
     },
-    "E": {
-      "item": "minecraft:end_stone_bricks"
+    "M": {
+      "item": "kuzey:diamond_machine_frame"
     },
     "G": {
       "item": "kuzey:kuzeyium_glass_plate"

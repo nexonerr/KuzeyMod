@@ -1,9 +1,11 @@
 package com.nexoner.kuzey.block.entity.custom;
 
+import com.nexoner.kuzey.block.custom.EmreEssenceExtractorBlock;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.recipe.KuzeyiumWorkstationRecipe;
 import com.nexoner.kuzey.screen.KuzeyiumWorkstationMenu;
+import com.nexoner.kuzey.util.WrappedHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -30,6 +32,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
 
@@ -42,6 +45,12 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
     };
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+    private final Map<Direction, LazyOptional<WrappedHandler>> directionWrappedHandlerMap =
+            Map.of(Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> i == 5, (i, s) -> false)),
+                    Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> false, (i, s) -> i == 2)),
+                    Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> false, (i, s) -> i == 3)),
+                    Direction.EAST, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> false, (i, s) -> i == 4)),
+                    Direction.WEST, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> false, (i, s) -> (i == 0 && s.getItem() == ModItems.KUZEYIUM_SAW.get()) || (i == 1 && s.getItem() == ModItems.KUZEYIUM_SMITHING_HAMMER.get()))));
 
     protected final ContainerData data;
     private int progress = 0;
@@ -90,9 +99,24 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            return lazyItemHandler.cast();
-        }
+        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
+            if(side == null) {
+                return lazyItemHandler.cast();
+            }
+            if(directionWrappedHandlerMap.containsKey(side)) {
+                Direction localDir = this.getBlockState().getValue(EmreEssenceExtractorBlock.FACING);
+
+                if(side == Direction.UP || side == Direction.DOWN) {
+                    return directionWrappedHandlerMap.get(side).cast();
+                }
+
+                return switch (localDir) {
+                    default -> directionWrappedHandlerMap.get(side.getOpposite()).cast();
+                    case EAST -> directionWrappedHandlerMap.get(side.getClockWise()).cast();
+                    case SOUTH -> directionWrappedHandlerMap.get(side).cast();
+                    case WEST -> directionWrappedHandlerMap.get(side.getCounterClockWise()).cast();
+                };
+            }}
         return super.getCapability(cap, side);
     }
 

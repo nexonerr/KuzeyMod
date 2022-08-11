@@ -16,6 +16,9 @@
   "item.kuzey.spawner_irritator": "Kuzeyium Spawner Irritator",
   "item.kuzey.emre_essence_bucket": "Emre Essence Bucket",
   "item.kuzey.emre_essence_rock": "Emre Essence Rock",
+  "item.kuzey.still_fluid_tank": "Still Fluid Tank",
+  "item.kuzey.structure_binder": "Structure Binder",
+  "item.kuzey.kuzeyium_plate": "Kuzeyium Plate",
 
   "item.kuzey.kuzeyium_sword": "Kuzeyium Murderer",
   "item.kuzey.kuzeyium_axe": "Kuzeyium Deforester",
@@ -44,6 +47,11 @@
   "block.kuzey.emre_essence_extractor": "Emre Essence Extractor",
   "block.kuzey.emre_essence_rock_ore": "Emre Essence Rock Ore",
   "block.kuzey.deepslate_emre_essence_rock_ore": "Deepslate Emre Essence Rock Ore",
+  "block.kuzey.wooden_machine_frame": "Wooden Machine Frame",
+  "block.kuzey.iron_machine_frame": "Iron Machine Frame",
+  "block.kuzey.diamond_machine_frame": "Diamond Machine Frame",
+  "block.kuzey.unactivated_infused_machine_frame": "Unactivated Infused Machine Frame",
+  "block.kuzey.infused_machine_frame": "Infused Machine Frame",
 
   "fluid.kuzey.emre_essence": "Emre Essence",
 

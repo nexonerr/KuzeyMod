@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "kuzey:block/kuzeyian_sapling"
-  }
+  "parent": "kuzey:block/kuzeyian_sapling"
 }

@@ -43,6 +43,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SPAWNER_IRRITATOR.get());
         simpleItem(ModItems.EMRE_ESSENCE_BUCKET.get());
         simpleItem(ModItems.EMRE_ESSENCE_ROCK.get());
+        simpleItem(ModItems.STRUCTURE_BINDER.get());
+        simpleItem(ModItems.STILL_FLUID_TANK.get());
+        simpleItem(ModItems.KUZEYIUM_PLATE.get());
 
         handheldItem(ModItems.KUZEYIUM_SWORD.get());
         handheldItem(ModItems.KUZEYIUM_AXE.get());
@@ -55,10 +58,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleBlockItem(ModBlocks.KUZEYIUM_GLASS.get());
         simpleBlockItem(ModBlocks.KUZEYIAN_PLANKS.get());
         simpleBlockItem(ModBlocks.KUZEYIAN_LEAVES.get());
-        simpleBlockItem(ModBlocks.KUZEYIAN_SAPLING.get());
         simpleBlockItem(ModBlocks.KUZEYIUM_BLOCK.get());
         simpleBlockItem(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get());
         simpleBlockItem(ModBlocks.DEEPSLATE_EMRE_ESSENCE_ROCK_ORE.get());
+        simpleBlockItem(ModBlocks.WOODEN_MACHINE_FRAME.get());
+        simpleBlockItem(ModBlocks.IRON_MACHINE_FRAME.get());
+        simpleBlockItem(ModBlocks.DIAMOND_MACHINE_FRAME.get());
+        simpleBlockItem(ModBlocks.UNACTIVATED_INFUSED_MACHINE_FRAME.get());
+        simpleBlockItem(ModBlocks.INFUSED_MACHINE_FRAME.get());
 
         blockItem(ModBlocks.KUZEYIAN_LOG_STRIPPED.get());
         blockItem(ModBlocks.KUZEYIAN_LOG.get());
@@ -67,6 +74,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get());
         blockItem(ModBlocks.KUZEYIUM_WORKSTATION.get());
         blockItem(ModBlocks.EMRE_ESSENCE_EXTRACTOR.get());
+        blockItem(ModBlocks.KUZEYIAN_SAPLING.get());
 
     }
     private ItemModelBuilder simpleItem(Item item) {

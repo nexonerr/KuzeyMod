@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "kuzey:devastator"
+      "kuzey:unactivated_infused_machine_frame"
     ]
   },
   "criteria": {
-    "has_wooden_machine_frame": {
+    "has_diamond_machine_frame": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "kuzey:wooden_machine_frame"
+              "kuzey:diamond_machine_frame"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "kuzey:devastator"
+        "recipe": "kuzey:unactivated_infused_machine_frame"
       }
     }
   },
   "requirements": [
     [
-      "has_wooden_machine_frame",
+      "has_diamond_machine_frame",
       "has_the_recipe"
     ]
   ]

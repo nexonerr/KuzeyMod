@@ -162,6 +162,31 @@ public class ModBlocks {
                     UniformInt.of(4,9)
             ), ModCreativeModTab.KUZEY_TAB);
 
+    public static final RegistryObject<Block> WOODEN_MACHINE_FRAME = registerBlock("wooden_machine_frame",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(2f,30f)
+            ), ModCreativeModTab.KUZEY_TAB);
+
+    public static final RegistryObject<Block> IRON_MACHINE_FRAME = registerBlock("iron_machine_frame",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(2f,30f)
+            ), ModCreativeModTab.KUZEY_TAB);
+
+    public static final RegistryObject<Block> DIAMOND_MACHINE_FRAME = registerBlock("diamond_machine_frame",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(2f,30f)
+            ), ModCreativeModTab.KUZEY_TAB);
+
+    public static final RegistryObject<Block> UNACTIVATED_INFUSED_MACHINE_FRAME = registerBlock("unactivated_infused_machine_frame",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(2f,30f)
+            ), ModCreativeModTab.KUZEY_TAB);
+
+    public static final RegistryObject<Block> INFUSED_MACHINE_FRAME = registerBlock("infused_machine_frame",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(2f,30f)
+            ), ModCreativeModTab.KUZEY_TAB);
+
 
     //Register Methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){

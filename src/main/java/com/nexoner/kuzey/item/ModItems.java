@@ -95,6 +95,15 @@ public class ModItems {
     public static final RegistryObject<Item> EMRE_ESSENCE_ROCK = ITEMS.register("emre_essence_rock",
             () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
+    public static final RegistryObject<Item> STILL_FLUID_TANK = ITEMS.register("still_fluid_tank",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> STRUCTURE_BINDER = ITEMS.register("structure_binder",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> KUZEYIUM_PLATE = ITEMS.register("kuzeyium_plate",
+            () -> new CraftSoundItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
