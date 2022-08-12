@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "group": "kuzeyium",
+  "ingredient": {
+    "item": "kuzey:kuzeyium_ore"
+  },
+  "result": "kuzey:kuzeyium_chunk",
+  "experience": 1.0,
+  "cookingtime": 150
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "kuzey:block/kuzeyian_sapling"
+  }
+}

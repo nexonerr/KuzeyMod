@@ -1,6 +1,6 @@
 package com.nexoner.kuzey.block.entity.custom;
 
-import com.nexoner.kuzey.block.custom.EmreEssenceExtractorBlock;
+import com.nexoner.kuzey.block.custom.KuzeyiumPurificationChamberBlock;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.recipe.KuzeyiumPurificationChamberRecipe;
 import com.nexoner.kuzey.screen.KuzeyiumPurificationChamberMenu;
@@ -116,7 +116,7 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
             return lazyItemHandler.cast();
         }
         if(directionWrappedHandlerMap.containsKey(side)) {
-            Direction localDir = this.getBlockState().getValue(EmreEssenceExtractorBlock.FACING);
+            Direction localDir = this.getBlockState().getValue(KuzeyiumPurificationChamberBlock.FACING);
 
             if(side == Direction.UP || side == Direction.DOWN) {
                 return directionWrappedHandlerMap.get(side).cast();

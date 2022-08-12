@@ -1,4 +1,4 @@
-package com.nexoner.kuzey.integration;
+package com.nexoner.kuzey.integration.jei;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.nexoner.kuzey.KuzeyMod;

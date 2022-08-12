@@ -23,6 +23,9 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<EmreEssenceExtractorMenu>> EMRE_ESSENCE_EXTRACTOR_MENU =
             registerMenuType(EmreEssenceExtractorMenu::new,"emre_essence_extractor_menu");
 
+    public static final RegistryObject<MenuType<TransmutationTableMenu>> TRANSMUTATION_TABLE_MENU =
+            registerMenuType(TransmutationTableMenu::new,"transmutation_table_menu");
+
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name){
         return MENUS.register(name, () -> IForgeMenuType.create(factory));
     }

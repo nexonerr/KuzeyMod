@@ -74,7 +74,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get());
         blockItem(ModBlocks.KUZEYIUM_WORKSTATION.get());
         blockItem(ModBlocks.EMRE_ESSENCE_EXTRACTOR.get());
-        blockItem(ModBlocks.KUZEYIAN_SAPLING.get());
+        blockItem(ModBlocks.TRANSMUTATION_TABLE.get());
 
     }
     private ItemModelBuilder simpleItem(Item item) {

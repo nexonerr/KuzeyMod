@@ -187,6 +187,13 @@ public class ModBlocks {
                     .strength(2f,30f)
             ), ModCreativeModTab.KUZEY_TAB);
 
+    public static final RegistryObject<Block> TRANSMUTATION_TABLE = registerBlock("transmutation_table",
+            () -> new TransmutationTableBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .strength(4f,30f)
+            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.transmutation_table");
+
 
     //Register Methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){

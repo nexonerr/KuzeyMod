@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "kuzey:kuzeyian_log"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyian_wood",
+    "count": 3
+  }
+}

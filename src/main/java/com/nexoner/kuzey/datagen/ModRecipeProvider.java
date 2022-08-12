@@ -317,6 +317,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(ModItems.EMRE_ESSENCE_ROCK.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
+        ShapedRecipeBuilder.shaped(ModBlocks.TRANSMUTATION_TABLE.get())
+                .define('G', ModItems.KUZEYIUM_GLASS_PLATE.get())
+                .define('E', Blocks.END_STONE_BRICKS)
+                .define('M', ModBlocks.DIAMOND_MACHINE_FRAME.get())
+                .define('K', ModItems.KUZEYIUM_PLATE.get())
+                .define('L', ModTags.Items.KUZEYIAN_LOGS)
+                .pattern("KGK")
+                .pattern("LML")
+                .pattern("KEK")
+                .unlockedBy("has_diamond_machine_frame", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.DIAMOND_MACHINE_FRAME.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
 
 
         ShapelessRecipeBuilder.shapeless(ModItems.KUZEYIUM_INGOT.get())
@@ -328,7 +341,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pFinishedRecipeConsumer);
 
         ShapelessRecipeBuilder.shapeless(ModItems.KUZEYIUM_PLATE.get())
-                .requires(ModItems.KUZEYIUM_INGOT.get(),4)
+                .requires(ModItems.ASCENDED_KUZEYIUM_GEM.get(),4)
                 .requires(ModItems.KUZEYIUM_SMITHING_HAMMER.get())
                 .unlockedBy("has_kuzeyium_ingot", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModTags.Items.KUZEYIUM_INGOTS).build()))

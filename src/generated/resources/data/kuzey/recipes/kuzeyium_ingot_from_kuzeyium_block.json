@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "kuzeyium_ingot",
+  "ingredients": [
+    {
+      "item": "kuzey:kuzeyium_block"
+    }
+  ],
+  "result": {
+    "item": "kuzey:kuzeyium_ingot",
+    "count": 9
+  }
+}

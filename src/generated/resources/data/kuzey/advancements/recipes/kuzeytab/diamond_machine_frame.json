@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:diamond_machine_frame"
+    ]
+  },
+  "criteria": {
+    "has_iron_machine_frame": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:iron_machine_frame"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:diamond_machine_frame"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_iron_machine_frame",
+      "has_the_recipe"
+    ]
+  ]
+}

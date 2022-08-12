@@ -1,6 +1,7 @@
 package com.nexoner.kuzey.block.entity.custom;
 
-import com.nexoner.kuzey.block.custom.EmreEssenceExtractorBlock;
+import com.nexoner.kuzey.block.custom.KuzeyiumPurificationChamberBlock;
+import com.nexoner.kuzey.block.custom.KuzeyiumWorkstationBlock;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.recipe.KuzeyiumWorkstationRecipe;
@@ -10,7 +11,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
@@ -104,7 +104,7 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
                 return lazyItemHandler.cast();
             }
             if(directionWrappedHandlerMap.containsKey(side)) {
-                Direction localDir = this.getBlockState().getValue(EmreEssenceExtractorBlock.FACING);
+                Direction localDir = this.getBlockState().getValue(KuzeyiumWorkstationBlock.FACING);
 
                 if(side == Direction.UP || side == Direction.DOWN) {
                     return directionWrappedHandlerMap.get(side).cast();

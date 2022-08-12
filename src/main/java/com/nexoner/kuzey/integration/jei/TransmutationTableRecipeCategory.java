@@ -1,9 +1,9 @@
-package com.nexoner.kuzey.integration;
+package com.nexoner.kuzey.integration.jei;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
-import com.nexoner.kuzey.recipe.KuzeyiumPurificationChamberRecipe;
+import com.nexoner.kuzey.recipe.TransmutationTableRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -23,12 +23,12 @@ import net.minecraft.world.item.ItemStack;
 
 import javax.annotation.Nonnull;
 
-public class KuzeyiumPurificationChamberRecipeCategory implements IRecipeCategory<KuzeyiumPurificationChamberRecipe> {
-    public static final RecipeType<KuzeyiumPurificationChamberRecipe> KUZEYIUM_PURIFICATION =
-            RecipeType.create(KuzeyMod.MOD_ID,"kuzeyium_purification",KuzeyiumPurificationChamberRecipe.class);
-    public final static ResourceLocation UID = new ResourceLocation(KuzeyMod.MOD_ID, "kuzeyium_purification");
+public class TransmutationTableRecipeCategory implements IRecipeCategory<TransmutationTableRecipe> {
+    public static final RecipeType<TransmutationTableRecipe> TRANSMUTATION =
+            RecipeType.create(KuzeyMod.MOD_ID,"transmutation",TransmutationTableRecipe.class);
+    public final static ResourceLocation UID = new ResourceLocation(KuzeyMod.MOD_ID, "transmutation");
     public final static ResourceLocation TEXTURE =
-            new ResourceLocation(KuzeyMod.MOD_ID, "textures/gui/jei/kuzeyium_purification_chamber_gui_jei.png");
+            new ResourceLocation(KuzeyMod.MOD_ID, "textures/gui/jei/transmutation_table_gui_jei.png");
     private IDrawableStatic energyStatic;
     //IDrawableAnimated energyAnim;
 
@@ -42,18 +42,18 @@ public class KuzeyiumPurificationChamberRecipeCategory implements IRecipeCategor
 
     private final int BAR_SIZE = 39;
 
-    public KuzeyiumPurificationChamberRecipeCategory(IGuiHelper helper, int maxEnergy) {
+    public TransmutationTableRecipeCategory(IGuiHelper helper, int maxEnergy) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 85);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.TRANSMUTATION_TABLE.get()));
         this.guiHelper = helper;
         this.maxEnergy = maxEnergy;
         this.energyStatic = this.guiHelper.createDrawable(TEXTURE, 177, 55, 9, 39);
-        this.progressStatic = this.guiHelper.createDrawable(TEXTURE,176,1,53,54);
-        this.progressAnim = this.guiHelper.createAnimatedDrawable(progressStatic, 300, IDrawableAnimated.StartDirection.LEFT,false);
+        this.progressStatic = this.guiHelper.createDrawable(TEXTURE,176,1,16,7);
+        this.progressAnim = this.guiHelper.createAnimatedDrawable(progressStatic, 80, IDrawableAnimated.StartDirection.BOTTOM,false);
     }
 
     //We have to call this method because the constructor can't take recipes therefore we can't get the usage cost before we initialize our energy bar
-    private int setupEnergyBar(KuzeyiumPurificationChamberRecipe recipe){
+    private int setupEnergyBar(TransmutationTableRecipe recipe){
             int usageCost = recipe.getUsageCost();
             int scaledBar = usageCost * BAR_SIZE / maxEnergy;
 
@@ -67,13 +67,13 @@ public class KuzeyiumPurificationChamberRecipeCategory implements IRecipeCategor
     }
 
     @Override
-    public Class<? extends KuzeyiumPurificationChamberRecipe> getRecipeClass() {
-        return KuzeyiumPurificationChamberRecipe.class;
+    public Class<? extends TransmutationTableRecipe> getRecipeClass() {
+        return TransmutationTableRecipe.class;
     }
 
     @Override
     public Component getTitle() {
-        return new TranslatableComponent("block.kuzey.kuzeyium_purification_chamber");
+        return new TranslatableComponent("block.kuzey.transmutation_table");
     }
 
     @Override
@@ -87,26 +87,25 @@ public class KuzeyiumPurificationChamberRecipeCategory implements IRecipeCategor
     }
 
     @Override
-    public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull KuzeyiumPurificationChamberRecipe recipe, @Nonnull IFocusGroup focusGroup) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 52, 16).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT, 52, 55).addIngredients(recipe.getIngredients().get(1));
+    public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull TransmutationTableRecipe recipe, @Nonnull IFocusGroup focusGroup) {
+        builder.addSlot(RecipeIngredientRole.INPUT, 74,54).addItemStack(new ItemStack(recipe.getIngredients().get(0).getItems()[0].getItem(), recipe.getInputAmount()));
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 110, 35).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 74, 15).addItemStack(recipe.getResultItem());
     }
 
     @Override
-    public void draw(KuzeyiumPurificationChamberRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
+    public void draw(TransmutationTableRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
         Minecraft minecraft = Minecraft.getInstance();
 
         String recipeTime = Math.round(recipe.getRecipeTime() / 20) + " seconds";
-        String usageCost = recipe.getUsageCost() + "FE";
+        String usageCost = recipe.getUsageCost() + "FE/t";
 
-        minecraft.font.draw(stack,recipeTime,9,76,0x404040);
+        minecraft.font.draw(stack,recipeTime,11,36,0x404040);
         minecraft.font.draw(stack,usageCost,120,15,0x404040);
 
         int scaledBar = setupEnergyBar(recipe);
         energyStatic.draw(stack,140,66 - scaledBar);
 
-        progressAnim.draw(stack,52,16);
+        progressAnim.draw(stack,74,38);
     }
 }

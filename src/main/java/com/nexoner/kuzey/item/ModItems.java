@@ -104,6 +104,9 @@ public class ModItems {
     public static final RegistryObject<Item> KUZEYIUM_PLATE = ITEMS.register("kuzeyium_plate",
             () -> new CraftSoundItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
+    public static final RegistryObject<Item> ASCENDED_KUZEYIUM_GEM = ITEMS.register("ascended_kuzeyium_gem",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

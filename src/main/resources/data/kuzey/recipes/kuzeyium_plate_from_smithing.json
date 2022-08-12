@@ -1,0 +1,20 @@
+{
+  "type": "kuzey:kuzeyium_smithing",
+  "ingredients": [
+      {
+        "item": "kuzey:ascended_kuzeyium_gem"
+      },
+      {
+        "item": "kuzey:ascended_kuzeyium_gem"
+      },
+      {
+        "item": "kuzey:ascended_kuzeyium_gem"
+      }
+  ],
+  "output":{
+    "item": "kuzey:kuzeyium_plate",
+    "count": 1
+  },
+  "recipeTime": 300,
+  "toolDamage": 9
+}

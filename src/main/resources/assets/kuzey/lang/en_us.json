@@ -19,6 +19,7 @@
   "item.kuzey.still_fluid_tank": "Still Fluid Tank",
   "item.kuzey.structure_binder": "Structure Binder",
   "item.kuzey.kuzeyium_plate": "Kuzeyium Plate",
+  "item.kuzey.ascended_kuzeyium_gem": "Ascended Kuzeyium Gem",
 
   "item.kuzey.kuzeyium_sword": "Kuzeyium Murderer",
   "item.kuzey.kuzeyium_axe": "Kuzeyium Deforester",
@@ -52,6 +53,7 @@
   "block.kuzey.diamond_machine_frame": "Diamond Machine Frame",
   "block.kuzey.unactivated_infused_machine_frame": "Unactivated Infused Machine Frame",
   "block.kuzey.infused_machine_frame": "Infused Machine Frame",
+  "block.kuzey.transmutation_table": "Transmutation Table",
 
   "fluid.kuzey.emre_essence": "Emre Essence",
 
@@ -69,7 +71,8 @@
   "tooltip.kuzey.block.kuzeyium_glass": "Infusing glass with kuzeyium seems to make it incredibly durable: is resistant to explosions.",
   "tooltip.kuzey.block.kuzeyium_purification_chamber": "Purifies kuzeyium more efficiently than the workstation, also doesn't require tools.",
   "tooltip.kuzey.block.kuzeyium_workstation": "Purifies kuzeyium more efficiently than crude smithing using more precise machinery.",
-  "tooltip.kuzey.block.emre_essence_extractor": "Extracts Emre Essence from Emre Essence rocks",
+  "tooltip.kuzey.block.emre_essence_extractor": "Extracts Fluids from certain minerals",
+  "tooltip.kuzey.block.transmutation_table": "Can turn one §e-or several-§r items into another",
 
   "tooltip.kuzey.alt.tooltip": "Press §e[ALT]§r for more information!"
 }

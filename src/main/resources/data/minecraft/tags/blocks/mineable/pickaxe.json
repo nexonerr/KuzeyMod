@@ -7,6 +7,12 @@
     "kuzey:kuzeyium_workstation",
     "kuzey:kuzeyium_purification_chamber",
     "kuzey:kuzeyium_block",
-    "kuzey:emre_essence_extractor"
+    "kuzey:emre_essence_extractor",
+    "kuzey:wooden_machine_frame",
+    "kuzey:iron_machine_frame",
+    "kuzey:diamond_machine_frame",
+    "kuzey:unactivated_infused_machine_frame",
+    "kuzey:infused_machine_frame",
+    "kuzey:transmutation_table"
   ]
 }

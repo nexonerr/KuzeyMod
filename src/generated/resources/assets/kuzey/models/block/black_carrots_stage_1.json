@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "kuzey:block/black_carrots_stage_1"
+  }
+}

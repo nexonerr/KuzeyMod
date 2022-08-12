@@ -39,6 +39,7 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.DIAMOND_MACHINE_FRAME.get());
         this.dropSelf(ModBlocks.UNACTIVATED_INFUSED_MACHINE_FRAME.get());
         this.dropSelf(ModBlocks.INFUSED_MACHINE_FRAME.get());
+        this.dropSelf(ModBlocks.TRANSMUTATION_TABLE.get());
 
         this.add(ModBlocks.KUZEYIUM_ORE.get(), (block) -> createOreDrop(ModBlocks.KUZEYIUM_ORE.get(), ModItems.RAW_KUZEYIUM.get()));
         this.add(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get(), (block) -> createOreDrop(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get(), ModItems.EMRE_ESSENCE_ROCK.get()));
@@ -46,7 +47,7 @@ public class ModBlockLootTables extends BlockLoot {
 
         LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.BLACK_CARROTS_PLANT.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlackCarrotsCropBlock.AGE, 3));
-        this.add(ModBlocks.BLACK_CARROTS_PLANT.get(), applyExplosionDecay(ModBlocks.BLACK_CARROTS_PLANT.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.CARROT)))
+        this.add(ModBlocks.BLACK_CARROTS_PLANT.get(), applyExplosionDecay(ModBlocks.BLACK_CARROTS_PLANT.get(), LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.BLACK_CARROTS.get())))
                 .withPool(LootPool.lootPool().when(lootitemcondition$builder).add(LootItem.lootTableItem(ModItems.BLACK_CARROTS.get()).apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 3))))));
 
         this.add(ModBlocks.KUZEYIAN_LEAVES.get(), (block) ->

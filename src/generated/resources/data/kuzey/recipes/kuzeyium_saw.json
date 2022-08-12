@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " KK",
+    "SK ",
+    "H  "
+  ],
+  "key": {
+    "K": {
+      "tag": "forge:ingots/kuzeyium"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "H": {
+      "item": "kuzey:kuzeyian_tool_handle"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyium_saw"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:kuzeyium_helmet"
+    ]
+  },
+  "criteria": {
+    "has_kuzeyium_fabric": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:kuzeyium_fabric"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:kuzeyium_helmet"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_kuzeyium_fabric",
+      "has_the_recipe"
+    ]
+  ]
+}

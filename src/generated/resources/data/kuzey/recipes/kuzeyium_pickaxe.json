@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "KKK",
+    " K ",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "item": "kuzey:kuzeyian_tool_handle"
+    },
+    "K": {
+      "tag": "forge:ingots/kuzeyium"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyium_pickaxe"
+  }
+}
