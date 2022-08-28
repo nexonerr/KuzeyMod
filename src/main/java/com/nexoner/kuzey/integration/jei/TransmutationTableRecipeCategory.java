@@ -98,7 +98,7 @@ public class TransmutationTableRecipeCategory implements IRecipeCategory<Transmu
         Minecraft minecraft = Minecraft.getInstance();
 
         String recipeTime = Math.round(recipe.getRecipeTime() / 20) + " seconds";
-        String usageCost = recipe.getUsageCost() + "FE/t";
+        String usageCost = recipe.getUsageCost() + " FE/t";
 
         minecraft.font.draw(stack,recipeTime,11,36,0x404040);
         minecraft.font.draw(stack,usageCost,120,15,0x404040);

@@ -2,6 +2,7 @@ package com.nexoner.kuzey.networking;
 
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.networking.packet.FluidSyncPacket;
+import com.nexoner.kuzey.networking.packet.ItemStackSyncPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -18,7 +19,7 @@ public class ModPackets {
     private static int id() {
         return packetId++;
     }
-    private static final String PROTOCOL_VERSION = "0.1";
+    private static final String PROTOCOL_VERSION = "0.1.1";
 
     public static void register(){
         SimpleChannel net = NetworkRegistry.newSimpleChannel(
@@ -34,6 +35,12 @@ public class ModPackets {
             .encoder(FluidSyncPacket::toBytes)
             .consumer(FluidSyncPacket::handle)
             .add();
+
+        net.messageBuilder(ItemStackSyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(ItemStackSyncPacket::new)
+                .encoder(ItemStackSyncPacket::toBytes)
+                .consumer(ItemStackSyncPacket::handle)
+                .add();
     }
 
     public static <MSG> void sendToServer(MSG message) {

@@ -1,6 +1,6 @@
 {
   "type": "minecraft:blasting",
-  "group": "kuzeyium",
+  "group": "kuzey:kuzeyium",
   "ingredient": {
     "item": "kuzey:kuzeyium_ore"
   },

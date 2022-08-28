@@ -16,7 +16,7 @@ import net.minecraftforge.items.SlotItemHandler;
 public class KuzeyiumPurificationChamberMenu extends AbstractContainerMenu {
     private final KuzeyiumPurificationChamberBlockEntity blockEntity;
     private final Level level;
-    private final ContainerData data;
+    public final ContainerData data;
 
     public KuzeyiumPurificationChamberMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
@@ -56,12 +56,6 @@ public class KuzeyiumPurificationChamberMenu extends AbstractContainerMenu {
         int energyBarSize = 39;
 
         return maxEnergy != 0 && energyStored !=0 ? energyStored * energyBarSize / maxEnergy : 0;
-    }
-    public String getEnergyText(){
-        int energyStored = this.data.get(2);
-        int maxEnergy = this.data.get(3);
-        String finalString = Integer.toString(energyStored) + "/" + Integer.toString(maxEnergy) + "FE";
-        return finalString;
     }
 
     private static final int HOTBAR_SLOT_COUNT = 9;

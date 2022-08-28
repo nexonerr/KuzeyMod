@@ -1,16 +1,13 @@
 package com.nexoner.kuzey.block.entity.custom;
 
 import com.nexoner.kuzey.block.custom.EmreEssenceExtractorBlock;
-import com.nexoner.kuzey.block.entity.EntityType.IFluidHandlingBlockEntity;
+import com.nexoner.kuzey.block.entity.entityType.IFluidHandlingBlockEntity;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.networking.ModPackets;
 import com.nexoner.kuzey.networking.packet.FluidSyncPacket;
 import com.nexoner.kuzey.recipe.EmreEssenceExtractorRecipe;
 import com.nexoner.kuzey.screen.EmreEssenceExtractorMenu;
-import com.nexoner.kuzey.util.CustomEnergyStorage;
-import com.nexoner.kuzey.util.ModTags;
-import com.nexoner.kuzey.util.OutputOnlyFluidTank;
-import com.nexoner.kuzey.util.WrappedHandler;
+import com.nexoner.kuzey.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -32,7 +29,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
-import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -46,7 +42,7 @@ import javax.annotation.Nonnull;
 import java.util.Map;
 import java.util.Optional;
 
-public class EmreEssenceExtractorBlockEntity extends BlockEntity implements MenuProvider, IFluidHandlingBlockEntity {
+public class EmreEssenceExtractorBlockEntity extends BlockEntity implements MenuProvider, IFluidHandlingBlockEntity, IKuzeyConstants {
     private final ItemStackHandler itemHandler = new ItemStackHandler(2){
         @Override
         protected void onContentsChanged(int slot) {
@@ -78,7 +74,7 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
     private final int defaultRecipeTime = 400;
     private final int fluidCapacity = 30000;
     private final boolean fluidFiltering = true;
-    private final int BUCKET_VOLUME = FluidAttributes.BUCKET_VOLUME;
+    private final int BUCKET_VOLUME = IKuzeyConstants.BUCKET_VOLUME;
 
     public EmreEssenceExtractorBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.EMRE_ESSENCE_EXTRACTOR_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -327,7 +323,7 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
         return itemHandler.getStackInSlot(1).getCount() > 0;
     }
 
-    private void transferLiquidIntoItem(EmreEssenceExtractorBlockEntity entity){
+    private void transferLiquidIntoItem(){
         ItemStack toChange = itemHandler.getStackInSlot(1);
         if (toChange.getItem().getRegistryName() == Items.BUCKET.getRegistryName()){
             if (fluidTank.getFluidAmount() >= BUCKET_VOLUME && itemHandler.getStackInSlot(1).getCount() == 1){
@@ -360,7 +356,7 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
             setChanged(pLevel, pPos, pState);
         }
         if (hasFluidTankInSlot()){
-            transferLiquidIntoItem(this);
+            transferLiquidIntoItem();
         }
     }
 }

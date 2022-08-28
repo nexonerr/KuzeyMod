@@ -1,0 +1,17 @@
+{
+  "type": "kuzey:emre_essence_infusion",
+  "ingredients": [
+      {
+        "item": "kuzey:ascended_kuzeyium_gem"
+      }
+  ],
+  "output":{
+    "item": "kuzey:infused_kuzeyium_gem"
+  },
+  "fluid":{
+    "fluid": "kuzey:emre_essence",
+    "amount": 400
+  },
+    "usageCost": 22000,
+    "recipeTime": 440
+}

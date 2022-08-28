@@ -41,6 +41,7 @@ public class ModTags {
     }
     public static class Fluids {
         public static final TagKey<Fluid> EMRE_ESSENCE_EXTRACTOR_FLUIDS = tag("emre_essence_extractor_fluids");
+        public static final TagKey<Fluid> EMRE_ESSENCE_INFUSER_FLUIDS = tag("emre_essence_infuser_fluids");
 
         private static TagKey<Fluid> tag(String name) {
             return FluidTags.create(new ResourceLocation(KuzeyMod.MOD_ID, name));

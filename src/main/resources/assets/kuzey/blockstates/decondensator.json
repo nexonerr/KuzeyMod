@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "kuzey:block/decondensator" },
+    "facing=east": { "model": "kuzey:block/decondensator", "y": 90 },
+    "facing=south": { "model": "kuzey:block/decondensator", "y": 180 },
+    "facing=west": { "model": "kuzey:block/decondensator", "y": 270 }
+  }
+}

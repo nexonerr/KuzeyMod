@@ -1,8 +1,6 @@
 package com.nexoner.kuzey.networking.packet;
 
-import com.nexoner.kuzey.block.custom.EmreEssenceExtractorBlock;
-import com.nexoner.kuzey.block.entity.EntityType.IFluidHandlingBlockEntity;
-import com.nexoner.kuzey.block.entity.custom.EmreEssenceExtractorBlockEntity;
+import com.nexoner.kuzey.block.entity.entityType.IFluidHandlingBlockEntity;
 import com.nexoner.kuzey.screen.menutype.IFluidMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;

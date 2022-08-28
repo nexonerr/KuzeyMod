@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IRI",
+    "KKK",
+    "IRI"
+  ],
+  "key": {
+    "K": {
+      "item": "kuzey:kuzeyium_nugget"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyium_heating_coil"
+  }
+}

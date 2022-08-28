@@ -6,16 +6,18 @@ import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.util.ModTags;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.SimpleCookingSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import org.lwjgl.system.CallbackI;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
@@ -320,14 +322,66 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder.shaped(ModBlocks.TRANSMUTATION_TABLE.get())
                 .define('G', ModItems.KUZEYIUM_GLASS_PLATE.get())
                 .define('E', Blocks.END_STONE_BRICKS)
-                .define('M', ModBlocks.DIAMOND_MACHINE_FRAME.get())
-                .define('K', ModItems.KUZEYIUM_PLATE.get())
+                .define('M', ModBlocks.IRON_MACHINE_FRAME.get())
+                .define('K', ModTags.Items.KUZEYIUM_INGOTS)
                 .define('L', ModTags.Items.KUZEYIAN_LOGS)
-                .pattern("KGK")
+                .define('D', Blocks.DIAMOND_BLOCK)
+                .define('B', ModBlocks.KUZEYIUM_BLOCK.get())
+                .pattern("DGB")
                 .pattern("LML")
                 .pattern("KEK")
+                .unlockedBy("has_iron_machine_frame", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.IRON_MACHINE_FRAME.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.KUZEYIUM_HEATING_COIL.get())
+                .define('K', ModItems.KUZEYIUM_NUGGET.get())
+                .define('I', Items.IRON_INGOT)
+                .define('R', Items.REDSTONE)
+                .pattern("IRI")
+                .pattern("KKK")
+                .pattern("IRI")
+                .unlockedBy("has_kuzeyium_nugget", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.KUZEYIUM_NUGGET.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.HEATING_FIN.get())
+                .define('K', ModItems.KUZEYIUM_NUGGET.get())
+                .define('I', Items.IRON_INGOT)
+                .define('C', ItemTags.COALS)
+                .define('B', Blocks.IRON_BLOCK)
+                .pattern("ICC")
+                .pattern("IKB")
+                .pattern("ICC")
+                .unlockedBy("has_kuzeyium_nugget", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.KUZEYIUM_NUGGET.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModBlocks.EMRE_ESSENCE_INFUSER.get())
+                .define('G', ModBlocks.KUZEYIUM_GLASS.get())
+                .define('E', ModItems.EMRE_ESSENCE_BUCKET.get())
+                .define('M', ModBlocks.DIAMOND_MACHINE_FRAME.get())
+                .define('P', ModItems.KUZEYIUM_PLATE.get())
+                .define('B', ModItems.STRUCTURE_BINDER.get())
+                .define('T', ModItems.STILL_FLUID_TANK.get())
+                .define('I', Blocks.IRON_BLOCK)
+                .pattern("TEB")
+                .pattern("GMP")
+                .pattern("IBP")
                 .unlockedBy("has_diamond_machine_frame", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModBlocks.DIAMOND_MACHINE_FRAME.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModBlocks.DECONDENSATOR.get())
+                .define('H', ModItems.HEATING_FIN.get())
+                .define('C', ModItems.KUZEYIUM_HEATING_COIL.get())
+                .define('M', ModBlocks.IRON_MACHINE_FRAME.get())
+                .define('I', Blocks.IRON_BLOCK)
+                .pattern("HCH")
+                .pattern("IMI")
+                .pattern("HCH")
+                .unlockedBy("has_iron_machine_frame", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.IRON_MACHINE_FRAME.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
 
@@ -348,8 +402,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pFinishedRecipeConsumer);
 
 
-        oreSmelting(pFinishedRecipeConsumer, KUZEYIUM_SMELTABLES, ModItems.KUZEYIUM_CHUNK.get(), 1.0F, 300, "kuzeyium");
-        oreBlasting(pFinishedRecipeConsumer, KUZEYIUM_SMELTABLES, ModItems.KUZEYIUM_CHUNK.get(), 1.0F, 150, "kuzeyium");
+        oreSmelting(pFinishedRecipeConsumer, KUZEYIUM_SMELTABLES, ModItems.KUZEYIUM_CHUNK.get(), 1.0F, 300, "kuzey:kuzeyium");
+        oreBlasting(pFinishedRecipeConsumer, KUZEYIUM_SMELTABLES, ModItems.KUZEYIUM_CHUNK.get(), 1.0F, 150, "kuzey:kuzeyium");
 
         planksFromLogs(pFinishedRecipeConsumer,ModBlocks.KUZEYIAN_PLANKS.get(), ModTags.Items.KUZEYIAN_LOGS);
         woodFromLogs(pFinishedRecipeConsumer,ModBlocks.KUZEYIAN_WOOD.get(),ModBlocks.KUZEYIAN_LOG.get());
@@ -381,4 +435,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapelessRecipeBuilder.shapeless(pIngredient,pCount).requires(pIngredient).group(pGroup).unlockedBy(getHasName(pIngredient), inventoryTrigger(ItemPredicate.Builder.item().of(pIngredient).build())).save(finishedRecipeConsumer);
     }
 
+    protected static void oreCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, SimpleCookingSerializer<?> pCookingSerializer, List<ItemLike> pIngredients, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
+        for (ItemLike itemlike : pIngredients) {
+            SimpleCookingRecipeBuilder.cooking(Ingredient.of(itemlike), pResult, pExperience, pCookingTime, pCookingSerializer).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike)).save(pFinishedRecipeConsumer, "kuzey:" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
+        }
+    }
+
+    protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
+        oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pResult, pExperience, pCookingTime, pGroup, "_from_smelting");
+    }
+
+    protected static void oreBlasting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
+        oreCooking(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE, pIngredients, pResult, pExperience, pCookingTime, pGroup, "_from_blasting");
+    }
 }

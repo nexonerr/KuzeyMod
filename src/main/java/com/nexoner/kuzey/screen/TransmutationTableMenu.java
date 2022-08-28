@@ -16,7 +16,7 @@ import net.minecraftforge.items.SlotItemHandler;
 public class TransmutationTableMenu extends AbstractContainerMenu {
     private final TransmutationTableBlockEntity blockEntity;
     private final Level level;
-    private final ContainerData data;
+    public final ContainerData data;
 
     public TransmutationTableMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
@@ -56,12 +56,6 @@ public class TransmutationTableMenu extends AbstractContainerMenu {
 
         return maxEnergy != 0 && energyStored !=0 ? energyStored * energyBarSize / maxEnergy : 0;
     }
-    public String getEnergyText(){
-        int energyStored = this.data.get(2);
-        int maxEnergy = this.data.get(3);
-        String finalString = Integer.toString(energyStored) + "/" + Integer.toString(maxEnergy) + "FE";
-        return finalString;
-    }
 
     private static final int HOTBAR_SLOT_COUNT = 9;
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
@@ -72,7 +66,7 @@ public class TransmutationTableMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 3;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 2;  // must be the number of slots you have!
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {

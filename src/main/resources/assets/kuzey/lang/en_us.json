@@ -20,6 +20,9 @@
   "item.kuzey.structure_binder": "Structure Binder",
   "item.kuzey.kuzeyium_plate": "Kuzeyium Plate",
   "item.kuzey.ascended_kuzeyium_gem": "Ascended Kuzeyium Gem",
+  "item.kuzey.kuzeyium_heating_coil": "Kuzeyium Heating Coil",
+  "item.kuzey.heating_fin": "Heating Fin",
+  "item.kuzey.infused_kuzeyium_gem": "Infused Kuzeyium Gem",
 
   "item.kuzey.kuzeyium_sword": "Kuzeyium Murderer",
   "item.kuzey.kuzeyium_axe": "Kuzeyium Deforester",
@@ -54,6 +57,8 @@
   "block.kuzey.unactivated_infused_machine_frame": "Unactivated Infused Machine Frame",
   "block.kuzey.infused_machine_frame": "Infused Machine Frame",
   "block.kuzey.transmutation_table": "Transmutation Table",
+  "block.kuzey.emre_essence_infuser": "Emre Essence Infuser",
+  "block.kuzey.decondensator": "Decondensator",
 
   "fluid.kuzey.emre_essence": "Emre Essence",
 
@@ -68,11 +73,16 @@
   "tooltip.kuzey.spawner_irritator.tooltip": "Makes a spawner spawn its respective mob type.",
 
   "tooltip.kuzey.block.devastator": "Deals damage cast by §4KUZEY§r to those standing above it. Toggleable via right clicking it.",
-  "tooltip.kuzey.block.kuzeyium_glass": "Infusing glass with kuzeyium seems to make it incredibly durable: is resistant to explosions.",
-  "tooltip.kuzey.block.kuzeyium_purification_chamber": "Purifies kuzeyium more efficiently than the workstation, also doesn't require tools.",
-  "tooltip.kuzey.block.kuzeyium_workstation": "Purifies kuzeyium more efficiently than crude smithing using more precise machinery.",
-  "tooltip.kuzey.block.emre_essence_extractor": "Extracts Fluids from certain minerals",
+  "tooltip.kuzey.block.kuzeyium_glass": "Infusing glass with §5kuzeyium§r seems to make it incredibly durable: is resistant to explosions.",
+  "tooltip.kuzey.block.kuzeyium_purification_chamber": "Purifies §5kuzeyium§r more efficiently than the workstation, also doesn't require tools.",
+  "tooltip.kuzey.block.kuzeyium_workstation": "Purifies §5kuzeyium§r more efficiently than crude smithing using more precise machinery.",
+  "tooltip.kuzey.block.emre_essence_extractor": "Extracts §bfluids§r from certain minerals",
   "tooltip.kuzey.block.transmutation_table": "Can turn one §e-or several-§r items into another",
+  "tooltip.kuzey.block.emre_essence_infuser": "Infuses items with §bfluids§r. Requires a §eDECONDENSATOR§r in order to function",
+  "tooltip.kuzey.block.decondensator": "§cHEATS§r stuff up, required for the §aEmre Essence Infuser§r to function",
 
-  "tooltip.kuzey.alt.tooltip": "Press §e[ALT]§r for more information!"
+  "tooltip.kuzey.alt.tooltip": "Press §e[ALT]§r for more information!",
+
+  "tooltip.kuzey.integration.jei.liquid_amount_with_capacity": "%s / %s mB",
+  "tooltip.kuzey.integration.jei.liquid_amount": "%s mB"
 }

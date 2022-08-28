@@ -102,12 +102,10 @@ public class EmreEssenceExtractorRecipeCategory implements IRecipeCategory<EmreE
         Minecraft minecraft = Minecraft.getInstance();
 
         String recipeTime = Math.round(recipe.getRecipeTime() / 20) + " seconds";
-        String usageCost = recipe.getUsageCost() + "FE/t";
-        String fluid = recipe.getResultFluid().getAmount() + "mb of " + recipe.getResultFluid().getFluid().getRegistryName().toString();
+        String usageCost = recipe.getUsageCost() + " FE/t";
 
         minecraft.font.draw(stack,recipeTime,15,56,0x404040);
         minecraft.font.draw(stack,usageCost,120,15,0x404040);
-        minecraft.font.draw(stack,fluid,15,72,0x404040);
 
         int scaledBar = setupEnergyBar(recipe);
         energyStatic.draw(stack,140,66 - scaledBar);

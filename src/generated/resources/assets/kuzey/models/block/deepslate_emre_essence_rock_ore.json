@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "kuzey:block/deepslate_emre_essence_rock_ore"
-  }
-}

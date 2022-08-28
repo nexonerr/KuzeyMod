@@ -13,6 +13,9 @@
     "kuzey:diamond_machine_frame",
     "kuzey:unactivated_infused_machine_frame",
     "kuzey:infused_machine_frame",
-    "kuzey:transmutation_table"
+    "kuzey:transmutation_table",
+    "kuzey:emre_essence_rock_ore",
+    "kuzey:deepslate_emre_essence_rock_ore",
+    "kuzey:emre_essence_infuser"
   ]
 }

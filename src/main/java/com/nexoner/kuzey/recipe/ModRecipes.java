@@ -21,7 +21,10 @@ public class ModRecipes {
             SERIALIZERS.register("emre_essence_extraction",() -> EmreEssenceExtractorRecipe.Serializer.INSTANCE);
 
     public static final RegistryObject<RecipeSerializer<TransmutationTableRecipe>> TRANSMUTATION =
-            SERIALIZERS.register("trasnmutation",() -> TransmutationTableRecipe.Serializer.INSTANCE);
+            SERIALIZERS.register("transmutation",() -> TransmutationTableRecipe.Serializer.INSTANCE);
+
+    public static final RegistryObject<RecipeSerializer<EmreEssenceInfuserRecipe>> EMRE_ESSENCE_INFUSION =
+            SERIALIZERS.register("emre_essence_infusion",() -> EmreEssenceInfuserRecipe.Serializer.INSTANCE);
 
     public static void register(IEventBus eventBus){
         SERIALIZERS.register(eventBus);

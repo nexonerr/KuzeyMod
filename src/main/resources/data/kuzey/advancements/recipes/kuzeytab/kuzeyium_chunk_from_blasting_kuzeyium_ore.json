@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:kuzeyium_chunk_from_blasting_kuzeyium_ore"
+      "kuzey:kuzeyium_chunk_from_blasting_kuzeyium_ore"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:kuzeyium_chunk_from_blasting_kuzeyium_ore"
+        "recipe": "kuzey:kuzeyium_chunk_from_blasting_kuzeyium_ore"
       }
     }
   },

@@ -25,7 +25,7 @@ import java.text.ParseException;
 public class EmreEssenceExtractorMenu extends AbstractContainerMenu implements IFluidMenu {
     public final EmreEssenceExtractorBlockEntity blockEntity;
     private final Level level;
-    private final ContainerData data;
+    public final ContainerData data;
     private FluidStack fluid;
 
     public EmreEssenceExtractorMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
@@ -66,18 +66,6 @@ public class EmreEssenceExtractorMenu extends AbstractContainerMenu implements I
         int energyBarSize = 39;
 
         return maxEnergy != 0 && energyStored !=0 ? energyStored * energyBarSize / maxEnergy : 0;
-    }
-    public String getEnergyText(){
-        int energyStored = this.data.get(2);
-        int maxEnergy = this.data.get(3);
-        String finalString = (energyStored) + "/" + (maxEnergy) + "FE";
-        return finalString;
-    }
-    public String getFluidText(){
-        int fluidAmount = this.data.get(4);
-        int fluidCapacity = this.data.get(5);
-        String finalString = (fluidAmount) + "/" + (fluidCapacity) + "mb";
-        return finalString;
     }
 
     @Override

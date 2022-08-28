@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "kuzey:block/wooden_machine_frame"
-  }
-}

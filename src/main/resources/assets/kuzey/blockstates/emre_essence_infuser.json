@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "kuzey:block/emre_essence_infuser" },
+    "facing=east": { "model": "kuzey:block/emre_essence_infuser", "y": 90 },
+    "facing=south": { "model": "kuzey:block/emre_essence_infuser", "y": 180 },
+    "facing=west": { "model": "kuzey:block/emre_essence_infuser", "y": 270 }
+  }
+}

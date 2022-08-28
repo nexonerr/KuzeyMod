@@ -46,6 +46,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.STRUCTURE_BINDER.get());
         simpleItem(ModItems.STILL_FLUID_TANK.get());
         simpleItem(ModItems.KUZEYIUM_PLATE.get());
+        simpleItem(ModItems.ASCENDED_KUZEYIUM_GEM.get());
+        simpleItem(ModItems.KUZEYIUM_HEATING_COIL.get());
+        simpleItem(ModItems.HEATING_FIN.get());
+        simpleItem(ModItems.INFUSED_KUZEYIUM_GEM.get());
 
         handheldItem(ModItems.KUZEYIUM_SWORD.get());
         handheldItem(ModItems.KUZEYIUM_AXE.get());
@@ -75,6 +79,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.KUZEYIUM_WORKSTATION.get());
         blockItem(ModBlocks.EMRE_ESSENCE_EXTRACTOR.get());
         blockItem(ModBlocks.TRANSMUTATION_TABLE.get());
+        blockItem(ModBlocks.EMRE_ESSENCE_INFUSER.get());
+        blockItem(ModBlocks.DECONDENSATOR.get());
 
     }
     private ItemModelBuilder simpleItem(Item item) {

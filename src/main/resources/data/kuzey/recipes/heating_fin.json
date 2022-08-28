@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ICC",
+    "IKB",
+    "ICC"
+  ],
+  "key": {
+    "K": {
+      "item": "kuzey:kuzeyium_nugget"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "tag": "minecraft:coals"
+    },
+    "B": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "kuzey:heating_fin"
+  }
+}

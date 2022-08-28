@@ -1,6 +1,6 @@
 {
   "type": "minecraft:smelting",
-  "group": "kuzeyium",
+  "group": "kuzey:kuzeyium",
   "ingredient": {
     "item": "kuzey:raw_kuzeyium"
   },

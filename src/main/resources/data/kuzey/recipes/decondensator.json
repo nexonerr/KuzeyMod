@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HCH",
+    "IMI",
+    "HCH"
+  ],
+  "key": {
+    "H": {
+      "item": "kuzey:heating_fin"
+    },
+    "C": {
+      "item": "kuzey:kuzeyium_heating_coil"
+    },
+    "M": {
+      "item": "kuzey:iron_machine_frame"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "kuzey:decondensator"
+  }
+}

@@ -63,6 +63,8 @@ public class KuzeyMod
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.KUZEYIUM_WORKSTATION.get(), RenderType.translucent());
 
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.EMRE_ESSENCE_INFUSER.get(), RenderType.translucent());
+
         ItemBlockRenderTypes.setRenderLayer(ModFluids.EMRE_ESSENCE_BLOCK.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModFluids.EMRE_ESSENCE_FLOWING.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModFluids.EMRE_ESSENCE_FLUID.get(), RenderType.translucent());
@@ -71,6 +73,8 @@ public class KuzeyMod
         MenuScreens.register(ModMenuTypes.KUZEYIUM_WORKSTATION_MENU.get(), KuzeyiumWorkstationScreen::new);
         MenuScreens.register(ModMenuTypes.EMRE_ESSENCE_EXTRACTOR_MENU.get(), EmreEssenceExtractorScreen::new);
         MenuScreens.register(ModMenuTypes.TRANSMUTATION_TABLE_MENU.get(), TransmutationTableScreen::new);
+        MenuScreens.register(ModMenuTypes.EMRE_ESSENCE_INFUSER_MENU.get(), EmreEssenceInfuserScreen::new);
+
     }
 
     private void setup(final FMLCommonSetupEvent event) {

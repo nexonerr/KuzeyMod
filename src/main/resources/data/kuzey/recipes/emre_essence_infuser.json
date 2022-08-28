@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TEB",
+    "GMP",
+    "IBP"
+  ],
+  "key": {
+    "G": {
+      "item": "kuzey:kuzeyium_glass"
+    },
+    "E": {
+      "item": "kuzey:emre_essence_bucket"
+    },
+    "M": {
+      "item": "kuzey:diamond_machine_frame"
+    },
+    "P": {
+      "item": "kuzey:kuzeyium_plate"
+    },
+    "B": {
+      "item": "kuzey:structure_binder"
+    },
+    "T": {
+      "item": "kuzey:still_fluid_tank"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "kuzey:emre_essence_infuser"
+  }
+}

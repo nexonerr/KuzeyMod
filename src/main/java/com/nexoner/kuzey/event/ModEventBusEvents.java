@@ -1,10 +1,7 @@
 package com.nexoner.kuzey.event;
 
 import com.nexoner.kuzey.KuzeyMod;
-import com.nexoner.kuzey.recipe.EmreEssenceExtractorRecipe;
-import com.nexoner.kuzey.recipe.KuzeyiumPurificationChamberRecipe;
-import com.nexoner.kuzey.recipe.KuzeyiumWorkstationRecipe;
-import com.nexoner.kuzey.recipe.TransmutationTableRecipe;
+import com.nexoner.kuzey.recipe.*;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.event.RegistryEvent;
@@ -20,5 +17,6 @@ public class ModEventBusEvents {
         Registry.register(Registry.RECIPE_TYPE, KuzeyiumWorkstationRecipe.Type.ID, KuzeyiumWorkstationRecipe.Type.INSTANCE);
         Registry.register(Registry.RECIPE_TYPE, EmreEssenceExtractorRecipe.Type.ID, EmreEssenceExtractorRecipe.Type.INSTANCE);
         Registry.register(Registry.RECIPE_TYPE, TransmutationTableRecipe.Type.ID, TransmutationTableRecipe.Type.INSTANCE);
+        Registry.register(Registry.RECIPE_TYPE, EmreEssenceInfuserRecipe.Type.ID, EmreEssenceInfuserRecipe.Type.INSTANCE);
     }
 }

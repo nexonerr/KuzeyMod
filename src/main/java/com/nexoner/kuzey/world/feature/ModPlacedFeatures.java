@@ -22,7 +22,7 @@ public class ModPlacedFeatures {
                     HeightRangePlacement.of(VeryBiasedToBottomHeight.of(VerticalAnchor.aboveBottom(15),VerticalAnchor.aboveBottom(50),25))));
 
     public static final Holder<PlacedFeature> EMRE_ESSENCE_ROCK_ORE_PLACED = PlacementUtils.register("emre_essence_rock_ore_placed",
-            ModConfiguredFeatures.EMRE_ESSENCE_ROCK_ORE, ModOrePlacement.commonOrePlacement(2, // VeinsPerChunk
+            ModConfiguredFeatures.EMRE_ESSENCE_ROCK_ORE, ModOrePlacement.rareOrePlacement(2, // Once Every x Chunks
                     HeightRangePlacement.triangle(VerticalAnchor.absolute(-70), VerticalAnchor.absolute(40))));
 
     public static final Holder<PlacedFeature> EMRE_ESSENCE_ROCK_ORE_MEGA_VEIN_PLACED = PlacementUtils.register("emre_essence_rock_ore_mega_vein_placed",

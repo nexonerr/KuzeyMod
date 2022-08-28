@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "kuzey:kuzeyium_ore",
-    "kuzey:kuzeyian_leaves"
+    "kuzey:kuzeyian_leaves",
+    "kuzey:emre_essence_rock_ore",
+    "kuzey:deepslate_emre_essence_rock_ore"
   ]
 }

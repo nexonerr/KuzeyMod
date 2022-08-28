@@ -194,6 +194,21 @@ public class ModBlocks {
                     .strength(4f,30f)
             ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.transmutation_table");
 
+    public static final RegistryObject<Block> EMRE_ESSENCE_INFUSER = registerBlock("emre_essence_infuser",
+            () -> new EmreEssenceInfuserBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .strength(4f,30f)
+                    .sound(SoundType.GLASS)
+            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.emre_essence_infuser");
+
+    public static final RegistryObject<Block> DECONDENSATOR = registerBlock("decondensator",
+            () -> new DecondensatorBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .strength(4f,30f)
+            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.decondensator");
+
 
     //Register Methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){
