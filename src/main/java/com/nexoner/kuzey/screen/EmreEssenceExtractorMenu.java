@@ -4,7 +4,6 @@ import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.custom.EmreEssenceExtractorBlockEntity;
 import com.nexoner.kuzey.screen.menutype.IFluidMenu;
 import com.nexoner.kuzey.screen.slot.ModFluidSlot;
-import com.nexoner.kuzey.screen.slot.ModResultSlot;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -12,15 +11,9 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-
-import javax.sound.sampled.Line;
-import java.text.ParseException;
 
 public class EmreEssenceExtractorMenu extends AbstractContainerMenu implements IFluidMenu {
     public final EmreEssenceExtractorBlockEntity blockEntity;

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:infused_kuzeyium_pickaxe"
+    ]
+  },
+  "criteria": {
+    "has_infused_kuzeyium_gem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:infused_kuzeyium_gem"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:infused_kuzeyium_pickaxe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_infused_kuzeyium_gem",
+      "has_the_recipe"
+    ]
+  ]
+}

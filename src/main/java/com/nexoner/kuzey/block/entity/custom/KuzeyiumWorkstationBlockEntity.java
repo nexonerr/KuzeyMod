@@ -1,6 +1,5 @@
 package com.nexoner.kuzey.block.entity.custom;
 
-import com.nexoner.kuzey.block.custom.KuzeyiumPurificationChamberBlock;
 import com.nexoner.kuzey.block.custom.KuzeyiumWorkstationBlock;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.item.ModItems;

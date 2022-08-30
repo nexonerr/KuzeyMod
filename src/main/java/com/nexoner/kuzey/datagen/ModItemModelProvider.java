@@ -4,17 +4,12 @@ import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.item.ModItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.models.ModelProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -50,12 +45,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.KUZEYIUM_HEATING_COIL.get());
         simpleItem(ModItems.HEATING_FIN.get());
         simpleItem(ModItems.INFUSED_KUZEYIUM_GEM.get());
+        simpleItem(ModItems.REINFORCED_KUZEYIAN_TOOL_HANDLE.get());
 
         handheldItem(ModItems.KUZEYIUM_SWORD.get());
         handheldItem(ModItems.KUZEYIUM_AXE.get());
         handheldItem(ModItems.KUZEYIUM_PICKAXE.get());
         handheldItem(ModItems.KUZEYIUM_SHOVEL.get());
         handheldItem(ModItems.KUZEYIUM_SMITHING_HAMMER.get());
+        handheldItem(ModItems.INFUSED_KUZEYIUM_PICKAXE.get());
+        handheldItem(ModItems.KUZEYIUM_MINING_HAMMER.get());
+        handheldItem(ModItems.INFUSED_KUZEYIUM_AXE.get());
 
         simpleBlockItem(ModBlocks.KUZEYIUM_ORE.get());
         simpleBlockItem(ModBlocks.DEVASTATOR.get());

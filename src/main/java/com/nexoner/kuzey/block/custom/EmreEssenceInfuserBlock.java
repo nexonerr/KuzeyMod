@@ -2,8 +2,6 @@ package com.nexoner.kuzey.block.custom;
 
 
 import com.nexoner.kuzey.block.entity.custom.EmreEssenceInfuserBlockEntity;
-import com.nexoner.kuzey.networking.ModPackets;
-import com.nexoner.kuzey.networking.packet.ItemStackSyncPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -21,11 +19,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.client.IBlockRenderProperties;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.function.Consumer;
 
 
 public class EmreEssenceInfuserBlock extends BaseEntityBlock {

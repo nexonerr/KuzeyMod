@@ -15,6 +15,7 @@ public class ModTags {
 
     public static class Blocks {
         public static final TagKey<Block> KUZEYIAN_LOGS = tag("kuzeyian_logs");
+        public static final TagKey<Block> HAMMER_MINEABLE = tag("hammer_mineable");
 
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(KuzeyMod.MOD_ID, name));

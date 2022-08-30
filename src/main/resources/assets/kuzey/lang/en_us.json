@@ -23,11 +23,15 @@
   "item.kuzey.kuzeyium_heating_coil": "Kuzeyium Heating Coil",
   "item.kuzey.heating_fin": "Heating Fin",
   "item.kuzey.infused_kuzeyium_gem": "Infused Kuzeyium Gem",
+  "item.kuzey.reinforced_kuzeyian_tool_handle": "Reinforced Kuzeyian Tool Handle",
 
   "item.kuzey.kuzeyium_sword": "Kuzeyium Murderer",
   "item.kuzey.kuzeyium_axe": "Kuzeyium Deforester",
   "item.kuzey.kuzeyium_pickaxe": "Kuzeyium Miner",
   "item.kuzey.kuzeyium_shovel": "Kuzeyium Excavator",
+  "item.kuzey.infused_kuzeyium_pickaxe": "Infused Kuzeyium Miner",
+  "item.kuzey.kuzeyium_mining_hammer": "Kuzeyium Mining Hammer",
+  "item.kuzey.infused_kuzeyium_axe": "Infused Kuzeyium Deforester",
 
   "item.kuzey.kuzeyium_helmet": "Kuzeyium Head Cover",
   "item.kuzey.kuzeyium_chestplate": "Kuzeyium Chest Piece",
@@ -71,6 +75,9 @@
   "tooltip.kuzey.kuzeyium_sword.tooltip": "Steals §4HEALTH§r from foes, the less health a foe has, the more health will be taken.",
   "tooltip.kuzey.kuzeyium_axe.tooltip": "Strong axe capable of taking down §eMULTIPLE LOGS§r at at time.",
   "tooltip.kuzey.spawner_irritator.tooltip": "Makes a spawner spawn its respective mob type.",
+  "tooltip.kuzey.infused_kuzeyium_pickaxe.tooltip": "A strong pickaxe capable of mining veins of blocks.",
+  "tooltip.kuzey.kuzeyium_mining_hammer.tooltip": "Mining hammer capable of breaking a radius of blocks, press §e[SHIFT]§r to mine normally.",
+  "tooltip.kuzey.infused_kuzeyium_axe.tooltip": "Very strong axe capable of taking down a radius of logs.",
 
   "tooltip.kuzey.block.devastator": "Deals damage cast by §4KUZEY§r to those standing above it. Toggleable via right clicking it.",
   "tooltip.kuzey.block.kuzeyium_glass": "Infusing glass with §5kuzeyium§r seems to make it incredibly durable: is resistant to explosions.",
@@ -81,8 +88,17 @@
   "tooltip.kuzey.block.emre_essence_infuser": "Infuses items with §bfluids§r. Requires a §eDECONDENSATOR§r in order to function",
   "tooltip.kuzey.block.decondensator": "§cHEATS§r stuff up, required for the §aEmre Essence Infuser§r to function",
 
+  "tooltip.kuzey.infused_kuzeyium_pickaxe_ability.tooltip": "Vein-mine: %s",
+  "tooltip.kuzey.infused_kuzeyium_pickaxe_toggled.tooltip": "Vein-mine toggled %s",
+  "tooltip.kuzey.infused_kuzeyium_axe_ability.tooltip": "Lumber: %s",
+  "tooltip.kuzey.infused_kuzeyium_axe_toggled.tooltip": "Lumber toggled %s",
+
   "tooltip.kuzey.alt.tooltip": "Press §e[ALT]§r for more information!",
+  "tooltip.kuzey.ability_activate.tooltip": "Press §e[SHIFT]§r + §e[RMB]§r to activate ability!",
+  "tooltip.kuzey.on.tooltip": "§aON",
+  "tooltip.kuzey.off.tooltip": "§cOFF",
 
   "tooltip.kuzey.integration.jei.liquid_amount_with_capacity": "%s / %s mB",
   "tooltip.kuzey.integration.jei.liquid_amount": "%s mB"
+
 }

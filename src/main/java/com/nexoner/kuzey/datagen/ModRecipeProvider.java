@@ -15,7 +15,6 @@ import net.minecraft.world.item.crafting.SimpleCookingSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-import org.lwjgl.system.CallbackI;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -382,6 +381,40 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("HCH")
                 .unlockedBy("has_iron_machine_frame", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModBlocks.IRON_MACHINE_FRAME.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.INFUSED_KUZEYIUM_PICKAXE.get())
+                .define('S', ModItems.REINFORCED_KUZEYIAN_TOOL_HANDLE.get())
+                .define('K', ModItems.INFUSED_KUZEYIUM_GEM.get())
+                .define('P', ModItems.KUZEYIUM_PICKAXE.get())
+                .pattern("KKK")
+                .pattern(" P ")
+                .pattern(" S ")
+                .unlockedBy("has_infused_kuzeyium_gem", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.INFUSED_KUZEYIUM_GEM.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.INFUSED_KUZEYIUM_AXE.get())
+                .define('S', ModItems.REINFORCED_KUZEYIAN_TOOL_HANDLE.get())
+                .define('K', ModItems.INFUSED_KUZEYIUM_GEM.get())
+                .define('A', ModItems.INFUSED_KUZEYIUM_AXE.get())
+                .pattern("KK ")
+                .pattern("KA ")
+                .pattern(" S ")
+                .unlockedBy("has_infused_kuzeyium_gem", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.INFUSED_KUZEYIUM_GEM.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.KUZEYIUM_MINING_HAMMER.get())
+                .define('S', ModItems.REINFORCED_KUZEYIAN_TOOL_HANDLE.get())
+                .define('K', ModItems.INFUSED_KUZEYIUM_GEM.get())
+                .define('P', ModItems.KUZEYIUM_PICKAXE.get())
+                .define('X', ModItems.KUZEYIUM_SHOVEL.get())
+                .pattern("KKK")
+                .pattern("KSP")
+                .pattern(" SX")
+                .unlockedBy("has_infused_kuzeyium_gem", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.INFUSED_KUZEYIUM_GEM.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
 

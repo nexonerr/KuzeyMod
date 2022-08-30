@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "KKK",
+    " P ",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "item": "kuzey:reinforced_kuzeyian_tool_handle"
+    },
+    "K": {
+      "item": "kuzey:infused_kuzeyium_gem"
+    },
+    "P": {
+      "item": "kuzey:kuzeyium_pickaxe"
+    }
+  },
+  "result": {
+    "item": "kuzey:infused_kuzeyium_pickaxe"
+  }
+}

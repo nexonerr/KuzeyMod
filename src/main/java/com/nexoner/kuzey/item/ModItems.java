@@ -48,6 +48,15 @@ public class ModItems {
     public static final RegistryObject<Item> KUZEYIUM_SHOVEL = ITEMS.register("kuzeyium_shovel",
             () -> new ShovelItem(ModTiers.KUZEYIUM, 1, -3.1f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
+    public static final RegistryObject<Item> INFUSED_KUZEYIUM_PICKAXE = ITEMS.register("infused_kuzeyium_pickaxe",
+            () -> new InfusedKuzeyiumPickaxeItem(ModTiers.INFUSED_KUZEYIUM, 1, -3.1f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> KUZEYIUM_MINING_HAMMER = ITEMS.register("kuzeyium_mining_hammer",
+            () -> new MiningHammerItem(4,-3.4f,ModTiers.INFUSED_KUZEYIUM,new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> INFUSED_KUZEYIUM_AXE = ITEMS.register("infused_kuzeyium_axe",
+            () -> new InfusedKuzeyiumAxeItem(ModTiers.INFUSED_KUZEYIUM,7,-3.4f, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
 
     public static final RegistryObject<Item> KUZEYIUM_HELMET = ITEMS.register("kuzeyium_helmet",
             () -> new KuzeyiumHelmetItem(ModArmorMaterials.KUZEYIUM, EquipmentSlot.HEAD, new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
@@ -115,6 +124,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> INFUSED_KUZEYIUM_GEM = ITEMS.register("infused_kuzeyium_gem",
             () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> REINFORCED_KUZEYIAN_TOOL_HANDLE = ITEMS.register("reinforced_kuzeyian_tool_handle",
+            () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
+
 
 
     public static void register(IEventBus eventBus){

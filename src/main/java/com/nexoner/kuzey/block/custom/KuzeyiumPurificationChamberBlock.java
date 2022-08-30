@@ -1,7 +1,6 @@
 package com.nexoner.kuzey.block.custom;
 
 
-import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.block.entity.custom.KuzeyiumPurificationChamberBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;

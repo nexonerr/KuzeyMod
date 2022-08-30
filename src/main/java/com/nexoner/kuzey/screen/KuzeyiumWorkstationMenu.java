@@ -2,7 +2,6 @@ package com.nexoner.kuzey.screen;
 
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.custom.KuzeyiumWorkstationBlockEntity;
-import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.screen.slot.ModKuzeyiumSawSlot;
 import com.nexoner.kuzey.screen.slot.ModResultSlot;
 import com.nexoner.kuzey.screen.slot.ModSmithingHammerSlot;

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "KK ",
+    "KA ",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "item": "kuzey:reinforced_kuzeyian_tool_handle"
+    },
+    "K": {
+      "item": "kuzey:infused_kuzeyium_gem"
+    },
+    "A": {
+      "item": "kuzey:kuzeyium_axe"
+    }
+  },
+  "result": {
+    "item": "kuzey:infused_kuzeyium_axe"
+  }
+}

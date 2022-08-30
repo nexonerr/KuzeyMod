@@ -3,7 +3,6 @@ package com.nexoner.kuzey.datagen;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import com.nexoner.kuzey.datagen.loot.ModBlockLootTables;
-import com.nexoner.kuzey.datagen.loot.ModChestLootTables;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;

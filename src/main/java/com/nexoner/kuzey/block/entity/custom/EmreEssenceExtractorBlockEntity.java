@@ -1,8 +1,8 @@
 package com.nexoner.kuzey.block.entity.custom;
 
 import com.nexoner.kuzey.block.custom.EmreEssenceExtractorBlock;
-import com.nexoner.kuzey.block.entity.entityType.IFluidHandlingBlockEntity;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
+import com.nexoner.kuzey.block.entity.entityType.IFluidHandlingBlockEntity;
 import com.nexoner.kuzey.networking.ModPackets;
 import com.nexoner.kuzey.networking.packet.FluidSyncPacket;
 import com.nexoner.kuzey.recipe.EmreEssenceExtractorRecipe;

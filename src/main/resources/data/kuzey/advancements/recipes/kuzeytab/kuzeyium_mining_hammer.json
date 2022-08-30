@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:kuzeyium_mining_hammer"
+    ]
+  },
+  "criteria": {
+    "has_infused_kuzeyium_gem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:infused_kuzeyium_gem"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:kuzeyium_mining_hammer"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_infused_kuzeyium_gem",
+      "has_the_recipe"
+    ]
+  ]
+}

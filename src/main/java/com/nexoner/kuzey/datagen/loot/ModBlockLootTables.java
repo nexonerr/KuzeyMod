@@ -5,7 +5,6 @@ import com.nexoner.kuzey.block.custom.BlackCarrotsCropBlock;
 import com.nexoner.kuzey.item.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLoot;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;

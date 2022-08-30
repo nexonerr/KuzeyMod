@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "#kuzey:kuzeyian_logs",
+    "#minecraft:leaves",
     "kuzey:kuzeyian_planks"
   ]
 }

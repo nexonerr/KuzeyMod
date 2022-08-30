@@ -1,8 +1,3 @@
-# This is an example mods.toml file. It contains the data relating to the loading mods.
-# There are several mandatory fields (#mandatory), and many more that are optional (#optional).
-# The overall format is standard TOML format, v0.5.0.
-# Note that there are a couple of TOML lists in this file.
-# Find more information on toml format here:  https://github.com/toml-lang/toml
 # The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
 modLoader="javafml" #mandatory
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
@@ -29,14 +24,14 @@ displayName="Kuzey Mod" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="examplemod.png" #optional
 # A text field displayed in the mod UI
-credits="Modding by Kaupenjoe for amazing tutorials, forge forums, Mekanism github page" #optional
+credits="Resourceslimes repo, forge forums" #optional
 # A text field displayed in the mod UI
 authors="Nexoner" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 Techy utility mod
 '''
-# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+
 [[dependencies.kuzey]] #optional
     # the modid of the dependency
     modId="forge" #mandatory
@@ -48,7 +43,7 @@ Techy utility mod
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
-# Here's another dependency
+
 [[dependencies.kuzey]]
     modId="minecraft"
     mandatory=true

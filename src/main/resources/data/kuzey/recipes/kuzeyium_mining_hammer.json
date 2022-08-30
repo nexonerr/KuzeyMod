@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "KKK",
+    "KSP",
+    " SX"
+  ],
+  "key": {
+    "S": {
+      "item": "kuzey:reinforced_kuzeyian_tool_handle"
+    },
+    "K": {
+      "item": "kuzey:infused_kuzeyium_gem"
+    },
+    "P": {
+      "item": "kuzey:kuzeyium_pickaxe"
+    },
+    "X": {
+      "item": "kuzey:kuzeyium_shovel"
+    }
+  },
+  "result": {
+    "item": "kuzey:kuzeyium_mining_hammer"
+  }
+}
