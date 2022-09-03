@@ -1,6 +1,6 @@
 package com.nexoner.kuzey.item.custom;
 
-import com.nexoner.kuzey.item.helper.BlockBreaker;
+import com.nexoner.kuzey.item.custom.helper.BlockBreaker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
@@ -58,11 +58,10 @@ public class InfusedKuzeyiumPickaxeItem extends PickaxeItem {
         ItemStack item = pPlayer.getItemInHand(pUsedHand);
         if (item.hasTag()) {
             CompoundTag nbt = item.getTag();
-            LocalPlayer localPlayer = Minecraft.getInstance().player;
             Boolean ability = nbt.getBoolean("kuzey.ability");
             nbt.putBoolean("kuzey.ability", !ability);
-            localPlayer.displayClientMessage(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_pickaxe_toggled.tooltip",getTextForBool(nbt.getBoolean("kuzey.ability"))),true);
-            localPlayer.playSound(SoundEvents.ARROW_HIT_PLAYER,1,1);
+            pPlayer.displayClientMessage(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_pickaxe_toggled",getTextForBool(nbt.getBoolean("kuzey.ability"))),true);
+            pPlayer.playSound(SoundEvents.ARROW_HIT_PLAYER,1,1);
             item.setTag(nbt);
         } else {
             //this stuff is for complete redundancy purposes they don't actually do anything
@@ -77,17 +76,17 @@ public class InfusedKuzeyiumPickaxeItem extends PickaxeItem {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         if (Screen.hasAltDown()) {
-            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_pickaxe.tooltip"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_pickaxe"));
         } else {
-            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.alt.tooltip"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.alt"));
         }
             if (pStack.hasTag()) {
-                pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_pickaxe_ability.tooltip", getTextForBool(pStack.getTag().getBoolean("kuzey.ability"))));
-            } /*this is also just for redundancy it's pretty useless*/else {pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.ability_activate.tooltip"));}
+                pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_pickaxe_ability", getTextForBool(pStack.getTag().getBoolean("kuzey.ability"))));
+            } /*this is also just for redundancy it's pretty useless*/else {pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.ability_activate"));}
     }
 
     private TranslatableComponent getTextForBool(Boolean pValue){
-       return pValue ? new TranslatableComponent("tooltip.kuzey.on.tooltip") : new TranslatableComponent("tooltip.kuzey.off.tooltip");
+       return pValue ? new TranslatableComponent("tooltip.kuzey.on") : new TranslatableComponent("tooltip.kuzey.off");
     }
 
     private void veinMineBlock(int blockLimit,BlockPos pPos, Level pLevel, BlockPos spawnPos, ItemStack pTool, LivingEntity pEntity, InteractionHand pHand, Block pBlock){

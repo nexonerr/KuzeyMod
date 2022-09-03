@@ -34,6 +34,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.DIAMOND_MACHINE_FRAME.get());
         simpleBlock(ModBlocks.UNACTIVATED_INFUSED_MACHINE_FRAME.get());
         simpleBlock(ModBlocks.INFUSED_MACHINE_FRAME.get());
+        simpleBlock(ModBlocks.RAW_KUZEYIUM_BLOCK.get());
+        simpleBlock(ModBlocks.INFUSED_KUZEYIUM_BLOCK.get());
 
         simpleBlock(ModBlocks.KUZEYIAN_SAPLING.get(), models().cross(ModBlocks.KUZEYIAN_SAPLING.get().getRegistryName().getPath(), blockTexture(ModBlocks.KUZEYIAN_SAPLING.get())));
 

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "infused_kuzeyium",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "kuzey:infused_kuzeyium_gem"
+    }
+  },
+  "result": {
+    "item": "kuzey:infused_kuzeyium_block"
+  }
+}

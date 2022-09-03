@@ -1,6 +1,6 @@
 package com.nexoner.kuzey.item.custom;
 
-import com.nexoner.kuzey.item.helper.BlockBreaker;
+import com.nexoner.kuzey.item.custom.helper.BlockBreaker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
@@ -57,11 +57,10 @@ public class InfusedKuzeyiumAxeItem extends AxeItem {
             ItemStack item = pPlayer.getItemInHand(pUsedHand);
             if (item.hasTag()) {
                 CompoundTag nbt = item.getTag();
-                LocalPlayer localPlayer = Minecraft.getInstance().player;
                 Boolean ability = nbt.getBoolean("kuzey.ability");
                 nbt.putBoolean("kuzey.ability", !ability);
-                localPlayer.displayClientMessage(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_axe_toggled.tooltip",getTextForBool(nbt.getBoolean("kuzey.ability"))),true);
-                localPlayer.playSound(SoundEvents.ARROW_HIT_PLAYER,1,1);
+                pPlayer.displayClientMessage(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_axe_toggled",getTextForBool(nbt.getBoolean("kuzey.ability"))),true);
+                pPlayer.playSound(SoundEvents.ARROW_HIT_PLAYER,1,1);
                 item.setTag(nbt);
             } else {
                 //this stuff is for complete redundancy purposes they don't actually do anything
@@ -76,17 +75,17 @@ public class InfusedKuzeyiumAxeItem extends AxeItem {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         if (Screen.hasAltDown()) {
-            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_axe.tooltip"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_axe"));
         } else {
-            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.alt.tooltip"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.alt"));
         }
         if (pStack.hasTag()) {
-            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_axe_ability.tooltip", getTextForBool(pStack.getTag().getBoolean("kuzey.ability"))));
-        } /*this is also just for redundancy it's pretty useless*/else {pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.ability_activate.tooltip"));}
+            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.infused_kuzeyium_axe_ability", getTextForBool(pStack.getTag().getBoolean("kuzey.ability"))));
+        } /*this is also just for redundancy it's pretty useless*/else {pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.ability_activate"));}
     }
 
     private TranslatableComponent getTextForBool(Boolean pValue){
-        return pValue ? new TranslatableComponent("tooltip.kuzey.on.tooltip") : new TranslatableComponent("tooltip.kuzey.off.tooltip");
+        return pValue ? new TranslatableComponent("tooltip.kuzey.on") : new TranslatableComponent("tooltip.kuzey.off");
     }
 
     private void lumberBlock(int radius, BlockPos pPos, Level pLevel, Player pPlayer){

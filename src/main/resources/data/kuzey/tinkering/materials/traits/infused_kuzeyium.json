@@ -1,0 +1,22 @@
+{
+  "perStat": {
+    "tconstruct:head": [
+      {
+        "name": "tconstruct:raging",
+        "level": 4
+      }
+    ],
+    "tconstruct:extra": [
+      {
+        "name": "tconstruct:solar_powered",
+        "level": 3
+      }
+    ],
+    "tconstruct:handle": [
+      {
+        "name": "tconstruct:overlord",
+        "level": 2
+      }
+    ]
+  }
+}

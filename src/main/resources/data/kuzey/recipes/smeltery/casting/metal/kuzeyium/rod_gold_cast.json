@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:casting_table",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:rods/kuzeyium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/rod"
+  },
+  "fluid": {
+    "tag": "kuzey:molten_kuzeyium",
+    "amount": 45
+  },
+  "result": {
+    "tag": "forge:rods/kuzeyium"
+  },
+  "cooling_time": 49
+}

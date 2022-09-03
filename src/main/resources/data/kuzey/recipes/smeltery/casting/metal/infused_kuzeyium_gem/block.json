@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:casting_basin",
+  "fluid": {
+    "tag": "kuzey:molten_infused_kuzeyium",
+    "amount": 900
+  },
+  "result": "kuzey:infused_kuzeyium_block",
+  "cooling_time": 245
+}

@@ -1,4 +1,4 @@
-package com.nexoner.kuzey.item.helper;
+package com.nexoner.kuzey.item.custom.helper;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

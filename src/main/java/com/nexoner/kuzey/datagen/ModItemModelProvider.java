@@ -2,6 +2,7 @@ package com.nexoner.kuzey.datagen;
 
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
+import com.nexoner.kuzey.integration.tic.ModTICMaterialItems;
 import com.nexoner.kuzey.item.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -69,6 +70,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleBlockItem(ModBlocks.DIAMOND_MACHINE_FRAME.get());
         simpleBlockItem(ModBlocks.UNACTIVATED_INFUSED_MACHINE_FRAME.get());
         simpleBlockItem(ModBlocks.INFUSED_MACHINE_FRAME.get());
+        simpleBlockItem(ModBlocks.RAW_KUZEYIUM_BLOCK.get());
+        simpleBlockItem(ModBlocks.INFUSED_KUZEYIUM_BLOCK.get());
 
         blockItem(ModBlocks.KUZEYIAN_LOG_STRIPPED.get());
         blockItem(ModBlocks.KUZEYIAN_LOG.get());
@@ -80,6 +83,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.TRANSMUTATION_TABLE.get());
         blockItem(ModBlocks.EMRE_ESSENCE_INFUSER.get());
         blockItem(ModBlocks.DECONDENSATOR.get());
+
+        /*INTEGRATION*/
+        simpleItem(ModTICMaterialItems.MOLTEN_KUZEYIUM_BUCKET.get());
+        simpleItem(ModTICMaterialItems.MOLTEN_INFUSED_KUZEYIUM_BUCKET.get());
 
     }
     private ItemModelBuilder simpleItem(Item item) {

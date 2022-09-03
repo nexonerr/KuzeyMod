@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:casting_table",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:gears/kuzeyium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/gear"
+  },
+  "fluid": {
+    "tag": "kuzey:molten_kuzeyium",
+    "amount": 360
+  },
+  "result": {
+    "tag": "forge:gears/kuzeyium"
+  },
+  "cooling_time": 139
+}

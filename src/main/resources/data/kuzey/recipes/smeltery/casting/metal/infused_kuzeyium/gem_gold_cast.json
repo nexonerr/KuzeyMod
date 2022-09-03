@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/gem"
+  },
+  "fluid": {
+    "tag": "kuzey:molten_infused_kuzeyium",
+    "amount": 100
+  },
+  "result": "kuzey:infused_kuzeyium_gem",
+  "cooling_time": 82
+}

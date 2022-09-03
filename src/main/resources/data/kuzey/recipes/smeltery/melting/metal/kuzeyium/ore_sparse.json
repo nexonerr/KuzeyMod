@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:ore_melting",
+  "conditions": [
+    {
+      "registry": "minecraft:item",
+      "tags": [
+        "forge:ores/kuzeyium",
+        "forge:ore_rates/sparse"
+      ],
+      "type": "tconstruct:tag_intersection_present"
+    }
+  ],
+  "rate": "metal",
+  "ingredient": {
+    "type": "forge:intersection",
+    "children": [
+      {
+        "tag": "forge:ores/kuzeyium"
+      },
+      {
+        "tag": "forge:ore_rates/sparse"
+      }
+    ]
+  },
+  "result": {
+    "fluid": "kuzey:molten_kuzeyium",
+    "amount": 90
+  },
+  "temperature": 1100,
+  "time": 104
+}

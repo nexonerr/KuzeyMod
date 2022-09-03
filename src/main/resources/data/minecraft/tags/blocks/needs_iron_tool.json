@@ -9,6 +9,9 @@
     "kuzey:kuzeyium_block",
     "kuzey:emre_essence_extractor",
     "kuzey:transmutation_table",
-    "kuzey:emre_essence_infuser"
+    "kuzey:emre_essence_infuser",
+    "kuzey:decondensator",
+    "kuzey:raw_kuzeyium_block",
+    "kuzey:infused_kuzeyium_block"
   ]
 }

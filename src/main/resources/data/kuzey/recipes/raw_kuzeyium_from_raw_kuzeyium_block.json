@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "raw_kuzeyium",
+  "ingredients": [
+    {
+      "item": "kuzey:raw_kuzeyium_block"
+    }
+  ],
+  "result": {
+    "item": "kuzey:raw_kuzeyium",
+    "count": 9
+  }
+}

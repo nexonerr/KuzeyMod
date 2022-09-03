@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:wires/kuzeyium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:wires/kuzeyium"
+  },
+  "result": {
+    "fluid": "kuzey:molten_kuzeyium",
+    "amount": 45
+  },
+  "temperature": 1100,
+  "time": 14
+}

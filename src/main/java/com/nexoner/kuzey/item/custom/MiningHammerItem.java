@@ -1,6 +1,6 @@
 package com.nexoner.kuzey.item.custom;
 
-import com.nexoner.kuzey.item.helper.BlockBreaker;
+import com.nexoner.kuzey.item.custom.helper.BlockBreaker;
 import com.nexoner.kuzey.util.ModTags;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -40,9 +40,9 @@ public class MiningHammerItem extends DiggerItem {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         if (Screen.hasAltDown()) {
-            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.kuzeyium_mining_hammer.tooltip"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.kuzeyium_mining_hammer"));
         } else {
-            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.alt.tooltip"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.alt"));
         }
     }
 }

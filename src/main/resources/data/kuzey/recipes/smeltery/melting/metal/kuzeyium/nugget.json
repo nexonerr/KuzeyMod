@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:nuggets/kuzeyium"
+  },
+  "result": {
+    "fluid": "kuzey:molten_kuzeyium",
+    "amount": 10
+  },
+  "temperature": 1100,
+  "time": 23
+}

@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:casting_table",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:wires/kuzeyium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/wire"
+  },
+  "fluid": {
+    "tag": "kuzey:molten_kuzeyium",
+    "amount": 45
+  },
+  "result": {
+    "tag": "forge:wires/kuzeyium"
+  },
+  "cooling_time": 49
+}

@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:casting_table",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:coins/kuzeyium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/coin"
+  },
+  "fluid": {
+    "tag": "kuzey:molten_kuzeyium",
+    "amount": 30
+  },
+  "result": {
+    "tag": "forge:coins/kuzeyium"
+  },
+  "cooling_time": 40
+}

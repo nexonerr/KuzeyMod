@@ -16,6 +16,9 @@
     "kuzey:transmutation_table",
     "kuzey:emre_essence_rock_ore",
     "kuzey:deepslate_emre_essence_rock_ore",
-    "kuzey:emre_essence_infuser"
+    "kuzey:emre_essence_infuser",
+    "kuzey:decondensator",
+    "kuzey:raw_kuzeyium_block",
+    "kuzey:infused_kuzeyium_block"
   ]
 }

@@ -14,7 +14,9 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.SimpleCookingSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -25,6 +27,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     protected static final ImmutableList<ItemLike> KUZEYIUM_SMELTABLES = ImmutableList.of(ModBlocks.KUZEYIUM_ORE.get(), ModItems.RAW_KUZEYIUM.get());
+    protected static final ImmutableList<ItemLike> EMRE_ESSENCE_SMELTABLES = ImmutableList.of(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get(), ModBlocks.DEEPSLATE_EMRE_ESSENCE_ROCK_ORE.get());
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
@@ -397,7 +400,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder.shaped(ModItems.INFUSED_KUZEYIUM_AXE.get())
                 .define('S', ModItems.REINFORCED_KUZEYIAN_TOOL_HANDLE.get())
                 .define('K', ModItems.INFUSED_KUZEYIUM_GEM.get())
-                .define('A', ModItems.INFUSED_KUZEYIUM_AXE.get())
+                .define('A', ModItems.KUZEYIUM_AXE.get())
                 .pattern("KK ")
                 .pattern("KA ")
                 .pattern(" S ")
@@ -418,7 +421,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pFinishedRecipeConsumer);
 
 
-
         ShapelessRecipeBuilder.shapeless(ModItems.KUZEYIUM_INGOT.get())
                 .requires(ModItems.KUZEYIUM_CHUNK.get(),3)
                 .requires(Items.NETHER_STAR)
@@ -437,6 +439,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         oreSmelting(pFinishedRecipeConsumer, KUZEYIUM_SMELTABLES, ModItems.KUZEYIUM_CHUNK.get(), 1.0F, 300, "kuzey:kuzeyium");
         oreBlasting(pFinishedRecipeConsumer, KUZEYIUM_SMELTABLES, ModItems.KUZEYIUM_CHUNK.get(), 1.0F, 150, "kuzey:kuzeyium");
+        oreSmelting(pFinishedRecipeConsumer, EMRE_ESSENCE_SMELTABLES, ModItems.EMRE_ESSENCE_ROCK.get(), 2.0F, 300, "kuzey:emre_essence_rock");
+        oreBlasting(pFinishedRecipeConsumer, EMRE_ESSENCE_SMELTABLES, ModItems.EMRE_ESSENCE_ROCK.get(), 2.0F, 150, "kuzey:emre_essence_rock");
 
         planksFromLogs(pFinishedRecipeConsumer,ModBlocks.KUZEYIAN_PLANKS.get(), ModTags.Items.KUZEYIAN_LOGS);
         woodFromLogs(pFinishedRecipeConsumer,ModBlocks.KUZEYIAN_WOOD.get(),ModBlocks.KUZEYIAN_LOG.get());
@@ -444,6 +448,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         createBlockRecipeReconvertable(pFinishedRecipeConsumer,ModBlocks.KUZEYIUM_BLOCK.get(),ModItems.KUZEYIUM_INGOT.get(),"kuzeyium_ingot");
         createBlockRecipeReconvertable(pFinishedRecipeConsumer,ModItems.KUZEYIUM_INGOT.get(),ModItems.KUZEYIUM_NUGGET.get(),"kuzeyium_ingot");
+        createBlockRecipeReconvertable(pFinishedRecipeConsumer,ModBlocks.RAW_KUZEYIUM_BLOCK.get(),ModItems.RAW_KUZEYIUM.get(),"raw_kuzeyium");
+        createBlockRecipeReconvertable(pFinishedRecipeConsumer,ModBlocks.INFUSED_KUZEYIUM_BLOCK.get(),ModItems.INFUSED_KUZEYIUM_GEM.get(),"infused_kuzeyium");
 
     }
 

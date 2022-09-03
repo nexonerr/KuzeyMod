@@ -1,0 +1,23 @@
+{
+  "type": "tconstruct:casting_table",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:plates/kuzeyium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/plate"
+  },
+  "fluid": {
+    "tag": "kuzey:molten_kuzeyium",
+    "amount": 90
+  },
+  "result": {
+    "tag": "forge:plates/kuzeyium"
+  },
+  "cooling_time": 69
+}

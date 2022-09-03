@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "kuzey:infused_kuzeyium",
+  "temperature": 1400,
+  "result": {
+    "fluid": "kuzey:molten_infused_kuzeyium",
+    "amount": 90
+  }
+}

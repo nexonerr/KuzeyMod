@@ -51,3 +51,9 @@ Techy utility mod
     versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.kuzey]]
+    modId="tconstruct"
+    mandatory=false
+    versionRange="${tconstruct_range}"
+    ordering="NONE"

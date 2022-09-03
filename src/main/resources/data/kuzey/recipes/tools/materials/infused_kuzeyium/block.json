@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:storage_blocks/infused_kuzeyium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:storage_blocks/infused_kuzeyium"
+  },
+  "value": 9,
+  "needed": 1,
+  "material": "kuzey:infused_kuzeyium",
+  "leftover": {
+    "tag": "forge:ingots/infused_kuzeyium"
+  }
+}

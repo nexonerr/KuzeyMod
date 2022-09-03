@@ -33,9 +33,9 @@ public class KuzeyiumSwordItem extends SwordItem {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         if (Screen.hasAltDown()){
-            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.kuzeyium_sword.tooltip"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.kuzeyium_sword"));
         } else {
-            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.alt.tooltip"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.alt"));
         }
 }}
 

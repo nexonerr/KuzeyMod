@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:gems/infused_kuzeyium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:gems/infused_kuzeyium"
+  },
+  "result": {
+    "fluid": "kuzey:molten_infused_kuzeyium",
+    "amount": 100
+  },
+  "temperature": 1400,
+  "time": 78
+}

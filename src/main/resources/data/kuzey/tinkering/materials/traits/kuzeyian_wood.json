@@ -1,0 +1,16 @@
+{
+  "perStat": {
+    "tconstruct:extra": [
+      {
+        "name": "tconstruct:momentum",
+        "level": 2
+      }
+    ],
+    "tconstruct:handle": [
+      {
+        "name": "tconstruct:maintained",
+        "level": 3
+      }
+    ]
+  }
+}

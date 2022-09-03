@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:emre_essence_rock_from_blasting_emre_essence_rock_ore"
+    ]
+  },
+  "criteria": {
+    "has_emre_essence_rock_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:emre_essence_rock_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:emre_essence_rock_from_blasting_emre_essence_rock_ore"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_emre_essence_rock_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

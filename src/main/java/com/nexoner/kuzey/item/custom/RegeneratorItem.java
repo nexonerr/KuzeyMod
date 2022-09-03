@@ -42,9 +42,9 @@ public class RegeneratorItem extends Item {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         if (Screen.hasAltDown()){
-            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.regenerator.tooltip"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.regenerator"));
         } else {
-            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.alt.tooltip"));
+            pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.alt"));
         }
     }
 }

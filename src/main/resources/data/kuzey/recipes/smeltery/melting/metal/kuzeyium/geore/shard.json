@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:geore_shards/kuzeyium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:geore_shards/kuzeyium"
+  },
+  "result": {
+    "fluid": "kuzey:molten_kuzeyium",
+    "amount": 90
+  },
+  "temperature": 1100,
+  "time": 69
+}

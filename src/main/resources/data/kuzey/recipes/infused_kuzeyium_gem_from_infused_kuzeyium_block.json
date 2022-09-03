@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "infused_kuzeyium",
+  "ingredients": [
+    {
+      "item": "kuzey:infused_kuzeyium_block"
+    }
+  ],
+  "result": {
+    "item": "kuzey:infused_kuzeyium_gem",
+    "count": 9
+  }
+}

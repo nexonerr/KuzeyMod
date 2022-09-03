@@ -3,6 +3,7 @@ package com.nexoner.kuzey;
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.fluid.ModFluids;
+import com.nexoner.kuzey.integration.tic.*;
 import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.networking.ModPackets;
 import com.nexoner.kuzey.recipe.ModRecipes;
@@ -12,6 +13,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -35,6 +37,12 @@ public class KuzeyMod
         ModMenuTypes.register(eventBus);
         ModRecipes.register(eventBus);
         ModFluids.register(eventBus);
+
+        //Integration
+        if(ModList.get().isLoaded("tconstruct")) {
+            ModTICMaterialItems.register(eventBus);
+            ModTICMaterialFluids.register(eventBus);
+        }
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);

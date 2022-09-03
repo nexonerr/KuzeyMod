@@ -1,0 +1,22 @@
+{
+  "perStat": {
+    "tconstruct:head": [
+      {
+        "name": "tconstruct:creative_slot",
+        "level": 2
+      }
+    ],
+    "tconstruct:extra": [
+      {
+        "name": "tconstruct:creative_slot",
+        "level": 1
+      }
+    ],
+    "tconstruct:handle": [
+      {
+        "name": "tconstruct:overlord",
+        "level": 1
+      }
+    ]
+  }
+}

@@ -209,6 +209,15 @@ public class ModBlocks {
                     .strength(4f,30f)
             ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.decondensator");
 
+    public static final RegistryObject<Block> RAW_KUZEYIUM_BLOCK = registerBlock("raw_kuzeyium_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(3f,30f)
+            ), ModCreativeModTab.KUZEY_TAB);
+
+    public static final RegistryObject<Block> INFUSED_KUZEYIUM_BLOCK = registerBlock("infused_kuzeyium_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(3f,30f)
+            ), ModCreativeModTab.KUZEY_TAB);
 
     //Register Methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){
@@ -224,7 +233,7 @@ public class ModBlocks {
                 if (Screen.hasAltDown()){
                     pTooltip.add(new TranslatableComponent(tooltipKey));
                 } else {
-                    pTooltip.add(new TranslatableComponent("tooltip.kuzey.alt.tooltip"));
+                    pTooltip.add(new TranslatableComponent("tooltip.kuzey.alt"));
                 }
             }
         });
