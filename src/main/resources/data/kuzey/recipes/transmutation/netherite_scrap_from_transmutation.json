@@ -1,0 +1,15 @@
+{
+  "type": "kuzey:transmutation",
+  "ingredients": [
+    {
+      "item": "kuzey:kuzeyium_ingot"
+    }
+  ],
+  "output": {
+    "item": "minecraft:netherite_scrap",
+    "count": 6
+  },
+  "inputAmount": 1,
+  "usageCost": 13000,
+  "recipeTime": 900
+}

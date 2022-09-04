@@ -1,0 +1,14 @@
+{
+  "type": "kuzey:transmutation",
+  "ingredients": [
+    {
+      "item": "minecraft:cobblestone"
+    }
+  ],
+  "output": {
+    "item": "minecraft:raw_iron"
+  },
+  "inputAmount": 32,
+  "usageCost": 1200,
+  "recipeTime": 15
+}

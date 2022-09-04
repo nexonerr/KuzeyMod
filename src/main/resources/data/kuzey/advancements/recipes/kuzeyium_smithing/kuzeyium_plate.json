@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:kuzeyium_plate"
+    ]
+  },
+  "criteria": {
+    "has_ascended_kuzeyium_gem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:ascended_kuzeyium_gem"
+            ]
+          }
+        ]
+      }
+    },
+    "has_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:kuzeyium_plate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ascended_kuzeyium_gem",
+      "has_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:black_carrots"
+    ]
+  },
+  "criteria": {
+    "has_carrots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:carrot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:black_carrots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_carrots",
+      "has_recipe"
+    ]
+  ]
+}

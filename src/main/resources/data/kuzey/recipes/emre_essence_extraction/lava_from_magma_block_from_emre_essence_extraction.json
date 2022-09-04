@@ -1,0 +1,14 @@
+{
+  "type": "kuzey:emre_essence_extraction",
+  "ingredients": [
+    {
+      "item": "minecraft:magma_block"
+    }
+  ],
+  "output": {
+    "fluid": "minecraft:lava",
+    "amount": 500
+  },
+  "usageCost": 800,
+  "recipeTime": 40
+}

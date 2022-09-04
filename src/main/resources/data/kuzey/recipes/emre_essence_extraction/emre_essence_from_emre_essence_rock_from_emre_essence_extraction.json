@@ -1,14 +1,14 @@
 {
   "type": "kuzey:emre_essence_extraction",
   "ingredients": [
-      {
-        "item": "kuzey:emre_essence_rock"
-      }
+    {
+      "item": "kuzey:emre_essence_rock"
+    }
   ],
-  "output":{
+  "output": {
     "fluid": "kuzey:emre_essence",
     "amount": 500
   },
-    "usageCost": 22000,
-    "recipeTime": 300
+  "usageCost": 22000,
+  "recipeTime": 300
 }

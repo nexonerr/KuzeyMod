@@ -1,0 +1,14 @@
+{
+  "type": "kuzey:transmutation",
+  "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "output": {
+    "item": "kuzey:black_carrots"
+  },
+  "inputAmount": 64,
+  "usageCost": 8000,
+  "recipeTime": 400
+}

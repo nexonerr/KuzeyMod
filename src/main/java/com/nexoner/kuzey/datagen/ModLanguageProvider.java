@@ -50,6 +50,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.HEATING_FIN,"Heating Fin");
         addItem(ModItems.INFUSED_KUZEYIUM_GEM,"Infused Kuzeyium Gem");
         addItem(ModItems.REINFORCED_KUZEYIAN_TOOL_HANDLE,"Reinforced Kuzeyian Tool Handle");
+        addItem(ModItems.EMRE_ESSENCE_ROCK,"Emre Essence Rock");
 
         //Tools
         addItem(ModItems.KUZEYIUM_SWORD,"Kuzeyium Murderer");

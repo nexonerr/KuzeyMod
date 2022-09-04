@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:netherite_scrap"
+    ]
+  },
+  "criteria": {
+    "has_kuzeyium_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/kuzeyium"
+          }
+        ]
+      }
+    },
+    "has_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:netherite_scrap"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_kuzeyium_ingot",
+      "has_recipe"
+    ]
+  ]
+}

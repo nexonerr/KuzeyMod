@@ -1,0 +1,19 @@
+{
+  "type": "kuzey:kuzeyium_smithing",
+  "ingredients": [
+    {
+      "item": "kuzey:kuzeyium_block"
+    },
+    {
+      "item": "minecraft:nether_star"
+    },
+    {
+      "item": "kuzey:kuzeyium_block"
+    }
+  ],
+  "output": {
+    "item": "kuzey:kuzeyium_purification_core"
+  },
+  "recipeTime": 1500,
+  "toolDamage": 250
+}

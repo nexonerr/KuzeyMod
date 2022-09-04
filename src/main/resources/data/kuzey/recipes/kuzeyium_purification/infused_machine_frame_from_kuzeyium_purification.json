@@ -1,0 +1,16 @@
+{
+  "type": "kuzey:kuzeyium_purification",
+  "ingredients": [
+    {
+      "item": "kuzey:unactivated_infused_machine_frame"
+    },
+    {
+      "item": "minecraft:nether_star"
+    }
+  ],
+  "output": {
+    "item": "kuzey:infused_machine_frame"
+  },
+  "usageCost": 15000,
+  "recipeTime": 900
+}

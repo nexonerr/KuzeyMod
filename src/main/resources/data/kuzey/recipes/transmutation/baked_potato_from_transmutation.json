@@ -1,0 +1,15 @@
+{
+  "type": "kuzey:transmutation",
+  "ingredients": [
+    {
+      "item": "minecraft:potato"
+    }
+  ],
+  "output": {
+    "item": "minecraft:baked_potato",
+    "count": 2
+  },
+  "inputAmount": 1,
+  "usageCost": 400,
+  "recipeTime": 5
+}

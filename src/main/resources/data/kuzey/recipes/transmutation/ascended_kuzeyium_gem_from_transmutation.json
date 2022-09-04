@@ -1,0 +1,14 @@
+{
+  "type": "kuzey:transmutation",
+  "ingredients": [
+    {
+      "item": "kuzey:kuzeyium_nugget"
+    }
+  ],
+  "output": {
+    "item": "kuzey:ascended_kuzeyium_gem"
+  },
+  "inputAmount": 10,
+  "usageCost": 12000,
+  "recipeTime": 560
+}

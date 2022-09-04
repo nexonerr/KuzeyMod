@@ -1,0 +1,14 @@
+{
+  "type": "kuzey:transmutation",
+  "ingredients": [
+    {
+      "item": "minecraft:pumpkin"
+    }
+  ],
+  "output": {
+    "item": "minecraft:melon"
+  },
+  "inputAmount": 1,
+  "usageCost": 500,
+  "recipeTime": 20
+}

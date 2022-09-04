@@ -25,11 +25,11 @@ public class JEIKuzeyModPlugin implements IModPlugin {
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
-        registration.addRecipeCategories(new KuzeyiumPurificationChamberRecipeCategory(registration.getJeiHelpers().getGuiHelper(),80000));
+        registration.addRecipeCategories(new KuzeyiumPurificationChamberRecipeCategory(registration.getJeiHelpers().getGuiHelper(),20000));
         registration.addRecipeCategories(new KuzeyiumWorkstationRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
-        registration.addRecipeCategories(new EmreEssenceExtractorRecipeCategory(registration.getJeiHelpers().getGuiHelper(),140000));
-        registration.addRecipeCategories(new TransmutationTableRecipeCategory(registration.getJeiHelpers().getGuiHelper(),110000));
-        registration.addRecipeCategories(new EmreEssenceInfuserRecipeCategory(registration.getJeiHelpers().getGuiHelper(),160000));
+        registration.addRecipeCategories(new EmreEssenceExtractorRecipeCategory(registration.getJeiHelpers().getGuiHelper(),32000));
+        registration.addRecipeCategories(new TransmutationTableRecipeCategory(registration.getJeiHelpers().getGuiHelper(),28000));
+        registration.addRecipeCategories(new EmreEssenceInfuserRecipeCategory(registration.getJeiHelpers().getGuiHelper(),32000));
     }
 
     @Override

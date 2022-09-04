@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "kuzey:emre_essence"
+    "kuzey:emre_essence",
+    "minecraft:lava"
   ]
 }
