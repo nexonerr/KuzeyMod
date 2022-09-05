@@ -51,4 +51,9 @@ public class SpawnerIrritatorItem extends Item{
             pTooltipComponents.add(new TranslatableComponent("tooltip.kuzey.alt"));
         }
     }
+
+    @Override
+    public boolean isEnchantable(ItemStack pStack) {
+        return false;
+    }
 }

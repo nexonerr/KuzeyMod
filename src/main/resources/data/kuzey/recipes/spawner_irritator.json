@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " K ",
+    "EGN",
+    "HN "
+  ],
+  "key": {
+    "H": {
+      "item": "kuzey:kuzeyian_tool_handle"
+    },
+    "K": {
+      "tag": "forge:ingots/kuzeyium"
+    },
+    "E": {
+      "item": "minecraft:end_stone_bricks"
+    },
+    "G": {
+      "item": "kuzey:kuzeyium_glass_plate"
+    },
+    "N": {
+      "item": "kuzey:kuzeyium_nugget"
+    }
+  },
+  "result": {
+    "item": "kuzey:spawner_irritator"
+  }
+}

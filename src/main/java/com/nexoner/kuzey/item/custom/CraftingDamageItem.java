@@ -3,9 +3,11 @@ package com.nexoner.kuzey.item.custom;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public class SmithingHammerItem extends Item {
-    public SmithingHammerItem(Properties pProperties) {
+public class CraftingDamageItem extends Item {
+    int craftDamage;
+    public CraftingDamageItem(int pCraftDamage ,Properties pProperties) {
         super(pProperties);
+        craftDamage = pCraftDamage;
     }
 
     @Override
@@ -17,10 +19,13 @@ public class SmithingHammerItem extends Item {
     public ItemStack getContainerItem(ItemStack itemStack) {
 
         ItemStack newStack = itemStack.copy();
-        newStack.setDamageValue(itemStack.getDamageValue() + 1);
+        newStack.setDamageValue(itemStack.getDamageValue() + craftDamage);
 
         return newStack;
     }
 
-
+    @Override
+    public boolean isEnchantable(ItemStack pStack) {
+        return false;
+    }
 }

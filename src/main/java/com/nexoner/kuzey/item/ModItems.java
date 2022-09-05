@@ -78,7 +78,7 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
 
     public static final RegistryObject<Item> KUZEYIUM_SMITHING_HAMMER = ITEMS.register("kuzeyium_smithing_hammer",
-            () -> new SmithingHammerItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).durability(850)));
+            () -> new CraftingDamageItem(2,new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).durability(850)));
 
     public static final RegistryObject<Item> KUZEYIUM_GLASS_PLATE = ITEMS.register("kuzeyium_glass_plate",
             () -> new CraftSoundItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));
@@ -87,7 +87,7 @@ public class ModItems {
             () -> new ItemNameBlockItem(ModBlocks.BLACK_CARROTS_PLANT.get(), new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).food(ModFoods.BLACK_CARROT)));
 
     public static final RegistryObject<Item> KUZEYIUM_SAW = ITEMS.register("kuzeyium_saw",
-            () -> new SmithingHammerItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).durability(600)));
+            () -> new CraftingDamageItem(4,new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB).durability(600)));
 
     public static final RegistryObject<Item> KUZEYIAN_TOOL_HANDLE = ITEMS.register("kuzeyian_tool_handle",
             () -> new CraftSoundItem(new Item.Properties().tab(ModCreativeModTab.KUZEY_TAB)));

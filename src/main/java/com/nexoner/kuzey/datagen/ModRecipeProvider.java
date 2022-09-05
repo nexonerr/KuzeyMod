@@ -271,6 +271,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_kuzeyium_ingot", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModTags.Items.KUZEYIUM_INGOTS).build()))
                 .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.SPAWNER_IRRITATOR.get())
+                .define('H', ModItems.KUZEYIAN_TOOL_HANDLE.get())
+                .define('K', ModTags.Items.KUZEYIUM_INGOTS)
+                .define('E', Blocks.END_STONE_BRICKS)
+                .define('G', ModItems.KUZEYIUM_GLASS_PLATE.get())
+                .define('N', ModItems.KUZEYIUM_NUGGET.get())
+                .pattern(" K ")
+                .pattern("EGN")
+                .pattern("HN ")
+                .unlockedBy("has_kuzeyium_ingot", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModTags.Items.KUZEYIUM_INGOTS).build()))
+                .save(pFinishedRecipeConsumer);
     }
 
     private void AdvancedItems(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
