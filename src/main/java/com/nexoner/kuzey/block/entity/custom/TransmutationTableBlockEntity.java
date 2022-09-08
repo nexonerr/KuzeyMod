@@ -2,6 +2,7 @@ package com.nexoner.kuzey.block.entity.custom;
 
 import com.nexoner.kuzey.block.custom.TransmutationTableBlock;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.recipe.TransmutationTableRecipe;
 import com.nexoner.kuzey.screen.TransmutationTableMenu;
 import com.nexoner.kuzey.util.CustomEnergyStorage;
@@ -55,13 +56,9 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
 
     public final CustomEnergyStorage energyStorage;
 
-    private int capacity = 110000;
-    private int maxReceived = 28000;
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress;
-    private int defaultUsageCost = 8000;
-    private int defaultRecipeTime = 800;
 
     public TransmutationTableBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.TRANSMUTATION_TABLE_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -225,7 +222,7 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
     }
 
     private CustomEnergyStorage createEnergyStorage(){
-        return new CustomEnergyStorage(this, capacity, maxReceived,0,0);
+        return new CustomEnergyStorage(this, KuzeyCommonConfigs.transmutationTableCapacity.get(), KuzeyCommonConfigs.transmutationTableMaxReceived.get(),0,0);
     }
 
     private static int getUsageCost(TransmutationTableBlockEntity entity){
@@ -234,7 +231,7 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
-        return level.getRecipeManager().getRecipeFor(TransmutationTableRecipe.Type.INSTANCE, inventory, level).map(TransmutationTableRecipe::getUsageCost).orElse(entity.defaultUsageCost);
+        return level.getRecipeManager().getRecipeFor(TransmutationTableRecipe.Type.INSTANCE, inventory, level).map(TransmutationTableRecipe::getUsageCost).orElse(KuzeyCommonConfigs.transmutationTableDefaultUsageCost.get());
     }
 
     private static int getRecipeTime(TransmutationTableBlockEntity entity){
@@ -243,7 +240,7 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
-        return level.getRecipeManager().getRecipeFor(TransmutationTableRecipe.Type.INSTANCE, inventory, level).map(TransmutationTableRecipe::getRecipeTime).orElse(entity.defaultRecipeTime);
+        return level.getRecipeManager().getRecipeFor(TransmutationTableRecipe.Type.INSTANCE, inventory, level).map(TransmutationTableRecipe::getRecipeTime).orElse(KuzeyCommonConfigs.transmutationTableDefaultRecipeTime.get());
     }
 
     private static int getInputAmount(TransmutationTableBlockEntity entity){

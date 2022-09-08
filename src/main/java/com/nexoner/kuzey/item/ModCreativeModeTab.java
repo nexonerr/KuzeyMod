@@ -3,7 +3,7 @@ package com.nexoner.kuzey.item;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
-public class ModCreativeModTab {
+public class ModCreativeModeTab {
 
     public static final CreativeModeTab KUZEY_TAB = new CreativeModeTab("kuzeytab") {
         @Override

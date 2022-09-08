@@ -2,6 +2,7 @@ package com.nexoner.kuzey.block.entity.custom;
 
 import com.nexoner.kuzey.block.custom.KuzeyiumWorkstationBlock;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.recipe.KuzeyiumWorkstationRecipe;
 import com.nexoner.kuzey.screen.KuzeyiumWorkstationMenu;
@@ -54,8 +55,6 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress;
-    private int defaultRecipeTime = 600;
-    private int defaultToolDamage = 4;
 
     public KuzeyiumWorkstationBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.KUZEYIUM_WORKSTATION_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -236,7 +235,7 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
-        return level.getRecipeManager().getRecipeFor(KuzeyiumWorkstationRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumWorkstationRecipe::getRecipeTime).orElse(entity.defaultRecipeTime);
+        return level.getRecipeManager().getRecipeFor(KuzeyiumWorkstationRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumWorkstationRecipe::getRecipeTime).orElse(KuzeyCommonConfigs.kuzeyiumWorkstationDefaultRecipeTime.get());
     }
 
     private static int getToolDamage(KuzeyiumWorkstationBlockEntity entity){
@@ -245,7 +244,7 @@ public class KuzeyiumWorkstationBlockEntity extends BlockEntity implements MenuP
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
-        return level.getRecipeManager().getRecipeFor(KuzeyiumWorkstationRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumWorkstationRecipe::getToolDamage).orElse(entity.defaultToolDamage);
+        return level.getRecipeManager().getRecipeFor(KuzeyiumWorkstationRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumWorkstationRecipe::getToolDamage).orElse(KuzeyCommonConfigs.kuzeyiumWorkstationDefaultToolDamage.get());
     }
 
 }

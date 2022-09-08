@@ -2,6 +2,7 @@ package com.nexoner.kuzey.block.entity.custom;
 
 import com.nexoner.kuzey.block.custom.KuzeyiumPurificationChamberBlock;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.recipe.KuzeyiumPurificationChamberRecipe;
 import com.nexoner.kuzey.screen.KuzeyiumPurificationChamberMenu;
 import com.nexoner.kuzey.util.CustomEnergyStorage;
@@ -55,13 +56,9 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
 
     public final CustomEnergyStorage energyStorage;
 
-    private int capacity = 80000;
-    private int maxReceived = 20000;
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress;
-    private int defaultUsageCost = 10000;
-    private int defaultRecipeTime = 300;
 
     public KuzeyiumPurificationChamberBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.KUZEYIUM_PURIFICATION_CHAMBER_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -222,7 +219,7 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
     }
 
     private CustomEnergyStorage createEnergyStorage(){
-        return new CustomEnergyStorage(this, capacity, maxReceived,0,0);
+        return new CustomEnergyStorage(this, KuzeyCommonConfigs.kuzeyiumPurificationChamberCapacity.get(), KuzeyCommonConfigs.kuzeyiumPurificationChamberMaxReceived.get(),0,0);
     }
 
     private static int getUsageCost(KuzeyiumPurificationChamberBlockEntity entity){
@@ -231,7 +228,7 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
-        return level.getRecipeManager().getRecipeFor(KuzeyiumPurificationChamberRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumPurificationChamberRecipe::getUsageCost).orElse(entity.defaultUsageCost);
+        return level.getRecipeManager().getRecipeFor(KuzeyiumPurificationChamberRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumPurificationChamberRecipe::getUsageCost).orElse(KuzeyCommonConfigs.kuzeyiumPurificationChamberDefaultUsageCost.get());
     }
 
     private static int getRecipeTime(KuzeyiumPurificationChamberBlockEntity entity){
@@ -240,7 +237,7 @@ public class KuzeyiumPurificationChamberBlockEntity extends BlockEntity implemen
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
-        return level.getRecipeManager().getRecipeFor(KuzeyiumPurificationChamberRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumPurificationChamberRecipe::getRecipeTime).orElse(entity.defaultRecipeTime);
+        return level.getRecipeManager().getRecipeFor(KuzeyiumPurificationChamberRecipe.Type.INSTANCE, inventory, level).map(KuzeyiumPurificationChamberRecipe::getRecipeTime).orElse(KuzeyCommonConfigs.kuzeyiumPurificationChamberDefaultRecipeTime.get());
     }
 
     public int getEnergy(){

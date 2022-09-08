@@ -1,5 +1,6 @@
 package com.nexoner.kuzey.item.custom;
 
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
@@ -21,8 +22,6 @@ import java.util.List;
 
 public class KuzeyiumAxeItem extends AxeItem {
 
-    int destroyRange = 5;
-
     public KuzeyiumAxeItem(Tier pTier, float pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
@@ -30,7 +29,7 @@ public class KuzeyiumAxeItem extends AxeItem {
     @Override
     public boolean mineBlock(ItemStack pStack, Level pLevel, BlockState pState, BlockPos pPos, LivingEntity pEntityLiving) {
         if (isLog(pState.getBlock())){
-        for (int i = 1; i < destroyRange; i++){
+        for (int i = 1; i < KuzeyCommonConfigs.kuzeyiumAxeLumberMax.get(); i++){
                 BlockPos posToCheck = new BlockPos(pPos.getX(),pPos.getY() + i,pPos.getZ());
                 Block blockToCheck = pLevel.getBlockState(posToCheck).getBlock();
                 if (isLog(blockToCheck)){

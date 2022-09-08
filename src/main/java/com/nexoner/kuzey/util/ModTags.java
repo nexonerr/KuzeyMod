@@ -16,6 +16,7 @@ public class ModTags {
     public static class Blocks {
         public static final TagKey<Block> KUZEYIAN_LOGS = tag("kuzeyian_logs");
         public static final TagKey<Block> HAMMER_MINEABLE = tag("hammer_mineable");
+        public static final TagKey<Block> ABUNDANT_RESOURCES = tag("abundant_resources");
 
         public static final TagKey<Block> KUZEYIUM_BLOCKS = forgeTag("storage_blocks/kuzeyium");
         public static final TagKey<Block> KUZEYIUM_ORES = forgeTag("ores/kuzeyium");

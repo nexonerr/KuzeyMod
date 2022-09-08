@@ -2,6 +2,7 @@ package com.nexoner.kuzey.integration.jei;
 
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.recipe.*;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -25,11 +26,11 @@ public class JEIKuzeyModPlugin implements IModPlugin {
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
-        registration.addRecipeCategories(new KuzeyiumPurificationChamberRecipeCategory(registration.getJeiHelpers().getGuiHelper(),20000));
+        registration.addRecipeCategories(new KuzeyiumPurificationChamberRecipeCategory(registration.getJeiHelpers().getGuiHelper(), KuzeyCommonConfigs.kuzeyiumPurificationChamberMaxReceived.get()));
         registration.addRecipeCategories(new KuzeyiumWorkstationRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
-        registration.addRecipeCategories(new EmreEssenceExtractorRecipeCategory(registration.getJeiHelpers().getGuiHelper(),32000));
-        registration.addRecipeCategories(new TransmutationTableRecipeCategory(registration.getJeiHelpers().getGuiHelper(),28000));
-        registration.addRecipeCategories(new EmreEssenceInfuserRecipeCategory(registration.getJeiHelpers().getGuiHelper(),32000));
+        registration.addRecipeCategories(new EmreEssenceExtractorRecipeCategory(registration.getJeiHelpers().getGuiHelper(),KuzeyCommonConfigs.emreEssenceExtractorMaxReceived.get()));
+        registration.addRecipeCategories(new TransmutationTableRecipeCategory(registration.getJeiHelpers().getGuiHelper(),KuzeyCommonConfigs.transmutationTableMaxReceived.get()));
+        registration.addRecipeCategories(new EmreEssenceInfuserRecipeCategory(registration.getJeiHelpers().getGuiHelper(),KuzeyCommonConfigs.emreEssenceInfuserMaxReceived.get()));
     }
 
     @Override

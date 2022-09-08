@@ -1,5 +1,6 @@
 package com.nexoner.kuzey.item.custom;
 
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.item.custom.helper.BlockBreaker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
@@ -28,8 +29,6 @@ import java.util.List;
 
 public class InfusedKuzeyiumAxeItem extends AxeItem {
 
-    public final int RADIUS = 1;
-
     public InfusedKuzeyiumAxeItem(Tier pTier, float pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
@@ -42,7 +41,7 @@ public class InfusedKuzeyiumAxeItem extends AxeItem {
                 if (pStack.getTag().getBoolean("kuzey.ability")) {
                     if (pPlayer.getItemInHand(pPlayer.swingingArm).isCorrectToolForDrops(pLevel.getBlockState(pPos))){
                         if ((Registry.BLOCK.getHolderOrThrow(Registry.BLOCK.getResourceKey(pLevel.getBlockState(pPos).getBlock()).get()).is(BlockTags.LOGS))) {
-                            lumberBlock(RADIUS, pPos, pLevel, pPlayer);
+                            lumberBlock(KuzeyCommonConfigs.infusedKuzeyiumAxeRadius.get(), pPos, pLevel, pPlayer);
                         }
                     }
                 }
@@ -92,21 +91,23 @@ public class InfusedKuzeyiumAxeItem extends AxeItem {
         for (int x = -radius; x <= radius; x++) {
                 for (int z = -radius; z <= radius; z++) {
                     BlockPos toProcess = pPos.offset(x,0,z);
-                    breakBlockAndRecurse(toProcess,pPos,pLevel,pPlayer);
+                    breakBlockAndRecurse(toProcess, pPos, pLevel, pPlayer, toProcess != pPos);
                 }
         }
     }
-    private void breakBlockAndRecurse(BlockPos pPos, BlockPos originPos, Level pLevel, Player pPlayer){
+    private void breakBlockAndRecurse(BlockPos pPos, BlockPos originPos, Level pLevel, Player pPlayer, boolean doDrops){
         if (!pLevel.isClientSide) {
             if (pPlayer.getItemInHand(pPlayer.swingingArm).isCorrectToolForDrops(pLevel.getBlockState(pPos))){
                 if ((Registry.BLOCK.getHolderOrThrow(Registry.BLOCK.getResourceKey(pLevel.getBlockState(pPos).getBlock()).get()).is(BlockTags.LOGS))) {
                     List<ItemStack> drops = new LinkedList<>();
                     drops.addAll(BlockBreaker.breakBlockAndReturnDrops(pPos, pLevel, pPos, originPos, pPlayer.getItemInHand(pPlayer.swingingArm), pPlayer));
-                    breakBlockAndRecurse(pPos.above(), originPos, pLevel, pPlayer);
-                    drops.forEach(itemStack -> {
-                        ItemEntity entity = new ItemEntity(pLevel,pPos.getX(),pPos.getY(),pPos.getZ(),itemStack);
-                        pLevel.addFreshEntity(entity);
-                    });
+                    breakBlockAndRecurse(pPos.above(), originPos, pLevel, pPlayer, true);
+                    if (doDrops) {
+                        drops.forEach(itemStack -> {
+                            ItemEntity entity = new ItemEntity(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), itemStack);
+                            pLevel.addFreshEntity(entity);
+                        });
+                    }
                 }
             }
         }

@@ -2,7 +2,7 @@ package com.nexoner.kuzey.block;
 
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.custom.*;
-import com.nexoner.kuzey.item.ModCreativeModTab;
+import com.nexoner.kuzey.item.ModCreativeModeTab;
 import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.world.feature.tree.KuzeyianTreeGrower;
 import net.minecraft.client.gui.screens.Screen;
@@ -36,20 +36,20 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .strength(5f,30f),
                     UniformInt.of(4,8)
-                    ), ModCreativeModTab.KUZEY_TAB);
+                    ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> DEVASTATOR = registerBlock("devastator",
             () -> new DevastatorBlock(BlockBehaviour.Properties.of(Material.METAL)
                     .requiresCorrectToolForDrops()
                     .strength(2f,30f)
-            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.devastator");
+            ), ModCreativeModeTab.KUZEY_TAB, "tooltip.kuzey.block.devastator");
 
     public static final RegistryObject<Block> KUZEYIUM_GLASS = registerBlock("kuzeyium_glass",
             () -> new GlassBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)
                     .noOcclusion()
                     .requiresCorrectToolForDrops()
                     .strength(0.5f,600f)
-            ),ModCreativeModTab.KUZEY_TAB,"tooltip.kuzey.block.kuzeyium_glass");
+            ), ModCreativeModeTab.KUZEY_TAB,"tooltip.kuzey.block.kuzeyium_glass");
 
     public static final RegistryObject<Block> BLACK_CARROTS_PLANT = registerBlockWithoutBlockItem("black_carrots_plant",
             () -> new BlackCarrotsCropBlock(BlockBehaviour.Properties.copy(Blocks.CARROTS).noOcclusion()));
@@ -58,25 +58,25 @@ public class ModBlocks {
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)
                     .requiresCorrectToolForDrops()
                     .strength(2f,20f)
-            ),ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> KUZEYIAN_LOG_STRIPPED = registerBlock("kuzeyian_log_stripped",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_LOG)
                     .requiresCorrectToolForDrops()
                     .strength(1.9f,20f)
-            ),ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> KUZEYIAN_WOOD = registerBlock("kuzeyian_wood",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_WOOD)
                     .requiresCorrectToolForDrops()
                     .strength(2f,20f)
-            ),ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> KUZEYIAN_WOOD_STRIPPED = registerBlock("kuzeyian_wood_stripped",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_WOOD)
                     .requiresCorrectToolForDrops()
                     .strength(1.9f,20f)
-            ),ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> KUZEYIAN_PLANKS = registerBlock("kuzeyian_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)
@@ -95,7 +95,7 @@ public class ModBlocks {
                 public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 3;
                 }
-            },ModCreativeModTab.KUZEY_TAB);
+            }, ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> KUZEYIAN_LEAVES = registerBlock("kuzeyian_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)
@@ -115,84 +115,84 @@ public class ModBlocks {
                 public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 14;
                 }
-            },ModCreativeModTab.KUZEY_TAB);
+            }, ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> KUZEYIAN_SAPLING = registerBlock("kuzeyian_sapling",
             () -> new SaplingBlock(new KuzeyianTreeGrower(),BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)
-            ),ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> KUZEYIUM_PURIFICATION_CHAMBER = registerBlock("kuzeyium_purification_chamber",
             () -> new KuzeyiumPurificationChamberBlock(BlockBehaviour.Properties.of(Material.METAL)
                     .noOcclusion()
                     .requiresCorrectToolForDrops()
                     .strength(4f,30f)
-            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.kuzeyium_purification_chamber");
+            ), ModCreativeModeTab.KUZEY_TAB, "tooltip.kuzey.block.kuzeyium_purification_chamber");
 
     public static final RegistryObject<Block> KUZEYIUM_WORKSTATION = registerBlock("kuzeyium_workstation",
             () -> new KuzeyiumWorkstationBlock(BlockBehaviour.Properties.of(Material.METAL)
                     .noOcclusion()
                     .requiresCorrectToolForDrops()
                     .strength(4f,30f)
-            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.kuzeyium_workstation");
+            ), ModCreativeModeTab.KUZEY_TAB, "tooltip.kuzey.block.kuzeyium_workstation");
 
     public static final RegistryObject<Block> KUZEYIUM_BLOCK = registerBlock("kuzeyium_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .requiresCorrectToolForDrops()
                     .strength(5f,30f)
-            ), ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> EMRE_ESSENCE_EXTRACTOR = registerBlock("emre_essence_extractor",
             () -> new EmreEssenceExtractorBlock(BlockBehaviour.Properties.of(Material.METAL)
                     .noOcclusion()
                     .requiresCorrectToolForDrops()
                     .strength(4f,30f)
-            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.emre_essence_extractor");
+            ), ModCreativeModeTab.KUZEY_TAB, "tooltip.kuzey.block.emre_essence_extractor");
 
     public static final RegistryObject<Block> EMRE_ESSENCE_ROCK_ORE = registerBlock("emre_essence_rock_ore",
             () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .requiresCorrectToolForDrops()
                     .strength(5f,30f),
                     UniformInt.of(4,9)
-            ), ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> DEEPSLATE_EMRE_ESSENCE_ROCK_ORE = registerBlock("deepslate_emre_essence_rock_ore",
             () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .requiresCorrectToolForDrops()
                     .strength(7f,50f),
                     UniformInt.of(4,9)
-            ), ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> WOODEN_MACHINE_FRAME = registerBlock("wooden_machine_frame",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(2f,30f)
-            ), ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> IRON_MACHINE_FRAME = registerBlock("iron_machine_frame",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(2f,30f)
-            ), ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> DIAMOND_MACHINE_FRAME = registerBlock("diamond_machine_frame",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(2f,30f)
-            ), ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> UNACTIVATED_INFUSED_MACHINE_FRAME = registerBlock("unactivated_infused_machine_frame",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(2f,30f)
-            ), ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> INFUSED_MACHINE_FRAME = registerBlock("infused_machine_frame",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(2f,30f)
-            ), ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> TRANSMUTATION_TABLE = registerBlock("transmutation_table",
             () -> new TransmutationTableBlock(BlockBehaviour.Properties.of(Material.METAL)
                     .noOcclusion()
                     .requiresCorrectToolForDrops()
                     .strength(4f,30f)
-            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.transmutation_table");
+            ), ModCreativeModeTab.KUZEY_TAB, "tooltip.kuzey.block.transmutation_table");
 
     public static final RegistryObject<Block> EMRE_ESSENCE_INFUSER = registerBlock("emre_essence_infuser",
             () -> new EmreEssenceInfuserBlock(BlockBehaviour.Properties.of(Material.METAL)
@@ -200,24 +200,24 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .strength(4f,30f)
                     .sound(SoundType.GLASS)
-            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.emre_essence_infuser");
+            ), ModCreativeModeTab.KUZEY_TAB, "tooltip.kuzey.block.emre_essence_infuser");
 
     public static final RegistryObject<Block> DECONDENSATOR = registerBlock("decondensator",
             () -> new DecondensatorBlock(BlockBehaviour.Properties.of(Material.METAL)
                     .noOcclusion()
                     .requiresCorrectToolForDrops()
                     .strength(4f,30f)
-            ), ModCreativeModTab.KUZEY_TAB, "tooltip.kuzey.block.decondensator");
+            ), ModCreativeModeTab.KUZEY_TAB, "tooltip.kuzey.block.decondensator");
 
     public static final RegistryObject<Block> RAW_KUZEYIUM_BLOCK = registerBlock("raw_kuzeyium_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(3f,30f)
-            ), ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     public static final RegistryObject<Block> INFUSED_KUZEYIUM_BLOCK = registerBlock("infused_kuzeyium_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(3f,30f)
-            ), ModCreativeModTab.KUZEY_TAB);
+            ), ModCreativeModeTab.KUZEY_TAB);
 
     //Register Methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){

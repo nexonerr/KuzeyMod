@@ -1,6 +1,7 @@
 package com.nexoner.kuzey.block.custom;
 
 import com.mojang.authlib.GameProfile;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -23,14 +24,12 @@ public class DevastatorBlock extends Block {
 
     public static final BooleanProperty TOGGLED = BooleanProperty.create("toggled");
 
-    String Slayer = "KUZEY";
-
     @Override
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
         if(!pLevel.isClientSide){
             if(pEntity instanceof LivingEntity && pState.getValue(TOGGLED) == true){
                 LivingEntity livingEntity = ((LivingEntity) pEntity);
-                livingEntity.hurt(DamageSource.playerAttack(new Player(pLevel,pPos,1f,new GameProfile(null,Slayer)) {
+                livingEntity.hurt(DamageSource.playerAttack(new Player(pLevel,pPos,1f,new GameProfile(null, KuzeyCommonConfigs.devastatorSlayer.get())) {
                     @Override
                     public boolean isSpectator() {
                         return false;

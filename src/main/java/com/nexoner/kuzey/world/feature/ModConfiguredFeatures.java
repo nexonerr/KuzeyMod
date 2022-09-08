@@ -1,6 +1,7 @@
 package com.nexoner.kuzey.world.feature;
 
 import com.nexoner.kuzey.block.ModBlocks;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.util.ModOreFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -35,14 +36,14 @@ public class ModConfiguredFeatures {
                             ("kuzeyian_checked", KUZEYIAN_TREE, PlacementUtils.filteredByBlockSurvival(ModBlocks.KUZEYIAN_SAPLING.get()));
 
                     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ? >> KUZEYIAN_SPAWN =
-                            FeatureUtils.register("kuzeyian_spawn", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(KUZEYIAN_CHECKED, 0.5f)), KUZEYIAN_CHECKED));
+                            FeatureUtils.register("kuzeyian_spawn", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(KUZEYIAN_CHECKED, ((float) KuzeyCommonConfigs.kuzeyianTreeSpawnChance.get()) / 10f)), KUZEYIAN_CHECKED));
 
 
                     public static final List<OreConfiguration.TargetBlockState> KUZEYIUM_ORES = List.of(
                         OreConfiguration.target(ModOreFeatures.END_STONE_ORE_REPLACABLES, ModBlocks.KUZEYIUM_ORE.get().defaultBlockState()));
 
                     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> KUZEYIUM_ORE = FeatureUtils.register("kuzeyium_ore",
-                        Feature.ORE, new OreConfiguration(KUZEYIUM_ORES, 3));
+                        Feature.ORE, new OreConfiguration(KUZEYIUM_ORES, KuzeyCommonConfigs.kuzeyiumOreVeinSize.get()));
 
 
                     public static final List<OreConfiguration.TargetBlockState> EMRE_ESSENCE_ROCK_ORES = List.of(
@@ -50,8 +51,8 @@ public class ModConfiguredFeatures {
                             OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_EMRE_ESSENCE_ROCK_ORE.get().defaultBlockState()));
 
                     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> EMRE_ESSENCE_ROCK_ORE = FeatureUtils.register("emre_essence_rock_ore",
-                            Feature.ORE, new OreConfiguration(EMRE_ESSENCE_ROCK_ORES, 18));
+                            Feature.ORE, new OreConfiguration(EMRE_ESSENCE_ROCK_ORES, KuzeyCommonConfigs.emreEssenceRockOreVeinSize.get()));
 
                     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> EMRE_ESSENCE_ROCK_ORE_MEGA_VEIN = FeatureUtils.register("emre_essence_rock_ore_mega_vein",
-                            Feature.ORE, new OreConfiguration(EMRE_ESSENCE_ROCK_ORES, 36));
+                            Feature.ORE, new OreConfiguration(EMRE_ESSENCE_ROCK_ORES, KuzeyCommonConfigs.emreEssenceRockOreMegaVeinSize.get()));
 }

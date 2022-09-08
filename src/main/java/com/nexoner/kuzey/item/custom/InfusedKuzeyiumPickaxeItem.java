@@ -1,6 +1,8 @@
 package com.nexoner.kuzey.item.custom;
 
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.item.custom.helper.BlockBreaker;
+import com.nexoner.kuzey.util.ModTags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
@@ -29,9 +31,6 @@ import java.util.Queue;
 
 public class InfusedKuzeyiumPickaxeItem extends PickaxeItem {
 
-    public final int blockLimit = 192;
-    public final boolean abundantMining = false;
-
     public InfusedKuzeyiumPickaxeItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
@@ -43,8 +42,8 @@ public class InfusedKuzeyiumPickaxeItem extends PickaxeItem {
             if (pStack.hasTag()) {
                 if (pStack.getTag().getBoolean("kuzey.ability")){
                     if (isCorrectToolForDrops(pStack, pState)) {
-                        if ((!(Registry.BLOCK.getHolderOrThrow(Registry.BLOCK.getResourceKey(pState.getBlock()).get()).is(Tags.Blocks.STONE)) && pState.getBlock() != Blocks.DEEPSLATE) || abundantMining)
-                            veinMineBlock(blockLimit, pPos, pLevel, pPlayer.getOnPos().above(), pStack, pPlayer,pPlayer.swingingArm,pState.getBlock());
+                        if (!(Registry.BLOCK.getHolderOrThrow(Registry.BLOCK.getResourceKey(pState.getBlock()).get()).is(ModTags.Blocks.ABUNDANT_RESOURCES)) || KuzeyCommonConfigs.infusedKuzeyiumPickaxeAbundantMining.get())
+                            veinMineBlock(KuzeyCommonConfigs.infusedKuzeyiumPickaxeMaxBlocks.get(), pPos, pLevel, pPlayer.getOnPos().above(), pStack, pPlayer,pPlayer.swingingArm,pState.getBlock());
                     }
                 }
             }
@@ -94,7 +93,6 @@ public class InfusedKuzeyiumPickaxeItem extends PickaxeItem {
         Queue<BlockPos> positionQueue = new LinkedList<>();
         List<ItemStack> drops = new LinkedList<>();
 
-        drops.addAll(BlockBreaker.breakBlockAndReturnDrops(pPos,pLevel,spawnPos,pPos,pTool,pEntity));
         positionQueue.add(pPos);
         blocksBroken++;
 

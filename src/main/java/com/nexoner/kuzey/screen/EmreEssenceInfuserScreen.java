@@ -3,6 +3,7 @@ package com.nexoner.kuzey.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.nexoner.kuzey.KuzeyMod;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.util.FluidStackRenderer;
 import com.nexoner.kuzey.util.GeneralUtils;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -92,7 +93,7 @@ public class EmreEssenceInfuserScreen extends AbstractContainerScreen<EmreEssenc
     }
 
     private void assignFluidRenderer(){
-        renderer = new FluidStackRenderer(10000, true, 16, 41);
+        renderer = new FluidStackRenderer(KuzeyCommonConfigs.emreEssenceInfuserFluidCapacity.get(), true, 16, 41);
     }
 
     private void assignHorizontalFluidProgressRenderer(int width){

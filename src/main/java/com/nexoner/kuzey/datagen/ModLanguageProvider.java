@@ -6,7 +6,7 @@ import com.nexoner.kuzey.fluid.ModFluids;
 import com.nexoner.kuzey.integration.tic.ModTICMaterialFluids;
 import com.nexoner.kuzey.integration.tic.ModTICMaterialItems;
 import com.nexoner.kuzey.integration.tic.ModTICMaterials;
-import com.nexoner.kuzey.item.ModCreativeModTab;
+import com.nexoner.kuzey.item.ModCreativeModeTab;
 import com.nexoner.kuzey.item.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
@@ -106,7 +106,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addFluid(ModFluids.EMRE_ESSENCE_FLUID,"Emre Essence");
 
         //Creative Mode Tab(s)
-        addCreativeModeTab(ModCreativeModTab.KUZEY_TAB,"Kuzey Mod");
+        addCreativeModeTab(ModCreativeModeTab.KUZEY_TAB,"Kuzey Mod");
 
         //Item Tooltips
         addItemTooltip(ModItems.REGENERATOR,"\u00A74Heals\u00A7r you to \u00A74FULL HEALTH \u00A7eINSTANTLY\u00A7r, only has \u00A7eONE\u00A7r use!");

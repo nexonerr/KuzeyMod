@@ -2,6 +2,7 @@ package com.nexoner.kuzey;
 
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.fluid.ModFluids;
 import com.nexoner.kuzey.integration.tic.*;
 import com.nexoner.kuzey.item.ModItems;
@@ -14,7 +15,9 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -46,6 +49,8 @@ public class KuzeyMod
 
         eventBus.addListener(this::setup);
         eventBus.addListener(this::clientSetup);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KuzeyCommonConfigs.GENERAL_SPEC, "kuzey-common-configs.toml");
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

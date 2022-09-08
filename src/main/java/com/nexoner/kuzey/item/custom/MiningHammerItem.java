@@ -1,5 +1,6 @@
 package com.nexoner.kuzey.item.custom;
 
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.item.custom.helper.BlockBreaker;
 import com.nexoner.kuzey.util.ModTags;
 import net.minecraft.client.gui.screens.Screen;
@@ -18,8 +19,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class MiningHammerItem extends DiggerItem {
-    public int radius = 3;
-    public int depth = 0;
 
     public MiningHammerItem(float pAttackDamageModifier, float pAttackSpeedModifier, Tier pTier, Properties pProperties) {
         super(pAttackDamageModifier, pAttackSpeedModifier, pTier, ModTags.Blocks.HAMMER_MINEABLE, pProperties);
@@ -27,11 +26,11 @@ public class MiningHammerItem extends DiggerItem {
 
     @Override
     public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
-        int lRadius = radius;
+        int lRadius = KuzeyCommonConfigs.miningHammerRadius.get();
         if (Screen.hasShiftDown()){lRadius = 0;}
 
         if (isCorrectToolForDrops(pPlayer.getItemInHand(pPlayer.swingingArm),pState)){
-            BlockBreaker.breakInRadius(pLevel,pPlayer,lRadius,depth,pPos);
+            BlockBreaker.breakInRadius(pLevel,pPlayer,lRadius,KuzeyCommonConfigs.miningHammerDepth.get(),pPos);
             return true;
         }
         return true;

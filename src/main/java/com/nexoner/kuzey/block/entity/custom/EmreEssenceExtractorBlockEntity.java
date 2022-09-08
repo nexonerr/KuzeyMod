@@ -3,6 +3,7 @@ package com.nexoner.kuzey.block.entity.custom;
 import com.nexoner.kuzey.block.custom.EmreEssenceExtractorBlock;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.block.entity.entityType.IFluidHandlingBlockEntity;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.networking.ModPackets;
 import com.nexoner.kuzey.networking.packet.FluidSyncPacket;
 import com.nexoner.kuzey.recipe.EmreEssenceExtractorRecipe;
@@ -65,15 +66,9 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
     public final CustomEnergyStorage energyStorage;
     public final OutputOnlyFluidTank fluidTank;
 
-    private final int capacity = 140000;
-    private final int maxReceived = 32000;
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress;
-    private final int defaultUsageCost = 22000;
-    private final int defaultRecipeTime = 400;
-    private final int fluidCapacity = 30000;
-    private final boolean fluidFiltering = true;
     private final int BUCKET_VOLUME = IKuzeyConstants.BUCKET_VOLUME;
 
     public EmreEssenceExtractorBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -241,10 +236,14 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
     }
 
     private CustomEnergyStorage createEnergyStorage(){
+        int capacity = KuzeyCommonConfigs.emreEssenceExtractorCapacity.get();
+        int maxReceived = KuzeyCommonConfigs.emreEssenceExtractorMaxReceived.get();
         return new CustomEnergyStorage(this, capacity, maxReceived,0,0);
     }
 
     private OutputOnlyFluidTank createFluidTank(){
+        int fluidCapacity = KuzeyCommonConfigs.emreEssenceExtractorFluidCapacity.get();
+        boolean fluidFiltering = KuzeyCommonConfigs.emreEssenceExtractorFluidFiltering.get();
         if (fluidFiltering == false){
         return new OutputOnlyFluidTank(fluidCapacity, this){
             @Override
@@ -268,7 +267,7 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
-        return level.getRecipeManager().getRecipeFor(EmreEssenceExtractorRecipe.Type.INSTANCE, inventory, level).map(EmreEssenceExtractorRecipe::getUsageCost).orElse(entity.defaultUsageCost);
+        return level.getRecipeManager().getRecipeFor(EmreEssenceExtractorRecipe.Type.INSTANCE, inventory, level).map(EmreEssenceExtractorRecipe::getUsageCost).orElse(KuzeyCommonConfigs.emreEssenceExtractorDefaultUsageCost.get());
     }
 
     private static int getRecipeTime(EmreEssenceExtractorBlockEntity entity){
@@ -277,7 +276,7 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
-        return level.getRecipeManager().getRecipeFor(EmreEssenceExtractorRecipe.Type.INSTANCE, inventory, level).map(EmreEssenceExtractorRecipe::getRecipeTime).orElse(entity.defaultRecipeTime);
+        return level.getRecipeManager().getRecipeFor(EmreEssenceExtractorRecipe.Type.INSTANCE, inventory, level).map(EmreEssenceExtractorRecipe::getRecipeTime).orElse(KuzeyCommonConfigs.emreEssenceExtractorDefaultRecipeTime.get());
     }
     private static FluidStack getFluidOutput(EmreEssenceExtractorBlockEntity entity){
         Level level = entity.getLevel();
