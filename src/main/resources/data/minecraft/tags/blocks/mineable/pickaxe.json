@@ -19,6 +19,11 @@
     "kuzey:emre_essence_infuser",
     "kuzey:decondensator",
     "kuzey:raw_kuzeyium_block",
-    "kuzey:infused_kuzeyium_block"
+    "kuzey:infused_kuzeyium_block",
+    "kuzey:emre_essence_generator",
+    "kuzey:lava_infused_cobblestone",
+    "kuzey:stone_bound_generator_chassis",
+    "kuzey:chain_bound_generator_chassis",
+    "kuzey:lava_bound_generator_chassis"
   ]
 }

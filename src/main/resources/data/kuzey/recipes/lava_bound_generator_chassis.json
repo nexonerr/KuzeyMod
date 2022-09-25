@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OPI",
+    "LML",
+    "OPI"
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "P": {
+      "item": "kuzey:kuzeyium_plate"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "L": {
+      "item": "kuzey:lava_infused_cobblestone"
+    },
+    "M": {
+      "item": "kuzey:chain_bound_generator_chassis"
+    }
+  },
+  "result": {
+    "item": "kuzey:lava_bound_generator_chassis"
+  }
+}

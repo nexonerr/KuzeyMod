@@ -265,19 +265,11 @@ public class EmreEssenceInfuserBlockEntity extends BlockEntity implements MenuPr
     private CustomFluidTank createFluidTank(){
         int fluidCapacity = KuzeyCommonConfigs.emreEssenceInfuserFluidCapacity.get();
         boolean fluidFiltering = KuzeyCommonConfigs.emreEssenceInfuserFluidFiltering.get();
-        if (!fluidFiltering){
-        return new CustomFluidTank(fluidCapacity, this){
-            @Override
-            protected void onContentsChanged() {
-                if (!level.isClientSide()) {
-                    ModPackets.sendToClients(new FluidSyncPacket(this.fluid, worldPosition));
-                }}};}
-        return new CustomFluidTank(fluidCapacity, this, ModTags.Fluids.EMRE_ESSENCE_INFUSER_FLUIDS){
-            @Override
-            protected void onContentsChanged() {
-                if (!level.isClientSide()) {
-                    ModPackets.sendToClients(new FluidSyncPacket(this.fluid, worldPosition));
-                }}};}
+        if (fluidFiltering == false){
+        return new CustomFluidTank(fluidCapacity, this);
+        }
+        return new CustomFluidTank(fluidCapacity, this, ModTags.Fluids.EMRE_ESSENCE_INFUSER_FLUIDS);
+    }
 
     private static int getUsageCost(EmreEssenceInfuserBlockEntity entity){
         Level level = entity.getLevel();

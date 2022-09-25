@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "kuzey:block/stone_bound_generator_chassis"
+    }
+  }
+}

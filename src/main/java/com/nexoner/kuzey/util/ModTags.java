@@ -59,6 +59,7 @@ public class ModTags {
     public static class Fluids {
         public static final TagKey<Fluid> EMRE_ESSENCE_EXTRACTOR_FLUIDS = tag("emre_essence_extractor_fluids");
         public static final TagKey<Fluid> EMRE_ESSENCE_INFUSER_FLUIDS = tag("emre_essence_infuser_fluids");
+        public static final TagKey<Fluid> EMRE_ESSENCE_GENERATOR_FLUIDS = tag("emre_essence_generator_fluids");
 
         public static final TagKey<Fluid> MOLTEN_KUZEYIUM = tag("molten_kuzeyium");
         public static final TagKey<Fluid> MOLTEN_INFUSED_KUZEYIUM = tag("molten_infused_kuzeyium");

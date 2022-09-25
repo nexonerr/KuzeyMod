@@ -36,6 +36,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.INFUSED_MACHINE_FRAME.get());
         simpleBlock(ModBlocks.RAW_KUZEYIUM_BLOCK.get());
         simpleBlock(ModBlocks.INFUSED_KUZEYIUM_BLOCK.get());
+        simpleBlock(ModBlocks.STONE_BOUND_GENERATOR_CHASSIS.get());
+        simpleBlock(ModBlocks.CHAIN_BOUND_GENERATOR_CHASSIS.get());
+        simpleBlock(ModBlocks.LAVA_BOUND_GENERATOR_CHASSIS.get());
+        simpleBlock(ModBlocks.LAVA_INFUSED_COBBLESTONE.get());
 
         simpleBlock(ModBlocks.KUZEYIAN_SAPLING.get(), models().cross(ModBlocks.KUZEYIAN_SAPLING.get().getRegistryName().getPath(), blockTexture(ModBlocks.KUZEYIAN_SAPLING.get())));
 

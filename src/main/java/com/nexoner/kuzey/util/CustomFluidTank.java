@@ -1,5 +1,7 @@
 package com.nexoner.kuzey.util;
 
+import com.nexoner.kuzey.networking.ModPackets;
+import com.nexoner.kuzey.networking.packet.FluidSyncPacket;
 import net.minecraft.core.Registry;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -44,6 +46,9 @@ public class CustomFluidTank extends FluidTank {
     @Override
     protected void onContentsChanged() {
         blockEntity.setChanged();
+        if (!blockEntity.getLevel().isClientSide()) {
+            ModPackets.sendToClients(new FluidSyncPacket(this.fluid, blockEntity.getBlockPos()));
+        }
     }
 
     @Override

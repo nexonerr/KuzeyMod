@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IKB",
+    "CMC",
+    "BKI"
+  ],
+  "key": {
+    "B": {
+      "item": "kuzey:structure_binder"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "C": {
+      "item": "minecraft:chain"
+    },
+    "K": {
+      "tag": "forge:ingots/kuzeyium"
+    },
+    "M": {
+      "item": "kuzey:stone_bound_generator_chassis"
+    }
+  },
+  "result": {
+    "item": "kuzey:chain_bound_generator_chassis"
+  }
+}

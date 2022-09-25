@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "kuzey:block/lava_bound_generator_chassis"
+    }
+  }
+}

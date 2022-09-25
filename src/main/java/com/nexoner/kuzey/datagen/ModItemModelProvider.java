@@ -72,6 +72,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleBlockItem(ModBlocks.INFUSED_MACHINE_FRAME.get());
         simpleBlockItem(ModBlocks.RAW_KUZEYIUM_BLOCK.get());
         simpleBlockItem(ModBlocks.INFUSED_KUZEYIUM_BLOCK.get());
+        simpleBlockItem(ModBlocks.STONE_BOUND_GENERATOR_CHASSIS.get());
+        simpleBlockItem(ModBlocks.CHAIN_BOUND_GENERATOR_CHASSIS.get());
+        simpleBlockItem(ModBlocks.LAVA_BOUND_GENERATOR_CHASSIS.get());
+        simpleBlockItem(ModBlocks.LAVA_INFUSED_COBBLESTONE.get());
 
         blockItem(ModBlocks.KUZEYIAN_LOG_STRIPPED.get());
         blockItem(ModBlocks.KUZEYIAN_LOG.get());
@@ -83,6 +87,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.TRANSMUTATION_TABLE.get());
         blockItem(ModBlocks.EMRE_ESSENCE_INFUSER.get());
         blockItem(ModBlocks.DECONDENSATOR.get());
+        blockItem(ModBlocks.EMRE_ESSENCE_GENERATOR.get());
 
         /*INTEGRATION*/
         simpleItem(ModTICMaterialItems.MOLTEN_KUZEYIUM_BUCKET.get());

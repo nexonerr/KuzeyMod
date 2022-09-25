@@ -43,6 +43,12 @@ public class KuzeyCommonConfigs {
     public static ForgeConfigSpec.IntValue transmutationTableDefaultRecipeTime;
     public static ForgeConfigSpec.IntValue transmutationTableDefaultUsageCost;
 
+    public static ForgeConfigSpec.IntValue emreEssenceGeneratorCapacity;
+    public static ForgeConfigSpec.IntValue emreEssenceGeneratorMaxExtracted;
+    public static ForgeConfigSpec.IntValue emreEssenceGeneratorProduced;
+    public static ForgeConfigSpec.IntValue emreEssenceGeneratorFluidCapacity;
+    public static ForgeConfigSpec.BooleanValue emreEssenceGeneratorFluidFiltering;
+
     //Ores
     public static ForgeConfigSpec.IntValue kuzeyiumOreRate;
     public static ForgeConfigSpec.IntValue kuzeyiumOreVeinSize;
@@ -150,7 +156,7 @@ public class KuzeyCommonConfigs {
                 .comment("Default Tool Damage, This is almost always NEVER used")
                 .defineInRange("kuzeyium_workstation_default_usage_cost", 4, 1, 500);
 
-        //Kuzeyium Purification Chamber
+        //Transmutation Table
         transmutationTableCapacity = builder
                 .comment("Energy Capacity")
                 .defineInRange("transmutation_table_capacity", 110000, 25000, 600000);
@@ -163,6 +169,23 @@ public class KuzeyCommonConfigs {
         transmutationTableDefaultUsageCost = builder
                 .comment("Default Usage Cost, This is almost always NEVER used")
                 .defineInRange("transmutation_table_default_usage_cost", 8000, 100, 70000);
+
+        //Emre Essence Generator
+        emreEssenceGeneratorCapacity = builder
+                .comment("Energy Capacity")
+                .defineInRange("emre_essence_generator_capacity", 200000, 40000, 1200000);
+        emreEssenceGeneratorMaxExtracted = builder
+                .comment("Maximum FE/t Extracted")
+                .defineInRange("emre_essence_generator_max_extracted", 40000, 4000, 100000);
+        emreEssenceGeneratorFluidCapacity = builder
+                .comment("Fluid Storage")
+                .defineInRange("emre_essence_generator_fluid_capacity", 15000, 1500, 40000);
+        emreEssenceGeneratorProduced = builder
+                .comment("Amount of energy that is produced per tick, on default, this is affected by the fuels that are used, this is the base amount")
+                .defineInRange("emre_essence_generator_produced", 20000, 2000, 100000);
+        emreEssenceGeneratorFluidFiltering = builder
+                .comment("Toggled fluid filtering, if this is turned on this machine will only accept fluids from a certain tag. This is redundant for machines that can only output fluids, so it's better disable it in those cases.")
+                .define("emre_essence_generator_fluid_filtering", true);
 
         builder.pop();
         builder.pop();

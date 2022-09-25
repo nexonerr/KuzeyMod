@@ -77,6 +77,7 @@ public class KuzeyMod
         MenuScreens.register(ModMenuTypes.EMRE_ESSENCE_EXTRACTOR_MENU.get(), EmreEssenceExtractorScreen::new);
         MenuScreens.register(ModMenuTypes.TRANSMUTATION_TABLE_MENU.get(), TransmutationTableScreen::new);
         MenuScreens.register(ModMenuTypes.EMRE_ESSENCE_INFUSER_MENU.get(), EmreEssenceInfuserScreen::new);
+        MenuScreens.register(ModMenuTypes.EMRE_ESSENCE_GENERATOR_MENU.get(), EmreEssenceGeneratorScreen::new);
 
     }
 

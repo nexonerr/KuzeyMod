@@ -35,6 +35,10 @@ public class CustomEnergyStorage extends EnergyStorage {
         return super.receiveEnergy(maxReceive, simulate);
     }
 
+    public int getSpace(){
+        return getMaxEnergyStored() - getEnergyStored();
+    }
+
     public void setEnergy(int energy) {
         this.energy = Math.max(0,Math.min(energy, this.capacity));
     }

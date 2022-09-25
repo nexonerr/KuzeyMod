@@ -18,6 +18,7 @@ import net.minecraft.world.item.crafting.SimpleCookingSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
@@ -44,7 +45,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ArmorRecipes(pFinishedRecipeConsumer);
         CraftingComponents(pFinishedRecipeConsumer);
         MachineRecipes(pFinishedRecipeConsumer);
+        GeneratorRecipes(pFinishedRecipeConsumer);
         MachineFrames(pFinishedRecipeConsumer);
+        GeneratorChassis(pFinishedRecipeConsumer);
 
         UncategorizedRecipes(pFinishedRecipeConsumer);
 
@@ -65,6 +68,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new EmreEssenceInfuserRecipeBuilder(ModItems.INFUSED_KUZEYIUM_GEM.get(), ModItems.ASCENDED_KUZEYIUM_GEM.get(), 1, 440, 22000,
                 new FluidStack(ModFluids.EMRE_ESSENCE_FLUID.get(), 800))
                 .unlockedBy("has_ascended_kuzeyium_gem", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.ASCENDED_KUZEYIUM_GEM.get()).build())).save(pFinishedRecipeConsumer);
+
+        new EmreEssenceInfuserRecipeBuilder(ModBlocks.LAVA_INFUSED_COBBLESTONE.get().asItem(), Blocks.COBBLESTONE.asItem(), 1, 100, 1600,
+                new FluidStack(Fluids.LAVA, 1000))
+                .unlockedBy("has_cobblestone", inventoryTrigger(ItemPredicate.Builder.item().of(Blocks.COBBLESTONE).build())).save(pFinishedRecipeConsumer);
 
     }
 
@@ -451,7 +458,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private void MachineRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ShapedRecipeBuilder.shaped(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get())
-                .define('K', ModItems.KUZEYIUM_INGOT.get())
+                .define('K', ModTags.Items.KUZEYIUM_INGOTS)
                 .define('L', ModTags.Items.KUZEYIAN_LOGS)
                 .define('M', ModBlocks.DIAMOND_MACHINE_FRAME.get())
                 .define('G', ModItems.KUZEYIUM_GLASS_PLATE.get())
@@ -464,7 +471,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pFinishedRecipeConsumer);
 
         ShapedRecipeBuilder.shaped(ModBlocks.KUZEYIUM_WORKSTATION.get())
-                .define('K', ModItems.KUZEYIUM_INGOT.get())
+                .define('K', ModTags.Items.KUZEYIUM_INGOTS)
                 .define('G', ModItems.KUZEYIUM_GLASS_PLATE.get())
                 .define('E', Items.END_STONE_BRICKS)
                 .define('M', ModBlocks.IRON_MACHINE_FRAME.get())
@@ -533,6 +540,23 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pFinishedRecipeConsumer);
     }
 
+    private void GeneratorRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        ShapedRecipeBuilder.shaped(ModBlocks.EMRE_ESSENCE_GENERATOR.get())
+                .define('K', ModItems.KUZEYIUM_INGOT.get())
+                .define('F', ModItems.STILL_FLUID_TANK.get())
+                .define('B', ModItems.EMRE_ESSENCE_BUCKET.get())
+                .define('P', ModItems.KUZEYIUM_GLASS_PLATE.get())
+                .define('S', ModItems.STRUCTURE_BINDER.get())
+                .define('C', ModItems.KUZEYIUM_HEATING_COIL.get())
+                .define('M', ModBlocks.LAVA_BOUND_GENERATOR_CHASSIS.get())
+                .pattern("FBK")
+                .pattern("KMP")
+                .pattern("SCS")
+                .unlockedBy("has_lava_bound_generator_chassis", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.LAVA_BOUND_GENERATOR_CHASSIS.get()).build()))
+                .save(pFinishedRecipeConsumer);
+    }
+
     private void MachineFrames(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ShapedRecipeBuilder.shaped(ModBlocks.WOODEN_MACHINE_FRAME.get())
                 .define('K', ModItems.KUZEYIUM_INGOT.get())
@@ -578,6 +602,45 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("OOO")
                 .unlockedBy("has_diamond_machine_frame", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModBlocks.DIAMOND_MACHINE_FRAME.get()).build()))
+                .save(pFinishedRecipeConsumer);
+    }
+
+    private void GeneratorChassis(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        ShapedRecipeBuilder.shaped(ModBlocks.STONE_BOUND_GENERATOR_CHASSIS.get())
+                .define('S', Tags.Items.STONE)
+                .define('R', Blocks.REDSTONE_BLOCK)
+                .define('K', ModTags.Items.KUZEYIUM_INGOTS)
+                .pattern("SRS")
+                .pattern("RKR")
+                .pattern("SRS")
+                .unlockedBy("has_kuzeyium_ingot", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModTags.Items.KUZEYIUM_INGOTS).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModBlocks.CHAIN_BOUND_GENERATOR_CHASSIS.get())
+                .define('B', ModItems.STRUCTURE_BINDER.get())
+                .define('I', Blocks.IRON_BLOCK)
+                .define('C', Blocks.CHAIN)
+                .define('K', ModTags.Items.KUZEYIUM_INGOTS)
+                .define('M', ModBlocks.STONE_BOUND_GENERATOR_CHASSIS.get())
+                .pattern("IKB")
+                .pattern("CMC")
+                .pattern("BKI")
+                .unlockedBy("has_stone_bound_generator_chassis", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.STONE_BOUND_GENERATOR_CHASSIS.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModBlocks.LAVA_BOUND_GENERATOR_CHASSIS.get())
+                .define('O', Blocks.OBSIDIAN)
+                .define('P', ModItems.KUZEYIUM_PLATE.get())
+                .define('I', Blocks.IRON_BLOCK)
+                .define('L', ModBlocks.LAVA_INFUSED_COBBLESTONE.get())
+                .define('M', ModBlocks.CHAIN_BOUND_GENERATOR_CHASSIS.get())
+                .pattern("OPI")
+                .pattern("LML")
+                .pattern("OPI")
+                .unlockedBy("has_chain_bound_generator_chassis", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.CHAIN_BOUND_GENERATOR_CHASSIS.get()).build()))
                 .save(pFinishedRecipeConsumer);
     }
 

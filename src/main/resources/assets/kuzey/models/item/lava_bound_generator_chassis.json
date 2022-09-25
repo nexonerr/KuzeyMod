@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "kuzey:block/lava_bound_generator_chassis"
+  }
+}

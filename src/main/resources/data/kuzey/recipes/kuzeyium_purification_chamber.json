@@ -7,7 +7,7 @@
   ],
   "key": {
     "K": {
-      "item": "kuzey:kuzeyium_ingot"
+      "tag": "forge:ingots/kuzeyium"
     },
     "L": {
       "tag": "kuzey:kuzeyian_logs"

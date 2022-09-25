@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:chain_bound_generator_chassis"
+    ]
+  },
+  "criteria": {
+    "has_stone_bound_generator_chassis": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:stone_bound_generator_chassis"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:chain_bound_generator_chassis"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone_bound_generator_chassis",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -83,6 +83,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.DEEPSLATE_EMRE_ESSENCE_ROCK_ORE,"Deepslate Emre Essence Rock Ore");
         addBlock(ModBlocks.RAW_KUZEYIUM_BLOCK,"Raw Kuzeyium Block");
         addBlock(ModBlocks.INFUSED_KUZEYIUM_BLOCK,"Infused Kuzeyium Block");
+        addBlock(ModBlocks.LAVA_INFUSED_COBBLESTONE,"Lava Infused Cobblestone");
 
         //Advanced Blocks
         addBlock(ModBlocks.DEVASTATOR,"Kuzeyium Devastator");
@@ -94,6 +95,11 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.UNACTIVATED_INFUSED_MACHINE_FRAME,"Unactivated Infused Machine Frame");
         addBlock(ModBlocks.INFUSED_MACHINE_FRAME,"Infused Machine Frame");
 
+        //Generator Chassis
+        addBlock(ModBlocks.STONE_BOUND_GENERATOR_CHASSIS,"Stone Bound Generator Chassis");
+        addBlock(ModBlocks.CHAIN_BOUND_GENERATOR_CHASSIS,"Chain Bound Generator Chassis");
+        addBlock(ModBlocks.LAVA_BOUND_GENERATOR_CHASSIS,"Lava Bound Generator Chassis");
+
         //Machines
         addBlock(ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER,"Kuzeyium Purification Chamber");
         addBlock(ModBlocks.KUZEYIUM_WORKSTATION,"Kuzeyium Workstation");
@@ -101,6 +107,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.TRANSMUTATION_TABLE,"Transmutation Table");
         addBlock(ModBlocks.EMRE_ESSENCE_INFUSER,"Emre Essence Infuser");
         addBlock(ModBlocks.DECONDENSATOR,"Decondensator"); //Is it really a machine if it doesn't have BE?
+        addBlock(ModBlocks.EMRE_ESSENCE_GENERATOR,"Emre Essence Generator");
 
         //Fluid(s)
         addFluid(ModFluids.EMRE_ESSENCE_FLUID,"Emre Essence");
@@ -127,6 +134,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlockTooltip(ModBlocks.TRANSMUTATION_TABLE,"Can turn one \u00A7e-or several-\u00A7r items into another");
         addBlockTooltip(ModBlocks.EMRE_ESSENCE_INFUSER,"Infuses items with \u00A7bfluids\u00A7r. Requires a \u00A7eDECONDENSATOR\u00A7r in order to function");
         addBlockTooltip(ModBlocks.DECONDENSATOR,"\u00A7cHEATS\u00A7r stuff up, required for the \u00A7aEmre Essence Infuser\u00A7r to function");
+        addBlockTooltip(ModBlocks.EMRE_ESSENCE_GENERATOR,"Reacts \u00A7aEmre Essence\u00A7r to produce large amounts of \u00A74ENERGY");
 
         //Ability Tooltips
         addItemAbilityTooltip(ModItems.INFUSED_KUZEYIUM_PICKAXE,"Vein-mine: %s");

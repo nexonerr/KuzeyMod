@@ -29,6 +29,9 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<EmreEssenceInfuserMenu>> EMRE_ESSENCE_INFUSER_MENU =
             registerMenuType(EmreEssenceInfuserMenu::new,"emre_essence_infuser_menu");
 
+    public static final RegistryObject<MenuType<EmreEssenceGeneratorMenu>> EMRE_ESSENCE_GENERATOR_MENU =
+            registerMenuType(EmreEssenceGeneratorMenu::new,"emre_essence_generator_menu");
+
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name){
         return MENUS.register(name, () -> IForgeMenuType.create(factory));
     }

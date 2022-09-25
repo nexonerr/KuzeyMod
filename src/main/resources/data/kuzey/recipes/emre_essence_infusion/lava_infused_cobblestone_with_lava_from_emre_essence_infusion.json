@@ -1,0 +1,17 @@
+{
+  "type": "kuzey:emre_essence_infusion",
+  "ingredients": [
+    {
+      "item": "minecraft:cobblestone"
+    }
+  ],
+  "output": {
+    "item": "kuzey:lava_infused_cobblestone"
+  },
+  "fluid": {
+    "fluid": "minecraft:lava",
+    "amount": 1000
+  },
+  "usageCost": 1600,
+  "recipeTime": 100
+}

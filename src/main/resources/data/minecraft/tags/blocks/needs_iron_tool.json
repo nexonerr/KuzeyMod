@@ -12,6 +12,7 @@
     "kuzey:emre_essence_infuser",
     "kuzey:decondensator",
     "kuzey:raw_kuzeyium_block",
-    "kuzey:infused_kuzeyium_block"
+    "kuzey:infused_kuzeyium_block",
+    "kuzey:emre_essence_generator"
   ]
 }

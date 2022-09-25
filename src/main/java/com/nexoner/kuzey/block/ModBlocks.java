@@ -219,6 +219,33 @@ public class ModBlocks {
                     .strength(3f,30f)
             ), ModCreativeModeTab.KUZEY_TAB);
 
+    public static final RegistryObject<Block> EMRE_ESSENCE_GENERATOR = registerBlock("emre_essence_generator",
+            () -> new EmreEssenceGeneratorBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .strength(4f,30f)
+            ), ModCreativeModeTab.KUZEY_TAB, "tooltip.kuzey.block.emre_essence_generator");
+
+    public static final RegistryObject<Block> STONE_BOUND_GENERATOR_CHASSIS = registerBlock("stone_bound_generator_chassis",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(3f,30f)
+            ), ModCreativeModeTab.KUZEY_TAB);
+
+    public static final RegistryObject<Block> CHAIN_BOUND_GENERATOR_CHASSIS = registerBlock("chain_bound_generator_chassis",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(3f,30f)
+            ), ModCreativeModeTab.KUZEY_TAB);
+
+    public static final RegistryObject<Block> LAVA_BOUND_GENERATOR_CHASSIS = registerBlock("lava_bound_generator_chassis",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(3f,30f)
+            ), ModCreativeModeTab.KUZEY_TAB);
+
+    public static final RegistryObject<Block> LAVA_INFUSED_COBBLESTONE = registerBlock("lava_infused_cobblestone",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(0.5f,30f)
+            ), ModCreativeModeTab.KUZEY_TAB);
+
     //Register Methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

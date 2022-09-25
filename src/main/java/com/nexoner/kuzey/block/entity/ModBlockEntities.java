@@ -3,6 +3,7 @@ package com.nexoner.kuzey.block.entity;
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.custom.*;
+import com.nexoner.kuzey.block.entity.custom.generator.EmreEssenceGeneratorBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -13,6 +14,8 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, KuzeyMod.MOD_ID);
 
+
+    //Machines
     public static final RegistryObject<BlockEntityType<KuzeyiumPurificationChamberBlockEntity>> KUZEYIUM_PURIFICATION_CHAMBER_BLOCK_ENTITY=
             BLOCK_ENTITIES.register("kuzeyium_purification_chamber_block_entity",() -> BlockEntityType.Builder.of(KuzeyiumPurificationChamberBlockEntity::new,
                     ModBlocks.KUZEYIUM_PURIFICATION_CHAMBER.get()).build(null));
@@ -32,6 +35,11 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<EmreEssenceInfuserBlockEntity>> EMRE_ESSENCE_INFUSER_BLOCK_ENTITY=
             BLOCK_ENTITIES.register("emre_essence_infuser_block_entity",() -> BlockEntityType.Builder.of(EmreEssenceInfuserBlockEntity::new,
                     ModBlocks.EMRE_ESSENCE_INFUSER.get()).build(null));
+
+    //Generators
+    public static final RegistryObject<BlockEntityType<EmreEssenceGeneratorBlockEntity>> EMRE_ESSENCE_GENERATOR_BLOCK_ENTITY=
+            BLOCK_ENTITIES.register("emre_essence_generator_block_entity",() -> BlockEntityType.Builder.of(EmreEssenceGeneratorBlockEntity::new,
+                    ModBlocks.EMRE_ESSENCE_GENERATOR.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

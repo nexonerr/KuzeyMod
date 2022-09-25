@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SRS",
+    "RKR",
+    "SRS"
+  ],
+  "key": {
+    "S": {
+      "tag": "forge:stone"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    },
+    "K": {
+      "tag": "forge:ingots/kuzeyium"
+    }
+  },
+  "result": {
+    "item": "kuzey:stone_bound_generator_chassis"
+  }
+}

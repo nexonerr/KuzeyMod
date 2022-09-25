@@ -17,6 +17,7 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -245,18 +246,10 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
         int fluidCapacity = KuzeyCommonConfigs.emreEssenceExtractorFluidCapacity.get();
         boolean fluidFiltering = KuzeyCommonConfigs.emreEssenceExtractorFluidFiltering.get();
         if (fluidFiltering == false){
-        return new OutputOnlyFluidTank(fluidCapacity, this){
-            @Override
-            protected void onContentsChanged() {
-                if (!level.isClientSide()) {
-                    ModPackets.sendToClients(new FluidSyncPacket(this.fluid, worldPosition));
-                }}};}
-        return new OutputOnlyFluidTank(fluidCapacity, this, ModTags.Fluids.EMRE_ESSENCE_EXTRACTOR_FLUIDS){
-            @Override
-            protected void onContentsChanged() {
-                if (!level.isClientSide()) {
-                    ModPackets.sendToClients(new FluidSyncPacket(this.fluid, worldPosition));
-                }}};}
+        return new OutputOnlyFluidTank(fluidCapacity, this);
+        }
+        return new OutputOnlyFluidTank(fluidCapacity, this, ModTags.Fluids.EMRE_ESSENCE_EXTRACTOR_FLUIDS);
+    }
 
 
 
@@ -324,21 +317,28 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
 
     private void transferLiquidIntoItem(){
         ItemStack toChange = itemHandler.getStackInSlot(1);
-        if (toChange.getItem().getRegistryName() == Items.BUCKET.getRegistryName()){
-            if (fluidTank.getFluidAmount() >= BUCKET_VOLUME && itemHandler.getStackInSlot(1).getCount() == 1){
-                ItemStack toSet = new ItemStack(fluidTank.getFluid().getFluid().getBucket());
-                fluidTank.drain(BUCKET_VOLUME, IFluidHandler.FluidAction.EXECUTE);
-                itemHandler.setStackInSlot(1, toSet);
+            if (toChange.getItem().getRegistryName() == Items.BUCKET.getRegistryName()){
+                if (fluidTank.getFluidAmount() >= BUCKET_VOLUME){
+                    ItemStack toSet = new ItemStack(fluidTank.getFluid().getFluid().getBucket());
+                    fluidTank.drain(BUCKET_VOLUME, IFluidHandler.FluidAction.EXECUTE);
+                    itemHandler.extractItem(1, 1, false);
+                    if (itemHandler.getStackInSlot(1).getCount() == 0) {
+                        itemHandler.setStackInSlot(1, toSet);
+                    } else {
+                        ItemEntity toSpawn = new ItemEntity(level,worldPosition.getX(),worldPosition.getY(),worldPosition.getZ(),toSet);
+                        level.addFreshEntity(toSpawn);
+                    }
+                }
+            } else {
+            toChange.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).ifPresent(handler ->{
+                int toDrain = Math.min(Math.min(BUCKET_VOLUME, this.fluidTank.getFluidAmount()), handler.getTankCapacity(0) - handler.getFluidInTank(0).getAmount());
+                if (toDrain > 0){
+                    FluidStack stack = fluidTank.drain(toDrain, IFluidHandler.FluidAction.EXECUTE);
+                    handler.fill(stack, IFluidHandler.FluidAction.EXECUTE);
+                    }
+                });
             }
-        } else {
-        toChange.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).ifPresent(handler ->{
-            int toDrain = Math.min(Math.min(BUCKET_VOLUME, this.fluidTank.getFluidAmount()), handler.getTankCapacity(0) - handler.getFluidInTank(0).getAmount());
-            if (toDrain > 0){
-                FluidStack stack = fluidTank.drain(toDrain, IFluidHandler.FluidAction.EXECUTE);
-                handler.fill(stack, IFluidHandler.FluidAction.EXECUTE);
-            }
-        });}
-    }
+        }
 
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
         EmreEssenceExtractorBlockEntity pBlockEntity = (EmreEssenceExtractorBlockEntity) this.level.getBlockEntity(this.getBlockPos());
