@@ -269,7 +269,7 @@ public class KuzeyCommonConfigs {
                 .defineInRange("kuzeyium_axe_lumber_max", 5, 0, 100);
         miningHammerRadius = builder
                 .comment("Defines the diameter of the hole created by the kuzeyium mining hammer")
-                .defineInRange("mining_hammer_radius", 3, 0, 8);
+                .defineInRange("mining_hammer_radius", 1, 0, 8);
         miningHammerDepth = builder
                 .comment("Defines the depth of the hole created by the kuzeyium mining hammer")
                 .defineInRange("mining_hammer_depth", 0, 0, 8);
