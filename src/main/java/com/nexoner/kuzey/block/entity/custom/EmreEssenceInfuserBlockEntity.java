@@ -3,10 +3,12 @@ package com.nexoner.kuzey.block.entity.custom;
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.custom.EmreEssenceExtractorBlock;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
+import com.nexoner.kuzey.block.entity.entityType.IEnergyHandlingBlockEntity;
 import com.nexoner.kuzey.block.entity.entityType.IFluidHandlingBlockEntity;
 import com.nexoner.kuzey.block.entity.entityType.IItemStackRenderingBlockEntity;
 import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.networking.ModPackets;
+import com.nexoner.kuzey.networking.packet.EnergySyncPacket;
 import com.nexoner.kuzey.networking.packet.FluidSyncPacket;
 import com.nexoner.kuzey.networking.packet.ItemStackSyncPacket;
 import com.nexoner.kuzey.recipe.EmreEssenceInfuserRecipe;
@@ -52,7 +54,7 @@ import javax.annotation.Nonnull;
 import java.util.Map;
 import java.util.Optional;
 
-public class EmreEssenceInfuserBlockEntity extends BlockEntity implements MenuProvider, IFluidHandlingBlockEntity, IKuzeyConstants, IItemStackRenderingBlockEntity {
+public class EmreEssenceInfuserBlockEntity extends BlockEntity implements MenuProvider, IFluidHandlingBlockEntity, IKuzeyConstants, IItemStackRenderingBlockEntity, IEnergyHandlingBlockEntity {
     private final ItemStackHandler itemHandler = new ItemStackHandler(3){
         @Override
         protected void onContentsChanged(int slot) {
@@ -88,16 +90,24 @@ public class EmreEssenceInfuserBlockEntity extends BlockEntity implements MenuPr
         this.data = new ContainerData() {
             @Override
             public int get(int pIndex) {
-                switch (pIndex) {
-                    case 0: return EmreEssenceInfuserBlockEntity.this.progress;
-                    case 1: return EmreEssenceInfuserBlockEntity.this.maxProgress;
-                    case 2: return EmreEssenceInfuserBlockEntity.this.getEnergy();
-                    case 3: return EmreEssenceInfuserBlockEntity.this.getMaxEnergy();
-                    case 4: return EmreEssenceInfuserBlockEntity.this.getFluidAmount();
-                    case 5: return EmreEssenceInfuserBlockEntity.this.getFluidCapacity();
-                    case 6: return GeneralUtils.boolToInt(EmreEssenceInfuserBlockEntity.this.hasDecondensator(pPos));
-                    default: return 0;
-                }
+                    switch (pIndex) {
+                        case 0:
+                            return EmreEssenceInfuserBlockEntity.this.progress;
+                        case 1:
+                            return EmreEssenceInfuserBlockEntity.this.maxProgress;
+                        case 2:
+                            return EmreEssenceInfuserBlockEntity.this.getEnergy();
+                        case 3:
+                            return EmreEssenceInfuserBlockEntity.this.getMaxEnergy();
+                        case 4:
+                            return EmreEssenceInfuserBlockEntity.this.getFluidAmount();
+                        case 5:
+                            return EmreEssenceInfuserBlockEntity.this.getFluidCapacity();
+                        case 6:
+                            return GeneralUtils.boolToInt(EmreEssenceInfuserBlockEntity.this.hasDecondensator(pPos));
+                        default:
+                            return 0;
+                    }
             }
 
             @Override
@@ -134,6 +144,7 @@ public class EmreEssenceInfuserBlockEntity extends BlockEntity implements MenuPr
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
         ModPackets.sendToClients(new FluidSyncPacket(this.fluidTank.getFluid(), worldPosition));
+        ModPackets.sendToClients(new EnergySyncPacket(this.getEnergy(),this.worldPosition));
         return new EmreEssenceInfuserMenu(pContainerId,pInventory,this,this.data);
     }
 
@@ -259,7 +270,14 @@ public class EmreEssenceInfuserBlockEntity extends BlockEntity implements MenuPr
     }
 
     private CustomEnergyStorage createEnergyStorage(){
-        return new CustomEnergyStorage(this, KuzeyCommonConfigs.emreEssenceInfuserCapacity.get(), KuzeyCommonConfigs.emreEssenceInfuserMaxReceived.get(),0,0);
+        return new CustomEnergyStorage(this, KuzeyCommonConfigs.emreEssenceInfuserCapacity.get(), KuzeyCommonConfigs.emreEssenceInfuserMaxReceived.get(),0,0){
+            @Override
+            public void onEnergyChanged() {
+                if (!level.isClientSide){
+                    ModPackets.sendToClients(new EnergySyncPacket(energyStorage.getEnergyStored(),worldPosition));
+                }
+            }
+        };
     }
 
     private CustomFluidTank createFluidTank(){
@@ -304,6 +322,16 @@ public class EmreEssenceInfuserBlockEntity extends BlockEntity implements MenuPr
 
     public FluidStack getFluid(){
         return fluidTank.getFluid();
+    }
+
+    @Override
+    public void setEnergy(int energy) {
+        energyStorage.setEnergy(energy);
+    }
+
+    @Override
+    public CustomEnergyStorage getEnergyStorage() {
+        return energyStorage;
     }
 
     public int getEnergy(){
@@ -362,7 +390,7 @@ public class EmreEssenceInfuserBlockEntity extends BlockEntity implements MenuPr
         if(hasRecipe(pBlockEntity) && hasEnoughEnergy(getUsageCost(pBlockEntity)) && hasDecondensator(pPos)) {
             pBlockEntity.maxProgress = getRecipeTime(pBlockEntity);
             pBlockEntity.progress++;
-            energyStorage.setEnergy(energyStorage.getEnergyStored() - getUsageCost(pBlockEntity));
+            energyStorage.removeEnergy(getUsageCost(pBlockEntity));
             setChanged(pLevel, pPos, pState);
             if(pBlockEntity.progress > pBlockEntity.maxProgress) {
                 craftItem(pBlockEntity);
@@ -418,5 +446,6 @@ public class EmreEssenceInfuserBlockEntity extends BlockEntity implements MenuPr
         ModPackets.sendToClients(new ItemStackSyncPacket(itemHandler,worldPosition));
         return compound;
     }
+
 
 }

@@ -5,6 +5,7 @@ import com.nexoner.kuzey.block.entity.template.AbstractFluidGeneratorEntity;
 import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.fluid.ModFluids;
 import com.nexoner.kuzey.networking.ModPackets;
+import com.nexoner.kuzey.networking.packet.EnergySyncPacket;
 import com.nexoner.kuzey.networking.packet.FluidSyncPacket;
 import com.nexoner.kuzey.screen.EmreEssenceGeneratorMenu;
 import com.nexoner.kuzey.util.ModTags;
@@ -32,6 +33,7 @@ public class EmreEssenceGeneratorBlockEntity extends AbstractFluidGeneratorEntit
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
         ModPackets.sendToClients(new FluidSyncPacket(this.fluidTank.getFluid(), worldPosition));
+        ModPackets.sendToClients(new EnergySyncPacket(energyStorage.getEnergyStored(),worldPosition));
         return new EmreEssenceGeneratorMenu(pContainerId,pInventory,this,this.data);
     }
 

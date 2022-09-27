@@ -246,6 +246,13 @@ public class ModBlocks {
                     .strength(0.5f,30f)
             ), ModCreativeModeTab.KUZEY_TAB);
 
+    public static final RegistryObject<Block> COMBUSTIBLE_SOLID_GENERATOR = registerBlock("combustible_solid_generator",
+            () -> new CombustibleSolidGeneratorBlock(BlockBehaviour.Properties.of(Material.METAL)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .strength(4f,30f)
+            ), ModCreativeModeTab.KUZEY_TAB, "tooltip.kuzey.block.combustible_solid_generator");
+
     //Register Methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

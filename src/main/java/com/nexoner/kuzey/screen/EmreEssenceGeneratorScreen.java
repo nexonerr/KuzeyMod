@@ -81,7 +81,7 @@ public class EmreEssenceGeneratorScreen extends AbstractContainerScreen<EmreEsse
         }
     }
     private void renderEnergyTooltips(PoseStack pPoseStack, int pMouseX, int pMouseY, int x, int y){
-        String energyText = GeneralUtils.formatEnergyText(menu.data.get(2),menu.data.get(3));
+        String energyText = GeneralUtils.formatEnergyText(menu.blockEntity.getEnergyStorage().getEnergyStored(),KuzeyCommonConfigs.emreEssenceGeneratorCapacity.get());
         if (GeneralUtils.isMouseOver(pMouseX,pMouseY,x + 48,y + 27,9,39)){
             renderTooltip(pPoseStack, List.of(new TextComponent(energyText)),
                     Optional.empty(), pMouseX - x, pMouseY - y);

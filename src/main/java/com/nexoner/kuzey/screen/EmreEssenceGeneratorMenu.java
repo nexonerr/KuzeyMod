@@ -2,6 +2,8 @@ package com.nexoner.kuzey.screen;
 
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.custom.generator.EmreEssenceGeneratorBlockEntity;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
+import com.nexoner.kuzey.screen.menutype.IEnergyMenu;
 import com.nexoner.kuzey.screen.menutype.IFluidMenu;
 import com.nexoner.kuzey.screen.slot.ModFluidSlot;
 import net.minecraft.network.FriendlyByteBuf;
@@ -14,7 +16,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 
-public class EmreEssenceGeneratorMenu extends AbstractContainerMenu implements IFluidMenu {
+public class EmreEssenceGeneratorMenu extends AbstractContainerMenu implements IFluidMenu, IEnergyMenu {
     public final EmreEssenceGeneratorBlockEntity blockEntity;
     private final Level level;
     public final ContainerData data;
@@ -52,8 +54,8 @@ public class EmreEssenceGeneratorMenu extends AbstractContainerMenu implements I
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
     public int getEnergyBarScale(){
-        int energyStored = this.data.get(2);
-        int maxEnergy = this.data.get(3);
+        int energyStored = blockEntity.getEnergyStorage().getEnergyStored();
+        int maxEnergy = KuzeyCommonConfigs.emreEssenceGeneratorCapacity.get();
         int energyBarSize = 39;
 
         return maxEnergy != 0 && energyStored !=0 ? energyStored * energyBarSize / maxEnergy : 0;

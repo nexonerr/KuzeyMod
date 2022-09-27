@@ -109,7 +109,7 @@ public class EmreEssenceInfuserScreen extends AbstractContainerScreen<EmreEssenc
         }
     }
     private void renderEnergyTooltips(PoseStack pPoseStack, int pMouseX, int pMouseY, int x, int y){
-        String energyText = GeneralUtils.formatEnergyText(menu.data.get(2),menu.data.get(3));
+        String energyText = GeneralUtils.formatEnergyText(menu.blockEntity.getEnergyStorage().getEnergyStored(),menu.blockEntity.getEnergyStorage().getMaxEnergyStored());
         if (GeneralUtils.isMouseOver(pMouseX,pMouseY,x + 140,y + 27,9,39)){
             renderTooltip(pPoseStack, List.of(new TextComponent(energyText)),
                     Optional.empty(), pMouseX - x, pMouseY - y);

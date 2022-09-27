@@ -88,6 +88,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.EMRE_ESSENCE_INFUSER.get());
         blockItem(ModBlocks.DECONDENSATOR.get());
         blockItem(ModBlocks.EMRE_ESSENCE_GENERATOR.get());
+        blockItem(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR.get());
 
         /*INTEGRATION*/
         simpleItem(ModTICMaterialItems.MOLTEN_KUZEYIUM_BUCKET.get());

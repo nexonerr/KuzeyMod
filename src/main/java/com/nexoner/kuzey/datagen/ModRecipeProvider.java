@@ -65,11 +65,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     //-Custom Recipe Types-
     private void EmreEssenceInfuserRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
 
-        new EmreEssenceInfuserRecipeBuilder(ModItems.INFUSED_KUZEYIUM_GEM.get(), ModItems.ASCENDED_KUZEYIUM_GEM.get(), 1, 440, 22000,
+        new EmreEssenceInfuserRecipeBuilder(ModItems.INFUSED_KUZEYIUM_GEM.get(), ModItems.ASCENDED_KUZEYIUM_GEM.get(), 1, 440, 15000,
                 new FluidStack(ModFluids.EMRE_ESSENCE_FLUID.get(), 800))
                 .unlockedBy("has_ascended_kuzeyium_gem", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.ASCENDED_KUZEYIUM_GEM.get()).build())).save(pFinishedRecipeConsumer);
 
-        new EmreEssenceInfuserRecipeBuilder(ModBlocks.LAVA_INFUSED_COBBLESTONE.get().asItem(), Blocks.COBBLESTONE.asItem(), 1, 100, 1600,
+        new EmreEssenceInfuserRecipeBuilder(ModBlocks.LAVA_INFUSED_COBBLESTONE.get().asItem(), Blocks.COBBLESTONE.asItem(), 1, 100, 600,
                 new FluidStack(Fluids.LAVA, 1000))
                 .unlockedBy("has_cobblestone", inventoryTrigger(ItemPredicate.Builder.item().of(Blocks.COBBLESTONE).build())).save(pFinishedRecipeConsumer);
 
@@ -77,20 +77,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private void EmreEssenceExtractorRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
 
-        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.EMRE_ESSENCE_FLUID.get(), 500), ModItems.EMRE_ESSENCE_ROCK.get(), 300, 22000)
+        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.EMRE_ESSENCE_FLUID.get(), 500), ModItems.EMRE_ESSENCE_ROCK.get(), 300, 13500)
                 .unlockedBy("has_emre_essence_rock", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.EMRE_ESSENCE_ROCK.get()).build())).save(pFinishedRecipeConsumer);
 
-        new EmreEssenceExtractorRecipeBuilder(new FluidStack(Fluids.LAVA, 500), Blocks.MAGMA_BLOCK, 40, 800)
+        new EmreEssenceExtractorRecipeBuilder(new FluidStack(Fluids.LAVA, 500), Blocks.MAGMA_BLOCK, 40, 200)
                 .unlockedBy("has_magma_block", inventoryTrigger(ItemPredicate.Builder.item().of(Blocks.MAGMA_BLOCK).build())).save(pFinishedRecipeConsumer);
 
-        new EmreEssenceExtractorRecipeBuilder(new FluidStack(Fluids.LAVA, 200), Blocks.NETHERRACK, 30, 600)
+        new EmreEssenceExtractorRecipeBuilder(new FluidStack(Fluids.LAVA, 200), Blocks.NETHERRACK, 30, 250)
                 .unlockedBy("has_netherrack", inventoryTrigger(ItemPredicate.Builder.item().of(Blocks.NETHERRACK).build())).save(pFinishedRecipeConsumer);
 
     }
 
     private void KuzeyiumPurificationChamberRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
 
-        new KuzeyiumPurificationChamberRecipeBuilder(ModItems.KUZEYIUM_INGOT.get(), 1, 300, 10000, ModItems.KUZEYIUM_CHUNK.get(), Items.NETHER_STAR)
+        new KuzeyiumPurificationChamberRecipeBuilder(ModItems.KUZEYIUM_INGOT.get(), 1, 300, 4500, ModItems.KUZEYIUM_CHUNK.get(), Items.NETHER_STAR)
                 .unlockedBy("has_kuzeyium_chunk", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.KUZEYIUM_CHUNK.get()).build())).save(pFinishedRecipeConsumer);
 
         new KuzeyiumPurificationChamberRecipeBuilder(ModBlocks.INFUSED_MACHINE_FRAME.get(), 1, 900, 15000, ModBlocks.UNACTIVATED_INFUSED_MACHINE_FRAME.get(), Items.NETHER_STAR)
@@ -116,28 +116,28 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private void TransmutationTableRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
 
-        new TransmutationTableRecipeBuilder(ModItems.BLACK_CARROTS.get(), 1, Items.CARROT, 64, 400, 8000)
+        new TransmutationTableRecipeBuilder(ModItems.BLACK_CARROTS.get(), 1, Items.CARROT, 64, 400, 3500)
                 .unlockedBy("has_carrots", inventoryTrigger(ItemPredicate.Builder.item().of(Items.CARROT).build())).save(pFinishedRecipeConsumer);
 
-        new TransmutationTableRecipeBuilder(ModItems.ASCENDED_KUZEYIUM_GEM.get(), 1, ModItems.KUZEYIUM_NUGGET.get(), 10, 560, 12000)
+        new TransmutationTableRecipeBuilder(ModItems.ASCENDED_KUZEYIUM_GEM.get(), 1, ModItems.KUZEYIUM_NUGGET.get(), 10, 560, 3500)
                 .unlockedBy("has_kuzeyium_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.KUZEYIUM_NUGGET.get()).build())).save(pFinishedRecipeConsumer);
 
-        new TransmutationTableRecipeBuilder(Items.DIAMOND, 1, Items.COAL, 18, 100, 3500)
+        new TransmutationTableRecipeBuilder(Items.DIAMOND, 1, Items.COAL, 18, 100, 1000)
                 .unlockedBy("has_coal", inventoryTrigger(ItemPredicate.Builder.item().of(Items.COAL).build())).save(pFinishedRecipeConsumer);
 
-        new TransmutationTableRecipeBuilder(Blocks.MELON, 1, Blocks.PUMPKIN, 1, 20, 500)
+        new TransmutationTableRecipeBuilder(Blocks.MELON, 1, Blocks.PUMPKIN, 1, 20, 50)
                 .unlockedBy("has_pumpkin", inventoryTrigger(ItemPredicate.Builder.item().of(Blocks.PUMPKIN).build())).save(pFinishedRecipeConsumer);
 
-        new TransmutationTableRecipeBuilder(Blocks.PUMPKIN, 1, Blocks.MELON, 1, 20, 500)
+        new TransmutationTableRecipeBuilder(Blocks.PUMPKIN, 1, Blocks.MELON, 1, 20, 50)
                 .unlockedBy("has_melon", inventoryTrigger(ItemPredicate.Builder.item().of(Blocks.MELON).build())).save(pFinishedRecipeConsumer);
 
-        new TransmutationTableRecipeBuilder(Items.RAW_IRON, 1, Blocks.COBBLESTONE, 32, 15, 1200)
+        new TransmutationTableRecipeBuilder(Items.RAW_IRON, 1, Blocks.COBBLESTONE, 32, 15, 75)
                 .unlockedBy("has_cobblestone", inventoryTrigger(ItemPredicate.Builder.item().of(Blocks.COBBLESTONE).build())).save(pFinishedRecipeConsumer);
 
-        new TransmutationTableRecipeBuilder(Items.NETHERITE_SCRAP, 6, ModItems.KUZEYIUM_INGOT.get(), 1, 900, 13000)
+        new TransmutationTableRecipeBuilder(Items.NETHERITE_SCRAP, 6, ModItems.KUZEYIUM_INGOT.get(), 1, 900, 2500)
                 .unlockedBy("has_kuzeyium_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.KUZEYIUM_INGOTS).build())).save(pFinishedRecipeConsumer);
 
-        new TransmutationTableRecipeBuilder(Items.BAKED_POTATO, 2, Items.POTATO, 1, 5, 400)
+        new TransmutationTableRecipeBuilder(Items.BAKED_POTATO, 2, Items.POTATO, 1, 5, 70)
                 .unlockedBy("has_potato", inventoryTrigger(ItemPredicate.Builder.item().of(Items.POTATO).build())).save(pFinishedRecipeConsumer);
 
     }

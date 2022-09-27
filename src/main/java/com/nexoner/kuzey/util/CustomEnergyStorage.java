@@ -1,10 +1,15 @@
 package com.nexoner.kuzey.util;
 
+import com.nexoner.kuzey.block.entity.entityType.IEnergyHandlingBlockEntity;
+import com.nexoner.kuzey.networking.ModPackets;
+import com.nexoner.kuzey.networking.packet.EnergySyncPacket;
+import net.minecraft.client.multiplayer.ServerList;
+import net.minecraft.server.players.PlayerList;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.energy.EnergyStorage;
 
 public class CustomEnergyStorage extends EnergyStorage {
-    private final BlockEntity blockEntity;
+    private final BlockEntity  blockEntity;
 
     public CustomEnergyStorage(BlockEntity blockEntity, int capacity) {
         super(capacity);
@@ -23,15 +28,27 @@ public class CustomEnergyStorage extends EnergyStorage {
         this.blockEntity = blockEntity;
     }
 
+    public void removeEnergy(int toRemove){
+        setEnergy(getEnergyStored() - toRemove);
+        onEnergyChanged();
+    }
+
+    public void addEnergy(int toAdd){
+        setEnergy(getEnergyStored() + toAdd);
+        onEnergyChanged();
+    }
+
     @Override
     public int extractEnergy(int maxExtract, boolean simulate) {
         this.blockEntity.setChanged();
+        onEnergyChanged();
         return super.extractEnergy(maxExtract, simulate);
     }
 
     @Override
     public int receiveEnergy(int maxReceive, boolean simulate) {
         this.blockEntity.setChanged();
+        onEnergyChanged();
         return super.receiveEnergy(maxReceive, simulate);
     }
 
@@ -41,5 +58,9 @@ public class CustomEnergyStorage extends EnergyStorage {
 
     public void setEnergy(int energy) {
         this.energy = Math.max(0,Math.min(energy, this.capacity));
+    }
+
+    public void onEnergyChanged(){
+
     }
 }

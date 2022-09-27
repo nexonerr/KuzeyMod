@@ -3,6 +3,7 @@ package com.nexoner.kuzey.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.nexoner.kuzey.KuzeyMod;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.util.GeneralUtils;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
@@ -60,7 +61,7 @@ public class TransmutationTableScreen extends AbstractContainerScreen<Transmutat
         renderTooltip(pPoseStack,pMouseX,pMouseY);
     }
     private void renderEnergyTooltips(PoseStack pPoseStack, int pMouseX, int pMouseY, int x, int y){
-        String energyText = GeneralUtils.formatEnergyText(menu.data.get(2),menu.data.get(3));
+        String energyText = GeneralUtils.formatEnergyText(menu.blockEntity.getEnergyStorage().getEnergyStored(), KuzeyCommonConfigs.transmutationTableCapacity.get());
         if (GeneralUtils.isMouseOver(pMouseX,pMouseY,x + 140,y + 27,9,39)){
             renderTooltip(pPoseStack, List.of(new TextComponent(energyText)),
                     Optional.empty(), pMouseX - x, pMouseY - y);

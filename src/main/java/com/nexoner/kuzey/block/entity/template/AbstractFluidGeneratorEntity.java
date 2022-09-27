@@ -74,14 +74,13 @@ public abstract class AbstractFluidGeneratorEntity extends AbstractGeneratorEnti
             @Override
             public void set(int pIndex, int pValue) {
                 //this is a very useless method for this use case
-                int energyStored = energyStorage.getEnergyStored();
                 int maxEnergy = energyStorage.getMaxEnergyStored();
                 int fluidAmount = fluidTank.getFluidAmount();
                 int fluidCapacity = fluidTank.getCapacity();
                 switch (pIndex) {
                     case 0: progress = pValue;break;
                     case 1: maxProgress = pValue;break;
-                    case 2: energyStored = pValue;break;
+                    case 2: energyStorage.setEnergy(pValue);break;
                     case 3: maxEnergy = pValue;break;
                     case 4: fluidAmount = pValue;break;
                     case 5: fluidCapacity = pValue;break;
@@ -108,7 +107,6 @@ public abstract class AbstractFluidGeneratorEntity extends AbstractGeneratorEnti
     public void onLoad() {
         super.onLoad();
         this.lazyFluidHandler = LazyOptional.of(() -> fluidTank);
-        System.out.println("ONLOAD2" + capacity + fluidTank.getCapacity());
     }
 
     @Override
@@ -217,7 +215,7 @@ public abstract class AbstractFluidGeneratorEntity extends AbstractGeneratorEnti
             maxProgress = burnRateMap.get(fluid);
             if (canInsertEnergy(entity)){
                 if (fluidTank.getFluidAmount() >= burnRateMapMB.get(fluid)){
-                    energyStorage.setEnergy(energyStorage.getEnergyStored() + generatedMap.get(fluid));
+                    energyStorage.addEnergy(generatedMap.get(fluid));
                     progress++;
             }}
             if (progress >= maxProgress){

@@ -1,5 +1,8 @@
 package com.nexoner.kuzey.block.entity.template;
 
+import com.nexoner.kuzey.block.entity.entityType.IEnergyHandlingBlockEntity;
+import com.nexoner.kuzey.networking.ModPackets;
+import com.nexoner.kuzey.networking.packet.EnergySyncPacket;
 import com.nexoner.kuzey.util.CustomEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -22,7 +25,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class AbstractGeneratorEntity extends BlockEntity implements MenuProvider {
+public abstract class AbstractGeneratorEntity extends BlockEntity implements MenuProvider, IEnergyHandlingBlockEntity {
     private final TranslatableComponent displayName;
     public final CustomEnergyStorage energyStorage;
 
@@ -104,6 +107,11 @@ public abstract class AbstractGeneratorEntity extends BlockEntity implements Men
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
+    @Override
+    public CustomEnergyStorage getEnergyStorage() {
+        return energyStorage;
+    }
+
     public int getEnergy(){
         return energyStorage.getEnergyStored();
     }
@@ -112,7 +120,14 @@ public abstract class AbstractGeneratorEntity extends BlockEntity implements Men
     }
 
     private CustomEnergyStorage createEnergyStorage(int capacity, int maxExtracted){
-        return new CustomEnergyStorage(this, capacity, 0, maxExtracted,0);
+        return new CustomEnergyStorage(this, capacity, 0, maxExtracted,0){
+            @Override
+            public void onEnergyChanged() {
+                if (!level.isClientSide){
+                    ModPackets.sendToClients(new EnergySyncPacket(energyStorage.getEnergyStored(),worldPosition));
+                }
+            }
+        };
     }
 
     public boolean canInsertEnergy(AbstractGeneratorEntity entity){
@@ -122,6 +137,12 @@ public abstract class AbstractGeneratorEntity extends BlockEntity implements Men
         }
         return false;
     }
+
+    @Override
+    public void setEnergy(int energy) {
+        energyStorage.setEnergy(energy);
+    }
+
     public void outputEnergy(){
         if (energyStorage.canExtract()){
             for (Direction direction : Direction.values()){

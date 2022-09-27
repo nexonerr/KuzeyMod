@@ -1,6 +1,7 @@
 {
   "block.kuzey.black_carrots_plant": "Black Carrots",
   "block.kuzey.chain_bound_generator_chassis": "Chain Bound Generator Chassis",
+  "block.kuzey.combustible_solid_generator": "Combustible Solid Generator",
   "block.kuzey.decondensator": "Decondensator",
   "block.kuzey.deepslate_emre_essence_rock_ore": "Deepslate Emre Essence Rock Ore",
   "block.kuzey.devastator": "Kuzeyium Devastator",
@@ -81,6 +82,7 @@
   "material.kuzey.kuzeyium.encyclopedia": "Adds some more slots, or durability",
   "tooltip.kuzey.ability_activate": "Press \u00A7e[SHIFT]\u00A7r + \u00A7e[RMB]\u00A7r to activate ability!",
   "tooltip.kuzey.alt": "Press \u00A7e[ALT]\u00A7r for more information!",
+  "tooltip.kuzey.block.combustible_solid_generator": "Burns \u00A70COMBUSTIBLE solid fuels in order to produce \u00A74ENERGY",
   "tooltip.kuzey.block.decondensator": "\u00A7cHEATS\u00A7r stuff up, required for the \u00A7aEmre Essence Infuser\u00A7r to function",
   "tooltip.kuzey.block.devastator": "Deals damage cast by \u00A74KUZEY\u00A7r to those standing above it. Toggleable via right clicking it.",
   "tooltip.kuzey.block.emre_essence_extractor": "Extracts \u00A7bfluids\u00A7r from certain minerals",

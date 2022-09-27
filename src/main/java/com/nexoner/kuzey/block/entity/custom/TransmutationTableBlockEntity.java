@@ -2,7 +2,10 @@ package com.nexoner.kuzey.block.entity.custom;
 
 import com.nexoner.kuzey.block.custom.TransmutationTableBlock;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
+import com.nexoner.kuzey.block.entity.entityType.IEnergyHandlingBlockEntity;
 import com.nexoner.kuzey.config.KuzeyCommonConfigs;
+import com.nexoner.kuzey.networking.ModPackets;
+import com.nexoner.kuzey.networking.packet.EnergySyncPacket;
 import com.nexoner.kuzey.recipe.TransmutationTableRecipe;
 import com.nexoner.kuzey.screen.TransmutationTableMenu;
 import com.nexoner.kuzey.util.CustomEnergyStorage;
@@ -36,7 +39,7 @@ import javax.annotation.Nonnull;
 import java.util.Map;
 import java.util.Optional;
 
-public class TransmutationTableBlockEntity extends BlockEntity implements MenuProvider {
+public class TransmutationTableBlockEntity extends BlockEntity implements MenuProvider, IEnergyHandlingBlockEntity {
     private final ItemStackHandler itemHandler = new ItemStackHandler(2){
         @Override
         protected void onContentsChanged(int slot) {
@@ -102,6 +105,7 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
+        ModPackets.sendToClients(new EnergySyncPacket(energyStorage.getEnergyStored(),worldPosition));
         return new TransmutationTableMenu(pContainerId,pInventory,this,this.data);
     }
 
@@ -159,7 +163,7 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
         progress = nbt.getInt("transmutation_table.progress");
-        energyStorage.setEnergy(getUpdateTag().getInt("transmutation_table.energy"));
+        energyStorage.setEnergy(nbt.getInt("transmutation_table.energy"));
     }
 
     public void drops() {
@@ -222,7 +226,14 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
     }
 
     private CustomEnergyStorage createEnergyStorage(){
-        return new CustomEnergyStorage(this, KuzeyCommonConfigs.transmutationTableCapacity.get(), KuzeyCommonConfigs.transmutationTableMaxReceived.get(),0,0);
+        return new CustomEnergyStorage(this, KuzeyCommonConfigs.transmutationTableCapacity.get(), KuzeyCommonConfigs.transmutationTableMaxReceived.get(),0,0){
+            @Override
+            public void onEnergyChanged() {
+                if (!level.isClientSide){
+                    ModPackets.sendToClients(new EnergySyncPacket(energyStorage.getEnergyStored(),worldPosition));
+                }
+            }
+        };
     }
 
     private static int getUsageCost(TransmutationTableBlockEntity entity){
@@ -267,7 +278,7 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
         if(hasRecipe(pBlockEntity) && hasEnoughEnergy(getUsageCost(pBlockEntity))) {
             pBlockEntity.maxProgress = getRecipeTime(pBlockEntity);
             pBlockEntity.progress++;
-            energyStorage.setEnergy(energyStorage.getEnergyStored() - getUsageCost(pBlockEntity));
+            energyStorage.removeEnergy(getUsageCost(pBlockEntity));
             setChanged(pLevel, pPos, pState);
             if(pBlockEntity.progress > pBlockEntity.maxProgress) {
                 craftItem(pBlockEntity);
@@ -276,5 +287,15 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
             pBlockEntity.resetProgress();
             setChanged(pLevel, pPos, pState);
         }
+    }
+
+    @Override
+    public void setEnergy(int energy) {
+        energyStorage.setEnergy(energy);
+    }
+
+    @Override
+    public CustomEnergyStorage getEnergyStorage() {
+        return energyStorage;
     }
 }

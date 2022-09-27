@@ -108,6 +108,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.EMRE_ESSENCE_INFUSER,"Emre Essence Infuser");
         addBlock(ModBlocks.DECONDENSATOR,"Decondensator"); //Is it really a machine if it doesn't have BE?
         addBlock(ModBlocks.EMRE_ESSENCE_GENERATOR,"Emre Essence Generator");
+        addBlock(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR,"Combustible Solid Generator");
 
         //Fluid(s)
         addFluid(ModFluids.EMRE_ESSENCE_FLUID,"Emre Essence");
@@ -135,6 +136,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlockTooltip(ModBlocks.EMRE_ESSENCE_INFUSER,"Infuses items with \u00A7bfluids\u00A7r. Requires a \u00A7eDECONDENSATOR\u00A7r in order to function");
         addBlockTooltip(ModBlocks.DECONDENSATOR,"\u00A7cHEATS\u00A7r stuff up, required for the \u00A7aEmre Essence Infuser\u00A7r to function");
         addBlockTooltip(ModBlocks.EMRE_ESSENCE_GENERATOR,"Reacts \u00A7aEmre Essence\u00A7r to produce large amounts of \u00A74ENERGY");
+        addBlockTooltip(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR,"Burns \u00A70COMBUSTIBLE solid fuels in order to produce \u00A74ENERGY");
 
         //Ability Tooltips
         addItemAbilityTooltip(ModItems.INFUSED_KUZEYIUM_PICKAXE,"Vein-mine: %s");

@@ -48,6 +48,7 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.CHAIN_BOUND_GENERATOR_CHASSIS.get());
         this.dropSelf(ModBlocks.LAVA_BOUND_GENERATOR_CHASSIS.get());
         this.dropSelf(ModBlocks.LAVA_INFUSED_COBBLESTONE.get());
+        this.dropSelf(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR.get());
 
         this.add(ModBlocks.KUZEYIUM_ORE.get(), (block) -> createOreDrop(ModBlocks.KUZEYIUM_ORE.get(), ModItems.RAW_KUZEYIUM.get()));
         this.add(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get(), (block) -> createOreDrop(ModBlocks.EMRE_ESSENCE_ROCK_ORE.get(), ModItems.EMRE_ESSENCE_ROCK.get()));

@@ -2,6 +2,8 @@ package com.nexoner.kuzey.screen;
 
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.custom.KuzeyiumPurificationChamberBlockEntity;
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
+import com.nexoner.kuzey.screen.menutype.IEnergyMenu;
 import com.nexoner.kuzey.screen.slot.ModResultSlot;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -13,8 +15,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class KuzeyiumPurificationChamberMenu extends AbstractContainerMenu {
-    private final KuzeyiumPurificationChamberBlockEntity blockEntity;
+public class KuzeyiumPurificationChamberMenu extends AbstractContainerMenu implements IEnergyMenu {
+    public final KuzeyiumPurificationChamberBlockEntity blockEntity;
     private final Level level;
     public final ContainerData data;
 
@@ -51,8 +53,8 @@ public class KuzeyiumPurificationChamberMenu extends AbstractContainerMenu {
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
     public int getEnergyBarScale(){
-        int energyStored = this.data.get(2);
-        int maxEnergy = this.data.get(3);
+        int energyStored = blockEntity.energyStorage.getEnergyStored();
+        int maxEnergy = KuzeyCommonConfigs.kuzeyiumPurificationChamberCapacity.get();
         int energyBarSize = 39;
 
         return maxEnergy != 0 && energyStored !=0 ? energyStored * energyBarSize / maxEnergy : 0;
@@ -120,6 +122,11 @@ public class KuzeyiumPurificationChamberMenu extends AbstractContainerMenu {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
+    }
+
+    @Override
+    public BlockEntity getBlockEntity() {
+        return blockEntity;
     }
 }
 
