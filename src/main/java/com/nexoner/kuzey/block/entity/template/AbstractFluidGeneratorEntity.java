@@ -1,6 +1,7 @@
 package com.nexoner.kuzey.block.entity.template;
 
 import com.nexoner.kuzey.block.entity.entityType.IFluidHandlingBlockEntity;
+import com.nexoner.kuzey.util.CustomEnergyStorage;
 import com.nexoner.kuzey.util.CustomFluidTank;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -117,6 +118,8 @@ public abstract class AbstractFluidGeneratorEntity extends AbstractGeneratorEnti
 
     @Override
     protected void saveAdditional(CompoundTag pTag) {
+        pTag.putInt("progress",progress);
+        pTag.putInt("maxProgress",maxProgress);
         pTag = fluidTank.writeToNBT(pTag);
         super.saveAdditional(pTag);
     }
@@ -124,6 +127,8 @@ public abstract class AbstractFluidGeneratorEntity extends AbstractGeneratorEnti
     @Override
     public void load(CompoundTag pTag) {
         super.load(pTag);
+        progress = pTag.getInt("progress");
+        maxProgress = pTag.getInt("maxProgress");
         fluidTank.readFromNBT(pTag);
     }
 
@@ -181,6 +186,15 @@ public abstract class AbstractFluidGeneratorEntity extends AbstractGeneratorEnti
             if (entry.getKey() == fluidTank.getFluid().getFluid()){
                 return true;
             }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean canInsertEnergy(AbstractGeneratorEntity entity) {
+        CustomEnergyStorage energyStorage = entity.energyStorage;
+        if (energyStorage.getSpace() > 0 && getFluidProperty(0).containsKey(fluidTank.getFluid().getFluid())){
+            return energyStorage.getSpace() >= getFluidProperty(0).get(fluidTank.getFluid().getFluid());
         }
         return false;
     }

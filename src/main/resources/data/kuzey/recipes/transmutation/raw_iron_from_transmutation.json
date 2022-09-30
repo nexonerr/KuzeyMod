@@ -9,6 +9,6 @@
     "item": "minecraft:raw_iron"
   },
   "inputAmount": 32,
-  "usageCost": 1200,
+  "usageCost": 75,
   "recipeTime": 15
 }

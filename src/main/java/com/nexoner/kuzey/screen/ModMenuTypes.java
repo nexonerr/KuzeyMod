@@ -32,6 +32,12 @@ public class ModMenuTypes {
     public static final RegistryObject<MenuType<EmreEssenceGeneratorMenu>> EMRE_ESSENCE_GENERATOR_MENU =
             registerMenuType(EmreEssenceGeneratorMenu::new,"emre_essence_generator_menu");
 
+    public static final RegistryObject<MenuType<CombustibleSolidGeneratorMenu>> COMBUSTIBLE_SOLID_GENERATOR_MENU =
+            registerMenuType(CombustibleSolidGeneratorMenu::new,"combustible_solid_generator_menu");
+
+    public static final RegistryObject<MenuType<CombustibleFluidGeneratorMenu>> COMBUSTIBLE_FLUID_GENERATOR_MENU =
+            registerMenuType(CombustibleFluidGeneratorMenu::new,"combustible_fluid_generator_menu");
+
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name){
         return MENUS.register(name, () -> IForgeMenuType.create(factory));
     }

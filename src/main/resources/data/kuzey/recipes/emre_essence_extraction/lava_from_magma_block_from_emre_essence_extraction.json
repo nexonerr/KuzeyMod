@@ -9,6 +9,6 @@
     "fluid": "minecraft:lava",
     "amount": 500
   },
-  "usageCost": 800,
+  "usageCost": 200,
   "recipeTime": 40
 }

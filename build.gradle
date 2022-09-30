@@ -19,7 +19,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: "io.freefair.lombok"
 
-version = '0.1.2'
+version = '0.1.2.1'
 group = 'com.nexoner.kuzey' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'kuzey'
 

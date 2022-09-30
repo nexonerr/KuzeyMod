@@ -13,6 +13,7 @@
     "kuzey:decondensator",
     "kuzey:raw_kuzeyium_block",
     "kuzey:infused_kuzeyium_block",
-    "kuzey:emre_essence_generator"
+    "kuzey:emre_essence_generator",
+    "kuzey:combustible_fluid_generator"
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "kuzey:weak_combustible_fluid",
+    "kuzey:weak_combustible_fluid_flowing",
+    "kuzey:combustible_fluid",
+    "kuzey:combustible_fluid_flowing",
+    "kuzey:strong_combustible_fluid",
+    "kuzey:strong_combustible_fluid_flowing"
+  ]
+}

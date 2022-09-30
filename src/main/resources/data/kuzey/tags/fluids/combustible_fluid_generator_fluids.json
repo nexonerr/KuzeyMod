@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "kuzey:weak_combustible_fluid",
+    "kuzey:combustible_fluid",
+    "kuzey:strong_combustible_fluid",
+    "minecraft:lava"
+  ]
+}

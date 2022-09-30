@@ -47,6 +47,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.HEATING_FIN.get());
         simpleItem(ModItems.INFUSED_KUZEYIUM_GEM.get());
         simpleItem(ModItems.REINFORCED_KUZEYIAN_TOOL_HANDLE.get());
+        simpleItem(ModItems.WEAK_COMBUSTIBLE_FLUID_BUCKET.get());
+        simpleItem(ModItems.COMBUSTIBLE_FLUID_BUCKET.get());
+        simpleItem(ModItems.STRONG_COMBUSTIBLE_FLUID_BUCKET.get());
 
         handheldItem(ModItems.KUZEYIUM_SWORD.get());
         handheldItem(ModItems.KUZEYIUM_AXE.get());
@@ -89,6 +92,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.DECONDENSATOR.get());
         blockItem(ModBlocks.EMRE_ESSENCE_GENERATOR.get());
         blockItem(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR.get());
+        blockItem(ModBlocks.COMBUSTIBLE_FLUID_GENERATOR.get());
 
         /*INTEGRATION*/
         simpleItem(ModTICMaterialItems.MOLTEN_KUZEYIUM_BUCKET.get());

@@ -11,6 +11,7 @@ import com.nexoner.kuzey.item.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -51,6 +52,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.INFUSED_KUZEYIUM_GEM,"Infused Kuzeyium Gem");
         addItem(ModItems.REINFORCED_KUZEYIAN_TOOL_HANDLE,"Reinforced Kuzeyian Tool Handle");
         addItem(ModItems.EMRE_ESSENCE_ROCK,"Emre Essence Rock");
+        addItem(ModItems.WEAK_COMBUSTIBLE_FLUID_BUCKET,"Weak Combustible Fluid Bucket");
+        addItem(ModItems.COMBUSTIBLE_FLUID_BUCKET,"Combustible Fluid Bucket");
+        addItem(ModItems.STRONG_COMBUSTIBLE_FLUID_BUCKET,"Strong Combustible Fluid Bucket");
 
         //Tools
         addItem(ModItems.KUZEYIUM_SWORD,"Kuzeyium Murderer");
@@ -109,9 +113,14 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.DECONDENSATOR,"Decondensator"); //Is it really a machine if it doesn't have BE?
         addBlock(ModBlocks.EMRE_ESSENCE_GENERATOR,"Emre Essence Generator");
         addBlock(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR,"Combustible Solid Generator");
+        addBlock(ModBlocks.COMBUSTIBLE_FLUID_GENERATOR,"Combustible Fluid Generator");
 
         //Fluid(s)
         addFluid(ModFluids.EMRE_ESSENCE_FLUID,"Emre Essence");
+        addFluid(ModFluids.WEAK_COMBUSTIBLE_FLUID,"Weak Combustible Fluid");
+        addFluid(ModFluids.COMBUSTIBLE_FLUID,"Combustible Fluid");
+        addFluid(ModFluids.STRONG_COMBUSTIBLE_FLUID,"Strong Combustible Fluid");
+
 
         //Creative Mode Tab(s)
         addCreativeModeTab(ModCreativeModeTab.KUZEY_TAB,"Kuzey Mod");
@@ -136,7 +145,8 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlockTooltip(ModBlocks.EMRE_ESSENCE_INFUSER,"Infuses items with \u00A7bfluids\u00A7r. Requires a \u00A7eDECONDENSATOR\u00A7r in order to function");
         addBlockTooltip(ModBlocks.DECONDENSATOR,"\u00A7cHEATS\u00A7r stuff up, required for the \u00A7aEmre Essence Infuser\u00A7r to function");
         addBlockTooltip(ModBlocks.EMRE_ESSENCE_GENERATOR,"Reacts \u00A7aEmre Essence\u00A7r to produce large amounts of \u00A74ENERGY");
-        addBlockTooltip(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR,"Burns \u00A70COMBUSTIBLE solid fuels in order to produce \u00A74ENERGY");
+        addBlockTooltip(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR,"Burns \u00A70COMBUSTIBLE\u00A7r solid fuels in order to produce \u00A74ENERGY.");
+        addBlockTooltip(ModBlocks.COMBUSTIBLE_FLUID_GENERATOR,"Burns \u00A70COMBUSTIBLE\u00A7r fluid fuels in order to produce \u00A74ENERGY.");
 
         //Ability Tooltips
         addItemAbilityTooltip(ModItems.INFUSED_KUZEYIUM_PICKAXE,"Vein-mine: %s");
@@ -157,7 +167,13 @@ public class ModLanguageProvider extends LanguageProvider {
         //JEI
         addTooltip("integration.jei.liquid_amount_with_capacity","%s / %s mB");
         addTooltip("integration.jei.liquid_amount","%s mB");
-        
+
+        //Guides
+        addJEIGuideBlock(ModBlocks.COMBUSTIBLE_FLUID_GENERATOR,"Burns three tiers of combustible fluid and lava. Lava is very inefficient so it's not recommended. " +
+                "As the tier of combustible fluid increases, more energy is produced per tick.");
+        addJEIGuideBlock(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR,"Burns any solid item that can be used as fuel. Produces energy for longer with stronger fluids, does NOT produce more energy that way. " +
+                "Does not take anything with a remainder item, such as a lava bucket, for fuel.");
+
         //TIC
 
         //Materials
@@ -196,6 +212,12 @@ public class ModLanguageProvider extends LanguageProvider {
     }
     private void addItemAbilityToggledTooltip(Supplier<? extends Item> key, String translation){
         addTooltip(key.get().getRegistryName().getPath() + "_toggled", translation);
+    }
+    private void addJEIGuideItem(Supplier<? extends Item> key, String translation){
+        add(key.get().getDescriptionId() + ".guide", translation);
+    }
+    private void addJEIGuideBlock(Supplier<? extends Block> key, String translation){
+        add(key.get().getDescriptionId() + ".guide", translation);
     }
 
     //From Materialis

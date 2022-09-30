@@ -1,13 +1,14 @@
 package com.nexoner.kuzey.block.custom;
 
 
-import com.nexoner.kuzey.block.entity.custom.generator.CombustibleSolidGeneratorBlockEntity;
+import com.nexoner.kuzey.block.entity.custom.generator.CombustibleFluidGeneratorBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
@@ -19,15 +20,24 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 
-public class CombustibleSolidGeneratorBlock extends BaseEntityBlock {
+public class CombustibleFluidGeneratorBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public CombustibleSolidGeneratorBlock(Properties pProperties) {
+    public CombustibleFluidGeneratorBlock(Properties pProperties) {
         super(pProperties);
+    }
+
+    private static final VoxelShape SHAPE =  Block.box(2, 0, 2, 14, 13, 14);
+
+    @Override
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return SHAPE;
     }
 
     //facing
@@ -65,8 +75,8 @@ public class CombustibleSolidGeneratorBlock extends BaseEntityBlock {
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof CombustibleSolidGeneratorBlockEntity) {
-                ((CombustibleSolidGeneratorBlockEntity) blockEntity).drops();
+            if (blockEntity instanceof CombustibleFluidGeneratorBlockEntity) {
+                ((CombustibleFluidGeneratorBlockEntity) blockEntity).drops();
             }
         }
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
@@ -77,8 +87,8 @@ public class CombustibleSolidGeneratorBlock extends BaseEntityBlock {
                                  Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if (entity instanceof CombustibleSolidGeneratorBlockEntity) {
-                NetworkHooks.openGui(((ServerPlayer) pPlayer), (CombustibleSolidGeneratorBlockEntity) entity, pPos);
+            if (entity instanceof CombustibleFluidGeneratorBlockEntity) {
+                NetworkHooks.openGui(((ServerPlayer) pPlayer), (CombustibleFluidGeneratorBlockEntity) entity, pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }
@@ -90,14 +100,14 @@ public class CombustibleSolidGeneratorBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        CombustibleSolidGeneratorBlockEntity blockEntity = new CombustibleSolidGeneratorBlockEntity(pPos,pState);
+        CombustibleFluidGeneratorBlockEntity blockEntity = new CombustibleFluidGeneratorBlockEntity(pPos,pState);
         return blockEntity;
     }
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return level.isClientSide ? null
-                : (level0, pos, state0, blockEntity) -> ((CombustibleSolidGeneratorBlockEntity) blockEntity).tick(level, pos, state);
+                : (level0, pos, state0, blockEntity) -> ((CombustibleFluidGeneratorBlockEntity) blockEntity).tick(level, pos, state);
     }
 }
 

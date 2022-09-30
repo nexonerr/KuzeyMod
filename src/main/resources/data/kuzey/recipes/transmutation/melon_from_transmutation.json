@@ -9,6 +9,6 @@
     "item": "minecraft:melon"
   },
   "inputAmount": 1,
-  "usageCost": 500,
+  "usageCost": 50,
   "recipeTime": 20
 }

@@ -24,6 +24,7 @@
     "kuzey:lava_infused_cobblestone",
     "kuzey:stone_bound_generator_chassis",
     "kuzey:chain_bound_generator_chassis",
-    "kuzey:lava_bound_generator_chassis"
+    "kuzey:lava_bound_generator_chassis",
+    "kuzey:combustible_fluid_generator"
   ]
 }

@@ -72,12 +72,28 @@ public class KuzeyMod
         ItemBlockRenderTypes.setRenderLayer(ModFluids.EMRE_ESSENCE_FLOWING.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModFluids.EMRE_ESSENCE_FLUID.get(), RenderType.translucent());
 
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.WEAK_COMBUSTIBLE_FLUID_BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.WEAK_COMBUSTIBLE_FLUID_FLOWING.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.WEAK_COMBUSTIBLE_FLUID.get(), RenderType.translucent());
+
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.COMBUSTIBLE_FLUID_BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.COMBUSTIBLE_FLUID_FLOWING.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.COMBUSTIBLE_FLUID.get(), RenderType.translucent());
+
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.STRONG_COMBUSTIBLE_FLUID_BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.STRONG_COMBUSTIBLE_FLUID_FLOWING.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.STRONG_COMBUSTIBLE_FLUID.get(), RenderType.translucent());
+
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.COMBUSTIBLE_FLUID_GENERATOR.get(), RenderType.translucent());
+
         MenuScreens.register(ModMenuTypes.KUZEYIUM_PURIFICATION_CHAMBER_MENU.get(), KuzeyiumPurificationChamberScreen::new);
         MenuScreens.register(ModMenuTypes.KUZEYIUM_WORKSTATION_MENU.get(), KuzeyiumWorkstationScreen::new);
         MenuScreens.register(ModMenuTypes.EMRE_ESSENCE_EXTRACTOR_MENU.get(), EmreEssenceExtractorScreen::new);
         MenuScreens.register(ModMenuTypes.TRANSMUTATION_TABLE_MENU.get(), TransmutationTableScreen::new);
         MenuScreens.register(ModMenuTypes.EMRE_ESSENCE_INFUSER_MENU.get(), EmreEssenceInfuserScreen::new);
         MenuScreens.register(ModMenuTypes.EMRE_ESSENCE_GENERATOR_MENU.get(), EmreEssenceGeneratorScreen::new);
+        MenuScreens.register(ModMenuTypes.COMBUSTIBLE_SOLID_GENERATOR_MENU.get(), CombustibleSolidGeneratorScreen::new);
+        MenuScreens.register(ModMenuTypes.COMBUSTIBLE_FLUID_GENERATOR_MENU.get(), CombustibleFluidGeneratorScreen::new);
 
     }
 

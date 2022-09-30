@@ -129,6 +129,15 @@ public class ModItems {
     public static final RegistryObject<Item> REINFORCED_KUZEYIAN_TOOL_HANDLE = ITEMS.register("reinforced_kuzeyian_tool_handle",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB)));
 
+    public static final RegistryObject<Item> WEAK_COMBUSTIBLE_FLUID_BUCKET = ITEMS.register("weak_combustible_fluid_bucket",
+            () -> new BucketItem(ModFluids.WEAK_COMBUSTIBLE_FLUID, new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> COMBUSTIBLE_FLUID_BUCKET = ITEMS.register("combustible_fluid_bucket",
+            () -> new BucketItem(ModFluids.COMBUSTIBLE_FLUID, new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB).stacksTo(1)));
+
+    public static final RegistryObject<Item> STRONG_COMBUSTIBLE_FLUID_BUCKET = ITEMS.register("strong_combustible_fluid_bucket",
+            () -> new BucketItem(ModFluids.STRONG_COMBUSTIBLE_FLUID, new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB).stacksTo(1)));
+
 
 
     public static void register(IEventBus eventBus){

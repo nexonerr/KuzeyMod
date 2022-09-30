@@ -3,6 +3,8 @@ package com.nexoner.kuzey.block.entity;
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.custom.*;
+import com.nexoner.kuzey.block.entity.custom.generator.CombustibleFluidGeneratorBlockEntity;
+import com.nexoner.kuzey.block.entity.custom.generator.CombustibleSolidGeneratorBlockEntity;
 import com.nexoner.kuzey.block.entity.custom.generator.EmreEssenceGeneratorBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -40,6 +42,14 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<EmreEssenceGeneratorBlockEntity>> EMRE_ESSENCE_GENERATOR_BLOCK_ENTITY=
             BLOCK_ENTITIES.register("emre_essence_generator_block_entity",() -> BlockEntityType.Builder.of(EmreEssenceGeneratorBlockEntity::new,
                     ModBlocks.EMRE_ESSENCE_GENERATOR.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<CombustibleSolidGeneratorBlockEntity>> COMBUSTIBLE_SOLID_GENERATOR_BLOCK_ENTITY=
+            BLOCK_ENTITIES.register("combustible_solid_generator_block_entity",() -> BlockEntityType.Builder.of(CombustibleSolidGeneratorBlockEntity::new,
+                    ModBlocks.COMBUSTIBLE_SOLID_GENERATOR.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<CombustibleFluidGeneratorBlockEntity>> COMBUSTIBLE_FLUID_GENERATOR_BLOCK_ENTITY=
+            BLOCK_ENTITIES.register("combustible_fluid_generator_block_entity",() -> BlockEntityType.Builder.of(CombustibleFluidGeneratorBlockEntity::new,
+                    ModBlocks.COMBUSTIBLE_FLUID_GENERATOR.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

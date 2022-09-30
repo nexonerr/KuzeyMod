@@ -49,6 +49,16 @@ public class KuzeyCommonConfigs {
     public static ForgeConfigSpec.IntValue emreEssenceGeneratorFluidCapacity;
     public static ForgeConfigSpec.BooleanValue emreEssenceGeneratorFluidFiltering;
 
+    public static ForgeConfigSpec.IntValue combustibleSolidGeneratorCapacity;
+    public static ForgeConfigSpec.IntValue combustibleSolidGeneratorMaxExtracted;
+    public static ForgeConfigSpec.IntValue combustibleSolidGeneratorProduced;
+
+    public static ForgeConfigSpec.IntValue combustibleFluidGeneratorCapacity;
+    public static ForgeConfigSpec.IntValue combustibleFluidGeneratorMaxExtracted;
+    public static ForgeConfigSpec.IntValue combustibleFluidGeneratorProduced;
+    public static ForgeConfigSpec.IntValue combustibleFluidGeneratorFluidCapacity;
+    public static ForgeConfigSpec.BooleanValue combustibleFluidGeneratorFluidFiltering;
+
     //Ores
     public static ForgeConfigSpec.IntValue kuzeyiumOreRate;
     public static ForgeConfigSpec.IntValue kuzeyiumOreVeinSize;
@@ -186,6 +196,34 @@ public class KuzeyCommonConfigs {
         emreEssenceGeneratorFluidFiltering = builder
                 .comment("Toggled fluid filtering, if this is turned on this machine will only accept fluids from a certain tag. This is redundant for machines that can only output fluids, so it's better disable it in those cases.")
                 .define("emre_essence_generator_fluid_filtering", true);
+
+        //Combustible Solid Generator
+        combustibleSolidGeneratorCapacity = builder
+                .comment("Energy Capacity")
+                .defineInRange("combustible_solid_generator_capacity", 180000, 20000, 1200000);
+        combustibleSolidGeneratorMaxExtracted = builder
+                .comment("Maximum FE/t Extracted")
+                .defineInRange("combustible_solid_generator_max_extracted", 1800, 50, 20000);
+        combustibleSolidGeneratorProduced = builder
+                .comment("Amount of energy that is produced per tick, on default, this is affected by the fuels that are used, this is the base amount")
+                .defineInRange("combustible_solid_generator_produced", 450, 25, 8000);
+
+        //Combustible Fluid Generator
+        combustibleFluidGeneratorCapacity = builder
+                .comment("Energy Capacity")
+                .defineInRange("combustible_fluid_generator_capacity", 180000, 40000, 1200000);
+        combustibleFluidGeneratorMaxExtracted = builder
+                .comment("Maximum FE/t Extracted")
+                .defineInRange("combustible_fluid_generator_max_extracted", 6000, 4000, 100000);
+        combustibleFluidGeneratorFluidCapacity = builder
+                .comment("Fluid Storage")
+                .defineInRange("combustible_fluid_generator_fluid_capacity", 15000, 1500, 40000);
+        combustibleFluidGeneratorProduced = builder
+                .comment("Amount of energy that is produced per tick, on default, this is affected by the fuels that are used, this is the base amount")
+                .defineInRange("combustible_fluid_generator_produced", 1000, 200, 100000);
+        combustibleFluidGeneratorFluidFiltering = builder
+                .comment("Toggled fluid filtering, if this is turned on this machine will only accept fluids from a certain tag. This is redundant for machines that can only output fluids, so it's better disable it in those cases.")
+                .define("combustible_fluid_generator_fluid_filtering", true);
 
         builder.pop();
         builder.pop();
