@@ -5,6 +5,7 @@ import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.datagen.custom.*;
 import com.nexoner.kuzey.fluid.ModFluids;
+import com.nexoner.kuzey.integration.tic.ModTICMaterialItems;
 import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.util.ModTags;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -165,6 +166,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         planksFromLogs(pFinishedRecipeConsumer,ModBlocks.KUZEYIAN_PLANKS.get(), ModTags.Items.KUZEYIAN_LOGS);
         woodFromLogs(pFinishedRecipeConsumer,ModBlocks.KUZEYIAN_WOOD.get(),ModBlocks.KUZEYIAN_LOG.get());
         woodFromLogs(pFinishedRecipeConsumer,ModBlocks.KUZEYIAN_WOOD_STRIPPED.get(),ModBlocks.KUZEYIAN_LOG_STRIPPED.get());
+
     }
 
     private void ConvertableRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
@@ -188,6 +190,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.KUZEYIUM_SMITHING_HAMMER.get())
                 .unlockedBy("has_kuzeyium_ingot", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModTags.Items.KUZEYIUM_INGOTS).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapelessRecipeBuilder.shapeless(ModTICMaterialItems.MELDABLE_KUZEYIAN_WOOD.get())
+                .requires(Ingredient.of(ModTags.Items.KUZEYIAN_LOGS),4)
+                .requires(ModItems.KUZEYIUM_SMITHING_HAMMER.get())
+                .unlockedBy("has_kuzeyian_wood", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModTags.Items.KUZEYIAN_LOGS).build()))
                 .save(pFinishedRecipeConsumer);
     }
     //-Unshaped Recipes-

@@ -53,6 +53,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SIMPLE_COMBUSTIBLE_MIX.get());
         simpleItem(ModItems.COMBUSTIBLE_MIX.get());
         simpleItem(ModItems.STRONG_COMBUSTIBLE_MIX.get());
+        simpleItem(ModTICMaterialItems.MELDABLE_KUZEYIAN_WOOD.get());
 
         handheldItem(ModItems.KUZEYIUM_SWORD.get());
         handheldItem(ModItems.KUZEYIUM_AXE.get());

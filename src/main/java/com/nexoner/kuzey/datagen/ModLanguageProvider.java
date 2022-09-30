@@ -58,6 +58,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.SIMPLE_COMBUSTIBLE_MIX,"Simple Combustible Mix");
         addItem(ModItems.COMBUSTIBLE_MIX,"Combustible Mix");
         addItem(ModItems.STRONG_COMBUSTIBLE_MIX,"Strong Combustible Mix");
+        addItem(ModTICMaterialItems.MELDABLE_KUZEYIAN_WOOD,"Meldable Kuzeyian Wood");
 
         //Tools
         addItem(ModItems.KUZEYIUM_SWORD,"Kuzeyium Murderer");

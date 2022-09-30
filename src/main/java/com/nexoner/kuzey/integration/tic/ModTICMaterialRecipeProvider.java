@@ -7,8 +7,10 @@ import com.nexoner.kuzey.util.ModTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import slimeknights.mantle.recipe.helper.ItemOutput;
 import slimeknights.tconstruct.library.data.recipe.ICommonRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
@@ -52,6 +54,6 @@ public class ModTICMaterialRecipeProvider extends RecipeProvider implements ICon
                 .save(pFinishedRecipeConsumer, modResource(castingFolder + ModItems.INFUSED_KUZEYIUM_GEM.get().getRegistryName().getPath() + "/block"));
 
         //Kuzeyian Wood
-        materialRecipe(pFinishedRecipeConsumer, ModTICMaterials.KUZEYIAN_WOOD, Ingredient.of(ModTags.Items.KUZEYIAN_LOGS), 1, 3, materialFolder + "kuzeyian_wood");
+        materialRecipe(pFinishedRecipeConsumer, ModTICMaterials.KUZEYIAN_WOOD, Ingredient.of(ModTICMaterialItems.MELDABLE_KUZEYIAN_WOOD.get()), 4, 1, materialFolder + "kuzeyian_wood");
     }
 }

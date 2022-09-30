@@ -1,9 +1,9 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "kuzey:kuzeyian_logs"
+    "item": "kuzey:meldable_kuzeyian_wood"
   },
-  "value": 1,
-  "needed": 3,
+  "value": 4,
+  "needed": 1,
   "material": "kuzey:kuzeyian_wood"
 }

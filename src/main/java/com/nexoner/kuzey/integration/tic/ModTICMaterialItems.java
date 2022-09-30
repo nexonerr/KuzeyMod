@@ -19,6 +19,9 @@ public class ModTICMaterialItems {
     public static final RegistryObject<Item> MOLTEN_INFUSED_KUZEYIUM_BUCKET = ITEMS.register("molten_infused_kuzeyium_bucket",
             () -> new BucketItem(ModTICMaterialFluids.MOLTEN_INFUSED_KUZEYIUM_FLUID, new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB).stacksTo(1)));
 
+    public static final RegistryObject<Item> MELDABLE_KUZEYIAN_WOOD = ITEMS.register("meldable_kuzeyian_wood",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB)));
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

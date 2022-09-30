@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "kuzey:kuzeyian_logs"
+    },
+    {
+      "tag": "kuzey:kuzeyian_logs"
+    },
+    {
+      "tag": "kuzey:kuzeyian_logs"
+    },
+    {
+      "tag": "kuzey:kuzeyian_logs"
+    },
+    {
+      "item": "kuzey:kuzeyium_smithing_hammer"
+    }
+  ],
+  "result": {
+    "item": "kuzey:meldable_kuzeyian_wood"
+  }
+}
