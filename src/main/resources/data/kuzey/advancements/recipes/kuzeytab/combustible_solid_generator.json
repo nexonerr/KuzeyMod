@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:combustible_solid_generator"
+    ]
+  },
+  "criteria": {
+    "has_stone_bound_generator_chassis": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:stone_bound_generator_chassis"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:combustible_solid_generator"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone_bound_generator_chassis",
+      "has_the_recipe"
+    ]
+  ]
+}

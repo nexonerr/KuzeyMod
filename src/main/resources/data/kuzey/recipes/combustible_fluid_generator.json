@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TFT",
+    "CMC",
+    "SHS"
+  ],
+  "key": {
+    "T": {
+      "item": "kuzey:still_fluid_tank"
+    },
+    "F": {
+      "item": "kuzey:heating_fin"
+    },
+    "C": {
+      "item": "kuzey:simple_combustible_mix"
+    },
+    "M": {
+      "item": "kuzey:chain_bound_generator_chassis"
+    },
+    "S": {
+      "item": "kuzey:structure_binder"
+    },
+    "H": {
+      "item": "kuzey:kuzeyium_heating_coil"
+    }
+  },
+  "result": {
+    "item": "kuzey:combustible_fluid_generator"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "kuzey:emre_essence_extraction",
+  "ingredients": [
+    {
+      "item": "kuzey:combustible_mix"
+    }
+  ],
+  "output": {
+    "fluid": "kuzey:combustible_fluid",
+    "amount": 250
+  },
+  "usageCost": 150,
+  "recipeTime": 40
+}

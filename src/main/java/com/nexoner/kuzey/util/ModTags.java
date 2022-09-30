@@ -35,6 +35,7 @@ public class ModTags {
     }
     public static class Items {
         public static final TagKey<Item> KUZEYIAN_LOGS = tag("kuzeyian_logs");
+        public static final TagKey<Item> ORGANIC_COMBUSTIBLE = tag("organic_combustible");
 
         public static final TagKey<Item> KUZEYIUM_INGOTS = forgeTag("ingots/kuzeyium");
         public static final TagKey<Item> KUZEYIUM_BLOCKS = forgeTag("storage_blocks/kuzeyium");

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:strong_combustible_mix"
+    ]
+  },
+  "criteria": {
+    "has_combustible_mix": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:strong_combustible_mix"
+            ]
+          }
+        ]
+      }
+    },
+    "has_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:strong_combustible_mix"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_combustible_mix",
+      "has_recipe"
+    ]
+  ]
+}

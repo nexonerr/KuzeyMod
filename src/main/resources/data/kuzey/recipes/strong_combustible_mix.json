@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " M ",
+    "CMC",
+    "CMC"
+  ],
+  "key": {
+    "C": {
+      "item": "kuzey:kuzeyium_coal"
+    },
+    "M": {
+      "item": "kuzey:combustible_mix"
+    }
+  },
+  "result": {
+    "item": "kuzey:strong_combustible_mix",
+    "count": 6
+  }
+}

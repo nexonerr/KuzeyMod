@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "kuzey:organic_combustible"
+    }
+  },
+  "result": {
+    "item": "kuzey:simple_combustible_mix",
+    "count": 2
+  }
+}

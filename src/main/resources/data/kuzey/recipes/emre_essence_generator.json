@@ -7,7 +7,7 @@
   ],
   "key": {
     "K": {
-      "item": "kuzey:kuzeyium_ingot"
+      "tag": "forge:ingots/kuzeyium"
     },
     "F": {
       "item": "kuzey:still_fluid_tank"

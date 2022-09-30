@@ -55,6 +55,9 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.WEAK_COMBUSTIBLE_FLUID_BUCKET,"Weak Combustible Fluid Bucket");
         addItem(ModItems.COMBUSTIBLE_FLUID_BUCKET,"Combustible Fluid Bucket");
         addItem(ModItems.STRONG_COMBUSTIBLE_FLUID_BUCKET,"Strong Combustible Fluid Bucket");
+        addItem(ModItems.SIMPLE_COMBUSTIBLE_MIX,"Simple Combustible Mix");
+        addItem(ModItems.COMBUSTIBLE_MIX,"Combustible Mix");
+        addItem(ModItems.STRONG_COMBUSTIBLE_MIX,"Strong Combustible Mix");
 
         //Tools
         addItem(ModItems.KUZEYIUM_SWORD,"Kuzeyium Murderer");

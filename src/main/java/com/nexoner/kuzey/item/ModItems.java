@@ -138,6 +138,15 @@ public class ModItems {
     public static final RegistryObject<Item> STRONG_COMBUSTIBLE_FLUID_BUCKET = ITEMS.register("strong_combustible_fluid_bucket",
             () -> new BucketItem(ModFluids.STRONG_COMBUSTIBLE_FLUID, new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB).stacksTo(1)));
 
+    public static final RegistryObject<Item> SIMPLE_COMBUSTIBLE_MIX = ITEMS.register("simple_combustible_mix",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> COMBUSTIBLE_MIX = ITEMS.register("combustible_mix",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB)));
+
+    public static final RegistryObject<Item> STRONG_COMBUSTIBLE_MIX = ITEMS.register("strong_combustible_mix",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB)));
+
 
 
     public static void register(IEventBus eventBus){

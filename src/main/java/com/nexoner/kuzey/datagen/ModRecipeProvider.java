@@ -86,6 +86,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new EmreEssenceExtractorRecipeBuilder(new FluidStack(Fluids.LAVA, 200), Blocks.NETHERRACK, 30, 250)
                 .unlockedBy("has_netherrack", inventoryTrigger(ItemPredicate.Builder.item().of(Blocks.NETHERRACK).build())).save(pFinishedRecipeConsumer);
 
+        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.WEAK_COMBUSTIBLE_FLUID.get(), 250), ModItems.SIMPLE_COMBUSTIBLE_MIX.get(), 40, 150)
+                .unlockedBy("has_combustible_mix", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.SIMPLE_COMBUSTIBLE_MIX.get()).build())).save(pFinishedRecipeConsumer);
+
+        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.COMBUSTIBLE_FLUID.get(), 250), ModItems.COMBUSTIBLE_MIX.get(), 40, 150)
+                .unlockedBy("has_combustible_mix", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.COMBUSTIBLE_MIX.get()).build())).save(pFinishedRecipeConsumer);
+
+        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.STRONG_COMBUSTIBLE_FLUID.get(), 250), ModItems.STRONG_COMBUSTIBLE_MIX.get(), 40, 150)
+                .unlockedBy("has_combustible_mix", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.STRONG_COMBUSTIBLE_MIX.get()).build())).save(pFinishedRecipeConsumer);
+
+
     }
 
     private void KuzeyiumPurificationChamberRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
@@ -454,6 +464,65 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_kuzeyium_glass", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModBlocks.KUZEYIUM_GLASS.get()).build()))
                 .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.SIMPLE_COMBUSTIBLE_MIX.get(),2)
+                .define('X', ModTags.Items.ORGANIC_COMBUSTIBLE)
+                .pattern("XXX")
+                .pattern("XXX")
+                .pattern("XXX")
+                .unlockedBy("has_sapling", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(Items.OAK_SAPLING).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.COMBUSTIBLE_MIX.get(),2)
+                .define('C', ItemTags.COALS)
+                .define('M', ModItems.SIMPLE_COMBUSTIBLE_MIX.get())
+                .pattern(" M ")
+                .pattern("CMC")
+                .pattern("CMC")
+                .unlockedBy("has_simple_combustible_mix", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.SIMPLE_COMBUSTIBLE_MIX.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.STRONG_COMBUSTIBLE_MIX.get(),6)
+                .define('C', ModItems.KUZEYIUM_COAL.get())
+                .define('M', ModItems.COMBUSTIBLE_MIX.get())
+                .pattern(" M ")
+                .pattern("CMC")
+                .pattern("CMC")
+                .unlockedBy("has_combustible_mix", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.COMBUSTIBLE_MIX.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.WEAK_COMBUSTIBLE_FLUID_BUCKET.get())
+                .define('B', Items.BUCKET)
+                .define('M', ModItems.SIMPLE_COMBUSTIBLE_MIX.get())
+                .pattern("MMM")
+                .pattern("MBM")
+                .pattern("MMM")
+                .unlockedBy("has_simple_combustible_mix", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.SIMPLE_COMBUSTIBLE_MIX.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.COMBUSTIBLE_FLUID_BUCKET.get())
+                .define('B', Items.BUCKET)
+                .define('M', ModItems.COMBUSTIBLE_MIX.get())
+                .pattern("MMM")
+                .pattern("MBM")
+                .pattern("MMM")
+                .unlockedBy("has_combustible_mix", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.SIMPLE_COMBUSTIBLE_MIX.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModItems.STRONG_COMBUSTIBLE_FLUID_BUCKET.get())
+                .define('B', Items.BUCKET)
+                .define('M', ModItems.STRONG_COMBUSTIBLE_MIX.get())
+                .pattern("MMM")
+                .pattern("MBM")
+                .pattern("MMM")
+                .unlockedBy("has_strong_combustible_mix", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.STRONG_COMBUSTIBLE_MIX.get()).build()))
+                .save(pFinishedRecipeConsumer);
     }
 
     private void MachineRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
@@ -542,7 +611,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private void GeneratorRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ShapedRecipeBuilder.shaped(ModBlocks.EMRE_ESSENCE_GENERATOR.get())
-                .define('K', ModItems.KUZEYIUM_INGOT.get())
+                .define('K', ModTags.Items.KUZEYIUM_INGOTS)
                 .define('F', ModItems.STILL_FLUID_TANK.get())
                 .define('B', ModItems.EMRE_ESSENCE_BUCKET.get())
                 .define('P', ModItems.KUZEYIUM_GLASS_PLATE.get())
@@ -554,6 +623,34 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("SCS")
                 .unlockedBy("has_lava_bound_generator_chassis", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModBlocks.LAVA_BOUND_GENERATOR_CHASSIS.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR.get())
+                .define('G', ModBlocks.KUZEYIUM_GLASS.get())
+                .define('F', ModItems.HEATING_FIN.get())
+                .define('C', ItemTags.COALS)
+                .define('M', ModBlocks.STONE_BOUND_GENERATOR_CHASSIS.get())
+                .define('S', ModItems.STRUCTURE_BINDER.get())
+                .define('H', ModItems.KUZEYIUM_HEATING_COIL.get())
+                .pattern("GFG")
+                .pattern("CMC")
+                .pattern("SHS")
+                .unlockedBy("has_stone_bound_generator_chassis", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.STONE_BOUND_GENERATOR_CHASSIS.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ModBlocks.COMBUSTIBLE_FLUID_GENERATOR.get())
+                .define('T', ModItems.STILL_FLUID_TANK.get())
+                .define('F', ModItems.HEATING_FIN.get())
+                .define('C', ModItems.SIMPLE_COMBUSTIBLE_MIX.get())
+                .define('M', ModBlocks.CHAIN_BOUND_GENERATOR_CHASSIS.get())
+                .define('S', ModItems.STRUCTURE_BINDER.get())
+                .define('H', ModItems.KUZEYIUM_HEATING_COIL.get())
+                .pattern("TFT")
+                .pattern("CMC")
+                .pattern("SHS")
+                .unlockedBy("has_chain_bound_generator_chassis", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.CHAIN_BOUND_GENERATOR_CHASSIS.get()).build()))
                 .save(pFinishedRecipeConsumer);
     }
 

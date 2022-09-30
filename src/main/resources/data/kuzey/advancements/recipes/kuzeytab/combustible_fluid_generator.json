@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kuzey:combustible_fluid_generator"
+    ]
+  },
+  "criteria": {
+    "has_chain_bound_generator_chassis": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuzey:chain_bound_generator_chassis"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kuzey:combustible_fluid_generator"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chain_bound_generator_chassis",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GFG",
+    "CMC",
+    "SHS"
+  ],
+  "key": {
+    "G": {
+      "item": "kuzey:kuzeyium_glass"
+    },
+    "F": {
+      "item": "kuzey:heating_fin"
+    },
+    "C": {
+      "tag": "minecraft:coals"
+    },
+    "M": {
+      "item": "kuzey:stone_bound_generator_chassis"
+    },
+    "S": {
+      "item": "kuzey:structure_binder"
+    },
+    "H": {
+      "item": "kuzey:kuzeyium_heating_coil"
+    }
+  },
+  "result": {
+    "item": "kuzey:combustible_solid_generator"
+  }
+}

@@ -50,6 +50,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.WEAK_COMBUSTIBLE_FLUID_BUCKET.get());
         simpleItem(ModItems.COMBUSTIBLE_FLUID_BUCKET.get());
         simpleItem(ModItems.STRONG_COMBUSTIBLE_FLUID_BUCKET.get());
+        simpleItem(ModItems.SIMPLE_COMBUSTIBLE_MIX.get());
+        simpleItem(ModItems.COMBUSTIBLE_MIX.get());
+        simpleItem(ModItems.STRONG_COMBUSTIBLE_MIX.get());
 
         handheldItem(ModItems.KUZEYIUM_SWORD.get());
         handheldItem(ModItems.KUZEYIUM_AXE.get());

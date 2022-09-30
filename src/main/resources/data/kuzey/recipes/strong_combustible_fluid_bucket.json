@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MMM",
+    "MBM",
+    "MMM"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "M": {
+      "item": "kuzey:strong_combustible_mix"
+    }
+  },
+  "result": {
+    "item": "kuzey:strong_combustible_fluid_bucket"
+  }
+}
