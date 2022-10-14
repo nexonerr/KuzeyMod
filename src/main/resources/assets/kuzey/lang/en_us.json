@@ -86,6 +86,7 @@
   "item.kuzey.strong_combustible_mix": "Strong Combustible Mix",
   "item.kuzey.structure_binder": "Structure Binder",
   "item.kuzey.weak_combustible_fluid_bucket": "Weak Combustible Fluid Bucket",
+  "item.kuzey.wither_skeleton_container": "Wither Skeleton Container",
   "itemGroup.kuzeytab": "Kuzey Mod",
   "material.kuzey.infused_kuzeyium": "\u00A7aInfused \u00A75Kuzeyium",
   "material.kuzey.infused_kuzeyium.encyclopedia": "Very good for fighting, not so much for mining",
@@ -118,8 +119,10 @@
   "tooltip.kuzey.kuzeyium_coal": "Very strong fuel capable of smelting \u00A7e60\u00A7r items.",
   "tooltip.kuzey.kuzeyium_mining_hammer": "Mining hammer capable of breaking a radius of blocks, press \u00A7e[SHIFT]\u00A7r to mine normally.",
   "tooltip.kuzey.kuzeyium_sword": "Steals \u00A74HEALTH\u00A7r from foes, the less health a foe has, the more health will be taken.",
+  "tooltip.kuzey.no_capacity": "Your item doesn't have enough space!",
   "tooltip.kuzey.off": "\u00A7cOFF",
   "tooltip.kuzey.on": "\u00A7aON",
   "tooltip.kuzey.regenerator": "\u00A74Heals\u00A7r you to \u00A74FULL HEALTH \u00A7eINSTANTLY\u00A7r, only has \u00A7eONE\u00A7r use!",
-  "tooltip.kuzey.spawner_irritator": "Makes a spawner spawn its respective mob type."
+  "tooltip.kuzey.spawner_irritator": "Makes a spawner spawn its respective mob type.",
+  "tooltip.kuzey.wither_skeleton_container": "Turns wither skeletons into \u00A7bWITHER ESSENCE"
 }

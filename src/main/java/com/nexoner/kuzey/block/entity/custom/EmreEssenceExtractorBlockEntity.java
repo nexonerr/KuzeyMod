@@ -344,8 +344,8 @@ public class EmreEssenceExtractorBlockEntity extends BlockEntity implements Menu
             toChange.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).ifPresent(handler ->{
                 int toDrain = Math.min(Math.min(BUCKET_VOLUME, this.fluidTank.getFluidAmount()), handler.getTankCapacity(0) - handler.getFluidInTank(0).getAmount());
                 if (toDrain > 0){
-                    FluidStack stack = fluidTank.drain(toDrain, IFluidHandler.FluidAction.EXECUTE);
-                    handler.fill(stack, IFluidHandler.FluidAction.EXECUTE);
+                    int toUse = handler.fill(new FluidStack(fluidTank.getFluid().getFluid(),toDrain), IFluidHandler.FluidAction.EXECUTE);
+                    fluidTank.drain(toUse, IFluidHandler.FluidAction.EXECUTE);
                     }
                 });
             }

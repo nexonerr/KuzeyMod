@@ -147,6 +147,9 @@ public class ModItems {
     public static final RegistryObject<Item> STRONG_COMBUSTIBLE_MIX = ITEMS.register("strong_combustible_mix",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB)));
 
+    public static final RegistryObject<Item> WITHER_SKELETON_CONTAINER = ITEMS.register("wither_skeleton_container",
+            () -> new WitherSkeletonContainerItem(new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB).stacksTo(1)));
+
 
 
     public static void register(IEventBus eventBus){

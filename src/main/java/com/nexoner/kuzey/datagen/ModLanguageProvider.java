@@ -59,6 +59,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.COMBUSTIBLE_MIX,"Combustible Mix");
         addItem(ModItems.STRONG_COMBUSTIBLE_MIX,"Strong Combustible Mix");
         addItem(ModTICMaterialItems.MELDABLE_KUZEYIAN_WOOD,"Meldable Kuzeyian Wood");
+        addItem(ModItems.WITHER_SKELETON_CONTAINER,"Wither Skeleton Container");
 
         //Tools
         addItem(ModItems.KUZEYIUM_SWORD,"Kuzeyium Murderer");
@@ -138,6 +139,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItemTooltip(ModItems.INFUSED_KUZEYIUM_PICKAXE,"A strong pickaxe capable of mining veins of blocks.");
         addItemTooltip(ModItems.KUZEYIUM_MINING_HAMMER,"Mining hammer capable of breaking a radius of blocks, press \u00A7e[SHIFT]\u00A7r to mine normally.");
         addItemTooltip(ModItems.INFUSED_KUZEYIUM_AXE,"Very strong axe capable of taking down a radius of logs.");
+        addItemTooltip(ModItems.WITHER_SKELETON_CONTAINER,"Turns wither skeletons into \u00A7bWITHER ESSENCE");
         
         //Block Tooltips
         addBlockTooltip(ModBlocks.DEVASTATOR,"Deals damage cast by \u00A74KUZEY\u00A7r to those standing above it. Toggleable via right clicking it.");
@@ -162,6 +164,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         //Misc Tooltips
         addTooltip("alt","Press \u00A7e[ALT]\u00A7r for more information!");
+        addTooltip("no_capacity","Your item doesn't have enough space!");
         addTooltip("ability_activate","Press \u00A7e[SHIFT]\u00A7r + \u00A7e[RMB]\u00A7r to activate ability!");/*This will *probably* never be used*/
         addTooltip("on","\u00A7aON");
         addTooltip("off","\u00A7cOFF");

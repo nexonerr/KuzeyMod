@@ -22,7 +22,7 @@ a1fcc8ec2a65f899a765a0b28f08a480f3572dbd assets/kuzey/blockstates/raw_kuzeyium_b
 c790f6bd1153979863929361dd85ebd08c428b73 assets/kuzey/blockstates/stone_bound_generator_chassis.json
 54a651ff124f48377880dd42527eb2bfaac27b7e assets/kuzey/blockstates/unactivated_infused_machine_frame.json
 4a2cffe7fd3bbe622f7c95b854bc0d2a04fdf35f assets/kuzey/blockstates/wooden_machine_frame.json
-378218c73cd2ea717d70510f5df315be18f2612d assets/kuzey/lang/en_us.json
+e0d4e7256a9756e0ba463b705c76b67ab8925cf8 assets/kuzey/lang/en_us.json
 9a1869a10741e0dc80bcda1261f495710fc900ba assets/kuzey/models/block/black_carrots_stage_0.json
 85852509c3992e4fdbd0c019c823c83093255769 assets/kuzey/models/block/black_carrots_stage_1.json
 e5fadc0892e58690eb94c8157278ba1e37ab939e assets/kuzey/models/block/black_carrots_stage_2.json
@@ -130,6 +130,7 @@ b91eed7c9b67505976b1dc404c562f954d66f02e assets/kuzey/models/item/strong_combust
 1c7f53ec5897ce58e3c95635f4c8bfe9313bda6f assets/kuzey/models/item/transmutation_table.json
 be0fcd4e602e51a5dc29eb8094a1139eb7af8bcf assets/kuzey/models/item/unactivated_infused_machine_frame.json
 4aa0d42603287e561766e6ccac9d35dd20f1424a assets/kuzey/models/item/weak_combustible_fluid_bucket.json
+a6d222ba9d0a06422088308e8a47338d3b224e10 assets/kuzey/models/item/wither_skeleton_container.json
 8ff488a30bd3a84c50dd21d0f81af61174142a2b assets/kuzey/models/item/wooden_machine_frame.json
 de7b1676de423dc4e09e1799374facb13da8453a assets/kuzey/tinkering/materials/infused_kuzeyium.json
 38e1c97b12dd43b39e476648c638ffcf9abecddc assets/kuzey/tinkering/materials/kuzeyian_wood.json
@@ -358,20 +359,9 @@ efca9f1f1c6dd01d48da8d36090a9d5c26927f8a data/kuzey/recipes/smeltery/melting/met
 ff3598f2a71b4da0d7a90307f442141535fa2be6 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/coin.json
 bf0e766e14a9d3d97d3ff2263c819b422e4f27eb data/kuzey/recipes/smeltery/melting/metal/kuzeyium/dust.json
 f0a03b70874078720e63b07e53f408e90244073d data/kuzey/recipes/smeltery/melting/metal/kuzeyium/gear.json
-4e597701c05857f7d3d6c2b5da1fb070af06a43b data/kuzey/recipes/smeltery/melting/metal/kuzeyium/geore/block.json
-620369d356043fd92960b29760635b2bc6fa4b1e data/kuzey/recipes/smeltery/melting/metal/kuzeyium/geore/bud_large.json
-12b9940aa64e3ba3f20c63618ee74c194c12d82b data/kuzey/recipes/smeltery/melting/metal/kuzeyium/geore/bud_medium.json
-0e8389c168d9c15f315a3a5bb3f5d0344d0a60c7 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/geore/bud_small.json
-957f807d1fa5e973edce13bf0d794db9e4751b46 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/geore/cluster.json
-cf6548a3c2e5244487c5b2d00236643f340c8b89 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/geore/shard.json
 28333da9ce49a1bff4e93bab53c14d0b3a50fd8d data/kuzey/recipes/smeltery/melting/metal/kuzeyium/ingot.json
 bb90130a79bc21382f2d5be21666c05300251654 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/nugget.json
-7ded5a5d1b27cedb4790a9712785b645953584b1 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/ore_dense.json
-42c52a4ff9f6c5160b4199177cc79e5f771c64c0 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/ore_singular.json
-fa38968ec36893fca3b08a5bc983be377cad43fc data/kuzey/recipes/smeltery/melting/metal/kuzeyium/ore_sparse.json
 7b25e38adec5a013d2f23bf0549c60f062c65a32 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/plates.json
-414089ebeb50ffb72898e8c7cd3e7cdd3af10e39 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/raw.json
-fb2b1188e2cda9195d939ad64a8304745a54dd55 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/raw_block.json
 27456f26d9deac62895884c77446a168eec4d667 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/rod.json
 0ca77ac14d423c367707de84736cd49272862254 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/sheetmetal.json
 05d1d9dae2d3f4296c4138302187736a5bccd8b6 data/kuzey/recipes/smeltery/melting/metal/kuzeyium/wire.json

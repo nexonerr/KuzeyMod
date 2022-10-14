@@ -9,13 +9,15 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
 import slimeknights.mantle.recipe.helper.ItemOutput;
-import slimeknights.tconstruct.library.data.recipe.ICommonRecipeHelper;
-import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
-import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
-import slimeknights.tconstruct.library.data.recipe.IToolRecipeHelper;
+import slimeknights.tconstruct.library.data.recipe.*;
+import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
+import slimeknights.tconstruct.library.recipe.melting.IMeltingContainer;
 
 
 import java.util.function.Consumer;
@@ -40,7 +42,7 @@ public class ModTICMaterialRecipeProvider extends RecipeProvider implements ICon
 
         //Kuzeyium
         metalCasting(pFinishedRecipeConsumer, ModTICMaterialFluids.MOLTEN_KUZEYIUM_OBJECT, ModBlocks.KUZEYIUM_BLOCK.get(), ModItems.KUZEYIUM_INGOT.get(), ModItems.KUZEYIUM_NUGGET.get(), castingFolder, "kuzeyium");
-        metalMelting(pFinishedRecipeConsumer, ModTICMaterialFluids.MOLTEN_KUZEYIUM_FLUID.get(),"kuzeyium",true, meltingFolder,false);
+        metalMelting(pFinishedRecipeConsumer, ModTICMaterialFluids.MOLTEN_KUZEYIUM_FLUID.get(),"kuzeyium",false, meltingFolder,false);
         metalMaterialRecipe(pFinishedRecipeConsumer, ModTICMaterials.KUZEYIUM,materialFolder,"kuzeyium",true);
         materialMeltingCasting(pFinishedRecipeConsumer, ModTICMaterials.KUZEYIUM, ModTICMaterialFluids.MOLTEN_KUZEYIUM_OBJECT, materialFolder);
 
