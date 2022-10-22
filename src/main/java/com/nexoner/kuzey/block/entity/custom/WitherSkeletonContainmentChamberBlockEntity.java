@@ -4,10 +4,15 @@ import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.block.entity.entityType.IFluidHandlingBlockEntity;
 import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.fluid.ModFluids;
+import com.nexoner.kuzey.networking.ModPackets;
+import com.nexoner.kuzey.networking.packet.FluidSyncPacket;
 import com.nexoner.kuzey.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -27,6 +32,7 @@ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 
@@ -118,5 +124,20 @@ public class WitherSkeletonContainmentChamberBlockEntity extends BlockEntity imp
         } else {
             progress--;
         }
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        ModPackets.sendToClients(new FluidSyncPacket(fluidTank.getFluid(),worldPosition));
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag() {
+        CompoundTag compound = saveWithoutMetadata();
+        load(compound);
+        ModPackets.sendToClients(new FluidSyncPacket(fluidTank.getFluid(),worldPosition));
+        return compound;
     }
 }

@@ -15,5 +15,9 @@ public class ModBlockEntityRenderers {
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.EMRE_ESSENCE_INFUSER_BLOCK_ENTITY.get(),
                 EmreEssenceInfuserBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.COMBUSTIBLE_FLUID_GENERATOR_BLOCK_ENTITY.get(),
+                CombustibleFluidGeneratorBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.WITHER_SKELETON_CONTAINMENT_CHAMBER_BLOCK_ENTITY.get(),
+                WitherSkeletonContainmentChamberBlockEntityRenderer::new);
     }
 }

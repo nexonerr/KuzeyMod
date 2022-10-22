@@ -36,17 +36,17 @@ public class InfusedKuzeyiumAxeItem extends AxeItem {
     @Override
     public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
         if (!pLevel.isClientSide) {
-            ItemStack pStack = pPlayer.getItemInHand(pPlayer.swingingArm);
-            if (pStack.hasTag()) {
-                if (pStack.getTag().getBoolean("kuzey.ability")) {
-                    if (pPlayer.getItemInHand(pPlayer.swingingArm).isCorrectToolForDrops(pLevel.getBlockState(pPos))){
-                        if ((Registry.BLOCK.getHolderOrThrow(Registry.BLOCK.getResourceKey(pLevel.getBlockState(pPos).getBlock()).get()).is(BlockTags.LOGS))) {
-                            lumberBlock(KuzeyCommonConfigs.infusedKuzeyiumAxeRadius.get(), pPos, pLevel, pPlayer);
+                ItemStack pStack = pPlayer.getMainHandItem();
+                if (pStack.hasTag()) {
+                    if (pStack.getTag().getBoolean("kuzey.ability")) {
+                        if (pPlayer.getMainHandItem().isCorrectToolForDrops(pLevel.getBlockState(pPos))) {
+                            if ((Registry.BLOCK.getHolderOrThrow(Registry.BLOCK.getResourceKey(pLevel.getBlockState(pPos).getBlock()).get()).is(BlockTags.LOGS))) {
+                                lumberBlock(KuzeyCommonConfigs.infusedKuzeyiumAxeRadius.get(), pPos, pLevel, pPlayer);
+                            }
                         }
                     }
                 }
             }
-        }
         return true;
     }
 

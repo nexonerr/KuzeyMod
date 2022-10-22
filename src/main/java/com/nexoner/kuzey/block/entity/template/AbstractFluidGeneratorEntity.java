@@ -1,12 +1,18 @@
 package com.nexoner.kuzey.block.entity.template;
 
 import com.nexoner.kuzey.block.entity.entityType.IFluidHandlingBlockEntity;
+import com.nexoner.kuzey.networking.ModPackets;
+import com.nexoner.kuzey.networking.packet.FluidSyncPacket;
+import com.nexoner.kuzey.networking.packet.ItemStackSyncPacket;
 import com.nexoner.kuzey.util.CustomEnergyStorage;
 import com.nexoner.kuzey.util.CustomFluidTank;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.BucketItem;
@@ -238,5 +244,20 @@ public abstract class AbstractFluidGeneratorEntity extends AbstractGeneratorEnti
             }
         }
         transferLiquidFromItem();
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        ModPackets.sendToClients(new FluidSyncPacket(fluidTank.getFluid(),worldPosition));
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag() {
+        CompoundTag compound = saveWithoutMetadata();
+        load(compound);
+        ModPackets.sendToClients(new FluidSyncPacket(fluidTank.getFluid(),worldPosition));
+        return compound;
     }
 }
