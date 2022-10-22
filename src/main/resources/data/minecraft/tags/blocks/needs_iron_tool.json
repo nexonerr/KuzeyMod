@@ -14,6 +14,8 @@
     "kuzey:raw_kuzeyium_block",
     "kuzey:infused_kuzeyium_block",
     "kuzey:emre_essence_generator",
-    "kuzey:combustible_fluid_generator"
+    "kuzey:combustible_fluid_generator",
+    "kuzey:combustible_solid_generator",
+    "kuzey:wither_skeleton_containment_chamber"
   ]
 }

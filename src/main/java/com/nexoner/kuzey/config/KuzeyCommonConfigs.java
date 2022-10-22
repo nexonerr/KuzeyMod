@@ -30,6 +30,11 @@ public class KuzeyCommonConfigs {
     public static ForgeConfigSpec.IntValue emreEssenceInfuserDefaultUsageCost;
     public static ForgeConfigSpec.BooleanValue emreEssenceInfuserFluidFiltering;
 
+    public static ForgeConfigSpec.IntValue witherSkeletonContainmentChamberFluidCapacity;
+    public static ForgeConfigSpec.BooleanValue witherSkeletonContainmentChamberFluidFiltering;
+    public static ForgeConfigSpec.IntValue witherSkeletonContainmentChamberFluidProduced;
+    public static ForgeConfigSpec.IntValue witherSkeletonContainmentChamberCooldown;
+
     public static ForgeConfigSpec.IntValue kuzeyiumPurificationChamberCapacity;
     public static ForgeConfigSpec.IntValue kuzeyiumPurificationChamberMaxReceived;
     public static ForgeConfigSpec.IntValue kuzeyiumPurificationChamberDefaultRecipeTime;
@@ -82,6 +87,9 @@ public class KuzeyCommonConfigs {
     public static ForgeConfigSpec.IntValue kuzeyianTreeSpawnChance;
 
     //Items
+    public static ForgeConfigSpec.IntValue witherSkeletonContainerFluidCapacity;
+    public static ForgeConfigSpec.IntValue witherSkeletonContainerFluidProduced;
+    public static ForgeConfigSpec.IntValue witherSkeletonContainerCooldown;
 
     //Tools
 
@@ -180,6 +188,19 @@ public class KuzeyCommonConfigs {
                 .comment("Default Usage Cost, This is almost always NEVER used")
                 .defineInRange("transmutation_table_default_usage_cost", 8000, 100, 70000);
 
+        //Wither Skeleton Containment Chamber
+        witherSkeletonContainmentChamberFluidCapacity = builder
+                .comment("Fluid Storage")
+                .defineInRange("wither_skeleton_containment_chamber_fluid_capacity", 5000, 500, 50000);
+        witherSkeletonContainmentChamberFluidProduced = builder
+                .comment("Amount of fluid produced per entity")
+                .defineInRange("wither_skeleton_containment_chamber_fluid_produced", 500, 5, 10000);
+        witherSkeletonContainmentChamberCooldown = builder
+                .defineInRange("wither_skeleton_containment_chamber_cooldown", 15, 0, 300);
+        witherSkeletonContainmentChamberFluidFiltering = builder
+                .comment("Toggled fluid filtering, if this is turned on this machine will only accept fluids from a certain tag. This is redundant for machines that can only output fluids, so it's better disable it in those cases.")
+                .define("wither_skeleton_containment_chamber_fluid_filtering", true);
+
         //Emre Essence Generator
         emreEssenceGeneratorCapacity = builder
                 .comment("Energy Capacity")
@@ -196,6 +217,7 @@ public class KuzeyCommonConfigs {
         emreEssenceGeneratorFluidFiltering = builder
                 .comment("Toggled fluid filtering, if this is turned on this machine will only accept fluids from a certain tag. This is redundant for machines that can only output fluids, so it's better disable it in those cases.")
                 .define("emre_essence_generator_fluid_filtering", true);
+
 
         //Combustible Solid Generator
         combustibleSolidGeneratorCapacity = builder
@@ -298,6 +320,14 @@ public class KuzeyCommonConfigs {
 
         builder.comment("Configs for Items");
         builder.push("Item Configs");
+        witherSkeletonContainerFluidCapacity = builder
+                .comment("Fluid Storage")
+                .defineInRange("wither_skeleton_container_fluid_capacity", 5000, 100, 50000);
+        witherSkeletonContainerFluidProduced = builder
+                .comment("Amount of fluid produced per entity")
+                .defineInRange("wither_skeleton_container_fluid_produced", 500, 5, 10000);
+        witherSkeletonContainerCooldown = builder
+                .defineInRange("wither_skeleton_container_cooldown", 75, 0, 1500);
 
         builder.comment("Configs for Tools");
         builder.push("Tool Configs");

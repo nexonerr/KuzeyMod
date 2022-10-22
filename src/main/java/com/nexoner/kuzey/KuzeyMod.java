@@ -4,6 +4,7 @@ import com.nexoner.kuzey.block.ModBlocks;
 import com.nexoner.kuzey.block.entity.ModBlockEntities;
 import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.fluid.ModFluids;
+import com.nexoner.kuzey.fluid.RegisteredFluid;
 import com.nexoner.kuzey.integration.tic.*;
 import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.networking.ModPackets;
@@ -68,21 +69,10 @@ public class KuzeyMod
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.EMRE_ESSENCE_INFUSER.get(), RenderType.translucent());
 
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.EMRE_ESSENCE_BLOCK.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.EMRE_ESSENCE_FLOWING.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.EMRE_ESSENCE_FLUID.get(), RenderType.translucent());
-
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.WEAK_COMBUSTIBLE_FLUID_BLOCK.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.WEAK_COMBUSTIBLE_FLUID_FLOWING.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.WEAK_COMBUSTIBLE_FLUID.get(), RenderType.translucent());
-
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.COMBUSTIBLE_FLUID_BLOCK.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.COMBUSTIBLE_FLUID_FLOWING.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.COMBUSTIBLE_FLUID.get(), RenderType.translucent());
-
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.STRONG_COMBUSTIBLE_FLUID_BLOCK.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.STRONG_COMBUSTIBLE_FLUID_FLOWING.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(ModFluids.STRONG_COMBUSTIBLE_FLUID.get(), RenderType.translucent());
+        setFluidRenderLayer(ModFluids.EMRE_ESSENCE);
+        setFluidRenderLayer(ModFluids.WEAK_COMBUSTIBLE_FLUID);
+        setFluidRenderLayer(ModFluids.COMBUSTIBLE_FLUID);
+        setFluidRenderLayer(ModFluids.STRONG_COMBUSTIBLE_FLUID);
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.COMBUSTIBLE_FLUID_GENERATOR.get(), RenderType.translucent());
 
@@ -95,6 +85,12 @@ public class KuzeyMod
         MenuScreens.register(ModMenuTypes.COMBUSTIBLE_SOLID_GENERATOR_MENU.get(), CombustibleSolidGeneratorScreen::new);
         MenuScreens.register(ModMenuTypes.COMBUSTIBLE_FLUID_GENERATOR_MENU.get(), CombustibleFluidGeneratorScreen::new);
 
+    }
+
+    private void setFluidRenderLayer(RegisteredFluid fluid){
+        ItemBlockRenderTypes.setRenderLayer(fluid.BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(fluid.FLUID_FLOW.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(fluid.FLUID.get(), RenderType.translucent());
     }
 
     private void setup(final FMLCommonSetupEvent event) {

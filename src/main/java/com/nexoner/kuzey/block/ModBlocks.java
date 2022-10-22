@@ -261,6 +261,13 @@ public class ModBlocks {
                     .strength(4f,30f)
             ), ModCreativeModeTab.KUZEY_TAB, "tooltip.kuzey.block.combustible_fluid_generator");
 
+    public static final RegistryObject<Block> WITHER_SKELETON_CONTAINMENT_CHAMBER = registerBlock("wither_skeleton_containment_chamber",
+            () -> new WitherSkeletonContainmentChamberBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .strength(4f,30f)
+            ), ModCreativeModeTab.KUZEY_TAB, "tooltip.kuzey.block.wither_skeleton_containment_chamber");
+
     //Register Methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, String tooltipKey){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

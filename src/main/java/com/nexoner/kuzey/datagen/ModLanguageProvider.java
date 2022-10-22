@@ -42,7 +42,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.KUZEYIUM_PURIFICATION_CORE,"Kuzeyium Purification Core");
         addItem(ModItems.KUZEYIAN_TOOL_HANDLE,"Kuzeyian Tool Handle");
         addItem(ModItems.SPAWNER_IRRITATOR,"Kuzeyium Spawner Irritator");
-        addItem(ModItems.EMRE_ESSENCE_BUCKET,"Emre Essence Bucket");
+        addItem(ModFluids.EMRE_ESSENCE.BUCKET,"Emre Essence Bucket");
         addItem(ModItems.STILL_FLUID_TANK,"Still Fluid Tank");
         addItem(ModItems.STRUCTURE_BINDER,"Structure Binder");
         addItem(ModItems.KUZEYIUM_PLATE,"Kuzeyium Plate");
@@ -52,14 +52,18 @@ public class ModLanguageProvider extends LanguageProvider {
         addItem(ModItems.INFUSED_KUZEYIUM_GEM,"Infused Kuzeyium Gem");
         addItem(ModItems.REINFORCED_KUZEYIAN_TOOL_HANDLE,"Reinforced Kuzeyian Tool Handle");
         addItem(ModItems.EMRE_ESSENCE_ROCK,"Emre Essence Rock");
-        addItem(ModItems.WEAK_COMBUSTIBLE_FLUID_BUCKET,"Weak Combustible Fluid Bucket");
-        addItem(ModItems.COMBUSTIBLE_FLUID_BUCKET,"Combustible Fluid Bucket");
-        addItem(ModItems.STRONG_COMBUSTIBLE_FLUID_BUCKET,"Strong Combustible Fluid Bucket");
+        addItem(ModFluids.WEAK_COMBUSTIBLE_FLUID.BUCKET,"Weak Combustible Fluid Bucket");
+        addItem(ModFluids.COMBUSTIBLE_FLUID.BUCKET,"Combustible Fluid Bucket");
+        addItem(ModFluids.STRONG_COMBUSTIBLE_FLUID.BUCKET,"Strong Combustible Fluid Bucket");
         addItem(ModItems.SIMPLE_COMBUSTIBLE_MIX,"Simple Combustible Mix");
         addItem(ModItems.COMBUSTIBLE_MIX,"Combustible Mix");
         addItem(ModItems.STRONG_COMBUSTIBLE_MIX,"Strong Combustible Mix");
         addItem(ModTICMaterialItems.MELDABLE_KUZEYIAN_WOOD,"Meldable Kuzeyian Wood");
         addItem(ModItems.WITHER_SKELETON_CONTAINER,"Wither Skeleton Container");
+        addItem(ModFluids.WITHER_ESSENCE.BUCKET,"Wither Essence Bucket");
+        addItem(ModFluids.ENRICHED_WITHER_ESSENCE.BUCKET,"Enriched Wither Essence Bucket");
+        addItem(ModFluids.FILTRATED_WITHER_ESSENCE.BUCKET,"Filtrated Wither Essence Bucket");
+        addItem(ModFluids.PURE_WITHER_ESSENCE.BUCKET,"Pure Wither Essence Bucket");
 
         //Tools
         addItem(ModItems.KUZEYIUM_SWORD,"Kuzeyium Murderer");
@@ -119,12 +123,17 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlock(ModBlocks.EMRE_ESSENCE_GENERATOR,"Emre Essence Generator");
         addBlock(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR,"Combustible Solid Generator");
         addBlock(ModBlocks.COMBUSTIBLE_FLUID_GENERATOR,"Combustible Fluid Generator");
+        addBlock(ModBlocks.WITHER_SKELETON_CONTAINMENT_CHAMBER,"Wither Skeleton Containment Chamber");
 
         //Fluid(s)
-        addFluid(ModFluids.EMRE_ESSENCE_FLUID,"Emre Essence");
-        addFluid(ModFluids.WEAK_COMBUSTIBLE_FLUID,"Weak Combustible Fluid");
-        addFluid(ModFluids.COMBUSTIBLE_FLUID,"Combustible Fluid");
-        addFluid(ModFluids.STRONG_COMBUSTIBLE_FLUID,"Strong Combustible Fluid");
+        addFluid(ModFluids.EMRE_ESSENCE.FLUID,"Emre Essence");
+        addFluid(ModFluids.WEAK_COMBUSTIBLE_FLUID.FLUID,"Weak Combustible Fluid");
+        addFluid(ModFluids.COMBUSTIBLE_FLUID.FLUID,"Combustible Fluid");
+        addFluid(ModFluids.STRONG_COMBUSTIBLE_FLUID.FLUID,"Strong Combustible Fluid");
+        addFluid(ModFluids.WITHER_ESSENCE.FLUID,"Wither Essence");
+        addFluid(ModFluids.ENRICHED_WITHER_ESSENCE.FLUID,"Enriched Wither Essence");
+        addFluid(ModFluids.FILTRATED_WITHER_ESSENCE.FLUID,"Filtrated Wither Essence");
+        addFluid(ModFluids.PURE_WITHER_ESSENCE.FLUID,"Pure Wither Essence");
 
 
         //Creative Mode Tab(s)
@@ -153,6 +162,7 @@ public class ModLanguageProvider extends LanguageProvider {
         addBlockTooltip(ModBlocks.EMRE_ESSENCE_GENERATOR,"Reacts \u00A7aEmre Essence\u00A7r to produce large amounts of \u00A74ENERGY");
         addBlockTooltip(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR,"Burns \u00A70COMBUSTIBLE\u00A7r solid fuels in order to produce \u00A74ENERGY.");
         addBlockTooltip(ModBlocks.COMBUSTIBLE_FLUID_GENERATOR,"Burns \u00A70COMBUSTIBLE\u00A7r fluid fuels in order to produce \u00A74ENERGY.");
+        addBlockTooltip(ModBlocks.WITHER_SKELETON_CONTAINMENT_CHAMBER,"Turns wither skeletons into \u00A7bWITHER ESSENCE\u00A7r, automatically");
 
         //Ability Tooltips
         addItemAbilityTooltip(ModItems.INFUSED_KUZEYIUM_PICKAXE,"Vein-mine: %s");
@@ -178,7 +188,7 @@ public class ModLanguageProvider extends LanguageProvider {
         //Guides
         addJEIGuideBlock(ModBlocks.COMBUSTIBLE_FLUID_GENERATOR,"Burns three tiers of combustible fluid and lava. Lava is very inefficient so it's not recommended. " +
                 "As the tier of combustible fluid increases, more energy is produced per tick.");
-        addJEIGuideBlock(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR,"Burns any solid item that can be used as fuel. Produces energy for longer with stronger fluids, does NOT produce more energy that way. " +
+        addJEIGuideBlock(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR,"Burns any solid item that can be used as fuel. Produces energy for longer with stronger fuels, does NOT produce more energy that way. " +
                 "Does not take anything with a remainder item, such as a lava bucket, for fuel.");
 
         //TIC

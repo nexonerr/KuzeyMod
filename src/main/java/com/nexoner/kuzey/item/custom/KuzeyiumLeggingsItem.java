@@ -18,7 +18,7 @@ public class KuzeyiumLeggingsItem extends ArmorItem {
     public void onArmorTick(ItemStack stack, Level world, Player player) {
             if (!world.isClientSide()) {
 
-                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 0));
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 0,false,false));
 
             }
 

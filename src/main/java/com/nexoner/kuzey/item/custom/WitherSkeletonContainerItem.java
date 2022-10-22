@@ -1,8 +1,10 @@
 package com.nexoner.kuzey.item.custom;
 
+import com.nexoner.kuzey.config.KuzeyCommonConfigs;
 import com.nexoner.kuzey.fluid.ModFluids;
 import com.nexoner.kuzey.item.ModItems;
 import com.nexoner.kuzey.util.FluidHandlerCapabilityStack;
+import com.nexoner.kuzey.util.GeneralUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -10,7 +12,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -22,7 +23,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
@@ -42,42 +42,19 @@ public class WitherSkeletonContainerItem extends Item {
         if (pInteractionTarget instanceof WitherSkeleton entity && entity.isAlive()){
             if (!pPlayer.getCooldowns().isOnCooldown(ModItems.WITHER_SKELETON_CONTAINER.get())) {
 
-                //This is stupid, slow, overengineered and possibly the most unsafe implementation of an item like this that could ever be done
-                //But I spent way too long on a stupid issue and I refuse to spend more time on this
-
-                if (pPlayer.level.isClientSide) {
-                    spawnParticles(pPlayer.getLevel(), entity.getOnPos());
-                    return InteractionResult.SUCCESS;
-                }
-                if (!pPlayer.level.isClientSide) {
-
-                    IFluidHandler handler = pStack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).orElse(null);
-
-                    if (handler.getFluidInTank(0).getAmount() + 500 <= handler.getTankCapacity(0)) {
-                        handler.fill(new FluidStack(ModFluids.EMRE_ESSENCE_FLUID.get(), 500), IFluidHandler.FluidAction.EXECUTE);
-                        CompoundTag tag = new CompoundTag();
-                        handler.getFluidInTank(0).writeToNBT(tag);
-
-                        ItemStack toUse = pStack.copy();
-
-                        toUse.getTag().put(FluidHandlerCapabilityStack.FLUID_NBT_KEY, tag);
-
-                        pPlayer.getInventory().removeItem(pPlayer.getInventory().selected, 1);
-                        pPlayer.getInventory().add(pPlayer.getInventory().selected, toUse);
-
-                        entity.remove(Entity.RemovalReason.KILLED);
-
-                        pPlayer.playSound(SoundEvents.ENDER_DRAGON_GROWL, 1, 0.5f);
-
-                        pPlayer.getCooldowns().addCooldown(ModItems.WITHER_SKELETON_CONTAINER.get(), 75);
-
-                        return InteractionResult.SUCCESS;
+                pPlayer.getItemInHand(pUsedHand).getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).ifPresent(handler -> {
+                    if (handler.getFluidInTank(0).getAmount() + KuzeyCommonConfigs.witherSkeletonContainerFluidProduced.get() <= handler.getTankCapacity(0)) {
+                        handler.fill(new FluidStack(ModFluids.WITHER_ESSENCE.FLUID.get(), KuzeyCommonConfigs.witherSkeletonContainerFluidProduced.get()), IFluidHandler.FluidAction.EXECUTE);
+                        spawnParticles(pPlayer.getLevel(), pInteractionTarget.getOnPos());
+                        pPlayer.playSound(SoundEvents.WITHER_SKELETON_DEATH, 0.8f, 0.2f);
+                        pInteractionTarget.remove(Entity.RemovalReason.KILLED);
+                        pPlayer.getCooldowns().addCooldown(this,KuzeyCommonConfigs.witherSkeletonContainerCooldown.get());
                     } else {
                         pPlayer.playSound(SoundEvents.VILLAGER_NO, 1, 1);
 
                         pPlayer.displayClientMessage(new TranslatableComponent("tooltip.kuzey.no_capacity"), true);
                     }
-                }
+                });
             }
         }
         return InteractionResult.FAIL;
@@ -95,14 +72,14 @@ public class WitherSkeletonContainerItem extends Item {
     @Nullable
     @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
-        return new FluidHandlerCapabilityStack(stack,6000, ModFluids.EMRE_ESSENCE_FLUID.get());
+        return new FluidHandlerCapabilityStack(stack,KuzeyCommonConfigs.witherSkeletonContainerFluidCapacity.get(), ModFluids.WITHER_ESSENCE.FLUID.get());
     }
 
 
     //Also from Cyclic
     public static FluidStack copyFluidFromStack(ItemStack stack) {
         if (stack.getTag() != null) {
-            FluidHandlerCapabilityStack handler = new FluidHandlerCapabilityStack(stack, 6000, ModFluids.EMRE_ESSENCE_FLUID.get());
+            FluidHandlerCapabilityStack handler = new FluidHandlerCapabilityStack(stack, KuzeyCommonConfigs.witherSkeletonContainerFluidCapacity.get(), ModFluids.WITHER_ESSENCE.FLUID.get());
             return handler.getFluid();
         }
         return null;
@@ -112,7 +89,7 @@ public class WitherSkeletonContainerItem extends Item {
     public int getBarWidth(ItemStack pStack) {
         FluidStack stack = copyFluidFromStack(pStack);
         float amount = stack.getAmount();
-        float max = 6000;
+        float max = KuzeyCommonConfigs.witherSkeletonContainerFluidCapacity.get();
         return Math.round(13F * amount / max);
     }
 
@@ -136,7 +113,7 @@ public class WitherSkeletonContainerItem extends Item {
         }
             IFluidHandler handler = pStack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null).orElse(null);
             if (handler != null) {
-                TranslatableComponent toUse = new TranslatableComponent(handler.getFluidInTank(0).getAmount() + " / " + handler.getTankCapacity(0) + "mB");
+                TranslatableComponent toUse = new TranslatableComponent("tooltip.kuzey.integration.jei.liquid_amount_with_capacity",handler.getFluidInTank(0).getAmount(),handler.getTankCapacity(0));
                 toUse.withStyle(ChatFormatting.AQUA);
                 pTooltipComponents.add(toUse);
             }

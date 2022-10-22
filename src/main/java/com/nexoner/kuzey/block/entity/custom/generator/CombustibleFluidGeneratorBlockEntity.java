@@ -41,25 +41,25 @@ public class CombustibleFluidGeneratorBlockEntity extends AbstractFluidGenerator
 
     @Override
     public void defineFluidBurnRate(HashMap<Fluid, Integer> map) {
-        map.put(ModFluids.WEAK_COMBUSTIBLE_FLUID.get(),20);
-        map.put(ModFluids.COMBUSTIBLE_FLUID.get(),20);
-        map.put(ModFluids.STRONG_COMBUSTIBLE_FLUID.get(),20);
+        map.put(ModFluids.WEAK_COMBUSTIBLE_FLUID.FLUID.get(),20);
+        map.put(ModFluids.COMBUSTIBLE_FLUID.FLUID.get(),20);
+        map.put(ModFluids.STRONG_COMBUSTIBLE_FLUID.FLUID.get(),20);
         map.put(Fluids.LAVA,10);
     }
 
     @Override
     public void defineFluidGenerated(HashMap<Fluid, Integer> map) {
-        map.put(ModFluids.WEAK_COMBUSTIBLE_FLUID.get(), (int) (produced * 0.7));
-        map.put(ModFluids.COMBUSTIBLE_FLUID.get(),(int) (produced * 1));
-        map.put(ModFluids.STRONG_COMBUSTIBLE_FLUID.get(),(int) (produced * 1.35));
+        map.put(ModFluids.WEAK_COMBUSTIBLE_FLUID.FLUID.get(), (int) (produced * 0.7));
+        map.put(ModFluids.COMBUSTIBLE_FLUID.FLUID.get(),(int) (produced * 1));
+        map.put(ModFluids.STRONG_COMBUSTIBLE_FLUID.FLUID.get(),(int) (produced * 1.35));
         map.put(Fluids.LAVA,(int) (produced * 0.4));
     }
 
     @Override
     public void defineFluidBurnRateMB(HashMap<Fluid, Integer> map) {
-        map.put(ModFluids.WEAK_COMBUSTIBLE_FLUID.get(),2);
-        map.put(ModFluids.COMBUSTIBLE_FLUID.get(),2);
-        map.put(ModFluids.STRONG_COMBUSTIBLE_FLUID.get(),2);
+        map.put(ModFluids.WEAK_COMBUSTIBLE_FLUID.FLUID.get(),2);
+        map.put(ModFluids.COMBUSTIBLE_FLUID.FLUID.get(),2);
+        map.put(ModFluids.STRONG_COMBUSTIBLE_FLUID.FLUID.get(),2);
         map.put(Fluids.LAVA,4);
     }
 

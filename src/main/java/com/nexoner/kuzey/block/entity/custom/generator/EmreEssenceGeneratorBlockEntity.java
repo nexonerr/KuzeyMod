@@ -40,17 +40,17 @@ public class EmreEssenceGeneratorBlockEntity extends AbstractFluidGeneratorEntit
 
     @Override
     public void defineFluidBurnRate(HashMap<Fluid, Integer> map) {
-        map.put(ModFluids.EMRE_ESSENCE_FLUID.get(), 8);
+        map.put(ModFluids.EMRE_ESSENCE.FLUID.get(), 8);
     }
 
     @Override
     public void defineFluidGenerated(HashMap<Fluid, Integer> map) {
-        map.put(ModFluids.EMRE_ESSENCE_FLUID.get(), produced);
+        map.put(ModFluids.EMRE_ESSENCE.FLUID.get(), produced);
     }
 
     @Override
     public void defineFluidBurnRateMB(HashMap<Fluid, Integer> map) {
-        map.put(ModFluids.EMRE_ESSENCE_FLUID.get(), 1);
+        map.put(ModFluids.EMRE_ESSENCE.FLUID.get(), 1);
     }
 
     @Override

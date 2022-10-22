@@ -25,6 +25,8 @@
     "kuzey:stone_bound_generator_chassis",
     "kuzey:chain_bound_generator_chassis",
     "kuzey:lava_bound_generator_chassis",
-    "kuzey:combustible_fluid_generator"
+    "kuzey:combustible_fluid_generator",
+    "kuzey:combustible_solid_generator",
+    "kuzey:wither_skeleton_containment_chamber"
   ]
 }

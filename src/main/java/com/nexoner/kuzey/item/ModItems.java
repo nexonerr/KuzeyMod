@@ -99,9 +99,6 @@ public class ModItems {
     public static final RegistryObject<Item> SPAWNER_IRRITATOR = ITEMS.register("spawner_irritator",
             () -> new SpawnerIrritatorItem(new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB).durability(42)));
 
-    public static final RegistryObject<Item> EMRE_ESSENCE_BUCKET = ITEMS.register("emre_essence_bucket",
-            () -> new BucketItem(ModFluids.EMRE_ESSENCE_FLUID, new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB).stacksTo(1)));
-
     public static final RegistryObject<Item> EMRE_ESSENCE_ROCK = ITEMS.register("emre_essence_rock",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB)));
 
@@ -128,15 +125,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> REINFORCED_KUZEYIAN_TOOL_HANDLE = ITEMS.register("reinforced_kuzeyian_tool_handle",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB)));
-
-    public static final RegistryObject<Item> WEAK_COMBUSTIBLE_FLUID_BUCKET = ITEMS.register("weak_combustible_fluid_bucket",
-            () -> new BucketItem(ModFluids.WEAK_COMBUSTIBLE_FLUID, new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB).stacksTo(1)));
-
-    public static final RegistryObject<Item> COMBUSTIBLE_FLUID_BUCKET = ITEMS.register("combustible_fluid_bucket",
-            () -> new BucketItem(ModFluids.COMBUSTIBLE_FLUID, new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB).stacksTo(1)));
-
-    public static final RegistryObject<Item> STRONG_COMBUSTIBLE_FLUID_BUCKET = ITEMS.register("strong_combustible_fluid_bucket",
-            () -> new BucketItem(ModFluids.STRONG_COMBUSTIBLE_FLUID, new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB).stacksTo(1)));
 
     public static final RegistryObject<Item> SIMPLE_COMBUSTIBLE_MIX = ITEMS.register("simple_combustible_mix",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.KUZEY_TAB)));

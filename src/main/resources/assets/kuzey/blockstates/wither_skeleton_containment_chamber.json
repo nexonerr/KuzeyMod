@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "kuzey:block/wither_skeleton_containment_chamber" },
+    "facing=east": { "model": "kuzey:block/wither_skeleton_containment_chamber", "y": 90 },
+    "facing=south": { "model": "kuzey:block/wither_skeleton_containment_chamber", "y": 180 },
+    "facing=west": { "model": "kuzey:block/wither_skeleton_containment_chamber", "y": 270 }
+  }
+}

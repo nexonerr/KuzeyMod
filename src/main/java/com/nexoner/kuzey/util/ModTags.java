@@ -44,7 +44,7 @@ public class ModTags {
         public static final TagKey<Item> KUZEYIUM_ORES = forgeTag("ores/kuzeyium");
         public static final TagKey<Item> RAW_KUZEYIUM_BLOCK = forgeTag("storage_blocks/raw_kuzeyium");
 
-        public static final TagKey<Item> INFUSED_KUZEYIUM_BLOCK = forgeTag("storage_blocks/infused_kuzeyium");
+        public static final TagKey<Item> INFUSED_KUZEYIUM_BLOCKS = forgeTag("storage_blocks/infused_kuzeyium");
         public static final TagKey<Item> INFUSED_KUZEYIUM_GEMS = forgeTag("gems/infused_kuzeyium");
 
         private static TagKey<Item> tag(String name){
@@ -60,6 +60,7 @@ public class ModTags {
     public static class Fluids {
         public static final TagKey<Fluid> EMRE_ESSENCE_EXTRACTOR_FLUIDS = tag("emre_essence_extractor_fluids");
         public static final TagKey<Fluid> EMRE_ESSENCE_INFUSER_FLUIDS = tag("emre_essence_infuser_fluids");
+        public static final TagKey<Fluid> WITHER_SKELETON_CONTAINMENT_CHAMBER_FLUIDS = tag("wither_skeleton_containment_chamber_fluids");
         public static final TagKey<Fluid> EMRE_ESSENCE_GENERATOR_FLUIDS = tag("emre_essence_generator_fluids");
         public static final TagKey<Fluid> COMBUSTIBLE_FLUID_GENERATOR_FLUIDS = tag("combustible_fluid_generator_fluids");
 

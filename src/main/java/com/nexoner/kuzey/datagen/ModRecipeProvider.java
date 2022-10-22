@@ -67,7 +67,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     private void EmreEssenceInfuserRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
 
         new EmreEssenceInfuserRecipeBuilder(ModItems.INFUSED_KUZEYIUM_GEM.get(), ModItems.ASCENDED_KUZEYIUM_GEM.get(), 1, 440, 15000,
-                new FluidStack(ModFluids.EMRE_ESSENCE_FLUID.get(), 800))
+                new FluidStack(ModFluids.EMRE_ESSENCE.FLUID.get(), 800))
                 .unlockedBy("has_ascended_kuzeyium_gem", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.ASCENDED_KUZEYIUM_GEM.get()).build())).save(pFinishedRecipeConsumer);
 
         new EmreEssenceInfuserRecipeBuilder(ModBlocks.LAVA_INFUSED_COBBLESTONE.get().asItem(), Blocks.COBBLESTONE.asItem(), 1, 100, 600,
@@ -78,7 +78,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private void EmreEssenceExtractorRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer){
 
-        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.EMRE_ESSENCE_FLUID.get(), 500), ModItems.EMRE_ESSENCE_ROCK.get(), 300, 13500)
+        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.EMRE_ESSENCE.FLUID.get(), 500), ModItems.EMRE_ESSENCE_ROCK.get(), 300, 13500)
                 .unlockedBy("has_emre_essence_rock", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.EMRE_ESSENCE_ROCK.get()).build())).save(pFinishedRecipeConsumer);
 
         new EmreEssenceExtractorRecipeBuilder(new FluidStack(Fluids.LAVA, 500), Blocks.MAGMA_BLOCK, 40, 200)
@@ -87,13 +87,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new EmreEssenceExtractorRecipeBuilder(new FluidStack(Fluids.LAVA, 200), Blocks.NETHERRACK, 30, 250)
                 .unlockedBy("has_netherrack", inventoryTrigger(ItemPredicate.Builder.item().of(Blocks.NETHERRACK).build())).save(pFinishedRecipeConsumer);
 
-        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.WEAK_COMBUSTIBLE_FLUID.get(), 250), ModItems.SIMPLE_COMBUSTIBLE_MIX.get(), 40, 150)
+        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.WEAK_COMBUSTIBLE_FLUID.FLUID.get(), 250), ModItems.SIMPLE_COMBUSTIBLE_MIX.get(), 40, 150)
                 .unlockedBy("has_combustible_mix", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.SIMPLE_COMBUSTIBLE_MIX.get()).build())).save(pFinishedRecipeConsumer);
 
-        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.COMBUSTIBLE_FLUID.get(), 250), ModItems.COMBUSTIBLE_MIX.get(), 40, 150)
+        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.COMBUSTIBLE_FLUID.FLUID.get(), 250), ModItems.COMBUSTIBLE_MIX.get(), 40, 150)
                 .unlockedBy("has_combustible_mix", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.COMBUSTIBLE_MIX.get()).build())).save(pFinishedRecipeConsumer);
 
-        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.STRONG_COMBUSTIBLE_FLUID.get(), 250), ModItems.STRONG_COMBUSTIBLE_MIX.get(), 40, 150)
+        new EmreEssenceExtractorRecipeBuilder(new FluidStack(ModFluids.STRONG_COMBUSTIBLE_FLUID.FLUID.get(), 250), ModItems.STRONG_COMBUSTIBLE_MIX.get(), 40, 150)
                 .unlockedBy("has_combustible_mix", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.STRONG_COMBUSTIBLE_MIX.get()).build())).save(pFinishedRecipeConsumer);
 
 
@@ -503,7 +503,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(ModItems.COMBUSTIBLE_MIX.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.WEAK_COMBUSTIBLE_FLUID_BUCKET.get())
+        ShapedRecipeBuilder.shaped(ModFluids.WEAK_COMBUSTIBLE_FLUID.BUCKET.get())
                 .define('B', Items.BUCKET)
                 .define('M', ModItems.SIMPLE_COMBUSTIBLE_MIX.get())
                 .pattern("MMM")
@@ -513,7 +513,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(ModItems.SIMPLE_COMBUSTIBLE_MIX.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.COMBUSTIBLE_FLUID_BUCKET.get())
+        ShapedRecipeBuilder.shaped(ModFluids.COMBUSTIBLE_FLUID.BUCKET.get())
                 .define('B', Items.BUCKET)
                 .define('M', ModItems.COMBUSTIBLE_MIX.get())
                 .pattern("MMM")
@@ -523,7 +523,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(ModItems.SIMPLE_COMBUSTIBLE_MIX.get()).build()))
                 .save(pFinishedRecipeConsumer);
 
-        ShapedRecipeBuilder.shaped(ModItems.STRONG_COMBUSTIBLE_FLUID_BUCKET.get())
+        ShapedRecipeBuilder.shaped(ModFluids.STRONG_COMBUSTIBLE_FLUID.BUCKET.get())
                 .define('B', Items.BUCKET)
                 .define('M', ModItems.STRONG_COMBUSTIBLE_MIX.get())
                 .pattern("MMM")
@@ -592,7 +592,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapedRecipeBuilder.shaped(ModBlocks.EMRE_ESSENCE_INFUSER.get())
                 .define('G', ModBlocks.KUZEYIUM_GLASS.get())
-                .define('E', ModItems.EMRE_ESSENCE_BUCKET.get())
+                .define('E', ModFluids.EMRE_ESSENCE.BUCKET.get())
                 .define('M', ModBlocks.DIAMOND_MACHINE_FRAME.get())
                 .define('P', ModItems.KUZEYIUM_PLATE.get())
                 .define('B', ModItems.STRUCTURE_BINDER.get())
@@ -622,7 +622,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder.shaped(ModBlocks.EMRE_ESSENCE_GENERATOR.get())
                 .define('K', ModTags.Items.KUZEYIUM_INGOTS)
                 .define('F', ModItems.STILL_FLUID_TANK.get())
-                .define('B', ModItems.EMRE_ESSENCE_BUCKET.get())
+                .define('B', ModFluids.EMRE_ESSENCE.BUCKET.get())
                 .define('P', ModItems.KUZEYIUM_GLASS_PLATE.get())
                 .define('S', ModItems.STRUCTURE_BINDER.get())
                 .define('C', ModItems.KUZEYIUM_HEATING_COIL.get())

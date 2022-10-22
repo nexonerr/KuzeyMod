@@ -2,6 +2,7 @@ package com.nexoner.kuzey.datagen;
 
 import com.nexoner.kuzey.KuzeyMod;
 import com.nexoner.kuzey.block.ModBlocks;
+import com.nexoner.kuzey.fluid.ModFluids;
 import com.nexoner.kuzey.integration.tic.ModTICMaterialItems;
 import com.nexoner.kuzey.item.ModItems;
 import net.minecraft.data.DataGenerator;
@@ -37,7 +38,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.KUZEYIAN_TOOL_HANDLE.get());
         simpleItem(ModItems.KUZEYIUM_PURIFICATION_CORE.get());
         simpleItem(ModItems.SPAWNER_IRRITATOR.get());
-        simpleItem(ModItems.EMRE_ESSENCE_BUCKET.get());
+        simpleItem(ModFluids.EMRE_ESSENCE.BUCKET.get());
         simpleItem(ModItems.EMRE_ESSENCE_ROCK.get());
         simpleItem(ModItems.STRUCTURE_BINDER.get());
         simpleItem(ModItems.STILL_FLUID_TANK.get());
@@ -47,14 +48,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.HEATING_FIN.get());
         simpleItem(ModItems.INFUSED_KUZEYIUM_GEM.get());
         simpleItem(ModItems.REINFORCED_KUZEYIAN_TOOL_HANDLE.get());
-        simpleItem(ModItems.WEAK_COMBUSTIBLE_FLUID_BUCKET.get());
-        simpleItem(ModItems.COMBUSTIBLE_FLUID_BUCKET.get());
-        simpleItem(ModItems.STRONG_COMBUSTIBLE_FLUID_BUCKET.get());
+        simpleItem(ModFluids.WEAK_COMBUSTIBLE_FLUID.BUCKET.get());
+        simpleItem(ModFluids.COMBUSTIBLE_FLUID.BUCKET.get());
+        simpleItem(ModFluids.STRONG_COMBUSTIBLE_FLUID.BUCKET.get());
         simpleItem(ModItems.SIMPLE_COMBUSTIBLE_MIX.get());
         simpleItem(ModItems.COMBUSTIBLE_MIX.get());
         simpleItem(ModItems.STRONG_COMBUSTIBLE_MIX.get());
         simpleItem(ModTICMaterialItems.MELDABLE_KUZEYIAN_WOOD.get());
         simpleItem(ModItems.WITHER_SKELETON_CONTAINER.get());
+        simpleItem(ModFluids.WITHER_ESSENCE.BUCKET.get());
+        simpleItem(ModFluids.ENRICHED_WITHER_ESSENCE.BUCKET.get());
+        simpleItem(ModFluids.FILTRATED_WITHER_ESSENCE.BUCKET.get());
+        simpleItem(ModFluids.PURE_WITHER_ESSENCE.BUCKET.get());
 
         handheldItem(ModItems.KUZEYIUM_SWORD.get());
         handheldItem(ModItems.KUZEYIUM_AXE.get());
@@ -98,6 +103,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ModBlocks.EMRE_ESSENCE_GENERATOR.get());
         blockItem(ModBlocks.COMBUSTIBLE_SOLID_GENERATOR.get());
         blockItem(ModBlocks.COMBUSTIBLE_FLUID_GENERATOR.get());
+        blockItem(ModBlocks.WITHER_SKELETON_CONTAINMENT_CHAMBER.get());
 
         /*INTEGRATION*/
         simpleItem(ModTICMaterialItems.MOLTEN_KUZEYIUM_BUCKET.get());

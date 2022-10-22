@@ -38,6 +38,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("emre_essence_infuser_block_entity",() -> BlockEntityType.Builder.of(EmreEssenceInfuserBlockEntity::new,
                     ModBlocks.EMRE_ESSENCE_INFUSER.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<WitherSkeletonContainmentChamberBlockEntity>> WITHER_SKELETON_CONTAINMENT_CHAMBER_BLOCK_ENTITY=
+            BLOCK_ENTITIES.register("wither_skeleton_containment_chamber_block_entity",() -> BlockEntityType.Builder.of(WitherSkeletonContainmentChamberBlockEntity::new,
+                    ModBlocks.WITHER_SKELETON_CONTAINMENT_CHAMBER.get()).build(null));
+
     //Generators
     public static final RegistryObject<BlockEntityType<EmreEssenceGeneratorBlockEntity>> EMRE_ESSENCE_GENERATOR_BLOCK_ENTITY=
             BLOCK_ENTITIES.register("emre_essence_generator_block_entity",() -> BlockEntityType.Builder.of(EmreEssenceGeneratorBlockEntity::new,
